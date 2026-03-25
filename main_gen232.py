@@ -123,9 +123,14 @@ async def main():
 
         log(f"📑 SEGMENT {idx+1}: Theme '{topic_theme}' ({len(seg_stories)} stories)")
 
+# --- IMPROVED WEIGHTY PROMPT ---
         prompt = (
-            f"The theme is {topic_theme}. Write a concise conversational briefing script "
-            f"for these headlines:\n{headlines_text}\n\n"
+            f"The theme is {topic_theme}. Write a LONG, detailed, and deeply conversational "
+            f"podcast script for a professional briefing. Analyze these headlines:\n{headlines_text}\n\n"
+            "INSTRUCTIONS:\n"
+            "- Aim for approximately 1200-1500 words.\n"
+            "- Connect the dots between stories; don't just list them.\n"
+            "- Use a sophisticated yet accessible tone.\n"
             "Return JSON: {'title': 'Punchy Title', 'script': 'Full Script Content'}"
         )
 
