@@ -86,12 +86,14 @@ async def main():
 
     log(f"📊 HARVEST: {len(files)} files | {len(all_stories)} URLs found.")
 
-    # --- 🧠 STEP 2: THEMATIC EDITORIAL (CLUSTERING) ---
+# --- 🧠 STEP 2: THEMATIC EDITORIAL (CLUSTERING) ---
     log(f"🧠 EDITORIAL: Asking Gemini to theme and group stories...")
     catalog = "\n".join([f"{i}: {s['headline']}" for i, s in enumerate(all_stories)])
     
     editor_prompt = (
         f"Group these {len(all_stories)} headlines into 3-5 logical segments by THEME. "
+        "CONSTRAINT: No single segment should have more than 8 stories. "
+        "If a topic is larger, split it into 'Part 1' and 'Part 2'. "
         f"Headlines:\n{catalog}\n\n"
         "Return JSON list: [{'segment_title': '...', 'story_indices': [indices]}]"
     )
@@ -102,7 +104,16 @@ async def main():
             config=types.GenerateContentConfig(response_mime_type="application/json")
         )
         clusters = json.loads(res.text)
-        log(f"✅ Grouped into {len(clusters)} thematic segments.")
+        
+        # --- NEW: PRODUCTION MAP LOGGING ---
+        print("\n" + "="*40)
+        print(f"🎬 PRODUCTION MAP ({len(clusters)} Segments)")
+        print("-"*40)
+        for idx, group in enumerate(clusters):
+            count = len(group['story_indices'])
+            print(f" {idx+1}. [{count} Stories] -> {group['segment_title']}")
+        print("="*40 + "\n")
+        
     except Exception as e:
         log(f"❌ Editorial Failed: {e}. Falling back to slices."); return
 
