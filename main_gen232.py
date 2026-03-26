@@ -6,7 +6,7 @@ from mutagen.id3 import ID3, TIT2, TPE1
 from dotenv import load_dotenv
 
 load_dotenv()
-VERSION_ID = "Gen 232 (Thematic Clustering & Smart Append)"
+VERSION_ID = "Gen 232.3 (Heavyweight & Duration Reporting)"
 
 # --- 1. CONFIG & GLOBALS ---
 DATA_DIR = os.path.expanduser(os.getenv("DATA_DIR", "~/podcast_data"))
@@ -43,12 +43,10 @@ async def produce_audio(text, path, title, voice_name):
         await asyncio.wait_for(comm.save(path), timeout=600)
         perf = time.time() - start_t
         
-        time.sleep(0.5) # Brief pause to allow OS to release file lock
+        time.sleep(0.5) 
         try:
-            try:
-                audio = ID3(path)
-            except:
-                audio = ID3()
+            try: audio = ID3(path)
+            except: audio = ID3()
             audio.add(TIT2(encoding=3, text=title))
             audio.add(TPE1(encoding=3, text=voice_name))
             audio.save(path, v2_version=3)
@@ -89,9 +87,9 @@ async def main():
     catalog = "\n".join([f"{i}: {s['headline']}" for i, s in enumerate(all_stories)])
     
     editor_prompt = (
-        f"Group these {len(all_stories)} headlines into 3-5 logical segments by THEME. "
-        "CONSTRAINT: No single segment should have more than 8 stories. "
-        "If a topic is larger, split it into 'Part 1' and 'Part 2'. "
+        f"Group these {len(all_stories)} headlines into logical segments by THEME. "
+        "CONSTRAINTS: 1) Max 8 stories per segment. 2) Filter out 'Fragmented' or 'Ambiguous' links. "
+        "3) Prioritize actual news, finance, tech, and sport. "
         f"Headlines:\n{catalog}\n\n"
         "Return JSON list: [{'segment_title': '...', 'story_indices': [indices]}]"
     )
@@ -123,14 +121,9 @@ async def main():
 
         log(f"📑 SEGMENT {idx+1}: Theme '{topic_theme}' ({len(seg_stories)} stories)")
 
-# --- IMPROVED WEIGHTY PROMPT ---
         prompt = (
-            f"The theme is {topic_theme}. Write a LONG, detailed, and deeply conversational "
-            f"podcast script for a professional briefing. Analyze these headlines:\n{headlines_text}\n\n"
-            "INSTRUCTIONS:\n"
-            "- Aim for approximately 1200-1500 words.\n"
-            "- Connect the dots between stories; don't just list them.\n"
-            "- Use a sophisticated yet accessible tone.\n"
+            f"The theme is {topic_theme}. Write a LONG, detailed conversational "
+            f"podcast script (approx 1500 words). Deep dive into these headlines:\n{headlines_text}\n\n"
             "Return JSON: {'title': 'Punchy Title', 'script': 'Full Script Content'}"
         )
 
@@ -140,8 +133,7 @@ async def main():
                 config=types.GenerateContentConfig(response_mime_type="application/json")
             )
             data = json.loads(res.text)
-            title = data.get('title', topic_theme)
-            script = data.get('script', "")
+            title, script = data.get('title', topic_theme), data.get('script', "")
         except Exception as e:
             log(f"❌ Gemini Scripting Error: {e}"); break
 
@@ -151,19 +143,19 @@ async def main():
         ok, perf, chars = await produce_audio(script, fpath, title, voice)
 
         if ok:
-            log(f"   ⏱️ TTS Runtime: {perf:.1f}s | Chars: {chars}")
+            # Estimate duration (900 chars per min)
+            est_min = chars / 900
+            log(f"   ⏱️ TTS Runtime: {perf:.1f}s | Chars: {chars} | Est. Duration: {est_min:.1f} min")
             
             # --- SMART APPEND LOGIC ---
-            new_item = {"theme": title, "mp3": fname, "voice": voice, "stories": seg_stories}
+            new_item = {"theme": title, "mp3": fname, "voice": voice, "stories": seg_stories, "duration": round(est_min,1)}
             manifest_path = f"{OUT}/manifest.json"
             current_manifest = []
             
             if os.path.exists(manifest_path):
                 with open(manifest_path, "r") as f:
-                    try:
-                        current_manifest = json.load(f)
-                    except:
-                        current_manifest = []
+                    try: current_manifest = json.load(f)
+                    except: current_manifest = []
             
             current_manifest.append(new_item)
             with open(manifest_path, "w") as f:
@@ -173,7 +165,7 @@ async def main():
     for f in files: 
         shutil.move(f"{IN}/{f}", f"{ARCH}/{TODAY_STR}/{f}")
     
-    log(f"✅ COMPLETE. Manifest updated at {OUT}/manifest.json")
+    log(f"✅ COMPLETE. All systems synced.")
 
 if __name__ == "__main__":
     asyncio.run(main())
