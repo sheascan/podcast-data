@@ -13,6 +13,8 @@ DATA_DIR = os.path.expanduser(os.getenv("DATA_DIR", "~/podcast_data"))
 IN, ARCH, OUT_BASE = f"{DATA_DIR}/inputs", f"{DATA_DIR}/archive", f"{DATA_DIR}/outputs"
 DRY_RUN = os.getenv("DRY_RUN", "False").lower() == "true"
 MODEL_ID = os.getenv("MODEL_ID", "gemini-3.1-flash-lite-preview")
+MODEL_ID = "gemini-2.5-flash-lite"
+
 NOW = datetime.datetime.now()
 TODAY_STR, RUN_ID = NOW.strftime("%d%b"), NOW.strftime("%H%M")
 OUT = f"{OUT_BASE}/{TODAY_STR}"
