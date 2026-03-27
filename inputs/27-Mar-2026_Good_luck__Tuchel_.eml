@@ -1,0 +1,1539 @@
+Delivered-To: mike.mcconigley@gmail.com
+Received: by 2002:ac9:5d47:0:b0:625:ea44:bb70 with SMTP id t7csp1002202ocp;
+        Fri, 27 Mar 2026 04:00:12 -0700 (PDT)
+X-Received: by 2002:a05:620a:1a29:b0:8cf:d804:4567 with SMTP id af79cd13be357-8d01c65bc4fmr224202985a.23.1774609211976;
+        Fri, 27 Mar 2026 04:00:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774609211; cv=none;
+        d=google.com; s=arc-20240605;
+        b=fQz45xefraWHoM9T+76U7cUQaZiGdh0teVOpbJO8A8B4GOSbn3NdpGtO2OqdeMstM5
+         90wmBS7C3aeYNPCx6WdLY99iFxtsBK3NF/Gfvzn74e/+4MsDqzGFuL0ChBnE0dWd97GO
+         r/kGtzGSot/BjpK1pIM7BY+s6M7k+nCnBhR5s607LMH1pxAg4uszZQnLd8756DtISyyr
+         bYGlBFHOQjCRrQkMWiJLkwB5kzvrNcoCcnNUXsvq5zBokAsqHG7PHuIMu1hPZHNdbfcm
+         CxVUZdkXmUM45nInNmTHL5VoDa45GDAV0eDLom3O+qfAZgKcCbAAHqZdXcWyC4vp25zz
+         R/zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-unsubscribe-post:precedence:mime-version
+         :subject:message-id:to:from:date:dkim-signature;
+        bh=lFpwljDL0rXAl85U87Bs6JWPIHhJMMqdR1mIthKYchE=;
+        fh=tUTYCbTOUI69DxYKXGXRz08XnPP7jEKRU6E5rS0DFR4=;
+        b=k/tIYACjz/lQYrm75hqGMyxlwCq6KHugmY3i/3CJ77MT/mz3LVGw7h9VH7sWA15QbG
+         NRtb+LXoUQPMKmWJpf6JJ6dSwE3YAq+/ocHnoia18XhlEIiJcPIryINhvUCfrdeeHEn8
+         9X0f7PtGoUdZMFmO2BaKjTbGIl1dmzs0AS8C05rsKk4RCXDm54rz27sWu8bgvZVLWDHN
+         m5QNPA3TQdOzHUD74GFW5IRn0nE2hxe4kvJ7BJVCDqu/CbVfNs3lNxEK3hoKrL84jUM6
+         HrRG7Z5g1HBE/cDXZ/AXjaQijcX+Ba/zm4loOTIBP4dkdLiaYScMrdRSs2kqgMkwP9tx
+         naag==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@news.metro.co.uk header.s=sailthru header.b=y6iOfNQM;
+       spf=pass (google.com: domain of delivery_20260327070007.44935278.2344@mx.sailthru.com designates 192.64.237.146 as permitted sender) smtp.mailfrom=delivery_20260327070007.44935278.2344@mx.sailthru.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=news.metro.co.uk
+Return-Path: <delivery_20260327070007.44935278.2344@mx.sailthru.com>
+Received: from mx-mailonline-a.sailthru.com (mx-mailonline-a.sailthru.com. [192.64.237.146])
+        by mx.google.com with ESMTPS id 6a1803df08f44-89cd5aef32asi63397186d6.558.2026.03.27.04.00.11
+        for <mike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Mar 2026 04:00:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of delivery_20260327070007.44935278.2344@mx.sailthru.com designates 192.64.237.146 as permitted sender) client-ip=192.64.237.146;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@news.metro.co.uk header.s=sailthru header.b=y6iOfNQM;
+       spf=pass (google.com: domain of delivery_20260327070007.44935278.2344@mx.sailthru.com designates 192.64.237.146 as permitted sender) smtp.mailfrom=delivery_20260327070007.44935278.2344@mx.sailthru.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=news.metro.co.uk
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=sailthru; d=news.metro.co.uk;
+ h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:
+ List-Unsubscribe-Post:List-Unsubscribe; i=newsletter@news.metro.co.uk;
+ bh=lFpwljDL0rXAl85U87Bs6JWPIHhJMMqdR1mIthKYchE=;
+ b=y6iOfNQMRv1OzBTpG5pzO47JM0NKkwQMiKg8mpYE3C2gzFlWDc4YS8huFqzk5ONJ2RJqXGPI/Lnf
+   zKmu7w53SA5bF6xHvPKflDkVMwQi2+LPl/E5t5D60paHdr+9qsB66kGHBh5RpMKSxAGTRFm7zvsG
+   UCn/btowIlqslo996d4=
+Received: from aws1-mta-relay2.sailthru.cloud (10.55.73.49) by mx-mailonline-a.sailthru.com id hophjm3791sk for <mike.mcconigley@gmail.com>; Fri, 27 Mar 2026 06:00:07 -0500 (envelope-from <delivery_20260327070007.44935278.2344@mx.sailthru.com>)
+Date: Fri, 27 Mar 2026 07:00:07 -0400 (EDT)
+From: In The Mixer by Metro Sport <newsletter@news.metro.co.uk>
+To: mike.mcconigley@gmail.com
+Message-ID: <20260327070007.44935278.2344@sailthru.com>
+Subject: Good luck, Tuchel!
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_19163644_113333012.1774609207837"
+Precedence: bulk
+x-job: 6342-44935278-20260327
+X-Feedback-ID: 6342:44935278:campaign:sailthru
+X-TM-ID: 20260327070007.44935278.2344
+X-Info: Message sent by sailthru.com customer MailOnline - Metro
+X-Info: We do not permit unsolicited commercial email
+X-Info: Please report abuse by forwarding complete headers to
+X-Info: abuse@sailthru.com
+X-Mailer: sailthru.com
+X-JMailer: aws-campaign-mailer-25.sailthru.cloud
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Unsubscribe-Web: https://link.news.metro.co.uk/oc/688dcbbf5b50db40cb0609beqr4a6.1t4/ee268a20
+List-Unsubscribe: <https://link.news.metro.co.uk/oc/688dcbbf5b50db40cb0609beqr4a6.1t4/ee268a20>,<mailto:unsubscribe_20260327070007.44935278.2344@mx.sailthru.com>
+X-rpcampaign: stjjy44935278
+
+------=_Part_19163644_113333012.1774609207837
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"u=
+rn:schemas-microsoft-com:office:office" lang=3D"en"><head><title></title><m=
+eta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><met=
+a name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"><!--=
+[if mso]>
+<xml><w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word"><w:D=
+ontUseAdvancedTypographyReadingMail/></w:WordDocument>
+<o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/=
+></o:OfficeDocumentSettings></xml>
+<![endif]--><!--[if !mso]><!--><link href=3D"https://fonts.googleapis.com/c=
+ss2?family=3DRoboto:ital,wght@0,400;0,700;1,400;1,700&amp;display=3Dswap" r=
+el=3D"stylesheet" type=3D"text/css"><!--<![endif]--><style>
+*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{c=
+olor:inherit!important;text-decoration:inherit!important}#MessageViewBody a=
+{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.de=
+sktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}.im=
+age_block img+div{display:none}sub,sup{font-size:75%;line-height:0} @media =
+(max-width:620px){.social_block.desktop_hide .social-table{display:inline-b=
+lock!important}.image_block div.fullWidth{max-width:100%!important}.mobile_=
+hide,.row .side{display:none}.row-content{width:100%!important}.stack .colu=
+mn{width:100%;display:block}.mobile_hide{min-height:0;max-height:0;max-widt=
+h:0;overflow:hidden;font-size:0}.desktop_hide,.desktop_hide table{display:t=
+able!important;max-height:none!important}.row-1 .column-1 .block-1.text_blo=
+ck td.pad{padding:5px!important}.row-2 .column-1 .block-1.text_block td.pad=
+,.row-7 .column-1 .block-2.text_block td.pad{padding:0 0 10px!important}.ro=
+w-15 .column-1 .block-1.text_block td.pad,.row-16 .column-1 .block-1.text_b=
+lock td.pad,.row-16 .column-1 .block-3.text_block td.pad,.row-2 .column-1 .=
+block-3.image_block td.pad,.row-5 .column-1 .block-2.image_block td.pad{pad=
+ding:0!important}.row-14 .column-1 .block-1.heading_block td.pad,.row-14 .c=
+olumn-1 .block-2.text_block td.pad,.row-2 .column-1 .block-2.text_block td.=
+pad,.row-2 .column-1 .block-6.text_block td.pad,.row-5 .column-1 .block-3.t=
+ext_block td.pad,.row-6 .column-1,.row-7 .column-1 .block-1.heading_block t=
+d.pad,.row-7 .column-1 .block-3.image_block td.pad{padding:10px 0!important=
+}.row-14 .column-1 .block-4.text_block td.pad,.row-2 .column-1 .block-4.tex=
+t_block td.pad,.row-7 .column-1 .block-4.text_block td.pad{padding:5px 0 0!=
+important}.row-1 .column-1,.row-14 .column-1 .block-5.divider_block td.pad,=
+.row-2 .column-1 .block-5.divider_block td.pad{padding:5px 0!important}.row=
+-13 .column-1 .block-1.divider_block .alignment table,.row-14 .column-1 .bl=
+ock-5.divider_block .alignment table,.row-15 .column-1 .block-3.divider_blo=
+ck .alignment table,.row-16 .column-1 .block-4.divider_block .alignment tab=
+le,.row-2 .column-1 .block-5.divider_block .alignment table,.row-5 .column-=
+1 .block-1.divider_block .alignment table,.row-5 .column-1 .block-4.divider=
+_block .alignment table,.row-6 .column-1 .block-3.divider_block .alignment =
+table,.row-7 .column-1 .block-5.divider_block .alignment table,.row-8 .colu=
+mn-1 .block-1.divider_block .alignment table,.row-8 .column-1 .block-3.divi=
+der_block .alignment table{display:inline-table}.row-4 .column-1 .block-1.i=
+mage_block td.pad{padding:0 0 0 10px!important}.row-10 .column-1,.row-11 .c=
+olumn-1,.row-12 .column-1,.row-4 .column-2 .block-1.text_block td.pad,.row-=
+9 .column-1{padding:10px!important}.row-5 .column-1 .block-1.divider_block =
+td.pad{padding:0 10px 10px!important}.row-5 .column-1 .block-4.divider_bloc=
+k td.pad,.row-7 .column-1 .block-5.divider_block td.pad{padding:5px 0 10px!=
+important}.row-14 .column-1,.row-15 .column-1,.row-5 .column-1,.row-6 .colu=
+mn-1 .block-1.heading_block td.pad,.row-6 .column-1 .block-2.text_block td.=
+pad,.row-7 .column-1{padding:10px 20px!important}.row-16 .column-1,.row-6 .=
+column-1 .block-3.divider_block td.pad{padding:5px 20px!important}.row-13 .=
+column-1 .block-1.divider_block td.pad,.row-8 .column-1 .block-1.divider_bl=
+ock td.pad,.row-8 .column-1 .block-3.divider_block td.pad{padding:5px 20px =
+10px!important}.row-8 .column-1 .block-4.heading_block td.pad{padding:10px =
+0 10px 20px!important}.row-7 .column-1 .block-6.text_block td.pad{padding:0=
+ 0 20px!important}.row-10 .column-1 .block-1.text_block td.pad,.row-11 .col=
+umn-1 .block-1.text_block td.pad,.row-12 .column-1 .block-1.text_block td.p=
+ad,.row-9 .column-1 .block-1.text_block td.pad{padding:0 5px 5px 10px!impor=
+tant}.row-10 .column-1 .block-2.button_block td.pad,.row-11 .column-1 .bloc=
+k-2.button_block td.pad,.row-12 .column-1 .block-2.button_block td.pad,.row=
+-9 .column-1 .block-2.button_block td.pad{padding:5px 5px 10px 0!important}=
+.row-10 .column-1 .block-2.button_block span,.row-11 .column-1 .block-2.but=
+ton_block span,.row-12 .column-1 .block-2.button_block span,.row-9 .column-=
+1 .block-2.button_block span{line-height:32px!important}.row-10 .column-2 .=
+block-1.image_block td.pad,.row-11 .column-2 .block-1.image_block td.pad,.r=
+ow-12 .column-2 .block-1.image_block td.pad,.row-9 .column-2 .block-1.image=
+_block td.pad{padding:0 10px 0 0!important}.row-14 .column-1 .block-3.image=
+_block td.pad{padding:0 0 5px!important}.row-15 .column-1 .block-2.image_bl=
+ock td.pad{padding:10px 0 0!important}.row-15 .column-1 .block-3.divider_bl=
+ock td.pad,.row-16 .column-1 .block-4.divider_block td.pad{padding:5px 0 20=
+px!important}.row-16 .column-1 .block-2.button_block td.pad{padding:20px!im=
+portant}.row-16 .column-1 .block-2.button_block span{line-height:34px!impor=
+tant}.row-2 .column-1{padding:0 20px 5px!important}}
+</style><!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup {=
+ mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]--></hea=
+d><body class=3D"body" style=3D"margin:0;background-color:#fff;padding:0;-w=
+ebkit-text-size-adjust:none;text-size-adjust:none"><div class=3D"sailthru-e=
+mco-preheader" style=3D"display: none; max-height: 0px; overflow: hidden;">=
+What has happened to Trent Alexander-Arnold? | World Cup playoff drama | De=
+tective dog behind 1966 World Cup final</div><div style=3D"display:none"><a=
+ href=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR0cDovL21ldHJv=
+LmNvLnVrLz9pdG89c2FpbHRocnUlN0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbHdlZWtseSZ=
+zdF9ibGFzdD00NDkzNTI3OCZzdF9wcm9maWxlPQ/688dcbbf5b50db40cb0609beB63c161d7">=
+<img src=3D"https://link.news.metro.co.uk/img/688dcbbf5b50db40cb0609beqr4a6=
+.1t4/421b2986.gif" alt=3D"" border=3D"0" /></a></div><table class=3D"nl-con=
+tainer" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;backgroun=
+d-color:#fff"><tbody><tr><td><table class=3D"row row-1" align=3D"center"=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td><=
+table class=3D"row-content" align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;color:#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr=
+><td class=3D"column column-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-top:5px;vertical-align:top"><table class=3D"=
+text_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"10" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspac=
+e:0;word-break:break-word"><tr><td class=3D"pad"><div style=3D"font-family:=
+Tahoma,Verdana,sans-serif"><div class=20
+style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;=
+mso-line-height-alt:14.399999999999999px;color:#363636;line-height:1.2"><p =
+style=3D"margin:0;font-size:11px;text-align:right;mso-line-height-alt:13.2p=
+x"><span style=3D"word-break: break-word; font-size: 11px;">March 27, 2026 =
+</span></p><p style=3D"margin:0;font-size:11px;text-align:right;mso-line-he=
+ight-alt:13.2px">
+<span style=3D"word-break: break-word; font-size: 11px;"><strong><a href=3D=
+"https://link.news.metro.co.uk/view/688dcbbf5b50db40cb0609beqr4a6.1t4/ea297=
+48f" target=3D"_blank" style=3D"text-decoration: none; color: #000000;" rel=
+=3D"noopener">View in a web browse</a></strong></span></p><p style=3D"margi=
+n:0;font-size:11px;text-align:right;mso-line-height-alt:13.2px">
+<span style=3D"word-break: break-word; font-size: 11px;"><strong><a href=3D=
+"https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51=
+ay9uZXdzbGV0dGVycy8_ZW1haWw9bWlrZS5tY2NvbmlnbGV5JTQwZ21haWwuY29tJml0bz1zYWl=
+sdGhydSU3Q21ldHJvbmV3c2xldHRlciU3Q2Zvb3RiYWxsd2Vla2x5JnN0X2JsYXN0PTQ0OTM1Mj=
+c4JnN0X3Byb2ZpbGU9/688dcbbf5b50db40cb0609beBb467bc34" target=3D"_blank" sty=
+le=3D"text-decoration: none; color: #000000;" rel=3D"noopener">Manage newsl=
+etter preferences</a></strong></span></p><p style=3D"margin:0;font-size:11p=
+x;text-align:right;mso-line-height-alt:13.2px"><span style=3D"word-break: b=
+reak-word; font-size: 11px;"><strong><a href=3D"https://link.news.metro.co.=
+uk/public/44935278" target=3D"_blank" style=3D"text-decoration: none; color=
+: #000000;" rel=3D"noopener">Share</a></strong>&nbsp;</span></p></div></div=
+></td></tr></table><table
+class=3D"image_block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0"><tr><td class=3D"pad" style=3D"width:100%"><div class=3D"alig=
+nment" align=3D"center"><div style=3D"max-width:600px"><a href=3D"https://l=
+ink.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay9zcG9ydC=
+9mb290YmFsbD9pdG89c2FpbHRocnUlN0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbHdlZWtse=
+SZzdF9ibGFzdD00NDkzNTI3OCZzdF9wcm9maWxlPQ/688dcbbf5b50db40cb0609beB4f1732f8=
+" target=3D"_blank"><img src=3D"https://media.sailthru.com/composer/images/=
+bazh/97m0fwpu/ecv/kvp/709/2.png" style=3D"display:block;height:auto;border:=
+0;width:100%" width=3D"600" alt=3D"Image"=20
+title=3D"Image" height=3D"auto"></a></div></div></td></tr></table><table cl=
+ass=3D"html_block block-3" width=3D"100%" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table=
+-rspace:0"><tr><td class=3D"pad"><div style=3D"font-family:Roboto,Tahoma,Ve=
+rdana,Segoe,sans-serif;text-align:center" align=3D"center"></div></td></tr>=
+</table></td></tr></tbody></table></td></tr></tbody></table><table class=3D=
+"row row-2" align=3D"center" width=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content s=
+tack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;color:#00=
+0;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column c=
+olumn-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-left:10px;padding-right:10px;vertical-align:=
+top"><table class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=
+=3D"padding-bottom:10px"><div style=3D"font-family:Tahoma,Verdana,sans-seri=
+f"><div class=20
+style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;=
+mso-line-height-alt:14.399999999999999px;color:#000;line-height:1.2"><p sty=
+le=3D"margin:0;font-size:16px;mso-line-height-alt:19.2px">
+<span style=3D"word-break: break-word; font-size: 9px;"><em>Metro journalis=
+ts select and curate the products that feature on our newsletters. If you m=
+ake a purchase via links on this newsletter we will earn commission =E2=80=
+=93&nbsp;</em><strong><em><a target=3D"_blank" href=3D"https://link.news.me=
+tro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay9hZmZpbGlhdGUtZGlzY=
+2xvc3VyZS8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkm=
+c3RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b50db40cb0609beB67428a03" =
+rel=3D"noopener noreferrer" style=3D"text-decoration: underline; color: #29=
+c985;">learn more</a></em></strong></span></p></div></div></td></tr></table=
+><table class=3D"text_block block-2"=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-=
+word"><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-top:10px">=
+<div style=3D"font-family:Tahoma,Verdana,sans-serif"><div class style=3D"fo=
+nt-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;mso-line-he=
+ight-alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:16=
+px;mso-line-height-alt:30px">
+<span style=3D"word-break: break-word; font-size: 20px;"><strong><span styl=
+e=3D"word-break: break-word;">Welcome back to In The Mixer</span></strong><=
+/span></p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:18px">&nb=
+sp;</p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:24px"><span =
+style=3D"word-break: break-word; font-size: 16px;">Happy Friday everyone,</=
+span></p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:18px">&nbs=
+p;</p><p=20
+style=3D"margin:0;font-size:16px;mso-line-height-alt:24px">England=E2=80=99=
+s squad for the upcoming friendlies isn=E2=80=99t one that screams world ch=
+ampions-elect, but perhaps the ace in this particular Three Lions pack will=
+ be sitting in the Wembley dugout tonight.</p><p style=3D"margin:0;font-siz=
+e:16px;mso-line-height-alt:24px"><br aria-hidden=3D"true">
+Whether it=E2=80=99s the fragile ankles of Harry Kane, Bukayo Saka=E2=80=99=
+s alarming drop-off, or a pool of rookie full-backs, there=E2=80=99s plenty=
+ of ammunition for the doubters, even before you begin to contemplate the T=
+hree Lions=E2=80=99 potential route to the final and the conditions they=E2=
+=80=99ll have to contend with on the other side of the Atlantic.<br aria-hi=
+dden=3D"true">
+True, it might be overdoing it to suggest this is a functional collection o=
+f players that will lack the spark and invention required to unlock the pac=
+ked defences England will encounter. Any coach, after all, would consider t=
+hemselves spoilt for choice were they to have the likes of Morgan Rogers, C=
+ole Palmer and Jude Bellingham at their disposal.</p><p style=3D"margin:0;f=
+ont-size:16px;mso-line-height-alt:24px"><br aria-hidden=3D"true">
+At this stage of the season, however, it all just feels a bit tired. That a=
+forementioned trio are in varying states of disrepair as the domestic and E=
+uropean finishing lines edge closer, while the aforementioned Saka=E2=80=99=
+s only meaningful goal contribution from open play since early December cam=
+e in the shape of a matchwinning fluke at Brighton earlier this month.</p><=
+p style=3D"margin:0;font-size:16px;mso-line-height-alt:24px"><br aria-hidde=
+n=3D"true">
+Eberechi Eze, arguably the most versatile of England=E2=80=99s attackers, h=
+as picked up a poorly timed injury, both from the perspectives of club and =
+country, and Reece James, who=E2=80=99d be among the first names on Tuchel=
+=E2=80=99s team sheet, is similarly incapacitated at present, succumbing to=
+ the sort of setback that has all too frequently impacted his career.</p></=
+div></div></td></tr></table><table class=3D"image_block block-3" width=3D"1=
+00%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"width:100%;padding-right:0;padding-left:0"><div class=3D"alignment" ali=
+gn=3D"left"><div class=3D"fullWidth" style=3D"max-width:580px"><img src=3D"=
+https://media.sailthru.com/fss/f1dzxu/d62fa080-59be-47e1-b15f-f80e7d8f0a0d/=
+GettyImages-2267934561_h1wa.webp" style=3D"display:block;height:auto;border=
+:0;width:100%" width=3D"580" alt title height=3D"auto"></div></div></td></t=
+r></table><table class=3D"text_block block-4" width=3D"100%" border=3D"0"=
+=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-top:5px"><div style=3D"font-family:Tahoma,Verdana,sans-ser=
+if"><div class style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Se=
+goe,sans-serif;mso-line-height-alt:18px;color:#000;line-height:1.5"><p styl=
+e=3D"margin:0;font-size:12px;mso-line-height-alt:18px">&nbsp;Tuchel's got h=
+is work cut out (Picture: Getty)</p></div></div></td></tr></table>
+<table class=3D"divider_block block-5" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace=
+:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:10px;p=
+adding-top:5px"><div class=3D"alignment" align=3D"center"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"=
+ style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_i=
+nner" style=3D"font-size:1px;line-height:1px;border-top:1px solid #bbb">
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></d=
+iv></td></tr></table><table class=3D"text_block block-6" width=3D"100%" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td cl=
+ass=3D"pad" style=3D"padding-bottom:10px;padding-top:5px"><div style=3D"fon=
+t-family:Tahoma,Verdana,sans-serif"><div class=20
+style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;=
+mso-line-height-alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;f=
+ont-size:16px;mso-line-height-alt:24px">If the above isn=E2=80=99t painting=
+ the prettiest of pictures, then perhaps it=E2=80=99s Tuchel himself that o=
+ffers England its best chance of taking the final leap to glory.</p><p styl=
+e=3D"margin:0;font-size:16px;mso-line-height-alt:24px"><br>
+So much of Gareth Southgate=E2=80=99s success stemmed from his desire to cr=
+eate a club culture around the national team and the sense of togethernesse=
+s and shared responsibility undoubtedly helped power his England sides to t=
+he latter stages of tournaments.</p><p style=3D"margin:0;font-size:16px;mso=
+-line-height-alt:18px">&nbsp;</p><p style=3D"margin:0;font-size:16px;mso-li=
+ne-height-alt:24px">
+Tuchel has attempted to retain that ethos but there is a Germanic ruthlessn=
+ess and pragmatism about his decision making that represents the biggest ca=
+use for optimism.</p><p style=3D"margin:0;font-size:16px;mso-line-height-al=
+t:18px">&nbsp;</p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:2=
+4px">
+Unwavering commitment to the badge would almost certainly have meant Southg=
+ate would=E2=80=99ve expected the walking wounded to have reported for duty=
+ this week and frowned upon anyone swerving international duty with a conve=
+nient niggle.&nbsp;</p><p style=3D"margin:0;font-size:16px;mso-line-height-=
+alt:18px">&nbsp;</p><p style=3D"margin:0;font-size:16px;mso-line-height-alt=
+:24px">
+Tuchel, by contrast, has adapted to the current situation, bulked up his sq=
+uad for the games against Uruguay and Japan and allowed his most senior and=
+ overworked players some much needed down time. It represents the sort of s=
+mart, instinctive choice that bodes well for the months ahead.</p><p style=
+=3D"margin:0;font-size:16px;mso-line-height-alt:24px"><br>
+The way in which Declan Rice was effectively rendered a =C2=A3100million tr=
+affic cone by Manchester City=E2=80=99s band of nimble technicians last wee=
+kend was eerily reminiscent of the way he was outmanoeuvred by Spain and It=
+aly in European Championship final defeats.</p><p style=3D"margin:0;font-si=
+ze:16px;mso-line-height-alt:24px"><br>
+Rice=E2=80=99s Wembley outing brought up a half-century of appearances in w=
+hat has already been a marathon campaign, with at least ten more games stil=
+l to come. The battery in England=E2=80=99s midfield needs a recharge, not =
+another run out.</p><p style=3D"margin:0;font-size:16px;mso-line-height-alt=
+:24px"><br>
+There will be far tougher conundrums for Tuchel to solve in the weeks ahead=
+ and while, obviously, the basics of handling player workloads should not b=
+e beyond a man paid a =C2=A35million-a-year salary, already you sense a man=
+ager with a better comprehension of modern club management has a better cha=
+nce of succeeding where Southgate ultimately failed.</p><p style=3D"margin:=
+0;font-size:16px;mso-line-height-alt:18px">&nbsp;</p><p style=3D"margin:0;f=
+ont-size:16px;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">See you next week,=
+</span></p></div></div></td></tr></table></td></tr></tbody></table></td></t=
+r></tbody></table><table class=3D"row row-3 mobile_hide" align=3D"center" w=
+idth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td><t=
+able class=3D"row-content" align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;border=
+-radius:0;color:#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><t=
+d class=3D"column column-1" width=3D"16.666666666666668%" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-botto=
+m:10px;padding-left:10px;padding-right:10px;padding-top:10px;vertical-align=
+:middle"><table class=3D"image_block block-1" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"width:100%;padding-right:0;padding-left:0"><div class=3D"alignment" ali=
+gn=3D"right"><div style=3D"max-width:80px"><img src=3D"https://media.sailth=
+ru.com/fss/f1dzxu/468894e7-8213-4a49-b693-53630dc4d628/James+Goldman+%281%2=
+9.png" style=3D"display:block;height:auto;border:0;width:100%" width=3D"80"=
+ alt title height=3D"auto"></div></div></td></tr></table></td><td class=3D"=
+column column-2" width=3D"83.33333333333333%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-top:5px;vertical-align:middle"><table class=
+=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"10" cell=
+spacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-r=
+space:0;word-break:break-word"><tr><td class=3D"pad"><div style=3D"font-fam=
+ily:Tahoma,Verdana,sans-serif"><div class=20
+style=3D"font-size:14px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;=
+mso-line-height-alt:16.8px;color:#000;line-height:1.2"><p style=3D"margin:0=
+;font-size:16px;text-align:left;mso-line-height-alt:19.2px"><strong style=
+=3D"background-color:transparent"><span style=3D"word-break: break-word;"><=
+span style=3D"word-break: break-word; font-size: 20px;">James Goldman</span=
+></span></strong></strong></p><p style=3D"margin:0;font-size:16px;text-alig=
+n:left;mso-line-height-alt:19.2px"><strong=20
+style=3D"background-color:transparent"><span style=3D"word-break: break-wor=
+d;"><span style=3D"word-break: break-word; font-size: 15px;">Head of Sport<=
+/span></span></strong></strong></p></div></div></td></tr></table></td></tr>=
+</tbody></table></td></tr></tbody></table><!--[if !mso]><!--><table class=
+=3D"row row-4 desktop_hide" align=3D"center" width=3D"100%" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;ma=
+x-height:0;overflow:hidden"><tbody><tr><td><table class=3D"row-content" ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;displ=
+ay:none;max-height:0;overflow:hidden;background-color:#fff;border-radius:0;=
+color:#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D=
+"column column-1" width=3D"25%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:10=
+px;vertical-align:middle"><table class=3D"image_block block-1" width=3D"100=
+%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" s=
+tyle=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;max=
+-height:0;overflow:hidden"><tr><td class=3D"pad" style=3D"width:100%"><div =
+class=3D"alignment" align=3D"center"><div style=3D"max-width:130px"><img=20
+src=3D"https://media.sailthru.com/fss/f1dzxu/468894e7-8213-4a49-b693-53630d=
+c4d628/James+Goldman+%281%29.png" style=3D"display:block;height:auto;border=
+:0;width:100%" width=3D"130" alt title height=3D"auto"></div></div></td></t=
+r></table></td><td class=3D"column column-2" width=3D"75%" style=3D"mso-tab=
+le-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;padding-bott=
+om:5px;padding-top:5px;vertical-align:middle"><table class=3D"text_block bl=
+ock-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-b=
+reak:break-word;mso-hide:all;display:none;max-height:0;overflow:hidden"><tr=
+><td class=3D"pad" style=3D"padding-bottom:20px;padding-left:15px;padding-r=
+ight:5px"><div style=3D"font-family:Tahoma,Verdana,sans-serif"><div class s=
+tyle=3D"font-size:14px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;m=
+so-line-height-alt:16.8px;color:#000;line-height:1.2"><p style=3D"margin:0;=
+mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; font-size: 20px;"><strong>James Gold=
+man</strong></span></p><p style=3D"margin:0;mso-line-height-alt:24px"><span=
+ style=3D"word-break: break-word; font-size: 16px;"><strong>Head of Sport</=
+strong></span></p></div></div></td></tr></table></td></tr></tbody></table><=
+/td></tr></tbody></table><!--<![endif]--><table class=3D"row row-5" align=
+=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0">
+<tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;border-radius:0;color:#000;width:600px=
+;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column column-1" widt=
+h=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;t=
+ext-align:left;padding-bottom:10px;padding-left:10px;padding-right:10px;pad=
+ding-top:10px;vertical-align:top"><table class=3D"divider_block block-1"=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D=
+"pad" style=3D"padding-bottom:20px;padding-top:10px"><div class=3D"alignmen=
+t" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-table=
+-rspace:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-heig=
+ht:1px;border-top:1px solid #bbb"><span style=3D"word-break: break-word;">&=
+#8202;</span>
+</td></tr></table></div></td></tr></table><table class=3D"image_block block=
+-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td clas=
+s=3D"pad" style=3D"width:100%;padding-right:0;padding-left:0"><div class=3D=
+"alignment" align=3D"left"><div class=3D"fullWidth" style=3D"max-width:580p=
+x"><img src=3D"https://media.sailthru.com/fss/f1dzxu/96563b6c-251b-4f20-976=
+c-40a09e593585/SEI290082770.jpg"=20
+style=3D"display:block;height:auto;border:0;width:100%" width=3D"580" alt=
+=3D"Viktor Gyokeres and Erling Haaland" title=3D"Viktor Gyokeres and Erling=
+ Haaland" height=3D"auto"></div></div></td></tr></table><table class=3D"tex=
+t_block block-3" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-bottom:10px;=
+padding-top:10px"><div style=3D"font-family:Tahoma,Verdana,sans-serif"><div=
+ class=20
+style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;=
+mso-line-height-alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;f=
+ont-size:16px;mso-line-height-alt:30px">
+<span style=3D"word-break: break-word; font-size: 20px;"><strong>England vs=
+ Uruguay, Friday 7.45pm <span style=3D"word-break: break-word; font-size: 1=
+0px;">(ITV</span></strong></span><span style=3D"word-break: break-word; fon=
+t-size: 20px;"><strong><span style=3D"word-break: break-word; font-size: 10=
+px;">1)</span></strong></span></p><p style=3D"margin:0;font-size:16px;mso-l=
+ine-height-alt:18px">&nbsp;</p><p style=3D"margin:0;font-size:16px;mso-line=
+-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">Tonight marks Engl=
+and=E2=80=99s first action of World Cup year so, with the tournament less t=
+han three months away, let=E2=80=99s talk about... what happens after the f=
+inal whistle blows in New Jersey on July 19. </span><span style=3D"word-bre=
+ak: break-word; font-size: 16px;">Ever since Thomas Tuchel took charge in J=
+anuary 2025 his reign has been unapologetically about the World Cup, a nece=
+ssarily narrow focus epitomised by the German=E2=80=99s initial 18-month co=
+ntract.</span>
+</p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:18px">&nbsp;</p=
+><p style=3D"margin:0;font-size:16px;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">Feathers have been=
+ ruffled and heads banged together in the belief that if this is the shock =
+therapy needed to finally get the Three Lions back in the winners=E2=80=99 =
+circle, then it will all have been worth it. </span><span style=3D"word-bre=
+ak: break-word; font-size: 16px;">And if it all blows up in Tuchel=E2=80=99=
+s face, no matter: the ex-Dortmund, PSG and Chelsea boss can return to the =
+club game and the Football Association can bring in someone else to mend re=
+lationships and start the quest all over again.</span>
+</p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:18px">&nbsp;</p=
+><p style=3D"margin:0;font-size:16px;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">However, since Eng=
+land last took the field against Albania in November circumstances have cha=
+nged. Tuchel has signed a new deal, keeping him on for the next major tourn=
+ament, Euro 2028. So will he need to modify his approach? And if so, will i=
+t affect England=E2=80=99s chances this summer? The early signs are it=E2=
+=80=99s business as usual, with the refusal to pick Trent Alexander-Arnold,=
+ divisive decision to recall Ben White and strange call to audition a 35-ye=
+ar-old who doesn=E2=80=99t play for his club for the role of =E2=80=98train=
+ing goalkeeper=E2=80=99 suggesting Tuchel=E2=80=99s idiosyncrasies remain i=
+ntact.</span>
+</p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:18px">&nbsp;</p=
+><p style=3D"margin:0;font-size:16px;mso-line-height-alt:24px"><span style=
+=3D"word-break: break-word; font-size: 16px;">What it does for squad harmon=
+y long-term, never mind the fact three of Tuchel=E2=80=99s last four jobs h=
+ave lasted under two years, remains to be seen.</span></p><p style=3D"margi=
+n:0;font-size:16px;mso-line-height-alt:18px">&nbsp;</p><p style=3D"margin:0=
+;font-size:16px;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">One certainty is, =
+if England go and win the World Cup no one will care at all what has come b=
+efore. But, even then, it might still be neater for all involved if England=
+=E2=80=99s agent of chaos called it a day in July.</span></p><p style=3D"ma=
+rgin:0;font-size:16px;mso-line-height-alt:18px">&nbsp;</p><p style=3D"margi=
+n:0;font-size:16px;mso-line-height-alt:24px"><strong>Our prediction: 3-1</s=
+trong></p></div></div></td></tr></table><table=20
+class=3D"divider_block block-4" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:5px;padding-t=
+op:15px"><div class=3D"alignment" align=3D"center"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_inner" =
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #bbb">
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></d=
+iv></td></tr></table></td></tr></tbody></table></td></tr></tbody></table><t=
+able class=3D"row row-6" align=3D"center" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stack"=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;border-radius:0;color:#000;w=
+idth:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column colu=
+mn-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-we=
+ight:400;text-align:left;padding-bottom:10px;padding-left:10px;padding-righ=
+t:10px;padding-top:10px;vertical-align:top"><table class=3D"heading_block b=
+lock-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td
+class=3D"pad" style=3D"padding-bottom:10px;padding-top:10px;text-align:cent=
+er;width:100%"><h1 style=3D"margin:0;color:#000;direction:ltr;font-family:R=
+oboto,Tahoma,Verdana,Segoe,sans-serif;font-size:28px;font-weight:700;letter=
+-spacing:normal;line-height:1.2;text-align:justify;margin-top:0;margin-bott=
+om:0;mso-line-height-alt:34px"><span class=3D"tinyMce-placeholder" style=3D=
+"word-break: break-word;">Around the grounds</span></h1></td></tr></table><=
+table class=3D"text_block block-2" width=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-bottom:10px;padding-top:10px"><div style=3D"font-family:Ta=
+homa,Verdana,sans-serif"><div class style=3D"font-size:12px;font-family:Rob=
+oto,Tahoma,Verdana,Segoe,sans-serif;mso-line-height-alt:18px;color:#000;lin=
+e-height:1.5"><p style=3D"margin:0;font-size:12px;mso-line-height-alt:24px"=
+>
+<span style=3D"word-break: break-word; font-size: 16px;"><strong>=E2=9E=9C&=
+nbsp;</strong>Former Chelsea midfielder Jorginho, superstar musician Chappe=
+l Roan and Jude Law have become the centre of a <strong><a href=3D"https://=
+link.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2L=
+zAzLzIyL2NoYXBwZWxsLXJvYW4tYWNjdXNlZC1sZWF2aW5nLWp1ZGUtbGF3cy0xMS15ZWFyLW9s=
+ZC1kYXVnaHRlci10ZWFycy0yNzU5NDg3Ny8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGV=
+yJTdDZm9vdGJhbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b=
+50db40cb0609beB48dc45a4" target=3D"_blank" style=3D"text-decoration: underl=
+ine; color: #29c985;" rel=3D"noopener">strange bit of celebrity drama</a></=
+strong>.</span></p><p style=3D"margin:0;font-size:12px;mso-line-height-alt:=
+18px">&nbsp;</p><p=20
+style=3D"margin:0;font-size:12px;mso-line-height-alt:24px"><span style=3D"w=
+ord-break: break-word; font-size: 16px;"><strong>=E2=9E=9C </strong>Speakin=
+g of drama, Nigel Farage caused a fuss in Ipswich this week after a <strong=
+><a href=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZ=
+XRyby5jby51ay8yMDI2LzAzLzI0L2Fic29sdXRlLXN0dXBpZGl0eS1pcHN3aWNoLXRvd24tYWNj=
+dXNlZC1wci1zdWljaWRlLW5pZ2VsLWZhcmFnZS12aXNpdC0yNzY0NjQ3Ny8_aXRvPXNhaWx0aHJ=
+1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3=
+RfcHJvZmlsZT0/688dcbbf5b50db40cb0609beBc071ce04" target=3D"_blank" style=3D=
+"text-decoration: underline; color: #29c985;" rel=3D"noopener">Reform-theme=
+d photoshoot</a></strong> at Portman Road.&nbsp;</span></p><p style=3D"marg=
+in:0;font-size:12px;mso-line-height-alt:18px">&nbsp;
+</p><p style=3D"margin:0;font-size:12px;mso-line-height-alt:24px"><span sty=
+le=3D"word-break: break-word; font-size: 16px;"><strong>=E2=9E=9C </strong>=
+Some World Cup playoff drama: In the buildup to Wales vs Bosnia, the Bosnia=
+n manager Sergej Barbarez accused Steve Cooper, the former Swansea City man=
+ager, of deliberately leaving Bosnia midfielder Benjamin Tahirovic on the b=
+ench for his club matches.<br><br>
+Why? Because Barbarez thought Cooper wanted to sabotage Bosnia's chances ag=
+ainst Wales. It didn't work, though, as Wales were knocked out on penalties=
+ last night.</span></p></div></div></td></tr></table><table class=3D"divide=
+r_block block-3" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+"><tr><td class=3D"pad" style=3D"padding-bottom:20px;padding-top:10px"><div=
+ class=3D"alignment" align=3D"center"><table border=3D"0" cellpadding=3D"0"=
+=20
+cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tr><td class=3D"divider_inner" style=3D"font-s=
+ize:1px;line-height:1px;border-top:1px solid #bbb"><span style=3D"word-brea=
+k: break-word;">&#8202;</span></td></tr></table></div></td></tr></table></t=
+d></tr></tbody></table></td></tr></tbody></table><table class=3D"row row-7"=
+ align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+">
+<tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#b1f2d7;border-radius=
+:10px;color:#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td cl=
+ass=3D"column column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0;font-weight:400;text-align:left;padding-bottom:10px;padding-left=
+:10px;padding-right:10px;padding-top:10px;vertical-align:top"><table=20
+class=3D"heading_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-=
+top:10px;text-align:center;width:100%"><h1 style=3D"margin:0;color:#000;dir=
+ection:ltr;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;font-size:30p=
+x;font-weight:700;letter-spacing:normal;line-height:1.2;text-align:left;mar=
+gin-top:0;margin-bottom:0;mso-line-height-alt:36px">
+<span class=3D"tinyMce-placeholder" style=3D"word-break: break-word;">Extra=
+ Time: What has happened to Trent Alexander-Arnold?</span></h1></td></tr></=
+table><table class=3D"text_block block-2" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=
+=3D"padding-bottom:20px;padding-top:10px"><div style=3D"font-family:Tahoma,=
+Verdana,sans-serif"><div class=20
+style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;=
+mso-line-height-alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;f=
+ont-size:16px;mso-line-height-alt:30px"><strong><span style=3D"word-break: =
+break-word; font-size: 20px;">What=E2=80=99s going on here then?</span></st=
+rong><br>It=E2=80=99s looking increasingly likely that Trent Alexander-Arno=
+ld won=E2=80=99t be in England=E2=80=99s squad for the World Cup.<br><br>
+<span style=3D"word-break: break-word; font-size: 20px;"><strong>What=E2=80=
+=99s wrong with that?</strong></span><br>Nothing much. Thomas Tuchel has pl=
+enty of good options in his place, but his exclusion would mark another sad=
+ moment on the international stage for one of the country=E2=80=99s most ta=
+lented players.</p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:=
+18px">&nbsp;</p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:24p=
+x">
+England managers have never quite known what to do with Trent, with his ten=
+dency to switch off defensively seen as too great a risk for such high stak=
+es. Sir Gareth Southgate tried to turn him into a holding midfielder at Eur=
+o 2024. Lee Carsley experimented with him as a left back given freedom to r=
+oam inside. Tuchel opted to start former Liverpool teammate (and midfielder=
+) Curtis Jones in the right back position ahead of him against Andorra last=
+ summer.</p><p=20
+style=3D"margin:0;font-size:16px;mso-line-height-alt:24px"><br>Whatever way=
+ you look at it, his England career so far has been a bit of a failure =E2=
+=80=93 in the most successful period for the men=E2=80=99s national team at=
+ major tournaments since 1966, Trent was on the pitch less than 10% of the =
+time, and is now facing the prospect of not even making the bench.</p></div=
+></div></td></tr></table><table class=3D"image_block block-3" width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"width:100%;padding-right:0;padding-left:0"><div class=3D"alignment" ali=
+gn=3D"left"><div class=3D"fullWidth" style=3D"max-width:580px"><img src=3D"=
+https://media.sailthru.com/fss/f1dzxu/9cd73d3f-d66f-41d7-9bcf-be64403dd3f6/=
+SEI290759015_1hyi.jpg" style=3D"display:block;height:auto;border:0;width:10=
+0%" width=3D"580" alt=3D"Pep Guardiola and Liam Rosenior" title=3D"Pep Guar=
+diola and Liam Rosenior" height=3D"auto"></div></div></td></tr></table>
+<table class=3D"text_block block-4" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"pa=
+dding-top:5px"><div style=3D"font-family:Tahoma,Verdana,sans-serif"><div cl=
+ass style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-se=
+rif;mso-line-height-alt:14.399999999999999px;color:#000;line-height:1.2"><p=
+=20
+style=3D"margin:0;font-size:12px;mso-line-height-alt:14.399999999999999px">=
+They're feeling blue (Picture: Getty/Metro)</p></div></div></td></tr></tabl=
+e><table class=3D"divider_block block-5" width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:5px;=
+padding-top:5px"><div class=3D"alignment" align=3D"center"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%=
+"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_in=
+ner" style=3D"font-size:1px;line-height:1px;border-top:1px solid #bbb"><spa=
+n style=3D"word-break: break-word;">&#8202;</span></td></tr></table></div><=
+/td></tr></table><table class=3D"text_block block-6" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-bottom:20px;padding-top:10px"><div=20
+style=3D"font-family:Tahoma,Verdana,sans-serif"><div class style=3D"font-si=
+ze:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;mso-line-height-=
+alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:16px;ms=
+o-line-height-alt:30px"><span style=3D"word-break: break-word; font-size: 2=
+0px;"><strong>Where did it all go wrong?</strong></span></p><p style=3D"mar=
+gin:0;font-size:16px;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">Injuries and a lac=
+k of form have been an issue this season but over the course of his interna=
+tional career it feels like Trent has been a victim of circumstance, with h=
+is rise as a unique talent in football coinciding with Southgate=E2=80=99s =
+risk-averse time in charge.</span></p><p style=3D"margin:0;font-size:16px;m=
+so-line-height-alt:18px">&nbsp;</p><p style=3D"margin:0;font-size:16px;mso-=
+line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">There=E2=80=99s a =
+certain irony to the fact that what many people felt England missed in rece=
+nt tournaments was a creative edge, but at the same time their ability to g=
+et to the latter stages was down to not having that creative edge. If only =
+we could have our cake and eat it too.</span></p><p style=3D"margin:0;font-=
+size:16px;mso-line-height-alt:18px">&nbsp;</p><p style=3D"margin:0;font-siz=
+e:16px;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">The idea that Tren=
+t isn=E2=80=99t good enough defensively to play at right back has always be=
+en a bit ridiculous =E2=80=93 this is a man who won literally everything wi=
+th Liverpool while playing=E2=80=A6 you guessed it, at right back. Yes, the=
+ mistakes can be crucial, but to not even have his creativity as an option =
+off the bench when trying to break down Panama=E2=80=99s defence in June se=
+ems like an oversight.&nbsp;</span></p><p=20
+style=3D"margin:0;font-size:16px;mso-line-height-alt:18px">&nbsp;</p><p sty=
+le=3D"margin:0;font-size:16px;mso-line-height-alt:30px"><span style=3D"word=
+-break: break-word; font-size: 20px;"><strong>So, what=E2=80=99s next?</str=
+ong></span></p><p style=3D"margin:0;font-size:16px;mso-line-height-alt:24px=
+">
+<span style=3D"word-break: break-word; font-size: 16px;">There=E2=80=99s st=
+ill a chance he will make the final squad, especially if Reece James picks =
+up one of his regular knocks. Tuchel hasn=E2=80=99t entirely ruled out his =
+chances, but when centre backs like Jarell Quansah and Ezri Konsa are being=
+ spoken about as options, the Real Madrid man will probably be safe in book=
+ing a non-refundable holiday this summer.</span></p><p style=3D"margin:0;fo=
+nt-size:16px;mso-line-height-alt:18px">&nbsp;</p><p=20
+style=3D"margin:0;font-size:16px;mso-line-height-alt:24px"><span style=3D"w=
+ord-break: break-word; font-size: 16px;"><strong><a href=3D"mailto:inthemix=
+er@metro.co.uk?subject=3DTrent Alexander-Arnold" target=3D"_blank" title=3D=
+"inthemixer@metro.co.uk" style=3D"text-decoration: underline; color: #00000=
+0;" rel=3D"noopener">Get in touch</a></strong> with your opinion.</span></p=
+></div></div></td></tr></table></td></tr></tbody></table></td></tr></tbody>=
+</table><table class=3D"row row-8" align=3D"center" width=3D"100%" border=
+=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content s=
+tack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;border-ra=
+dius:0;color:#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td c=
+lass=3D"column column-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-top:10px;vertical-align:top"><table class=3D=
+"divider_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rs=
+pace:0"><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-left:10p=
+x;padding-right:10px;padding-top:5px"><div class=3D"alignment" align=3D"cen=
+ter"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-=
+rspace:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-heigh=
+t:1px;border-top:1px solid #bbb"><span style=3D"word-break: break-word;">&#=
+8202;</span></td></tr></table></div></td></tr></table><table class=3D"html_=
+block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><=
+tr><td class=3D"pad"><div=20
+style=3D"font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;text-align:cent=
+er" align=3D"center"><!-- Start RealTime Email Embed - Patents Pending -->
+<style type=3D"text/css">
+@media (device-width: 320px), (device-width: 375px), (device-width: 390px),=
+ (device-width: 393px), (device-width: 414px), (device-width: 428px), (devi=
+ce-width: 430px) {
+.liveclicker-livepoll {
+width: inherit !important;
+height: inherit !important;
+max-height: inherit !important;
+display: block !important
+}
+.liveclicker-livepoll-fallback img {
+width: 0 !important;
+height: 0 !important;=20
+padding: 0!important;=20
+display: none;
+}
+}=20
+@media only screen and (max-width: 480px) {
+.liveclicker-dimensions, .liveclicker-livepoll-fallback > img, .liveclicker=
+-livepoll > a > img {=20
+display: inline-block;=20
+min-width: 50%;=20
+max-width: 100%}
+}
+</style>
+<style type=3D"text/css">
+.liveclicker-$livepoll\0 {
+width: 0 !important;
+height: 0 !important;
+padding: 0 !important;
+display: none !important
+}
+.liveclicker-livepoll-fallback > img\0 {
+width: inherit !important;
+height: inherit !important;
+max-height: inherit !important;
+display: block!important
+}
+</style>
+<link href=3D"https://em.realtime.email/service/rte?kind=3Dlivepoll&id=3D12=
+96882038&esp_uid=3D%%userId%%&css=3Dtrue&rev=3D3" rel=3D"stylesheet" proper=
+ty=3D"stylesheet" type=3D"text/css" ><div id=3D"outer-livepoll-1296882038" =
+style=3D"overflow: hidden; max-width: 100%;" class=3D"liveclicker-dimension=
+s"><!--[if !mso]><!-- -->
+<div class=3D"liveclicker-livepoll" style=3D"width: 0; height: 0; max-heigh=
+t: 0; overflow: hidden; display: none">
+<input id=3D"cbox1-1296882038" type=3D"checkbox">
+<input id=3D"cbox2-1296882038" type=3D"checkbox">
+<input id=3D"cbox3-1296882038" type=3D"checkbox">
+<div id=3D"stage">
+<div class=3D"question-1296882038">
+<p></p>
+</div>
+<div class=3D"answers-1296882038">
+<label for=3D"cbox1-1296882038" class=3D"answer-1296882038 button-129688203=
+8"><div class=3D"answer-1-1296882038">1. </div></label>
+<label for=3D"cbox2-1296882038" class=3D"answer-1296882038 button-129688203=
+8"><div class=3D"answer-2-1296882038">2. </div></label>
+<label for=3D"cbox3-1296882038" class=3D"answer-1296882038 button-129688203=
+8"><div class=3D"answer-3-1296882038">3. </div></label>
+<small>Choose one of the options above to cast your vote!</small>
+</div></div>
+<div id=3D"voteresult1-1296882038" class=3D"voteresult1-1296882038">
+<a class=3D"clickthrough-1-1296882038" href=3D"https://link.news.metro.co.u=
+k/click/44935278.2344/aHR0cHM6Ly9lbS5yZWFsdGltZS5lbWFpbC9zZXJ2aWNlL3J0ZT9ra=
+W5kPWxpdmVwb2xsX2NsaWNrdGhyb3VnaCZpZD0xMjk2ODgyMDM4JmVzcF91aWQ9JSV1c2VySWQl=
+JSZmaW5hbD10cnVl/688dcbbf5b50db40cb0609beB6720aa0d"><img style=3D"width: 10=
+0%; height: 100%" src=3D"" alt=3D"Poll asking readers if they would include=
+ Trent Alexander-Arnold in their World Cup squad"></a>
+</div>
+<div id=3D"voteresult2-1296882038" class=3D"voteresult2-1296882038">
+<a class=3D"clickthrough-2-1296882038" href=3D"https://link.news.metro.co.u=
+k/click/44935278.2344/aHR0cHM6Ly9lbS5yZWFsdGltZS5lbWFpbC9zZXJ2aWNlL3J0ZT9ra=
+W5kPWxpdmVwb2xsX2NsaWNrdGhyb3VnaCZpZD0xMjk2ODgyMDM4JmVzcF91aWQ9JSV1c2VySWQl=
+JSZmaW5hbD10cnVl/688dcbbf5b50db40cb0609beC6720aa0d"><img style=3D"width: 10=
+0%; height: 100%" src=3D"" alt=3D"Poll asking readers if they would include=
+ Trent Alexander-Arnold in their World Cup squad"></a>
+</div>
+<div id=3D"voteresult3-1296882038" class=3D"voteresult3-1296882038">
+<a class=3D"clickthrough-3-1296882038" href=3D"https://link.news.metro.co.u=
+k/click/44935278.2344/aHR0cHM6Ly9lbS5yZWFsdGltZS5lbWFpbC9zZXJ2aWNlL3J0ZT9ra=
+W5kPWxpdmVwb2xsX2NsaWNrdGhyb3VnaCZpZD0xMjk2ODgyMDM4JmVzcF91aWQ9JSV1c2VySWQl=
+JSZmaW5hbD10cnVl/688dcbbf5b50db40cb0609beD6720aa0d"><img style=3D"width: 10=
+0%; height: 100%" src=3D"" alt=3D"Poll asking readers if they would include=
+ Trent Alexander-Arnold in their World Cup squad"></a>
+</div></div><!--<![endif]--><a href=3D"https://link.news.metro.co.uk/click/=
+44935278.2344/aHR0cHM6Ly9lbS5yZWFsdGltZS5lbWFpbC9zZXJ2aWNlL3J0ZT9raW5kPWxpd=
+mVwb2xsX2NsaWNrdGhyb3VnaCZpZD0xMjk2ODgyMDM4JmVzcF91aWQ9JSV1c2VySWQlJQ/688dc=
+bbf5b50db40cb0609beB2a80213d" class=3D"liveclicker-livepoll-fallback" style=
+=3D"display: block; width: inherit; height: inherit; max-height: inherit; o=
+verflow: hidden"><img src=3D"https://em.realtime.email/service/rte?kind=3Dl=
+ivepoll&id=3D1296882038&esp_uid=3D%%userId%%" style=3D"width: inherit; max-=
+height: inherit; height: inherit; overflow: hidden; border: 0" alt=3D"Poll =
+asking readers if they would include Trent Alexander-Arnold in their World =
+Cup squad"/></a></div>
+<!-- End RealTime Email Embed - Patents Pending --></div></td></tr></table>=
+<table class=3D"divider_block block-3" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace=
+:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:5px;pa=
+dding-left:10px;padding-right:10px;padding-top:10px"><div class=3D"alignmen=
+t" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+=20
+role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-=
+rspace:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-heigh=
+t:1px;border-top:1px solid #bbb"><span style=3D"word-break: break-word;">&#=
+8202;</span></td></tr></table></div></td></tr></table><table class=3D"headi=
+ng_block block-4" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+"><tr><td class=3D"pad"=20
+style=3D"padding-bottom:10px;padding-left:10px;padding-top:15px;text-align:=
+center;width:100%"><h1 style=3D"margin:0;color:#000;direction:ltr;font-fami=
+ly:Roboto,Tahoma,Verdana,Segoe,sans-serif;font-size:30px;font-weight:700;le=
+tter-spacing:normal;line-height:1.2;text-align:left;margin-top:0;margin-bot=
+tom:0;mso-line-height-alt:36px"><span class=3D"tinyMce-placeholder" style=
+=3D"word-break: break-word;">Latest news</span></h1></td></tr></table></td>=
+</tr></tbody></table></td></tr></tbody></table><table=20
+class=3D"row row-9" align=3D"center" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content" align=3D"c=
+enter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"mso-table-lspace:0;mso-table-rspace:0;border-radius:0;color:#00=
+0;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column c=
+olumn-1" width=3D"66.66666666666667%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-left:10px;padding-right:10px;padding-top:5px=
+;vertical-align:middle"><table class=3D"text_block block-1" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td c=
+lass=3D"pad" style=3D"padding-bottom:5px;padding-top:10px"><div style=3D"fo=
+nt-family:Tahoma,Verdana,sans-serif"><div class=20
+style=3D"font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;font-size:12px;=
+mso-line-height-alt:14.399999999999999px;color:#000;line-height:1.2"><p sty=
+le=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px"><span style=3D"wo=
+rd-break: break-word; color: #000000; font-size: 20px;"><strong><a href=3D"=
+https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51a=
+y8yMDI2LzAzLzI2L2Jhbmstb3JkZXJlZC1yZXZlYWwtbmFtZXMtYWRkcmVzc2VzLWlsbGVnYWwt=
+cHJlbWllci1sZWFndWUtc3RyZWFtaW5nLXVzZXJzLXNreS0yNzY4MzM0My8_aXRvPXNhaWx0aHJ=
+1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3=
+RfcHJvZmlsZT0/688dcbbf5b50db40cb0609beB6de6c795" target=3D"_blank" style=3D=
+"text-decoration: none; color: #000000;" rel=3D"noopener">Bank ordered to r=
+eveal names of illegal Premier League streaming users to Sky</a></strong></=
+span></p></div></div></td></tr>
+</table><table class=3D"button_block block-2 mobile_hide" width=3D"100%" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"p=
+adding-bottom:10px;padding-right:5px;text-align:right"><div class=3D"alignm=
+ent" align=3D"right"><a href=3D"https://link.news.metro.co.uk/click/4493527=
+8.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLzI2L2Jhbmstb3JkZXJlZC1yZXZlYWwt=
+bmFtZXMtYWRkcmVzc2VzLWlsbGVnYWwtcHJlbWllci1sZWFndWUtc3RyZWFtaW5nLXVzZXJzLXN=
+reS0yNzY4MzM0My8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZW=
+VrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b50db40cb0609beC6de6=
+c795" target=3D"_blank" style=3D"color:#ffffff;text-decoration:none;"><!--[=
+if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word"  href=3D"https://link.news.metro.co.uk/click/=
+44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLzI2L2Jhbmstb3JkZXJlZC1yZ=
+XZlYWwtbmFtZXMtYWRkcmVzc2VzLWlsbGVnYWwtcHJlbWllci1sZWFndWUtc3RyZWFtaW5nLXVz=
+ZXJzLXNreS0yNzY4MzM0My8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJ=
+hbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b50db40cb0609=
+beD6de6c795"  style=3D"height:32px;width:167px;v-text-anchor:middle;" arcsi=
+ze=3D"88%" fillcolor=3D"#29c985">
+<v:stroke dashstyle=3D"Solid" weight=3D"0px" color=3D"#29c985"/>
+<w:anchorlock/>
+<v:textbox inset=3D"0px,0px,0px,0px">
+<center dir=3D"false" style=3D"color:#ffffff;font-family:Tahoma, Verdana, s=
+ans-serif;font-size:16px">
+<![endif]-->
+<span class=3D"button" style=3D"background-color: #29c985; mso-shading: tra=
+nsparent; border-bottom: 0px solid transparent; border-left: 0px solid tran=
+sparent; border-radius: 28px; border-right: 0px solid transparent; border-t=
+op: 0px solid transparent; color: #ffffff; display: inline-block; font-fami=
+ly: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 16px; font-wei=
+ght: 400; mso-border-alt: none; padding-bottom: 0px; padding-top: 0px; padd=
+ing-left: 30px; padding-right: 30px; text-align: center; width: auto; word-=
+break: keep-all; letter-spacing: normal;"><span style=3D"word-break: break-=
+word;"><span style=3D"word-break: break-word; line-height: 32px;" data-mce-=
+style>READ MORE =E2=9E=9C</span></span></span>
+<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></a></div></td>=
+</tr></table></td><td class=3D"column column-2" width=3D"33.333333333333336=
+%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-alig=
+n:left;padding-bottom:5px;padding-top:5px;vertical-align:middle"><table cla=
+ss=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"10" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0"><tr><td class=3D"pad"><div class=3D"alignment" align=3D"center"=
+>
+<div class=3D"fullWidth" style=3D"max-width:180px"><a href=3D"https://link.=
+news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLz=
+I2L2Jhbmstb3JkZXJlZC1yZXZlYWwtbmFtZXMtYWRkcmVzc2VzLWlsbGVnYWwtcHJlbWllci1sZ=
+WFndWUtc3RyZWFtaW5nLXVzZXJzLXNreS0yNzY4MzM0My8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9u=
+ZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0=
+/688dcbbf5b50db40cb0609beE6de6c795" target=3D"_blank"><img src=3D"https://m=
+etro.co.uk/wp-content/uploads/2026/02/GettyImages-2232021287-bc17.jpg?quali=
+ty=3D90&strip=3Dall&w=3D1024&zoom=3D1&resize=3D636%2C358" style=3D"display:=
+block;height:auto;border:0;width:100%" width=3D"180" alt=3D"Image" title=3D=
+"Image" height=3D"auto"></a></div></div></td></tr></table></td></tr></tbody=
+></table></td></tr></tbody></table><table class=3D"row row-10" align=3D"cen=
+ter" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbod=
+y><tr><td><table class=3D"row-content" align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0;border-radius:0;color:#000;width:600px;margin:0 aut=
+o" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"66.66666=
+666666667%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-left:10px;padding-right:10px;padding-top:5px=
+;vertical-align:middle"><table class=3D"text_block block-1" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td c=
+lass=3D"pad" style=3D"padding-bottom:5px;padding-top:10px"><div style=3D"fo=
+nt-family:Tahoma,Verdana,sans-serif"><div class=20
+style=3D"font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;font-size:12px;=
+mso-line-height-alt:14.399999999999999px;color:#000;line-height:1.2"><p sty=
+le=3D"margin:0;mso-line-height-alt:14.399999999999999px"><span style=3D"wor=
+d-break: break-word; font-size: 20px;"><strong><a href=3D"https://link.news=
+.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLzI2L3=
+JhaGVlbS1zdGVybGluZy10b2xkLXF1aXQtZm9vdGJhbGwtanVzdC1nby1pYml6YS0yNzY4NDU0N=
+S8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkmc3RfYmxh=
+c3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b50db40cb0609beBdf0f054a" target=
+=3D"_blank" style=3D"text-decoration: none; color: #000000;" rel=3D"noopene=
+r">Raheem Sterling told he should quit football and 'just go to Ibiza'</a><=
+/strong></span></p></div></div></td></tr></table><table=20
+class=3D"button_block block-2 mobile_hide" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:10=
+px;padding-right:5px;text-align:right"><div class=3D"alignment" align=3D"ri=
+ght"><a href=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6L=
+y9tZXRyby5jby51ay8yMDI2LzAzLzI2L3JhaGVlbS1zdGVybGluZy10b2xkLXF1aXQtZm9vdGJh=
+bGwtanVzdC1nby1pYml6YS0yNzY4NDU0NS8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGV=
+yJTdDZm9vdGJhbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b=
+50db40cb0609beCdf0f054a" target=3D"_blank" style=3D"color:#ffffff;text-deco=
+ration:none;"><!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word"  href=3D"https://link.news.metro.co.uk/click/=
+44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLzI2L3JhaGVlbS1zdGVybGluZ=
+y10b2xkLXF1aXQtZm9vdGJhbGwtanVzdC1nby1pYml6YS0yNzY4NDU0NS8_aXRvPXNhaWx0aHJ1=
+JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3R=
+fcHJvZmlsZT0/688dcbbf5b50db40cb0609beDdf0f054a"  style=3D"height:32px;width=
+:167px;v-text-anchor:middle;" arcsize=3D"88%" fillcolor=3D"#29c985">
+<v:stroke dashstyle=3D"Solid" weight=3D"0px" color=3D"#29c985"/>
+<w:anchorlock/>
+<v:textbox inset=3D"0px,0px,0px,0px">
+<center dir=3D"false" style=3D"color:#ffffff;font-family:Tahoma, Verdana, s=
+ans-serif;font-size:16px">
+<![endif]-->
+<span class=3D"button" style=3D"background-color: #29c985; mso-shading: tra=
+nsparent; border-bottom: 0px solid transparent; border-left: 0px solid tran=
+sparent; border-radius: 28px; border-right: 0px solid transparent; border-t=
+op: 0px solid transparent; color: #ffffff; display: inline-block; font-fami=
+ly: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 16px; font-wei=
+ght: 400; mso-border-alt: none; padding-bottom: 0px; padding-top: 0px; padd=
+ing-left: 30px; padding-right: 30px; text-align: center; width: auto; word-=
+break: keep-all; letter-spacing: normal;"><span style=3D"word-break: break-=
+word;"><span style=3D"word-break: break-word; line-height: 32px;" data-mce-=
+style>READ MORE =E2=9E=9C</span></span></span>
+<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></a></div></td>=
+</tr></table></td><td class=3D"column column-2" width=3D"33.333333333333336=
+%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-alig=
+n:left;padding-bottom:5px;padding-top:5px;vertical-align:middle"><table cla=
+ss=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"10" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0"><tr><td class=3D"pad"><div class=3D"alignment" align=3D"center"=
+>
+<div class=3D"fullWidth" style=3D"max-width:180px"><a href=3D"https://link.=
+news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLz=
+I2L3JhaGVlbS1zdGVybGluZy10b2xkLXF1aXQtZm9vdGJhbGwtanVzdC1nby1pYml6YS0yNzY4N=
+DU0NS8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkmc3Rf=
+Ymxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b50db40cb0609beEdf0f054a" targ=
+et=3D"_blank"><img src=3D"https://metro.co.uk/wp-content/uploads/2026/03/Ge=
+ttyImages-2267527575.jpg?quality=3D90&strip=3Dall&w=3D1024&zoom=3D1&resize=
+=3D636%2C358" style=3D"display:block;height:auto;border:0;width:100%" width=
+=3D"180" alt=3D"Image" title=3D"Image" height=3D"auto"></a></div></div></td=
+></tr></table></td></tr></tbody></table></td></tr></tbody></table><table cl=
+ass=3D"row row-11" align=3D"center" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbod=
+y><tr><td><table class=3D"row-content" align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0;border-radius:0;color:#000;width:600px;margin:0 aut=
+o" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"66.66666=
+666666667%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-left:10px;padding-right:10px;padding-top:5px=
+;vertical-align:middle"><table class=3D"text_block block-1" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td c=
+lass=3D"pad" style=3D"padding-bottom:5px;padding-top:10px"><div style=3D"fo=
+nt-family:Tahoma,Verdana,sans-serif"><div class=20
+style=3D"font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;font-size:12px;=
+mso-line-height-alt:14.399999999999999px;color:#000;line-height:1.2"><p sty=
+le=3D"margin:0;mso-line-height-alt:14.399999999999999px"><span style=3D"wor=
+d-break: break-word; font-size: 20px;"><strong><a href=3D"https://link.news=
+.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLzI3L2=
+lhbi13cmlnaHQtbmFtZXMtYXJzZW5hbC1zdGFyLW1pa2VsLWFydGV0YS1tdXN0LXN0YXJ0LXBsY=
+XlpbmctYWRkcmVzcy1odWdlLXByb2JsZW0tMjc2ODU0MzcvP2l0bz1zYWlsdGhydSU3Q21ldHJv=
+bmV3c2xldHRlciU3Q2Zvb3RiYWxsd2Vla2x5JnN0X2JsYXN0PTQ0OTM1Mjc4JnN0X3Byb2ZpbGU=
+9/688dcbbf5b50db40cb0609beB2051d300" target=3D"_blank" style=3D"text-decora=
+tion: none; color: #000000;" rel=3D"noopener">Ian Wright names Arsenal star=
+ Mikel Arteta must start playing to address huge problem</a></strong></span=
+></p></div></div></td></tr></table><table=20
+class=3D"button_block block-2 mobile_hide" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:10=
+px;padding-right:5px;text-align:right"><div class=3D"alignment" align=3D"ri=
+ght"><a href=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6L=
+y9tZXRyby5jby51ay8yMDI2LzAzLzI3L2lhbi13cmlnaHQtbmFtZXMtYXJzZW5hbC1zdGFyLW1p=
+a2VsLWFydGV0YS1tdXN0LXN0YXJ0LXBsYXlpbmctYWRkcmVzcy1odWdlLXByb2JsZW0tMjc2ODU=
+0MzcvP2l0bz1zYWlsdGhydSU3Q21ldHJvbmV3c2xldHRlciU3Q2Zvb3RiYWxsd2Vla2x5JnN0X2=
+JsYXN0PTQ0OTM1Mjc4JnN0X3Byb2ZpbGU9/688dcbbf5b50db40cb0609beC2051d300" targe=
+t=3D"_blank" style=3D"color:#ffffff;text-decoration:none;"><!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word"  href=3D"https://link.news.metro.co.uk/click/=
+44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLzI3L2lhbi13cmlnaHQtbmFtZ=
+XMtYXJzZW5hbC1zdGFyLW1pa2VsLWFydGV0YS1tdXN0LXN0YXJ0LXBsYXlpbmctYWRkcmVzcy1o=
+dWdlLXByb2JsZW0tMjc2ODU0MzcvP2l0bz1zYWlsdGhydSU3Q21ldHJvbmV3c2xldHRlciU3Q2Z=
+vb3RiYWxsd2Vla2x5JnN0X2JsYXN0PTQ0OTM1Mjc4JnN0X3Byb2ZpbGU9/688dcbbf5b50db40c=
+b0609beD2051d300"  style=3D"height:32px;width:167px;v-text-anchor:middle;" =
+arcsize=3D"88%" fillcolor=3D"#29c985">
+<v:stroke dashstyle=3D"Solid" weight=3D"0px" color=3D"#29c985"/>
+<w:anchorlock/>
+<v:textbox inset=3D"0px,0px,0px,0px">
+<center dir=3D"false" style=3D"color:#ffffff;font-family:Tahoma, Verdana, s=
+ans-serif;font-size:16px">
+<![endif]-->
+<span class=3D"button" style=3D"background-color: #29c985; mso-shading: tra=
+nsparent; border-bottom: 0px solid transparent; border-left: 0px solid tran=
+sparent; border-radius: 28px; border-right: 0px solid transparent; border-t=
+op: 0px solid transparent; color: #ffffff; display: inline-block; font-fami=
+ly: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 16px; font-wei=
+ght: 400; mso-border-alt: none; padding-bottom: 0px; padding-top: 0px; padd=
+ing-left: 30px; padding-right: 30px; text-align: center; width: auto; word-=
+break: keep-all; letter-spacing: normal;"><span style=3D"word-break: break-=
+word;"><span style=3D"word-break: break-word; line-height: 32px;" data-mce-=
+style>READ MORE =E2=9E=9C</span></span></span>
+<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></a></div></td>=
+</tr></table></td><td class=3D"column column-2" width=3D"33.333333333333336=
+%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-alig=
+n:left;padding-bottom:5px;padding-top:5px;vertical-align:middle"><table cla=
+ss=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"10" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0"><tr><td class=3D"pad"><div class=3D"alignment" align=3D"center"=
+>
+<div class=3D"fullWidth" style=3D"max-width:180px"><a href=3D"https://link.=
+news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLz=
+I3L2lhbi13cmlnaHQtbmFtZXMtYXJzZW5hbC1zdGFyLW1pa2VsLWFydGV0YS1tdXN0LXN0YXJ0L=
+XBsYXlpbmctYWRkcmVzcy1odWdlLXByb2JsZW0tMjc2ODU0MzcvP2l0bz1zYWlsdGhydSU3Q21l=
+dHJvbmV3c2xldHRlciU3Q2Zvb3RiYWxsd2Vla2x5JnN0X2JsYXN0PTQ0OTM1Mjc4JnN0X3Byb2Z=
+pbGU9/688dcbbf5b50db40cb0609beE2051d300" target=3D"_blank"><img src=3D"http=
+s://metro.co.uk/wp-content/uploads/2026/03/GettyImages-2267838837_c10997.jp=
+g?quality=3D90&strip=3Dall&w=3D1024&zoom=3D1&resize=3D636%2C358" style=3D"d=
+isplay:block;height:auto;border:0;width:100%" width=3D"180" alt=3D"Image" t=
+itle=3D"Image" height=3D"auto"></a></div></div></td></tr></table></td></tr>=
+</tbody></table></td></tr></tbody></table><table class=3D"row row-12" align=
+=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbod=
+y><tr><td><table class=3D"row-content" align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0;border-radius:0;color:#000;width:600px;margin:0 aut=
+o" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"66.66666=
+666666667%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-left:10px;padding-right:10px;padding-top:5px=
+;vertical-align:middle"><table class=3D"text_block block-1" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td c=
+lass=3D"pad" style=3D"padding-bottom:5px;padding-top:10px"><div style=3D"fo=
+nt-family:Tahoma,Verdana,sans-serif"><div class=20
+style=3D"font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;font-size:12px;=
+mso-line-height-alt:14.399999999999999px;color:#000;line-height:1.2"><p sty=
+le=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px"><span style=3D"wo=
+rd-break: break-word; color: #000000; font-size: 20px;"><strong><a href=3D"=
+https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51a=
+y8yMDI2LzAzLzI2L21hbi11dGQtbWFrZS1mb3JtYWwtYXBwcm9hY2gtODBtLXN0YXItYnJ1bm8t=
+ZmVybmFuZGVzLWVuZG9yc2VtZW50LTI3Njg4NDg2Lz9pdG89c2FpbHRocnUlN0NtZXRyb25ld3N=
+sZXR0ZXIlN0Nmb290YmFsbHdlZWtseSZzdF9ibGFzdD00NDkzNTI3OCZzdF9wcm9maWxlPQ/688=
+dcbbf5b50db40cb0609beBf3d1c9d6" target=3D"_blank" style=3D"text-decoration:=
+ none; color: #000000;" rel=3D"noopener">Man Utd to make 'formal approach' =
+for =C2=A380m star after Fernandes endorsement </a></strong></span></p></di=
+v></div></td></tr>
+</table><table class=3D"button_block block-2 mobile_hide" width=3D"100%" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"p=
+adding-bottom:10px;padding-right:5px;text-align:right"><div class=3D"alignm=
+ent" align=3D"right"><a href=3D"https://link.news.metro.co.uk/click/4493527=
+8.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLzI2L21hbi11dGQtbWFrZS1mb3JtYWwt=
+YXBwcm9hY2gtODBtLXN0YXItYnJ1bm8tZmVybmFuZGVzLWVuZG9yc2VtZW50LTI3Njg4NDg2Lz9=
+pdG89c2FpbHRocnUlN0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbHdlZWtseSZzdF9ibGFzdD=
+00NDkzNTI3OCZzdF9wcm9maWxlPQ/688dcbbf5b50db40cb0609beCf3d1c9d6" target=3D"_=
+blank" style=3D"color:#ffffff;text-decoration:none;"><!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word"  href=3D"https://link.news.metro.co.uk/click/=
+44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLzI2L21hbi11dGQtbWFrZS1mb=
+3JtYWwtYXBwcm9hY2gtODBtLXN0YXItYnJ1bm8tZmVybmFuZGVzLWVuZG9yc2VtZW50LTI3Njg4=
+NDg2Lz9pdG89c2FpbHRocnUlN0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbHdlZWtseSZzdF9=
+ibGFzdD00NDkzNTI3OCZzdF9wcm9maWxlPQ/688dcbbf5b50db40cb0609beDf3d1c9d6"  sty=
+le=3D"height:32px;width:167px;v-text-anchor:middle;" arcsize=3D"88%" fillco=
+lor=3D"#29c985">
+<v:stroke dashstyle=3D"Solid" weight=3D"0px" color=3D"#29c985"/>
+<w:anchorlock/>
+<v:textbox inset=3D"0px,0px,0px,0px">
+<center dir=3D"false" style=3D"color:#ffffff;font-family:Tahoma, Verdana, s=
+ans-serif;font-size:16px">
+<![endif]-->
+<span class=3D"button" style=3D"background-color: #29c985; mso-shading: tra=
+nsparent; border-bottom: 0px solid transparent; border-left: 0px solid tran=
+sparent; border-radius: 28px; border-right: 0px solid transparent; border-t=
+op: 0px solid transparent; color: #ffffff; display: inline-block; font-fami=
+ly: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 16px; font-wei=
+ght: 400; mso-border-alt: none; padding-bottom: 0px; padding-top: 0px; padd=
+ing-left: 30px; padding-right: 30px; text-align: center; width: auto; word-=
+break: keep-all; letter-spacing: normal;"><span style=3D"word-break: break-=
+word;"><span style=3D"word-break: break-word; line-height: 32px;" data-mce-=
+style>READ MORE =E2=9E=9C</span></span></span>
+<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></a></div></td>=
+</tr></table></td><td class=3D"column column-2" width=3D"33.333333333333336=
+%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-alig=
+n:left;padding-bottom:5px;padding-top:5px;vertical-align:middle"><table cla=
+ss=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"10" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0"><tr><td class=3D"pad"><div class=3D"alignment" align=3D"center"=
+>
+<div class=3D"fullWidth" style=3D"max-width:180px"><a href=3D"https://link.=
+news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay8yMDI2LzAzLz=
+I2L21hbi11dGQtbWFrZS1mb3JtYWwtYXBwcm9hY2gtODBtLXN0YXItYnJ1bm8tZmVybmFuZGVzL=
+WVuZG9yc2VtZW50LTI3Njg4NDg2Lz9pdG89c2FpbHRocnUlN0NtZXRyb25ld3NsZXR0ZXIlN0Nm=
+b290YmFsbHdlZWtseSZzdF9ibGFzdD00NDkzNTI3OCZzdF9wcm9maWxlPQ/688dcbbf5b50db40=
+cb0609beEf3d1c9d6" target=3D"_blank"><img src=3D"https://metro.co.uk/wp-con=
+tent/uploads/2026/03/GettyImages-2260376468.jpg?quality=3D90&strip=3Dall&w=
+=3D1024&zoom=3D1&resize=3D636%2C358" style=3D"display:block;height:auto;bor=
+der:0;width:100%" width=3D"180" alt=3D"Image" title=3D"Image" height=3D"aut=
+o"></a></div></div></td></tr></table></td></tr></tbody></table></td></tr></=
+tbody></table><table class=3D"row row-13" align=3D"center" width=3D"100%" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbod=
+y><tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;border-radius:0;color:#000;width:600px;margin=
+:0 auto" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"10=
+0%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-ali=
+gn:left;padding-bottom:5px;padding-top:5px;vertical-align:top"><table=20
+class=3D"divider_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:20px;padding-=
+left:10px;padding-right:10px;padding-top:20px"><div class=3D"alignment" ali=
+gn=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspa=
+ce:0"><tr><td class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #bbb"><span sty=
+le=3D"word-break: break-word;">&#8202;</span></td></tr></table></div></td><=
+/tr></table></td></tr></tbody></table></td></tr></tbody></table><table clas=
+s=3D"row row-14" align=3D"center" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stack" align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;border-radius:0;color:#000;w=
+idth:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column colu=
+mn-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-we=
+ight:400;text-align:left;padding-bottom:10px;padding-left:10px;padding-righ=
+t:10px;padding-top:10px;vertical-align:top"><table class=3D"heading_block b=
+lock-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td
+class=3D"pad" style=3D"padding-bottom:10px;padding-top:10px;text-align:cent=
+er;width:100%"><h1 style=3D"margin:0;color:#000;direction:ltr;font-family:R=
+oboto,Tahoma,Verdana,Segoe,sans-serif;font-size:30px;font-weight:700;letter=
+-spacing:normal;line-height:1.2;text-align:left;margin-top:0;margin-bottom:=
+0;mso-line-height-alt:36px"><span class=3D"tinyMce-placeholder" style=3D"wo=
+rd-break: break-word;">Memory lane</span></h1></td></tr></table><table clas=
+s=3D"text_block block-2" width=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-bottom:10px;padding-top:10px"><div style=3D"font-family:Ta=
+homa,Verdana,sans-serif"><div class style=3D"font-size:12px;font-family:Rob=
+oto,Tahoma,Verdana,Segoe,sans-serif;mso-line-height-alt:18px;color:#000;lin=
+e-height:1.5"><p style=3D"margin:0;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">When you think of =
+1966, what comes to mind? Most of us will think of Geoff Hurst's hattrick a=
+nd <strong><a href=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR=
+0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj02d3lMdmFneUFwWSZpdG89c2FpbHRocnUlN0=
+NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbHdlZWtseSZzdF9ibGFzdD00NDkzNTI3OCZzdF9wc=
+m9maWxlPQ/688dcbbf5b50db40cb0609beBd852567b" target=3D"_blank" style=3D"tex=
+t-decoration: underline; color: #29c985;" rel=3D"noopener">Kenneth Wolstenh=
+olme's iconic commentary</a></strong>. Anyone who prefers a deeper cut migh=
+t bring up <strong><a href=3D"https://link.news.metro.co.uk/click/44935278.=
+2344/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj12NXVXdFRPQ192SSZpdG89c2FpbH=
+RocnUlN0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbHdlZWtseSZzdF9ibGFzdD00NDkzNTI3O=
+CZzdF9wcm9maWxlPQ/688dcbbf5b50db40cb0609beC8fb841f4" target=3D"_blank" styl=
+e=3D"text-decoration: underline; color: #29c985;" rel=3D"noopener">Eusebio'=
+s goalscoring</a></strong> brilliance or North Korea's shock win over Italy=
+.</span>
+</p><p style=3D"margin:0;mso-line-height-alt:18px">&nbsp;</p><p style=3D"ma=
+rgin:0;mso-line-height-alt:24px"><span style=3D"word-break: break-word; fon=
+t-size: 16px;">But while England's victory over West Germany came down to t=
+he bounce of a ball over the goal line, their ability to literally lift the=
+ World Cup trophy was influenced by none other than Pickles the dog.</span>=
+</p><p style=3D"margin:0;mso-line-height-alt:18px">&nbsp;</p><p style=3D"ma=
+rgin:0;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">In March 1966, the=
+ old Jules Rimet trophy was stolen from its display case at a stamp exhibit=
+ion in central London while security guards were on a break.</span></p><p s=
+tyle=3D"margin:0;mso-line-height-alt:18px">&nbsp;</p><p style=3D"margin:0;m=
+so-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">Police were dumbfo=
+unded. FIFA were panicking. The FA commissioned a replica to be made in cas=
+e the original wasn't found.</span></p><p style=3D"margin:0;mso-line-height=
+-alt:18px">&nbsp;</p><p style=3D"margin:0;mso-line-height-alt:24px"><span s=
+tyle=3D"word-break: break-word; font-size: 16px;">A couple of days later, t=
+he FA received a ransom note demanding =C2=A315,000 for the trophy's safe r=
+eturn, which turned out to be a hoax.</span></p><p=20
+style=3D"margin:0;mso-line-height-alt:18px">&nbsp;</p><p style=3D"margin:0;=
+mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">Enter Pickles, who=
+ =E2=80=93 exactly 60 years ago today =E2=80=93 was outside his owner Dave =
+Corbett's flat in south London when he <a href=3D"https://link.news.metro.c=
+o.uk/click/44935278.2344/aHR0cHM6Ly93d3cuYmJjLmNvLnVrL3ZpZGVvcy9jcnJkZzg3am=
+R3eW8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkmc3RfY=
+mxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b50db40cb0609beBdfa703ec" targe=
+t=3D"_blank" style=3D"text-decoration: underline; color: #29c985;" rel=3D"n=
+oopener"></a><a href=3D"https://link.news.metro.co.uk/click/44935278.2344/a=
+HR0cHM6Ly93d3cuYmJjLmNvLnVrL3ZpZGVvcy9jcnJkZzg3amR3eW8_aXRvPXNhaWx0aHJ1JTdD=
+bWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJ=
+vZmlsZT0/688dcbbf5b50db40cb0609beCdfa703ec" target=3D"_blank" style=3D"text=
+-decoration: underline; color: #29c985;" rel=3D"noopener"></a><strong><a hr=
+ef=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly93d3cuYmJ=
+jLmNvLnVrL3ZpZGVvcy9jcnJkZzg3amR3eW8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dG=
+VyJTdDZm9vdGJhbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5=
+b50db40cb0609beDdfa703ec" target=3D"_blank" style=3D"text-decoration: under=
+line; color: #29c985;" rel=3D"noopener">came across the trophy in a bush</a=
+></strong>, wrapped in newspaper.</span>
+</p><p style=3D"margin:0;mso-line-height-alt:18px">&nbsp;</p><p style=3D"ma=
+rgin:0;mso-line-height-alt:24px"><span style=3D"word-break: break-word; fon=
+t-size: 16px;">Corbett was stunned and brought it to the nearest police sta=
+tion, where he was told the trophy 'doesn't look very World Cuppy to me' by=
+ the sergeant on duty.&nbsp;</span></p><p style=3D"margin:0;mso-line-height=
+-alt:18px">&nbsp;</p><p style=3D"margin:0;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">A few months later=
+, after it was confirmed to be real and Corbett was cleared of any suspicio=
+n involved its theft, Bobby Charlton lifted the trophy above his head on th=
+e Wembley pitch.</span></p><p style=3D"margin:0;mso-line-height-alt:18px">&=
+nbsp;</p><p style=3D"margin:0;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px;">Pickles went on to=
+ become a short-term star, appearing in a film with Eric Sykes and on TV in=
+ Blue Peter and Magpie, before he passed away in 1967.</span></p></div></di=
+v></td></tr></table><table class=3D"image_block block-3" width=3D"100%" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"w=
+idth:100%;padding-right:0;padding-left:0"><div class=3D"alignment"=20
+align=3D"center"><div class=3D"fullWidth" style=3D"max-width:580px"><img sr=
+c=3D"https://media.sailthru.com/fss/f1dzxu/e4aa2d58-90cd-41e5-8eaf-53b4a2b7=
+09d9/GettyImages-2642588.jpg" style=3D"display:block;height:auto;border:0;w=
+idth:100%" width=3D"580" alt=3D"Black and white photo of Pickles the dog be=
+ing photographed by three men" title=3D"Black and white photo of Pickles th=
+e dog being photographed by three men" height=3D"auto"></div></div></td></t=
+r></table><table class=3D"text_block block-4" width=3D"100%" border=3D"0"=
+=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-bottom:5px;padding-top:5px"><div style=3D"font-family:Taho=
+ma,Verdana,sans-serif"><div class style=3D"font-size:12px;font-family:Robot=
+o,Tahoma,Verdana,Segoe,sans-serif;mso-line-height-alt:18px;color:#000;line-=
+height:1.5"><p style=3D"margin:0;font-size:12px;mso-line-height-alt:18px">
+A very good boy indeed (Picture: Getty) <em>Got a memory to share? <strong>=
+<a href=3D"mailto:inthemixer@metro.co.uk?subject=3DFootball memory" target=
+=3D"_blank" title=3D"news@newsletter.metro.co.uk" rel=3D"noopener" style=3D=
+"text-decoration: underline; color: #29c985;">Get in touch</a></strong>.</e=
+m></p></div></div></td></tr></table><table class=3D"divider_block block-5" =
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td=20
+class=3D"pad" style=3D"padding-bottom:10px"><div class=3D"alignment" align=
+=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:=
+0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-height:1px;b=
+order-top:1px solid #bbb"><span style=3D"word-break: break-word;">&#8202;</=
+span></td></tr></table></div></td></tr></table></td></tr></tbody></table></=
+td></tr></tbody></table><table class=3D"row row-15" align=3D"center"=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td><=
+table class=3D"row-content stack" align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;background-color:#fff;color:#000;width:600px;margin:0 au=
+to" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"100%"=
+=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:5px;padding-top:15px;vertical-align:top"><table class=3D=
+"text_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspac=
+e:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-bottom:15=
+px;padding-left:30px;padding-right:30px"><div style=3D"font-family:Tahoma,V=
+erdana,sans-serif"><div class=20
+style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;=
+mso-line-height-alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;f=
+ont-size:15px;text-align:center;mso-line-height-alt:27px"><span style=3D"wo=
+rd-break: break-word; font-size: 18px;"><strong>Enjoying In The Mixer? Give=
+ us a rating and leave a comment =E2=80=93 we'll use your response to help =
+shape and improve the newsletter</strong></span></p></div></div></td></tr><=
+/table><table class=3D"image_block block-2" width=3D"100%"=20
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"=
+padding-left:60px;padding-right:60px;width:100%"><div class=3D"alignment" a=
+lign=3D"center"><div style=3D"max-width:480px"><a href=3D"https://link.news=
+.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9mb3Jtcy5vZmZpY2UuY29tL1BhZ2VzL1=
+Jlc3BvbnNlUGFnZS5hc3B4P2lkPVpFdzZEOFZOZGtxTlFWTFlYS0ZZcGY4WVM0R0FfaWRHbURKe=
+WcxOHFBdDFVUVVFelNWTkVUa1ZaVWsxWFUxWTRRMDgyVms5V1VUUk5SQzR1Jml0bz1zYWlsdGhy=
+dSU3Q21ldHJvbmV3c2xldHRlciU3Q2Zvb3RiYWxsd2Vla2x5JnN0X2JsYXN0PTQ0OTM1Mjc4JnN=
+0X3Byb2ZpbGU9/688dcbbf5b50db40cb0609beBce1556c0" target=3D"_blank"><img src=
+=3D"https://media.sailthru.com/fss/f1dzxu/f5e90065-2aeb-48ef-acfd-61a5e59da=
+d95/In+The+Mixer+star+rating.gif" style=3D"display:block;height:auto;border=
+:0;width:100%"=20
+width=3D"480" alt title height=3D"auto"></a></div></div></td></tr></table><=
+table class=3D"divider_block block-3" width=3D"100%" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:=
+0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:20px;pa=
+dding-top:20px"><div class=3D"alignment" align=3D"center"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"=
+ style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_i=
+nner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #bbb"><span sty=
+le=3D"word-break: break-word;">&#8202;</span></td></tr></table></div></td><=
+/tr></table></td></tr></tbody></table></td></tr></tbody></table><table clas=
+s=3D"row row-16" align=3D"center" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stack" align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:=
+#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"colum=
+n column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;f=
+ont-weight:400;text-align:left;padding-bottom:5px;padding-left:10px;padding=
+-right:10px;padding-top:15px;vertical-align:top"><table class=3D"text_block=
+ block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-bottom:15px;padding-left:10px;padding-rig=
+ht:10px;padding-top:10px"><div style=3D"font-family:Tahoma,Verdana,sans-ser=
+if"><div class style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Se=
+goe,sans-serif;mso-line-height-alt:18px;color:#000;line-height:1.5"><p styl=
+e=3D"margin:0;font-size:15px;text-align:center;mso-line-height-alt:22.5px">
+<strong><span style=3D"word-break: break-word; font-size: 20px;">Thanks for=
+ reading!</span></strong></p><p style=3D"margin:0;font-size:15px;text-align=
+:center;mso-line-height-alt:24px"><span style=3D"word-break: break-word; fo=
+nt-size: 16px;">If you're reading this email online or it was forwarded to =
+you, you can sign up to receive the <strong>In The Mixer every Friday</stro=
+ng>.</span></p></div></div></td></tr></table><table class=3D"button_block b=
+lock-2" width=3D"100%" border=3D"0" cellpadding=3D"0"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-lef=
+t:10px;padding-right:10px;padding-top:5px;text-align:center"><div class=3D"=
+alignment" align=3D"center"><a href=3D"https://link.news.metro.co.uk/click/=
+44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay9uZXdzbGV0dGVycz9pdG89c2FpbHRocnUlN=
+0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbHdlZWtseSZzdF9ibGFzdD00NDkzNTI3OCZzdF9w=
+cm9maWxlPQ/688dcbbf5b50db40cb0609beB3c54377e" target=3D"_blank" style=3D"co=
+lor:#ffffff;text-decoration:none;"><!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word"  href=3D"https://link.news.metro.co.uk/click/=
+44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay9uZXdzbGV0dGVycz9pdG89c2FpbHRocnUlN=
+0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbHdlZWtseSZzdF9ibGFzdD00NDkzNTI3OCZzdF9w=
+cm9maWxlPQ/688dcbbf5b50db40cb0609beC3c54377e"  style=3D"height:34px;width:1=
+44px;v-text-anchor:middle;" arcsize=3D"83%" fillcolor=3D"#29c985">
+<v:stroke dashstyle=3D"Solid" weight=3D"0px" color=3D"#29c985"/>
+<w:anchorlock/>
+<v:textbox inset=3D"0px,0px,0px,0px">
+<center dir=3D"false" style=3D"color:#ffffff;font-family:Tahoma, Verdana, s=
+ans-serif;font-size:17px">
+<![endif]-->
+<span class=3D"button" style=3D"background-color: #29c985; mso-shading: tra=
+nsparent; border-bottom: 0px solid transparent; border-left: 0px solid tran=
+sparent; border-radius: 28px; border-right: 0px solid transparent; border-t=
+op: 0px solid transparent; color: #ffffff; display: inline-block; font-fami=
+ly: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 17px; font-wei=
+ght: 400; mso-border-alt: none; padding-bottom: 0px; padding-top: 0px; padd=
+ing-left: 30px; padding-right: 30px; text-align: center; width: auto; word-=
+break: keep-all; letter-spacing: normal;"><span style=3D"word-break: break-=
+word;"><span style=3D"word-break: break-word; line-height: 34px;" data-mce-=
+style>JOIN US =E2=9E=9C</span></span></span>
+<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></a></div></td>=
+</tr></table><table class=3D"text_block block-3" width=3D"100%" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-ta=
+ble-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad=
+" style=3D"padding-bottom:15px;padding-left:10px;padding-right:10px;padding=
+-top:10px"><div style=3D"font-family:Tahoma,Verdana,sans-serif"><div class=
+=20
+style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;=
+mso-line-height-alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;f=
+ont-size:15px;text-align:center;mso-line-height-alt:22.5px">Share with a ma=
+te! Forward this email to a friend using the link in your email provider.</=
+p></div></div></td></tr></table><table class=3D"divider_block block-4" widt=
+h=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td=20
+class=3D"pad" style=3D"padding-bottom:20px;padding-top:10px"><div class=3D"=
+alignment" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;m=
+so-table-rspace:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;l=
+ine-height:1px;border-top:1px solid #bbb"><span style=3D"word-break: break-=
+word;">&#8202;</span></td></tr></table></div></td></tr></table></td></tr></=
+tbody></table></td></tr></tbody></table><table class=3D"row row-17"=20
+align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+"><tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#141414;color:#000;wi=
+dth:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column colum=
+n-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;padding-bottom:20px;padding-top:20px;vertical-align:top"><table class=
+=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-r=
+space:0"><tr><td class=3D"pad" style=3D"padding-bottom:15px;width:100%"><di=
+v class=3D"alignment" align=3D"center"><div style=3D"max-width:144px"><a hr=
+ef=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5=
+jby51ay8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZm9vdGJhbGx3ZWVrbHkmc3=
+RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b50db40cb0609beB0cdb8711" ta=
+rget=3D"_blank"><img
+src=3D"https://media.sailthru.com/composer/images/sailthru-prod-4w6/editor_=
+images/Metro%20Logo.png" style=3D"display:block;height:auto;border:0;width:=
+100%" width=3D"144" alt title height=3D"auto"></a></div></div></td></tr></t=
+able><table class=3D"social_block block-2" width=3D"100%" border=3D"0" cell=
+padding=3D"10" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tr><td class=3D"pad"><div class=3D"alignment" =
+align=3D"center"><table class=3D"social-table" width=3D"173px" border=3D"0"=
+=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;display:inline-block"><tr><td style=3D"paddin=
+g:0"><a href=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6L=
+y93d3cuZmFjZWJvb2suY29tL3Nwb3J0bWV0cm8vP2l0bz1zYWlsdGhydSU3Q21ldHJvbmV3c2xl=
+dHRlciU3Q2Zvb3RiYWxsd2Vla2x5JnN0X2JsYXN0PTQ0OTM1Mjc4JnN0X3Byb2ZpbGU9/688dcb=
+bf5b50db40cb0609beB0c225d31" target=3D"_blank"><img src=3D"https://app-rsrc=
+.getbee.io/public/resources/social-networks-icon-sets/t-only-logo-white/fac=
+ebook@2x.png" width=3D"32" height=3D"auto" alt=3D"Facebook" title=3D"Facebo=
+ok" style=3D"display:block;height:auto;border:0"></a></td><td style=3D"padd=
+ing:0 0 0 15px">
+<a href=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly94Lm=
+NvbS9NZXRyb19TcG9ydD9pdG89c2FpbHRocnUlN0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsb=
+HdlZWtseSZzdF9ibGFzdD00NDkzNTI3OCZzdF9wcm9maWxlPQ/688dcbbf5b50db40cb0609beB=
+6611ac62" target=3D"_blank"><img src=3D"https://app-rsrc.getbee.io/public/r=
+esources/social-networks-icon-sets/t-only-logo-white/twitter@2x.png" width=
+=3D"32" height=3D"auto" alt=3D"X" title=3D"X" style=3D"display:block;height=
+:auto;border:0"></a></td><td style=3D"padding:0 0 0 15px"><a href=3D"https:=
+//link.news.metro.co.uk/click/44935278.2344/aHR0cHM6Ly93d3cuaW5zdGFncmFtLmN=
+vbS9tZXRyby5jby51az9pdG89c2FpbHRocnUlN0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbH=
+dlZWtseSZzdF9ibGFzdD00NDkzNTI3OCZzdF9wcm9maWxlPQ/688dcbbf5b50db40cb0609beB9=
+06e1929" target=3D"_blank"><img=20
+src=3D"https://app-rsrc.getbee.io/public/resources/social-networks-icon-set=
+s/t-only-logo-white/instagram@2x.png" width=3D"32" height=3D"auto" alt=3D"I=
+nstagram" title=3D"Instagram" style=3D"display:block;height:auto;border:0">=
+</a></td><td style=3D"padding:0 0 0 15px"><a href=3D"https://link.news.metr=
+o.co.uk/click/44935278.2344/aHR0cHM6Ly93d3cudGlrdG9rLmNvbS9AbWV0cm9zcG9ydHV=
+rP2l0bz1zYWlsdGhydSU3Q21ldHJvbmV3c2xldHRlciU3Q2Zvb3RiYWxsd2Vla2x5JnN0X2JsYX=
+N0PTQ0OTM1Mjc4JnN0X3Byb2ZpbGU9/688dcbbf5b50db40cb0609beB62b675aa" target=3D=
+"_blank"><img src=3D"https://app-rsrc.getbee.io/public/resources/social-net=
+works-icon-sets/t-only-logo-white/tiktok@2x.png" width=3D"32" height=3D"aut=
+o" alt=3D"TikTok" title=3D"TikTok"=20
+style=3D"display:block;height:auto;border:0"></a></td></tr></table></div></=
+td></tr></table><table class=3D"text_block block-3" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-bottom:25px;padding-left:10px;padding-right:10px;=
+padding-top:20px"><div style=3D"font-family:Tahoma,Verdana,sans-serif"><div=
+ class=20
+style=3D"font-size:12px;font-family:Roboto,Tahoma,Verdana,Segoe,sans-serif;=
+mso-line-height-alt:14.399999999999999px;color:#fff;line-height:1.2"><p sty=
+le=3D"margin:0;text-align:center;mso-line-height-alt:14.399999999999999px">
+<strong><a href=3D"https://link.news.metro.co.uk/click/44935278.2344/aHR0cH=
+M6Ly9tZXRyby5jby51ay90ZXJtcy8_aXRvPXNhaWx0aHJ1JTdDbWV0cm9uZXdzbGV0dGVyJTdDZ=
+m9vdGJhbGx3ZWVrbHkmc3RfYmxhc3Q9NDQ5MzUyNzgmc3RfcHJvZmlsZT0/688dcbbf5b50db40=
+cb0609beB49129b72" target=3D"_blank" rel=3D"noopener" style=3D"text-decorat=
+ion: underline; color: #ffffff;">Terms</a> | <a href=3D"https://link.news.m=
+etro.co.uk/click/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay9wcml2YWN5cG9saWN5=
+Lz9pdG89c2FpbHRocnUlN0NtZXRyb25ld3NsZXR0ZXIlN0Nmb290YmFsbHdlZWtseSZzdF9ibGF=
+zdD00NDkzNTI3OCZzdF9wcm9maWxlPQ/688dcbbf5b50db40cb0609beBc7c55ba8" target=
+=3D"_blank" rel=3D"noopener" style=3D"text-decoration: underline; color: #f=
+fffff;">Privacy Policy</a> | <a href=3D"https://link.news.metro.co.uk/click=
+/44935278.2344/aHR0cHM6Ly9tZXRyby5jby51ay9uZXdzbGV0dGVycy8_ZW1haWw9bWlrZS5t=
+Y2NvbmlnbGV5JTQwZ21haWwuY29tJml0bz1zYWlsdGhydSU3Q21ldHJvbmV3c2xldHRlciU3Q2Z=
+vb3RiYWxsd2Vla2x5JnN0X2JsYXN0PTQ0OTM1Mjc4JnN0X3Byb2ZpbGU9/688dcbbf5b50db40c=
+b0609beCb467bc34" target=3D"_blank" style=3D"text-decoration: underline; co=
+lor: #ffffff;" rel=3D"noopener">Unsubscribe</a></strong>
+</p><p style=3D"margin:0;text-align:center;mso-line-height-alt:14.399999999=
+999999px">&nbsp;</p><p style=3D"margin:0;text-align:center;mso-line-height-=
+alt:14.399999999999999px">If you would like to opt out of all emails from M=
+etro, click <strong><a href=3D"https://link.news.metro.co.uk/manage/4w6/opt=
+out1?email=3Dmike.mcconigley@gmail.com" target=3D"_blank" rel=3D"noopener" =
+style=3D"text-decoration: underline; color: #ffffff;">here</a></strong>.</p=
+><p style=3D"margin:0;text-align:center;mso-line-height-alt:14.399999999999=
+999px">&nbsp;</p><p
+style=3D"margin:0;text-align:center;mso-line-height-alt:14.399999999999999p=
+x">This email was sent by Associated Newspapers Ltd. 9 Derry Street, London=
+ W8 5HY</p><p style=3D"margin:0;text-align:center;mso-line-height-alt:14.39=
+9999999999999px">Registered in England and Wales with Company number 000841=
+21</p></div></div></td></tr></table></td></tr></tbody></table></td></tr></t=
+body></table></td></tr></tbody></table><!-- End --></body></html>
+------=_Part_19163644_113333012.1774609207837--
