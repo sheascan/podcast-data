@@ -124,8 +124,14 @@ async def main():
         log(f"📑 SEGMENT {idx+1}: Theme '{topic_theme}' ({len(seg_stories)} stories)")
 
         prompt = (
-            f"The theme is {topic_theme}. Write a LONG, detailed conversational "
-            f"podcast script (approx 1200 words). Deep dive into these headlines:\n{headlines_text}\n\n"
+            f"The theme is {topic_theme}. Write a LONG, detailed, and professional "
+            f"solo-narrative podcast script (approx 1200 words). "
+            f"Deep dive into these headlines:\n{headlines_text}\n\n"
+            "CRITICAL INSTRUCTIONS:\n"
+            "1. Use a SINGLE narrator perspective throughout.\n"
+            "2. DO NOT include speaker labels like 'Host 1', 'Narrator:', or name tags.\n"
+            "3. Use smooth, conversational transitions between stories (e.g., 'Moving on to...', 'Turning our attention to...').\n"
+            "4. The tone should be authoritative yet accessible, like a high-end news correspondent.\n\n"
             "Return JSON ONLY: {'title': 'Punchy Title', 'script': 'Full Script Content'}"
         )
 

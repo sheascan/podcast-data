@@ -8,6 +8,8 @@ SCRIPT_1_HARVEST = "email_harvest.py"
 SCRIPT_2_PRODUCE = "main.py"
 SCRIPT_3_FEED    = "gen_feed.py"      # <--- NEW: Updates the briefing.xml
 SCRIPT_4_DEPLOY  = "deploy_github.py"
+SCRIPT_3A_ARCHIVE  = "clean_repo.py"
+
 
 def run_step(script_name, step_name):
     print(f"\n▶️  STARTING STEP: {step_name} ({script_name})...")
@@ -31,6 +33,7 @@ def run_production_pipeline():
     if not run_step(SCRIPT_1_HARVEST, "Email Harvesting"): return
     if not run_step(SCRIPT_2_PRODUCE, "AI Production"): return
     if not run_step(SCRIPT_3_FEED, "RSS Feed Generation"): return # Bridges AI to Web
+    if not run_step(SCRIPT_3A_ARCHIVE, "RSS Feed Archive"): return # Bridges AI to Web
     if not run_step(SCRIPT_4_DEPLOY, "GitHub Deployment"): return
 
     duration = datetime.now() - start_time
