@@ -1,0 +1,2832 @@
+Delivered-To: mike.mcconigley@gmail.com
+Received: by 2002:ac9:7211:0:b0:646:63af:2dfa with SMTP id v17csp8577510ocr;
+        Fri, 4 Sep 2026 08:29:49 -0700 (PDT)
+X-Received: by 2002:a05:620a:8f8c:b0:939:2c5c:7977 with SMTP id af79cd13be357-9398037b9b8mr440956785a.20.1788534353798;
+        Fri, 04 Sep 2026 08:05:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788534353; cv=none;
+        d=google.com; s=arc-20260327;
+        b=hQrZsaXIYEKgXeX7pgOvFPvhi+bk7P329fydJfxRVx0GARKnLpysRYD1skZJRB13n8
+         0MUvOV+f2F3zjI25MzL6OTJGzmCI0DjQKt/+ePZubikxCLpJimY3bG9M3tsBEGWEUdgO
+         ra6tzfP4BhRlUaWh8vqaEkLfJmale+H3HQ2P/Xv+dDG1fzWLwx4uM++14XR6nTA3jfwb
+         yfiGS7W02UJpjaUFK8cc9OCS+LzKoEaV/V2U8EwndVbLJlO1c6UWmz5eh3/Pk2wMJuuq
+         tu1HfYmSTTKM4qkmgTuBK9es7ObABZKzwG5RyrxyNebLDrHFE2Np8dW5GsemttlYiDKJ
+         5zaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:list-unsubscribe-post:list-unsubscribe:reply-to:subject
+         :message-id:mime-version:from:date:dkim-signature:dkim-signature;
+        bh=uJ24dPcPQYwIolthetFohIP9WoeTPwHQ6zcFO4ZPHAA=;
+        fh=tUTYCbTOUI69DxYKXGXRz08XnPP7jEKRU6E5rS0DFR4=;
+        b=mZ9P6m8A8sPV/sPDd0iJnC7M4B1XZ6gmlFaveM4tfJYLI31CBTGoV/LeMMmF5iup/l
+         YzbXveSUiLoH6JTcTAusj5Id8qlm5p3arqDPUZ2Y8LFRpv5AQGTzJEFajUWNIETVm61A
+         zhY4PAhdNpIF2QP3B2z+kFu2VlLm99Cvakoh6cNbNUcAwHGkR/r0Y+9ZRYhQfDP+R85T
+         Zp9y3nKgf0QTsK+5LM1X6dFTIP1m5oqgZH7awPwwZYqL95LPHgqkoKcMvDV2MX999dzi
+         RkK4MSWz83sLK+RwQRAbHEPM4nKJVNUNDCE66h2Gk02zDsKFkt/wUdi6/Vp/xRzJmeR0
+         xSAw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=AAy1oDIh;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="p1n8ek5/";
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 167.89.49.122 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+Return-Path: <bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com>
+Received: from o1393.abmail.editorial.theguardian.com (o1393.abmail.editorial.theguardian.com. [167.89.49.122])
+        by mx.google.com with ESMTPS id af79cd13be357-9397f97294fsi203272385a.67.2026.09.04.08.05.53
+        for <mike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 04 Sep 2026 08:05:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 167.89.49.122 as permitted sender) client-ip=167.89.49.122;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=AAy1oDIh;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="p1n8ek5/";
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 167.89.49.122 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=editorial.theguardian.com;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=s1; t=1788534352;
+	bh=uJ24dPcPQYwIolthetFohIP9WoeTPwHQ6zcFO4ZPHAA=;
+	b=AAy1oDIhMnngsl28RKlZ4C1M9lKwNj9mfX+PaMkWxNIBCTBz4lvTpcX5Y0wSNWByZLlK
+	O5yqY9DZqRVvHYl8VcOS2GisF9UbeTrUg8cJJiFHTAYts5hj1QB69tNixEwJSU+1hm3gpu
+	rWA9ekj8lH6cJ/ObgnanhaWcLideAdhe/qCPonvQ9GcjYWcsBs+A0K5kXmxYdREozWp6fd
+	lDoUCh/LqV41xWpAtBOAcrCNW3y4wagyC4W8C62JFJryprpiXQBChCMtCePNIUuQynSsC2
+	WmL4cQVVT6ww6Z11d/+HWJCwjVkD3I+nXUlK+BDRUro8Po+BtRDbd/ZKZqRD9rHA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; t=1788534352;
+	bh=uJ24dPcPQYwIolthetFohIP9WoeTPwHQ6zcFO4ZPHAA=;
+	b=p1n8ek5/0p4OMp6XcQVN7JNQl7C1mMPYtbKhxVDSF5Jb3Sv3ZaWAjtjEzkA3Jhmd0is+
+	llQpr+6DRhSHoh/8+fODsT8SX+WmT/YqXiYSx05ZyBbGIIjU13Kn6h8Wl13cu55PLWhDZx
+	FjuGI+z8IncoV2p/+C812Y4My13FVDIhU=
+Received: by recvd-746c86d64-vfxbs with SMTP id recvd-746c86d64-vfxbs-1-6A9ADE50-157
+	2026-09-04 15:05:52.648204261 +0000 UTC m=+854040.537802038
+Received: from ODE0Mzg3Mw (unknown)
+	by geopod-ismtpd-16 (SG) with HTTP
+	id Jhr7WrnwSmmywG3rpjVtPg
+	Fri, 04 Sep 2026 15:05:52.591 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=dedd882ac1ee81ab5bc465d4c6bbcd947385921680f39f42fcd2e684ce70
+Date: Fri, 04 Sep 2026 15:05:52 +0000 (UTC)
+From: The Guardian <info@editorial.theguardian.com>
+Mime-Version: 1.0
+Message-ID: <Jhr7WrnwSmmywG3rpjVtPg@geopod-ismtpd-16>
+Subject: Football Daily | What you =?UTF-8?B?d29u4oCZdA==?= see in the Premier
+ League this weekend
+Reply-To: info@editorial.theguardian.com
+List-Unsubscribe:
+ <https://profile.theguardian.com/unsubscribe-all/13579145%3A1788534352/4266d6a7f78209805eaed334fa6326faa067d36b>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EH=2FXI28ruo0ozWDQcpBSyaYR+tUix=2FHrsngcfNTFfr7ETe3ubjr340jdBR?=
+ =?us-ascii?Q?S=2F0glDit9NpIVoJQO9P29qVNgxtUtdpxkg1oZpY?=
+ =?us-ascii?Q?leUJGPS1G3BxZy0Mw=2FZFZrn+3ygArv+ZP00eQ=2FL?=
+ =?us-ascii?Q?j8ov5rUVvfDp+cojxqxtzz67LSTzBQbig+P=2Fpjo?=
+ =?us-ascii?Q?EvP6fwhOIyPWIcOss82wUbffvqAg5xjam=2F5P=2FbM?=
+ =?us-ascii?Q?kCWrMTy1GQX2lVVCLovCyQQvvPmp4s7djxQpGrt?=
+ =?us-ascii?Q?MK4PwcXmgiBay9+E6Gw99rySnQ=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDrjDW6011yC6XOo?=
+ =?us-ascii?Q?3uya5MXfsOL7WHPxHRlUxRaiTOksLcNP9yJNRXs?=
+ =?us-ascii?Q?xUVAj4ZquRDOucTH=2FloERn0GQ+9HzUrhgSy8ZFJ?=
+ =?us-ascii?Q?i7G8rPAL41HB70HSOlU4Ghv0eq+NIVsB5O6rEZf?=
+ =?us-ascii?Q?9GdxMiPc4IqdnUnEGFHt9mw8Wr9HWME3h8lduil?=
+ =?us-ascii?Q?Ct40jrRtkQz25U=2FD0hgAaKnj3k8mtZpEK0Smh5h?=
+ =?us-ascii?Q?hoTnuzDxE9t5mVvEq9Vo9UMaMezqU3BWWW24t0m?=
+ =?us-ascii?Q?0ctX=2FOsGkL86A+Lf1Pd2RQRbo3X0oaF+vdNrETa?=
+ =?us-ascii?Q?VNNUfVpiMfkle2oxFI4a2AKFlCKR+AiEudWMCUY?=
+ =?us-ascii?Q?MrmlpsbD6x1nGOruojufQs7WpsV0BZjTDaXn4o1?=
+ =?us-ascii?Q?2Y1UynIaiLTmiFqM8oSPRABmZu4tPcCst58VFhI?=
+ =?us-ascii?Q?LEFeSLZ5yJNJMA+BCQaSiTPTKR1lqCUgGZQpIbf?=
+ =?us-ascii?Q?qBLi4AOY3eZuEsZSZvwrTI371gxyBdVdIcRJxZS?=
+ =?us-ascii?Q?y4dCHRXog=3D=3D?=
+To: mike.mcconigley@gmail.com
+X-Entity-ID: u001.BbpwILxocfqEYp+CrGsJkw==
+
+--dedd882ac1ee81ab5bc465d4c6bbcd947385921680f39f42fcd2e684ce70
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+
+
+
+
+
+
+The Fiver | Gianni Infantino presents his big idea for peace through Qatar =
+2022 | Football | The Guardian
+
+
+Gianni Infantino presents his big idea for peace through Qatar 2022
+
+
+Like this? Forward it to your friend(s)
+
+
+Gianni Infantino with Vladimir Putin in 2018. Photograph: Michael Regan/Fif=
+a/Getty Images
+
+
+Niall McVeigh
+https://ablink.editorial.theguardian.com/ss/c/u001.wtfWA9uPAn8i7Lb0U_hU2h_o=
+3_RzvBP96KH57mePgVEexEVtZ6pn9XO4o8iZ_HOaMlrNl40JKZXERrPPJcLvz4xUJeA-cHPU0df=
+k_LCmjYbicugfLVZCOVhRDrs3l9_xexdjzWg1a9wLQ45npOS27loy3ktQx_R7eVdXHbFiNVGMgz=
+J04hAFzahph_aV5K151Z-VgjJR5BT_a9IpS3WPvA/4tr/Ac2BGRD7RMK6xIEf25QV3g/t0/h001=
+.3VmBwKJfu2bdOjER_No6LtHx3k4551n2EWhcCo8Afbw
+@niallmcveigh=20
+
+
+STICKING TO FOOTBALL LATEST
+
+Gianni Infantino might give off major Bond villain vibes =E2=80=93 the cosy=
+ chats with unscrupulous autocrats, the fleet of private jets, the impeccab=
+ly lacquered bonce, the name =E2=80=93 but really, he=E2=80=99s just a nice=
+ guy in a tough spot, doing the best he can. After all, he wasn=E2=80=99t i=
+n charge when Fifa awarded the Human Rights World Cup to Qatar =E2=80=93 ha=
+ving taken the reins in 2016, Po=E2=80=99 Gianni has had barely six years t=
+o make what little difference he can as the leader of world football=E2=80=
+=99s governing body. Finally then, with the HRWC=E2=80=99s big kick-off six=
+ days away and with tofu-munching do-gooders adding to the chorus of concer=
+n over a lack of tangible progress in Qatar, Infantino had his big idea.
+
+Speaking to G20 leaders over lunch in Bali, he called for a =E2=80=9Ctempor=
+ary ceasefire=E2=80=9D in Ukraine for the
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEGX5DeS9JLM0qw1_52V0QW8G5zxpyzEJvUMu=
+yvpyVCHUv_kbABtBEUZCndCY1vnKBRd5KdvbKfLiwDqm9njzAOf1vsab3z9jQIWB2bNBKatqQbU=
+a9IfS1CAzqJ0N0jhR1fkqfY3tOEfY-MzNQc19m8qbiTvhE24wd5MMpQv9k9c1IiF5fOZLXwsOTW=
+SffoCwe7B-RZ6nFSnduzBgL6Q95EA/4tr/Ac2BGRD7RMK6xIEf25QV3g/t1/h001.IT1utGtoKQ=
+F19mtXsTaYnrE-9Z4ZHe7ojDZmY2BUjpY
+duration of the big bash
+in Qatar. =E2=80=9CFootball and the [HR] World Cup are offering you and the=
+ world a unique platform of unity and peace,=E2=80=9D Infantino cheered, as=
+ various suits asked to have whatever the grinning bald guy was having. =E2=
+=80=9CMaybe the current [HR] World Cup can be that positive trigger.=E2=80=
+=9D That=E2=80=99s some serious blue sky thinking. And yes, we=E2=80=99re s=
+ure critics will be queuing up to =E2=80=9Chand out moral lessons=E2=80=9D =
+(
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEM_9a6Zw6Tt_ezgI2JlGLK8asgGXmaebuBO5=
+CCa5xzyCZRqK0iVrIB3S9iErWd4v87uZsjYKkDI9oHsDkeL6UDCU1xg7p2tSXmuayv2ffL9mpfJ=
+oz0XJBxek7LMcO-kpk8CDlp3aToCJjNfTIJEhw2XIi-5V5PoJUi-SEb-AQDEitlhJJHltfHjRNC=
+Oo36gndub9FrbGflS7mCbq2rS0pWaOI1jUcDkLFTOUCGBdOKwuZBKEAssVZSElukIKp95AX/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/t2/h001.xgOgWmkt3bXURALEk3ZwNCXByAvFIAicblTYUPrMbYs
+G Infantino, 2022
+), pointing out that a couple of weeks ago, Infantino himself wrote to ever=
+y competing nation, urging everyone to =E2=80=9Cfocus on football=E2=80=9D =
+in Qatar and =E2=80=9Cnot allow football to be dragged into every ideologic=
+al or political battle=E2=80=9D. Presumably, ones that have nothing to do w=
+ith the 2022 host nation are OK. Those same hand-wringing haters might also=
+ suggest that, as the recipient of a Russian Order of Friendship medal, Inf=
+antino has a better chance of getting through to Vladimir Putin than any of=
+ those sat around the table.
+
+Said tedious naysayers might also suggest that focusing on the plight of mi=
+grants would be a better use of Gianni=E2=80=99s time, but he=E2=80=99s way=
+ ahead of them =E2=80=93 back in January, he suggested
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEwpMj6UZXVAv8nGIk3nIwmoenNU12DNt1ciE=
+-4YsJn2ThpwtBY2FSMJBDTFqppILDFRZKXOA_sj-RaBv11-2aejrSIs6jWrBpvqB92nD1t3s2x7=
+HRoK2ynLyd5_48l6W3m1-3yyzSXAJHzePEoVlZseeV0RSWZQkgdcZJ-KcuIm_YDzFvYLFNuWB4b=
+_cwcbE6vgExg4avj2aoAkZFvMd66qL9RYjhJYhU1rSYbD2eIXl6EhBaP6E-VmxK-XphneJhSQu2=
+daOluYKF3nhTbZnw0QUj1197ka9PK3UHtE34B2s/4tr/Ac2BGRD7RMK6xIEf25QV3g/t3/h001.=
+Eqis3GTC3kClMWbWugKEz-AYlL7TgjcEo8B5sqcKVno
+a biennial World Cup
+=E2=80=9Cmight give hope to Africans so that they don=E2=80=99t need to cro=
+ss the Mediterranean in order to find, probably, death in the sea=E2=80=9D.=
+ Yet Infantino seems less keen to engage with initiatives that actually hav=
+e a basis in reality, like the
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR-ia=
+y7xP1nX2ee5wRfYUt7uSQ8LaobzMDIPYu6kzOHrYV3BbKE5UktD_2BXZWpPK6MPvkk4Lfm0lMiY=
+P-FJH_xz09zorBz_m3INgnm0Ue1mH-N-IKejndO0qgzS5A74vlpuZwxVuW0thhVB64FKArwG74f=
+bFIQ_3OetgO9f17HJ8oF66NYUf1BkGS5CwVQbu_g/4tr/Ac2BGRD7RMK6xIEf25QV3g/t4/h001=
+.YpkndpXnpU1bjMju7s823kchfQ3R05QLIcJXf6D7B1Y
+#PayUpFifa
+campaign, led by Amnesty and Human Rights Watch, calling for support and fi=
+nancial compensation for migrant workers in Qatar.
+
+
+The scene in Doha, earlier. Photograph: Giuseppe Cacace/AFP/Getty Images
+
+
+Infantino addressed the issue of workers=E2=80=99 rights in Doha earlier th=
+is month, breezily claiming =E2=80=9Csome criticism was raised, rightfully,=
+ and changes have happened.=E2=80=9D Since then,
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSENHzxdCDZHERqxNMawGZalR20iZ0ccUpiCke=
+f_PjPph3RVYcu6UelktWuBrMIIWIm7TjxzUD6n247qzHUR81KVgys3MaWJZGScmQ0oBP-tCq5r3=
+OVefSyd9KwhqAZRSX-mAgicfAMxIylUcl2WT10eXf3y8OoJOZNd4NW3bogKqOg5XrsoMRi8e0uM=
+XAXm5STAwcE2NUMMhTUNpkPP0HiOzbNTARdBNX0Yt8aGhUf03WL_q1OWw_OKF3eSu01IKMyxbUo=
+NurDFTKJHNCKZLrQ7w/4tr/Ac2BGRD7RMK6xIEf25QV3g/t5/h001.ThRKIppviY54VDjzucGVV=
+TLWXs1LBhwYS9fDPcnCa_g
+10 European FAs
+have collectively called for =E2=80=9Cconcrete answers on issues, [such as]=
+ the compensation fund for migrant workers=E2=80=9D. Infantino has kept his=
+ counsel since then, perhaps wary of an ability to lever his foot directly =
+into his mouth every time he opens it. =E2=80=9CWhen you give work to someb=
+ody, even in hard conditions, you give him dignity and pride,=E2=80=9D Infa=
+ntino
+https://ablink.editorial.theguardian.com/ss/c/u001.HesXJ57d0x1owJZ-aZPL3fz_=
+4wcsBI-pQxT3dTgAgjp2XdQTNgUNTxSrDzVHFD6vGfxZRXfTUHM70ivhrcsnOAdVhc0VbUY9jw-=
+2SiY0tmcBjRTSR7ZGwE91dFgjn_c26IPz9CBnGc6OrUYZ93UXlJBgM1e9I4hQik88BM6FxIbFJZ=
+P261bhBFFYzOlQTQ3z4csvFhqvie1w4PfG_7WnBE8laY69Urmpe4EYhz9NFZpSM3cnIyiFE8x-6=
+ROWfE8GOlyHaR44eS4T5y4cPm_jCcelBKB1jv0RTC6qWgZ01j02BTem6Jn4rUBfDSgdW1QD/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/t6/h001.7VwahlSmLIsRkIKtJnU2ymyKxu3fdI1NvLwRy-6Xg9A
+said in May
+, before expressing an attempt at solidarity with migrant workers far from =
+home, toiling in the heat of Qatar. =E2=80=9CMy family emigrated from Italy=
+ to Switzerland.=E2=80=9D Gianni is nothing if not a man of the people.
+
+OH FIVER, WE BARELY KNEW YE
+
+The Fiver made the fatal mistake of stopping out last night =E2=80=93 turns=
+ out a whole 2.5l bottle of Fistfight, The Fiver=E2=80=99s favourite 74.8% =
+ABV turps-infused sippin=E2=80=99 liquor, doesn=E2=80=99t pair well with Ga=
+viscon, hence waking in a skip on the Caledonian Road =E2=80=93 and when we=
+ got back to Fiver Towers this morning, we found The Man had taken the oppo=
+rtunity to change all the locks. Poor Fiver! And if that wasn=E2=80=99t bad=
+ enough, upon peering through the window, we witnessed an army of clipboard=
+-clutching marketing milquetoasts clearing out the desks, ripping up the ca=
+rpet, and changing all the signage, letterheads and other associated brand =
+paraphernalia to Football Daily. Oh milquetoasts! How could you! Pity poor =
+Fiver!
+
+So there it is. That was then, this is now, and here we are. Football Daily=
+. Football Daily! The Man=E2=80=99s done a proper number on us this time. P=
+oor Football Daily=E2=80=99s a-cold!
+
+QUOTE OF THE DAY
+
+=E2=80=9CI was there and saw everything, it was a funny moment that was mis=
+interpreted on the outside. I understand that the images can be interpreted=
+ in many ways, but it was a joke between them. They have a great relationsh=
+ip because they play together, I saw them all day yesterday. There is no pr=
+oblem between them=E2=80=9D =E2=80=93 Jo=C3=A3o M=C3=A1rio insists that an =
+awkward handshake between Cristiano Ronaldo and Bruno Fernandes was the res=
+ult of a joke between the Portugal and Manchester United teammates. Speakin=
+g of which, here=E2=80=99s
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECU1cRqabsOz8MYwPiVqdMlS-dMEIRGrmts5pwqkuJil-_M1N1NoPvF2gv=
+zs7tyZl1Qn4J6Jzt31q4P0ZU-rx6naQXq1LZxSm-uW-H50KObYHtamFl6o8kUibBiKXSnDVuG3U=
+s_HDqPnrQQVhc2pvaAxSug-uTB4t1aLJn-8OrYs6UUwQ-7yxzQj7mfAuq1BTkJDcPSpkyg02-iy=
+PjEQ34MSYSSrUgmAcglwSEt-Ma7tRgr7BBYZRJNw2VDBBjFsSuBHHJjdLqWHiAcH49KlMNI/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/t7/h001.W-WjhmS4zpKnSZ24nfejOyI0y1j8-VW90-bsKIex5cs
+Jamie Jackson on
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECU1cRqabsOz8MYwPiVqdMlS-dMEIRGrmts5pwqkuJil-_M1N1NoPvF2gv=
+zs7tyZl1Qn4J6Jzt31q4P0ZU-rx6naQXq1LZxSm-uW-H50KObYHtamFl6o8kUibBiKXSnDVuG3U=
+s_HDqPnrQQVhc2pvaAxSug-uTB4t1aLJn-8OrYs6UUwQ-7yxzQj7mfAuq1BTkJDcPSpkyg02-iy=
+PjEQ34MSYSSrUgmAcglwSEt-Ma7tRgr7BBYZRJNw2VDBBjFsSuBHHJjdLqWHiAcH49KlMNI/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/t8/h001.JI6b3GoRNvVaKvBJqBeCNP0KCxJ7fB-JUei9CrrCuyw
+that
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECU1cRqabsOz8MYwPiVqdMlS-dMEIRGrmts5pwqkuJil-_M1N1NoPvF2gv=
+zs7tyZl1Qn4J6Jzt31q4P0ZU-rx6naQXq1LZxSm-uW-H50KObYHtamFl6o8kUibBiKXSnDVuG3U=
+s_HDqPnrQQVhc2pvaAxSug-uTB4t1aLJn-8OrYs6UUwQ-7yxzQj7mfAuq1BTkJDcPSpkyg02-iy=
+PjEQ34MSYSSrUgmAcglwSEt-Ma7tRgr7BBYZRJNw2VDBBjFsSuBHHJjdLqWHiAcH49KlMNI/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/t9/h001.ob35-iIGlhg_vsjlBwHJVipixmXqXumTSXiO99LzHqk
+chinwag
+.
+
+FIVER LETTERS
+
+=E2=80=9CRe: the Cristiano Ronaldo interview given to Piers Morgan (yesterd=
+ay=E2=80=99s Fiver). Yes, it was a great chance for =E2=80=98a narcissistic=
+, self-serving egomaniac=E2=80=99 (to use
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEgXuhWEKg_IQoaItDsz0aVkzb6MuRtRqCGEg=
+nuaw5DSLlsgSlEE08d6BrVSK0rlDpTzSfsTz8mIyfIyNNp-jrT_ZepHY4CCM-e2jlaRNg_hd2Bo=
+9hlM46rKcRX8-qpY-87ciQ8K6AHJNppqhrhOwDJOxY0aY0XbgZvKFQkvYcrBSIT5RBrTRgiRTpX=
+wasqJVZyTZ0uaMl6Ody6Oqss-3YCP9VBBbVN9_PaJGZM8fpTx-Rr1Lsu0Ciyb6IbhHBDQjrJU7w=
+DsbStjOfuqRI2wpdrA/4tr/Ac2BGRD7RMK6xIEf25QV3g/t10/h001.F2SVA317KyDZxdevHL_r=
+GmGVG4oLfU3kNIbe1xGFWcQ
+Barney Ronay=E2=80=99s description
+) to make it all about himself and he took it with both hands, but I think =
+Ronaldo is not entirely faultless either=E2=80=9D =E2=80=93 Admir Pajic.
+
+=E2=80=9CFair play to Lufthansa.
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR88s=
+yZRyZZIPRsCyoAZgXSrxwqY5wxytoM5kgcAHWfm9fBQwUo3EYOC8qtUB7Save2X6qVmss9grnWC=
+aJg0MURcPmR1tE-QwTWbIzuPAC1_MSW2j3Jhn41KzPW_VgC-8uzGZVBfl_EW167F8oXAZPSixVb=
+fgEOQDaACEMEG8xk4w_uR9zqstiJiKt_hHbgGZZO9PmB6qPmkWC9srDHDcxJY/4tr/Ac2BGRD7R=
+MK6xIEf25QV3g/t11/h001.48ogbe6_e0r91yCPJUFKIeV0vNob4A7jsY1DIONHsqg
+This
+is the plane taking the German team to the HRWC=E2=80=9D =E2=80=93 Jim Salt=
+er.
+
+
+The Germany team head off from Frankfurt. Photograph: Christian Kaspar-Bart=
+ke/Getty Images
+
+
+=E2=80=9CThe admirable pedant, Dan Westacott takes The Fiver to task over t=
+he fibia/fibula/tibia controversy (
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEgXuhWEKg_IQoaItDsz0aVuC2ly0DvuQ3HNr=
+_ttTkTx-3AfTp9308ONqnUL6bDKM-j1U2A2TVR7kr37tzZ333hsQQ5kOW_S7LzITX7f1GGLxTQi=
+Lu-ilVNIGPkTf0m6BXT-mYX7-qYbel-nF3QAuH8vfvQet3IK4KCssxxOXqE8MGKw8qFnx-3SFTp=
+DAuBDY47rNDcqwctj9pS45ZNf_LeyZzNwpt9-Pellr1p4W15dg/4tr/Ac2BGRD7RMK6xIEf25QV=
+3g/t12/h001.X_V_oj4RD-klhpOnotWI9rc3Rvyv6ZVL5rUjhCEp9Yc
+yesterday=E2=80=99s Fiver letters
+), only to ruin his short-lived reputation by suggesting that the fibula or=
+ tibia of Sadio Man=C3=A9 may have gone twang! Since when did a bone twang?=
+=E2=80=9D=E2=80=93 Adam Forde.
+
+Send your letters to
+mailto:the.boss@theguardian.com?utm_term=3D74a748e4b8e110828c18f39d5a2b0182=
+&utm_campaign=3DTheFiver&utm_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver_em=
+ail&utm_term=3D55272aa72d2eb1611c2c7da0d82ff8f9&utm_campaign=3DTheFiver&utm=
+_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver_email&utm_term=3D1b24df1f5360e=
+aff87d33d10ad52d105&utm_campaign=3DTheFiver&utm_source=3Desp&utm_medium=3DE=
+mail&CMP=3Dfiver_email&utm_term=3D63595f88d7fe7e91b58d4d825ef59e04&utm_camp=
+aign=3DTheFiver&utm_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver_email&utm_t=
+erm=3D635aa25cfdf60167aba7e6d066e63a11&utm_campaign=3DTheFiver&utm_source=
+=3Desp&utm_medium=3DEmail&CMP=3Dfiver_email&utm_term=3D635bef3ff6ccaeb70568=
+a78228c6bde0&utm_campaign=3DTheFiver&utm_source=3Desp&utm_medium=3DEmail&CM=
+P=3Dfiver_email&utm_term=3D6361455ef6ae0cf08bf2ff49f9f5a6e5&utm_campaign=3D=
+TheFiver&utm_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver_email&utm_term=3D6=
+36298f03343e7237d4e96a0c8571588&utm_campaign=3DTheFiver&utm_source=3Desp&ut=
+m_medium=3DEmail&CMP=3Dfiver_email&utm_term=3D6363e51e02ff3016acbeae5079b3c=
+0b8&utm_campaign=3DTheFiver&utm_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver=
+_email?
+the.boss@theguardian.com
+. And you can always tweet The Fiver via
+https://ablink.editorial.theguardian.com/ss/c/u001.HesXJ57d0x1owJZ-aZPL3dMF=
+Wr92HeUFQk2v_wBSJ_UtgE-pwHb4UgXNOWZZo0YVNxtE-j_wc1lyD1JBeavjZilHQIL1o4k__8T=
+ztQ3_XRPxDezdQjqRyUyCflNXhe7T8AjeDj5NSDGVTBLT_dYNgU0mGNy_ZYvKx8FCun1Zzofl0r=
+dnY_bmwjK_BCk8Gz0wwEIL-bbWHKxxOXWI-QviIiYsPwUuwJwFRCQq6BkqrKbOQSmkgZ1WLrUGR=
+Iyf1NbTykBnhxQwPVYtBxUjvueh5jPjSh2zMr-sL4fJQM16P7w2sNpDcxxPPeyFxp4NAWZu7ZIk=
+YpppuQMF5zWQcGNUqI35Pm0dIjfrr6stP3N6mJVFfFzgBKPqs8UTcfPMQRD7w57kpw47lWfNfbs=
+t4uJqqq2s-ePhG6tW8xxVhPFzuf7Hi3SyVUIBX0v6J_a8TPWRjPJipVh49io485SwtHXFKbFQy_=
+bciP4hLycSJ1p3EuQ8m3SRUsrX1xEsJueoqBfS91S-wt1tgLds-PkAulbw4VL1CWak0VFejnixP=
+RfLUhdwUoktWIkjW4-PkHEw0TPvr7f4DVv1PZpPXCq7CQrTJ9lMCOd6Uv-P4bbTSCgJee6zCeTD=
+P26niKCkvGQpJKaw3W5I2ipHoPN4cH50NaDNUqIhX4O-T3zQvJ8d1RrgbQtYN4iAdEwdYWT_gNe=
+7C9PNveMHmSQcy-aivGkMb9xn6siRO9uEc3uFkURaWeRWMYZWDeInNdaIbs5PwuZ2Frkc1vJrpZ=
+29V94LsvmQs6Ts0TJaPERoAJXzsgDr4xBT1flqk20kizghkMxHhwjuEm-USL9NcEUFhbwm1QmBl=
+X77VaoRnBMoy1VbKYkhAdgwNCxFILUFE3Sd0LYrCcq37HphhMMNENj7TSfFdmbxMnFu7I6cQfUY=
+_kA-6gF5-nO3voGFjoI_yCr2vpoW9w-4ecGF7sOYd3ehFV0xOCgY-EVdaMG9r57aPkCaQVmCcjT=
+VNZt2VtQITbrY2QlWfjmYaviniWLH4_OAAfQH7b4zXYK5b_yi31MQj76PzQPqs4zwZZBbb3XlC3=
+Q4qOaho00xQ_XjyqLKTQmyXMy4ZbcyWX2wbTUqJKoyqOO_QSJVra-yDRPgcdqdmmVxetoj0SXiY=
+BP7p3F9nT3aycyI0lY2dEYiMqyF4kfdI4lWkvfYnx2swUobs2-1fGCsDHoRv8TugxUTy8To4avc=
+z1TPevPC4_LhqxYe2yeIycAK3GrAmE-EvEXZGh7fH5YNarKtMwX5cp43VXjPqkJL9zLTczuXQYP=
+2rcvJLW7cdHNDIZdFhID6lXy9ttlfQ6YuSq0y0wIJ-x2Uq96N0lTZ_xHawbeLCjJ7QQh_cUE7eI=
+ZPie3QZUTcOaSzsNwFlHKheKjbzqhn59K5I2PeOQsnn7UWg9m7R5NTRj80j88IoF9Yl5qHxurKf=
+2bUpmvoSBsHyJtsMQiPNAKYFZHIg0YFstz4xPr6jnExnd5QJeJLY48aho2PIgea5LL6uiNJbOKA=
+QonOrI2rrIAygQPKQf7JuM_kaCjMTMRmqcnZxcjeuafln4ICVFY-DuuwTcOXTtJi76Veq5i8CaR=
+0m_Uy_-Oo956GDQqPfArDLJWy4Z_ScBgM3Llbneao_rAzKOGTC1kKYbW3DmDCd2xqYWwwtfiMND=
+FHjrB4-JtyTxE_jPeCj8Q98TiexNiXSWiFlAC1Dw8tROe3KsRqCtiKQG_GD_J9j-L32-N0e4-5-=
+GU9ymRCjw_bM4RZtjxBXEdwQGCfOOt4geHaZYVEHuDzeEUGgTNoEFhbR_GhAljTSygwngx1tNzK=
+iNmNI90amYevfnLD0Dt1Ks7Ph20jYq3x1MFleGHrdNTiKsrlMU2d4lg0VQgX18yovB7i_FDoiVK=
+nRf4IOpPaQp-Mepo4nqvO8KG0ilwapaQlxwJNqJQ_QxUHezJEV2YonLb3CYXxaviWD3NnBeS1cS=
+HuKCuUZfg-IJlY9dy6JUsZXYeJ8KONWZKZsBNAmJUeCJME8szPArEduI5-PlxaQCJVqvfm_9PmQ=
+Lmln2l_XkaJJ3MjLgscs7H6spA4dTewc7czHgD1aflbJAPOyL5JpZw9Ugh05SFLeOMBR0W-YCEq=
+R_xgBEdzlJnIGcxW40XaLX1-JivJbRM1uqb9aRy3tgH6t64PknffmvYOZPczX2Wolb96WckCzlv=
+an0zXcDzp-Pf1u57kNkuZl8sg0rJ1BCBcWA_YLokq0rNiTi6m10Q57prXeCdjJ9iDU2aQEIIAPD=
+E83QOl-tyUiQ1Q23XadUip1wzLVnlH0SRj8Q1Z_1wLIxVQdh0WrCD4jAx3TrSCYhyvj5GkVu6yC=
+JeTJxHLr-9Ffj-6taDNPpJUcKgnfJUOYprUQyAnLPQg-99ZIOPvuf1VR7ixD_Xjmi9kNQgSdSGy=
+TCxrGL__OyZ1BoSGR3q0hfHNNhZKAYaY0TyVD6g73vjvH_hgUIcLC1Hf5XWFkKqKweFNPTxW7g8=
+Q12D9DnHgCgP9w7TECuxfbLPi9WJdBGQHqUOMMbaYdqmww_i-TBxJTvUgpVCraFO9ZCf9oDcoxy=
+VfvEsoF95r1NgyM_5kOOKTcQV-dXbBERZseqUrIGdiHhyfAEMk3tHASWJ0s7ywGvj-nZi-B6JPp=
+6x_GxImVZQUFn_gm5KEuP6Xq_dkD50cGrAgqJ68DOw6xa-1AblgGnQ-eyonIW48ky4k1FPyoulD=
+IdOWckZl9sq9r4zOmilSDErhoCOIOMObhbDYuRa83-itT7bMXOZdF6N6B6o2pHT6NfoG619km1-=
+1PG1K2V2xTUwNiV7ZKDA_qZancRkkYgDFs2IU4c8QoIRgW7LxTaehJ34CzfUgEDPTAhv3qxXXMQ=
+oa66wof-byYF0TEpLob8_xQGxzY3bw04uphdHLuybmYLFHmr076OwBPvqUYmNWQzEVjUJP418S9=
+gwhb6FgrFv6TdZLu_1iOg8wRNDtkLT9PC3Pgh_uq9ITu6vLk2JQ2wrPEKSh0tW4Nc0fa6XqC1ds=
+J1JS1M2YQXs-Csj3ooPrzcyz9uNRYY9n_F9Y3t2aSiKFk_vAIkfSw6hHfTKPSqy0CNrqYMibpP1=
+mHfcBOMrD6iM-YKu90LxZYZOu8Kx_7kPsUKsP7TjEaVvVOgZJ2dhuwrs_GvQBAa5njhnJhLT4BS=
+brCGFQXrGbbsBN10SiFRB9kHM7AeYipT8tYnN6rOFdv-UpMpVE4bhA1HxDxOKniaX2ACwQzZ52X=
+WLqm5qdEjEnqdu-NvXWEYC0UZjzLdYbKvW8yFV6XD3lSwURNAsB4Buao8Bn6tlcSFmjhzoSyv67=
+zUPCtKENeRnbsPM0lcV_tcjz4s6QKxnSx99bQJrDe34Z3-XITl7Xf_T1XeRZ8Mlpsdcm4jlaOqC=
+nnCE3e45Omy1yBMSHIC8gtdriHlLr-SeoS8__lHTl2rK944xTiQ5D3d10-_ybG7DOnmvZj35ezI=
+k3EsIluX4IoKnrGzVNqGVVnIQBE57dQq9si_n63x5h_TFZF3IIFm3wWjkwe-SXMyCSqWOUYk8R0=
+S1aRF-eqTsIE1udcL2bFt1_1R3g4Qsot_jQDgf0J2c3LqzXM46IRgkcVpGVJUFexYxrbPAdZm0w=
+a4bDaz-rayputNeMoXF94X1Yeb_x5GrIAMvLZrHNmbCbIxwGYMae70msb8xdgQXaf_GhGYsd9kM=
+oHHHFzmFoqn1g0Uu-FpfC74r3xjbn40i3nS373kxI4T6Wx-97gNbPjYyzRpBKWO8-pwY1JxvSkW=
+B1taIXW7HGzRI6WgedJW1UtypsKMRuC2VdbAdBOxhpB60NbORIM9FZ49_caDTuemGKm5g_XdlUF=
+ev0fpKQXv3AmFUOjQR65ZWN1vSqbJ8Y1QV_cCM341XBCoUXD4AMzl4QOfucCJ4f0KFrqduMZSdF=
+mM61BRjz2DFhvnhg9vU2m0JSAyobzux9zPjKXHccFwSV8c8FuulJeM6ZSEU_duN3LhbeLF2YyNm=
+onX74HD-kuWg9wUffvk0vuLkllH7G8o9QVOh8A2SJQFqgfqiLMchNZIzLZlKXz_5S_5z4uTgtw7=
+eUjayoEar_7i1BNpWb9LHhT9pXWnZxIA0IVamAVw9369487evN78ZvZkUzir_5UQPQEP1zxCWBW=
+mkT5_1aTZ9vY6UIUnwi4m5ESsB8IX_2nOtaQFmJWWIV4E3YaX7APb0Jgmz6qM5-IxN-dO0f9xAP=
+PWhfHjUMx-v6HEfuUw5TAe-nnX0Ikrj6O9h9gPuxmApQPK-hufTdUR9aDnV3qNacA7OHMVaVuT8=
+rplvuloXnEpxKreJ2z7boqFMxrWBdBXYDFXQuLIEsikMscCqk5-qX4V_YYf3MmWS8DJ2s1EQnI6=
+EJHKXHaaq36Ab3FVXwtzah721LqI0_VMHnVU9b7BDh7u8kkCAmxzPua7hSzNpf5tCQc4kwkgaoy=
+sad0ogNEeIBDGk0Xex_ha6gp_EAQ5Yr1CJtBeWhNBSz0MDYfzWpgRxu3-acMILcB8TnrT3PxK26=
+F6Ve1ITAYA3U4kL2YpI3vU9gdt3VbCmc9yMZI9SQSafFm0gW6-apPWzy7tlzb7II8-SiR9fVZp4=
+lLet98LCu3YsqZU1R_MJrdIEn1NQUU3392ZtvqxNsKJGufP7Lhd3Ryh5i2XA_kq1VM0fcrp9eBv=
+qjo63wBeBOKex9VMZ_tZu9chFeO-HYHxqkO-3qNmja7vss8V-CuyvPq6u7MjOZ99Slpv1aJRRoU=
+agcaDXxGvGseLpOxXOeQ-TXIMPT1pD58T_lBz8-uzCOZhVCo0zH969fXQs0MfVkuBLmbydXhZUk=
+REGAIXAqhASvaW3HIeyb2oRKUZdRoSGSx-wexO0zajRucYZHJfXFYVpyG1JGcWKv1_znihwKlTi=
+NG7g_0PuOW8LsdFpWhlpBRLJ2U7MheGWY3Gld-ofZ6Sf43bHG1BzVEVgsmzBieGd91-UbRbWXpL=
+BMx7svkCEbt1tllIfAJ6LZLQKciupZB5x7TcoWpJ6RTxoB1rkXlreZW42jYbjA3DmeApYBLB7FF=
+mhicd_rKIxQ_6pTQmsdIc4byVXErLkUVmuPo1oleoxQg7QIdgEqHKaxOR0pehIF5mLybz_lWDYo=
+GtNv8FYmqzRDiV9-1x6y5UCmENo9KNKisL4kBBw_h4AiRqiFephHeVFa5P2_mLShhz5dLeDsRbP=
+-NFN6qS-PwuElmiJVNhlc3DqhWD9kReu1pRyMrs8sUnszPCCtUwaEJqDTxNBVHasnyDxru_zJO4=
+RHbSU1JDnI8FyHB-yAp-uS3jUHrrST5aXPfgYX1EIbqrorWemBgwJvYSa00XVAzLPccN9uNnvB1=
+BbYxsjPZ62_26WXui13M9NETBrZb5huY6JoqNeMTuX6HrUZipJHGBDNCYXZ4mQXd-HFyXwNYeFc=
+nkeIVetJ70MjLpJE0fEqbkU0mFcuqq2VcMUMOtjFet5KyuiINsAtKbDjjxQZHHuknwJ_5amGyz5=
+I1-58jCD9mtKOksLkeiXS8jyaWtrYrGpMv26SFtyJOwgiVAiyVho3oWwgSBXuNfwKPpTEIvlUDy=
+Zuwl6Igb69okVk8XysvBBnYxEizpLsg5nxzZjGcIQr95tDwqOUG9O20ipdmJNLa7qPWMBlTlaNp=
+5z0V7Vu_ohRGyIvod_ktzwisErTwwFOyNnMfN19Wavxe7XZzJ2lbF0jy6XmUb4qwXY_BbpPl7eV=
+EU_HzqdDcZmyW5UT0-UffKV16TNvbHn-HW-SWc7nTH8n4K1IZSl2zKRpVIbV5HRg2ywdVAByFpG=
+siTs9CNPem8iaHQUkt1hGs9XEOqF2kS5R8TmvJ1I-T_HctMXjW7UcALjzhL_x9N95r52r-7EglJ=
+eL0m2KVmXS6_W2uei-9I5VM-C-AdtV9eOtUhlYIaeSngNfJVaCqPFSBIzsI5AkvCoJJIGVGX1e2=
+gepD9kiUi3I8VNkYQDyF7857otPBacJo6bgfegQwBKV07KN-Z-Ndvg1-MCPT0GlK-PW2EsMdenB=
+R2_RbjU6E2Bwsc9O1K11u1Ku2GjRUalC5mFfkCzP_Q55Or46kxST5JjaVwYx52CJ0qlPSOlRPPh=
+RuGxIJ16f_DQdqgygyJXBRdFVZ35YxI_kWYRtaaojr11V9UiFKgalyc_putNeS8QAZM9KOVAag6=
+oe4wXkgjitJpRWMFC8K7-tbodzsWea7qR5WDSRsBIsdGWg9ICoaAZE4-csDztxC2_t2_GUQYJeE=
+olOs2_yJKwAQN-ErTI8MBdSSMmv_Cxel-gFF1s9Xa5gqfiZJXRF8Glt88zqd6zND-XatF2FPGwY=
+I0-ZfSgYSODyl9Eji_yx8AlRjk9ggfW90Mf2LkwyvbeSyTKXhu5QpDvcraMbzJ9WYrrptoFZo6r=
+RODe-mgtYjz8Yrgfte4q9aq-C0sWNfDHU97AtgWhXHO-oeRF9TqQd3AVMyqEoF5U3G143axXGrZ=
+4JOkrkjlXqRdDrV2baRVNPhcrrgdwtOLV6Td7hfZS9BdT1dM1SL8EUoxuHQAeOzFzGuOWiGM_vp=
+FOZmgYInfr_cKOkZRIxKWMlg3rCp6_AAhdLTrvm7zjfbbJ-C2FyreonzffOqigDmBgT9iCC8ZQQ=
+rVXvJICbrZUxOfi2UQhj0yoRNPr5lyvpJZ9Cr5MRUhEhKAQOsW1V7dril537LDb2XUgvjRMmly-=
+1C4UkfyKnMKXl8sBDGKh-JiukGIlxju541lXRabyKB8fAPHmV8PfINxCqGso3xQJNnzkUPv2SFL=
+jJNSp783OuToppPFgqeTwAVZEaL9ZJDrsWaCL0BGOD2TxWQU9KrxdkC79Lkl8Tt9B_VkCIQZc1z=
+U9h9m56_WQYuVZSh7DDVfbKVkpRZO6g_hAlxHT44_JoNXGi689TCVsjvK1pkxK0wi8-eR0_FtGA=
+tsN2PpMCCitwtf4XKAVLQqevVE-ACzSa7GaYqkrPKGJoLJK0HFJ93WuMXYySw84c7WJOJu_oPS2=
+e51oUjvD6CfWXNbf8bLMMngGW7LjPrTNyJYXTEKcmzT9IjXp0q4fSY6TAi5lhQqLhqK5BVYoMXi=
+RjBrdyFS-Vby6BfMm2saQjNA7FMtT99VK4kxHbfIG8u0acWFIEZh3qbK0UTLE-7YCXCpNGCkfSl=
+IoW0IyksOUoTZrXHMovsrxpREgODuRuKaCZp275s7SH6D2VzqtCK33oGmMFD_XaUlTxSYJ7IqTU=
+8PXIi23_oglNz7daahTzWO5mW5gEcEX8xpsomcJl2gNI8siJDaXQeB3-yLB21c8ngpBYhhHHAJf=
+vTVszTwojf9dGMrTD-z-maCunYAbJfUHWhMsedLMlXTUJVs9Z1J28drafTI6tVptQVlQHSzjVD-=
+eFVu-AISfNbnJp5VB0AuR-yO3Y0_sLFoGVlzzH5-hplIhoNJ3Vior3Qq5-SqGE88pjgWzv4a3vk=
+zRLp595_iNlWTPK0s0BNvBEvQjIl8RsgMmnUodFxDLHFB7yNUQKlvluscfDW9WMNe7lTLaxmr6W=
+FCvob0l6ajuDyUjDM5p-fCYYUAfmnbg-eZoYiIRzFm7Kd7NB4EyUB3xePkeTW8rhPvrVnVOV93Y=
+TeGbdECA0qaNnPVnmFCyFooz1Mai_UM6Cy0iKKErM5iSUXxO_qHUCsHYhHoSaf_zHtcqoIIN_UG=
+lzHKeWxQZJBgrHxqRdxsAsmbnvq33sjJSJs44Gv1EHbCVtRXzSmbxI-9Dxt4rWvUeF1OvT_TyiI=
+kZWJHPnF6CQ6B2TW3YqsKaxGbUnfJxNrqdpAWHeimZTJGxzyjf6mos8CPq1nZQqQ39sHyLPAgLL=
+YDvZ2eoCMemss4PCPTGZRxev9e9fIRwdirjPveCkz9RR6nAfXtW0S6l6i-YL60unybi5daobx9Z=
+oeSn7hycww5ZljC4qc0Ae6vjE1XRl-RWxtPMOB8tHFOIise8FxOIIJ0OIaxjjMA6agCuu_FMilB=
+aoQ-Vcrv1I79xMjRRmoojvTYXM6viZMB89apOD35fG_9gpyakYmlni2_Cf7pPmAdinilaeejM0r=
+_80h6C8AgFzQvlle2Oe-225_jO7vZ4u8My26xQlejPHiKxC2inxBMD2XLC0Pn-Nl84K85uUKR-e=
+vkWzoXduNYEMdwPHpe8aeljAcAXQlpDzs1YWGn2jemOMDCtUjVe-ZWnupCux-yTBK7Twd-HkrNX=
+d1Y_YInMFpx6bsuydipNWyTVmqWeI3bVGcD8U6ZCeFESVaJZmB6UtVnVpy3XXb6w05MGYqD_9t_=
+toYPIAyOM6Lff4-78l2j_F3JBYWMvzSbNTqnqDfC4jpsZwKT-bnKSmSOm-1UhLDDGScFD2tcuYw=
+IhzDrsd4eoQ3oegKHbz8XuRREZBb7UhxB_EVbdXmHWdtc5lG8qYjTXQoZnVl_op18nkeknp1rDD=
+5GOp8gp7w0NuQTd9Yi1xguA6ZAE63zIik0UQe18a6lSdJJI0n52dbiUxn8NOLevjBF_FswW1Rd9=
+ZpC-Y5_ll2DuodJuTnDN6YxReKG0dK0PAAPtQVuePdfU2Pe8AF0RQqSY-QxqrozCdg1LLZ4oo4S=
+vj-rDD_7fLqtkJAR0ipShRYT4GTf95_Etu2PtlXBHtrqe0hyQns0tOnfM3rVP5tcnZPkpn-jqYy=
+QvyGf0OLkKpHGUpg8RnGVsZG9l5Ze3EjMTWg2qbfvxDJdK7aU0qNC29mBi2QEIYYj-UTMtKBNu8=
+c1-_nHCElLapacyMk4DjInqKmOigf6AdxqpqD0_vsVvw2oP2kWTicRmR_RTSthK2BQvF4IylDQN=
+55q0GtENnE8axBjVckkDJUeHbWJnEjrZ8nv02AWXaWfrC7HJqFt4sBlQeL5soRckoLWxxOAJR1X=
+yBjr5pBAjf4VdOWH-aFjZevNqicB_zNsw2as8eVznbtNb8PaEW6dCd_0gukiXhUvS_6z9Dj5PHK=
+Olp-6pzS7x56_EdYoADEqhYZMWeMniy__w0eKxeG5I0OiZ8X3OowBanakjTgpkZP6544ZQ9OjyS=
+Ovr3Og1hsNfxOnt1cfERrDgYjxAqN9yGnLqyr_bAMwwIyoHHIpYry3GTTmVycZyf1nwDmuEQ22m=
+UsBldBOxBh0Z0fZWz53DcaWpp-JL84r1eLMhTfQeXL6UYouRgAltFHMRfag26EK8ly49XgthR3v=
+_AAOZwYw56LEQvKBXueX-kV61ynN7F8B6VVDEVDsKtsJ5WfjWJOZH79fngdYgU5SZUX2ujKfmHd=
+MnffRC3wo3w15SyHOy2bLqIApqmN_bYTzJyL0N42SEg-j6DqgsCy2ppxXFGt_dw4nGaFCraqS9w=
+ZkcaH2MAyuKPS3v8QMqhIukBuLlM_K7Jaj8AgcEczz3AEN8vNqBh1k5hqFIUO3nsta8GAyE-tcZ=
+uEjDhbwA2zQ0HOnnvsjfS0SkD9eLBUva-iaL_buoTUndwDd8xJPzOsFUM0mZGt-Bp9x2tcPo0-_=
+aiFa3rRTUO0UCYUIW1xwZH7EWgZqIn_OBZqxY1C_Y2tH65558SeITuB09hn3fy_w-XRr9tpeZiW=
+kPxNuWVEgoJHbXEIHfYvf_tBSPscTQnwM1VqRww-6nQB56q0oGBSiTrKSNHJTZclEyjOr6gjf6K=
+76PYWjrGWT3rbyG1kVAGcZ_rkPnAa6WW8VENpMu8N3ULQQmSlcNbkARHQwETiu86JZfdw_I6gJ9=
+ThPgSYjGIsZZltXc6-wKCqbPFakNWZSz9EQB7yj1XeKsSZJSPPzye1IoPp1sfkm659RMb_XP_Ho=
+LXBVUbzX2-TOsj9T2VlmVgSld9PvQN7fqnm55aUb_LUG6xGEKcOclIZMZV5a2mFhBdjbWfKQnxG=
+lNM49e_U0X0ioawMDCn2tRWcS1XPvdHUeZBYlfg3rEJBAVdjWNsfh2sPtjwR5YlScumBZlBGfMC=
+PkngSoXfPYyxl_AMF-9-IMFWlIrRk0H8VBwZYEIv5vma7FC7kumHEhb44CbrDhhtpTXVaqjM286=
+CwN3GKDWXcralaBN3yiI_2sfEDl1K9MPfUTbJnBaSiXx780HcGCiZZoznaY4Xi_qK17i4xXFoaQ=
+rIGdwVyyqtliax_YsEkIdlyQ07Zvkhxa78iZWQCcmNPrlt5ypDIVhruPyp-PB5qGi0QkyAz0met=
+Ms8T52OF79tO3FFGiQV5LNDGI-RGVd_8u2lkDpktGHqahA0xsvcigzi4F10ayjs5mE2r3GOXq4J=
+ZhXoQglG24lr4th5MTu_059gjBO_ql5MlYDXnrgyLTQ7rMJjwx5QIQv1Pdvy4Og_qqKyph98RAO=
+RQul6r6Cm7peRbq0E-r9yuekSRpmlLUSkapu1l2uKyRkAjjdu3ZeY0AkUMza4oHbUrPkfO0jUEZ=
+NlEQlsuLByEefnJzmm_pqICnwOTWFVxpln8v8qASacAvLyFflvFDOaspQvF8XIUKzBun0a5TxDp=
+8LEzazShnVv1gWdwja4_RLxvXixdfFF6E3yF6WjUcRyxYFRM1MFMY2SonfKEJpboxLu5hi1z27X=
+fCWlXKc0TDZWl_Rlr5f-u_VhmW0wzIzrU8mPQlAp82rSSjUdlQcJFyODmnByIuoy2xYWCSuWN8C=
+Fgo7IMiadiu11HNVUwR2voJc_-APpkbjja3r722SchYXosamPaXjo5mvVFK8WjSeaUyR7WhvzPi=
+xq9rT_qTkM8vM3edZ0KnkjoOnjOH4mMwI6QWxQjyKA-q6_w2huD43KklmTp3nLWyu5kzJVrvf-u=
+_eST615ojn1TmBH0rxHgrlIyDSU2begIR09ZTK6gwcHDUIhKIGVne9fmnoPU3m6phymwnfTH6xK=
+dQEohCzTZGdGP2EorxUZ6r1UZBnmanES1RMoOsUYwe_rPV_a3MKLX5joexW7AgAM6HofvxcQVKx=
+JGiG-nx0r-vPNgJnG8iJ1m2F97CcuAyW-dscJ3-w1duwwyniFP3h7XBcpttciYHHncswcsuF171=
+OY30APMQ01U8bYDkwUQD9ggc-_MVg2NrNqrh9wN3yiFa6bAXYV2VYlETDYGSaAyyIXq2Pk3fsu9=
+imEvJno5EkCN_H8qc4NCorWLwUy83Xr1fJKTZnPT53KJT6xGBhkIYmfwfEj_nOvp2-yCkRAkSnI=
+Vt0nlPUo1QTrqTJ5Pfmg_cIX_fs5dX6G0Fhelpc0QlnePdJ3iveeTMpgfFTFhTvoyeOxc1ZOAMq=
+RM5V9Uh31KNtu_TNCc8lKYdX3qVJ0iR1ZRj0tNTRaXXrAdEzGM1ttpTzuAbuvg_fU7Y6up2Buz9=
+4mATw10DiPnvzDFB014iGTJYkXWFzS-DgLlr3wTkIUAk_cV8qZcdGabw2BwXqusEPkdf90D7eee=
+Yg2XY9oWmdV2CIMFtvK00FYkoaBi-5aFrtCCBoWadmpu9jk5NoEOFcinOeoCT_cxP9NoV97imXf=
+L4q4q1Lcbp0ujpH1ccOiZrZsLl3aCa5gwVk7BVxKae7u3RmXeB5kVPBT6XXSbAYFmrex2EgMBfm=
+-9p6WnuQb-eXPemeZJ50KNiFJQSA9QuwZs10qGQdVXaK9wMeBInY6YMoci9_Z2SKDlcVmUMzocU=
+CBStziABXSTTggFLAiz8QuZ9qMGFezyCuWP2r2yMo04eF6SnIKO35FFZiZqXR7XE168Nrn2MxuC=
+ZYdLciaO4pfxNJh03ZzD1ZBZMxWObzHtNQCgLIbZedFqVOHWjxugHptCrYIJMhm0TgQPg7AkV8E=
+Ic7ihqQ5PjBgrn3AE1_LT7vEdXvUgfIWjzRhUUY-cV9zkRGaRGB0Ekclxq1J-fySZYVuiiCcx2Q=
+3GAgmRH77AyUAUCM6HJHR50lEnfCH9vQZRozYnutS8Ya-AHZg8HawATmSJppVfQK3CHeAtkMOSi=
+kYYGwGfgEdIlDfoo-GMpniuocnN9wCPWZ7kRsDoGQQLpDlbgBD-m_OIImD2mEsVj7CB5YBwk9Ev=
+czbR1fjPqGfY2jBVBOSNx3eqGlWBQ2KStuHSZLn17v08OEYQVuWgBBwm8MANjcqIazKChJDHQvG=
+xn9dN1nbKPEBzT4KhSr0AldIkzxfFf_6LYHucAEjHfrk_1rycE5HRE_5jrjpgRqxdNkPA4XcFoL=
+LSElsJGEJzB4alVSfyxyD0p8HpRJd7vCKe9-pET4HW_OAlMIey9v9b7cdI5-j97BOTtU1pyzCvR=
+Hsz6W9XTVUM-bJXdW4a_4-YwD3RKaXFszushhLh73ER0gADG-K3esFYikpAeGjJ8PAz6MJTCsqw=
+ftk-yqwh8fFtteqJmaLHVttvamQGJRklfjoOzI1sog11PvPHhM0TQWOy9oQUKul2en-ioNslMx8=
+X2TL2gd6zIzBXVFHmYo3FteQZeSe5WLTgL6JOHyW9GCAwcSF1f94bnZP3Ey6Dheh2CuW9tMl-fd=
+PpcpQ4VGb2dQdvL8EEMMUmLgBROpPVEiG_c2XGi72c-bCLDH-i_MQpZ_FIuQ2O6oUW6np34qxAQ=
+SC4hndpiIKFy4GkSkd-12JzshpyNDbDkZcK5HGjyiPNmng-pCdqj4T0KYtZehVlhnhcg1b0eBv5=
+ZI4G4hiVKNy5tbeXKS-CmFeofa5pYk-ozZVhR1osKyvfWi6kq8QHCToGiuq_eBJOHl4nhVlRo8Q=
+_CxQBKkC4VOYOJIsr79nJ5PidbwghOSrS7wLiqC_-NXmCUOoJivLyYibYbqH_5xYQ9Jj-UpF86S=
+FHyDcq5ldzihGofGj1IIl8MZ_5WRDmCpQnhVxxyfJemX2EAK8Zh8Gk_cjEn4zAYrCaUg0QaeGpg=
+Y2MnvfLaqQPnCgYEGd1VBfqwBL1xLY9e3tg3xRnw71ZKeBLNE6QshXC-YRUKXuS-uYCN7JAFMsf=
+q1BSot9iUt6Jd5gAkmbZp6g1QPuDy4Y0Jc5xbQORd6MH_HwI5fxljFD4RepWdg5YuoxXWqKXZsi=
+sQoKgwWtu_8gHJFJpZwHa6H0FhJcv_p-FRbziK_6fsGLYxa8USSx68c-aUuHV-dZv3Mdtwf8uSH=
+b7trugzhFGcHfHq8uK6i3wETXEcB6LYbaKW6cCk_lj67WnaL0TWm3LsYfFoP9gNTxO1Ui-1rp2B=
+D6xnlDRqvywjO09JVvdudUhEtWUF-UvamleAdUyfkb_RmwikInWb-UL2APtnl6vIjs8FtsmNJkY=
+8Pw05l64ab2VwEojiTNajX0jxJPk4hAa4X2mIEOGoNAlOw64JWhr0Xd222Sexr_S9MfJIjO3z3p=
+1966kt6YSxWcvJmSr756A3zAXhOO_V-nJjR5oAGnpV1LDPchHTFXYpYsispPMpqe3sUbjtFTX8e=
+ulohBdbSHxUO307U1qvIXl2g9dwbvR2H4teU0QCbh4nl93ESInrjN8pNLaokV9J6HP3Ft5TRfcu=
+eZWDNc4kMJAbKBuJNnUgrJfEgMKt8X5hbCHRGSTjhC1jIfm4E92x5Ch-RcbgXqSrcmOGqCzVRem=
+-wc-taqwVIix_4Gwm_PQz7vFv7wVqhD9fkejkC6COAw4c8szjGK6ytRiInlfZ9oriHTy-MepM5V=
+UqgjZQkk_QtUs3PlWidvaiGiL5VaukytWk06CzKnoPGyTxG4R5s6L-Cy-Gx9SKkfyLmQTqlQh21=
+nfDzi8bziVd494YO8XdM3eG5pBwsZTQ36FK8e-xY8bONO6yT3UB2y4WHKZvSXFLZtl3_LcOcC90=
+I6t4Je-ySF0e7qzUJA8VHsAD8H5lmDp_2oIxLHApQZ2IOk8JDFx__3AIwMkfv5kJrlVHL84DQnb=
+BMfM6E8PGF4nntWp6GrTbIIqpmF4stUCfA-eB1wPqKoYMOfUaEnor5CxQUMsppO3YIOC1B69-pt=
+8fBADUm6JXUhdxBwDCg4OZoRkXJrAeBwKDt_ApIw6Rtdef6E-H5w3IFHoKcfTj04GtuwUERlSBV=
+4LBrELPq7xcjdiIXI1cN2jGwVPeDA54SxoTAYdrzOJokVGODyEGiIEF1hf20L_KLFN7XGZpFSH6=
+e-wxNKuibvxvY7Gl5WXIHO5VFI0FI9JbLlPHglkjSAUQ8nKT1RoWSommrFq-PA2cZWp26B8gE1g=
+_I_D_lnYqej14TDD6YC5kk6FLWM05Gfy6p4QMkVn9WgNc6OgXCmyj2qQpDrV0pzgSCdlX981Hra=
+19-EP84Hry0JwEqbAup0JpS7c-zCFVOizN5w8g9QBKSshjBSO7OWNECxtxMfxt4ZIQgykBCd5pn=
+BAu1X5YVwKddPFKfEj45tJYdVp2g59J-LEaXiTL_c9dEGIzTK_eTBiXkzEk1Xvp5_tWnWxwrm6a=
+hh3cwZUnxgXZ54sjvFSP9jJtdZ9PHSx_OaZ1yKi1NNTFdHDForQxA1DmM9Sul_J-p3hNEVhcXKP=
+y6K9fL1ioH6D4rAbYBZsvHt8ll_NkXslz3RWi7WzRzqQ4tF-2Ftv_RtmzLaFSjzLoIBSx1e9RyV=
+RK1lMm5dnfZgWV8wGR9o_GXEtMuZ2uoe5RRkowPcjEKVUXeWq9N5A4qpMhTjMgs3KEpNqxZaixd=
+gijYfWFWdfl0x35NR-4MHotVTF2llz5nQXxHn6PzJO_j60pDpU3pcIzHcAfv2d-60qp8I1fqk6p=
+ZOHBF6eCfcuvUXaE53Ab4jEw5n9hD8Xrw7EWl2PqulFx13_lR8SiSBDbRL8fllVcTlq6ixvLcc5=
+sJZ8hNPXxcPUfT8UzZzSYNRkFyh72zS9feGAiqhxp8kPVEueY-iApDkHFvxgrqEgppSOP0iKflo=
+1ygczKhJH6KYkRqrQWFjznmBy8Ud779vzRPSH0KDXp4IJ6lduFomf8V0CGgEUEapMjLSJdxOraY=
+ZesKc2k0xgJaDIRO9SFFERNewfTGzezKMlSfUCC0CM9Df6qTuqSwlNHhNum7l3MYs9Ss7kOosWV=
+sdprvY3tq0Mf9sPl8Gpb0W68qB4CZoQSknT5MqWnmwfBV0hWfrltfLacS0gxczrGX8Frh8OVYcs=
+L_pPUd8xhymjV_8F5QgLJyrCBVLp5btZw-zcxPa9EyE927H4edumXk_csD939xzXxYAt1uOCFW2=
+tkRBRqqsvdQ5tDwJ_XRQl4SdWHuuUezXYU-XsZCmP28VZIZ2N0VI1q2-7_GmN4aVQhpsj4vgIIx=
+cUdqwMrH0gB_t8lbA31wQc2rjC1lll-WZUgxnUJjz01mdAur2K29-8doWaqsd7nwYx8B0Ids26C=
+g20sTj9MH5Pk0sfhigww5-JW-nB1_-S5QzfnaYGlDk_7bY3BQ9Evwe3jz6n28pFZgyFzFRoKV77=
+4Z6klBdyrut7jTTbTw4iMqBC3lfsyktHeM9SmTe5Zw7U601a-g0kIM-aX_tsr3C1qTBKV5pVHJi=
+gOg-50Sr66Rrk5soV-DgwzadUizVdKeJkxc3g1VARpqciMEBIZYYx2FqFYbewdobsEBw8CWyKYE=
+lQ_oTB7qfHALYRiKAg0wpq56gKc9hUrGQ6SZhblFr6aSvBg7dAYVqjdlJV2OAbgyZVGS8F_ULzx=
+e1qYLq7cOsS6Uj6C0hEmJdDOrCw3wNk98bbk2zKNnOU5RoNJlEvCG060KfN7ZIE1Mn4hv8NYoAS=
+-bn6r6Qr-LKfTQ88_VF5eR0NagnrdrQZ_9p-0yTl5E1Zuu1pXsaFKKFom05tiblw4-aKrTdAxdS=
+haHJRkCU6dUO5QaQCkXkJp_pbLzxXSj2Xx47hx3xElQbCE2bSjDdh1ey90WfATsqb7jHmfkwRqP=
+eif7jsxI_isx6WJoacuU1prW3XYQ5tloHSKV6gC5Fek-U2EeK3zYCflB1cbZwZDvRw0xe8x5VDo=
+6xCXErv95e6dNm7An2FKFle0IBKZob3MdQvlwEApC15jRTtMCyapn3z47DjE0lSyscH85ODA0F9=
+7U0sT5JK-LF8FA8X9s93XikpuXmvYzgM-GpMJ5Q-3ksww0l9Asu_6_qqLZbiN_esxFNZR-tyNM0=
+cNRVm3-YQDuoSBsBi7qDLbOP3K4qpu0BpJFI5ETr1e58NxmW45Vp3uuwFZoaQdAJpbCf9FXx2c2=
+8lAWmNTLNMrrDo42tcQXSI13T3_vZGZ4HCKKgB-oVPnQgxcGRDrmeT_Iuj0cQ2JvD7kcmIFKUyd=
+fmajNqovaisoBdFpVLdpQMLrVxbM2wRfg09xhuW0aJ_LlmR803PaRLDeQHkR3xaTIqrPi1f0i-a=
+-8cjWWpWWoBkkEIguLKPrV5VM_jl99HHzmMXW7vmnqtMljw9VLxbVATlREog_VlChJPL49OENaQ=
+kvh3pHbJ_btG9LNoPUr3LiwiXlbigGoL0hHz8_igh8zNvJYF_vmVNxggVCLoPswTgbC48VYhwCy=
+dPuwnHEG5qc6idkR07p1eaEVd5dthk8AMQ0dVS2oG0jNQucgivHWexhIfL4cgtQ4lQcfKeFfkXI=
+AmCcJeR9Ypt3O83NcBTdSaQ8-duXW07JcwPrulDqUOZ4ZWXR5DfNRp3Hre0uQn_O03pHctTu28B=
+6Dm9KCLvTs2QbladIPnFbriQgijQSCXJ5dn9xpa2FdbPPIslN6m7Qw3ZpwvjtH5yMzBfF1VeW_F=
+tG3cic572wI0tbTxz8wugpC1nSwBbL9lYEW7YA_lQyYvVp4gZ6GwNa4l9rDffzxDrDzao34OJyP=
+1X8M2aEEsNwkXN48jDDfBUYc8qBWuBX8g7zB46-yiSBEzLw9CXV_5Wavjgy-b1WuxCrBcpJQQ4R=
+4z_UvsKPg0e1xMp9cxcJkyeZDbthoUibQENdeFxKpLsMGWcWs8-M8J6IP4A6tXtiDbB2pQ7tEap=
+iePFVI3RyfGJd948IgLmdZEGyarqjVoGJmpHOe-mulQwhUvyCpVu6-DEN9qKpBKTpd8KC9rDZ53=
+DcZbrw8jHTHgyGcHhhLs4W2VVMmuMo0oW4YEjyZNxACe7E-NKn6_c8ugnmzEGGlyprqy7LKJXD3=
+d4gHavucSdOU_To2Bn2NMypmNpMNMqelLnh2t1i8dKZifOXuUnJD4T1jfYGEjEajp3S91WoqG1P=
+03dJrIQRLmQtNPTaRnhdQr1ctK4U6dGIHami0Dqc-jCz_Jz5zW112ybijuhB2U3EQ56c1VjPFiI=
+SjHnDKYByft1PF_Jhq568lLhcyZwWuSLAOkpdlaeHGpzuqvcAQUOxQ6SbaDAZz0fqEPwK0i7gCc=
+ISwMhAYIemNsYVb1XouTlL2PeGudJVDjxALGdDhU01lHYyMKLRIFmpvS4jsXVBPj_4kzEt9R_Os=
+adaWBQjpw8v45s7gbp9JNfWnlAoi7qHXenQPDutxKUn3WWy-fYmNs4zz3mXQN2rmv87ddtuz9ST=
+ZlZ9sXtT0h8zaWmfpzkOS6nmM9rwKmKEesvAItRO05CQ6iaHW__WfH9CLgdvQgZQICHBgB6paEJ=
+0BMwQBSbCdss7919w_QH3ciSsU3U4XgJAD-HdHnbREKTfTRRak0I-5QLeFQJ_x5t6XEUb_ew3LU=
+qmx02HW2dzrlWJfAVkiJaJ6lHJdI1XgLcxEh1qIR8IWCRaXAfWyVdBQazGYV9YVsKQCMN0lU31Q=
+z-ApePCnM2dPkxOvtLn3Rvk06ZCb1i8Uavab87zVL5rATpvgDFzcoyFmY8NBv5MvpKzrxiE-WVP=
+PQhRPMtmn4Gt2vuB_TCzU9c3DKQDuI6LTroHwlr1VsvbHyULENTVUmWWOAcEIsbt6uIm4ugSdNS=
+dSiDC1RjgumC3glASLxplYyhFguwYgUJ-hdImY23lq2DUBCsc8O38iF-gdtI__8rB5n3Mi2O88B=
+uDpnN7oppgThe2enx1f5WO2l55FZHMJ5VCnlmUZEnM_Fp5TELANbxcHT2ROyK9yM54tUTqlnzmk=
+zmdhDGwZ9YR-iQ7YKs2OsnMtS7S671kc3Aiym1GJuGfF82Y0EoY9NHltiTs6dhXdKLz9zPnDH0K=
+a3RNv1cvOVowCqPzQjPoF1TaV0z_CgALiIcCoptCy8XLd7IJmSgi0ZEPSuBjVkoSw1K9uAOxtF0=
+KRVS11iRxFmDx4d7yYPt-nvvRFyknqI554ybCj-xOCu-xL3INOLWKf3o5LppS3jEsH53mzxRaJc=
+otBQTaIGzRp33vIWKH6zY5ewNKq4LHBuKBmeX21JeHoJZOb3YUV0odPGlL_xmjl1mv-4D8VxgBG=
+W4QdFedHOIOY5vCrSsmmtR0Zki1wiW8eakHn6WtbbX63mwODbAE6tF0etoR_D9DsDu4p4-Uu3Ln=
+pIxasaYbmzZZyyY1YhQbyo7uQs3B4fDpEvOTBhlPkzG27Vw6Jvu1iZm4GYdAgsvyFHzT5AKMRMx=
+aHngMIj756wyJPNWeJ9fLhzjUwIiyb4UYc2cvgCOpMxgi630mpztOfSeWBKnTKF5VK4Y0l-h6zW=
+mHlsjmtTfD842YFtybCqt60vObtlX7kIJUHpu-DuKuIOIlZW2x_goqCcfD4hjQPJ5trvudjMYeJ=
+Py-kUMT4oS64omOrofElFQlclgmd9fF2hILq3VNH54TTP-sxD7Q2BI-YQQO1xkfILFdPi_BgZW1=
+NRct4Kq6hNTFbsYaWUeVyMHjYkU3Musz2Me7TCv9wyjic0mrPgErgKTSmgVIzenM3fI9E6UL2c_=
+QV1xDWBbn8CGYTBf6nVr3cKLg3HYz5IZbSaj1UPkEwG_cFfi_tRlBEEBsiHbvb6b1L0O0OAFXjO=
+qFa0Wiy7pOJHLIVF3F-xnKEkrVwFrQko9wLHtgsCXNzx0XVY_jn-ZXQOTLu6lUlC9k_Xq_9VTBY=
+qXa7K83E-pwm_DiUX35zzDECcyw9_SIduO7kHxwCL8DbvFOwY4JgLXl07Oqs2r1tifmVr-q7We_=
+nPlLCnG7vF9ak_d3Vitfl-WsBYsxWPsOF7nxaJCVMQCEvqBxsH4bSi4axBzRJiUGaUcW9LOcYNy=
+ORssUTX-UxsyZz8XKsGr--Q8BCO9KOE9xHDJEnP5BIZdcMpbuTi7leWaL--0YMeF9Bt9f1dNHkE=
+40mjKsmFZ4qkO-SbqIAvey0ZEYEnwIny3AlsCgnG5cdvlPxxd65q9Chf_bsQI4Y_kouwspHl2gX=
+iP2Mjv5YdXYQk3uSA4DohwDKkD7Dy-55zDv8PB9Fvigr6a6ShhAyyzyT24NCPVJGizEBCbKrhUi=
+TraZvRh1zvquCgFOD3Fw1t9s2lqMPt_XcdZ-_YDZnNbKangIWHoO89AKe1ODax8P0V_yOcieUqT=
+HpVGVQrl40nsiTVWPf-bjs6JlncHCx98cHYHSr-lCgoXtjnOHumhc92jd-8gW4GP9ryDxGfFFTp=
+_qholW7VD2lVZyUKrCLtZR6jHCY2hv8Y7xRo7W8R7V9blyqfpAWb17pOB0Rw5hBx35JY7gRwEAa=
+7-fvZ75lOvILvfSeabQfMt3tT6cu0kw_CH-KXPd1Ym4XPZ0QFro_xWn6of164wqWrDyum5zpPK8=
+Ub16BPASawgH8yk-ZbywIBMeyOK9jGhpULCQfjXr-aXWrSm4i0Y4hhpMNFYh0CqxBX9adkNaBsJ=
+OIRAxnjyEgcxpp6lJFAIdOzVaS08z1RAdmSz9CV2K8wk7VKKfZC5OT5DY57d8b0BbqstKHisTSp=
+GhJkOH-yprPwDDhyI4WgK7B8Ed9XD5_zuzo0WEf2WG40zhX9uUN7MDoOEiZzeDuSg8_YCBAa2FK=
+wE3SlGlx7LqY2LtJBEpfXP7dcHgFl7KFITM3hhIo11p_UzyMwkrlPsMgxXT0-MSmK71Y-4DnuHX=
+Vm6LkGmzdEWe4b0p4__KaHU9gqvCVQogULz_0EJmaAfj0GsJXJr4LzCTZYjs-0-Fvn9x412uNd4=
+us4hBR2Cpxkvh1zBV44n4ibOoQzSCtvpdFyXXsc7oWB8D5h_8MPTMy9x92KHezxpuRFwDJV0Da5=
+Axmb-IkdCWCidID2r863dX6IGsyXGgSV3vNXZc1Eamf0nHDyorvenGORZ6v5CIuUDz06WaVBzu8=
+f4eJEBTsFmw8Zy9rBlEUiY0ZPlPjJdWYiAP7sBEPgcpNEABAlz0Hf_5XKK6Sj25vaiNls8cc_7X=
+4ovCkFYM0Db5j1yuptEyzF_3ApO7wzDKLG0xiFr1PasNvCGR_xsMhHnBX3SUWZwFBcHQL3c1YOO=
+xaZV_cnPJLkfGIQzxnjFP0yflU8y464dyayOlTrnXDaOrwMCmp8eUq72QYB7QkCPtaXNgq-A2jz=
+_BIw6YGTp9bdyTvUcYNFRAqAIz8fyomO41h9zQpFlYa4meqBDmrjb44qDCkY-_PufmJ5OlIbXa5=
+NX5IAVgVKEVNWYKMaunEaqbh6Ty1Q7hILdnG260fxN5xEnYVPxK5Wplnnq65Jtpc8Sw_woigJGA=
+sDnEcqUEKnltjpk7a912qDa-eudLEHCNPQ4y2oLIA5syPvwSrzknapwQ9C5O9ak-PTPkOgs4kOy=
+MsJhhVO0OOZ_JWgO_3KMNW4UL7O2POPDT9NJ9wQs6GJ5fVxPzNT_68ESuCgGiQnngMM73iDiTjR=
+aL3RVkKoj0TH589aJdXW-gQBv-c_Ne0nZK2ME8n8XQk2v85HrM21XUOFm_xJsL54uA_srFepuDX=
+fPOWfxpigO97FpOHjp-j9D2lB9_9icIIE8hT1As1E7phmFHiL3MLRUV5h9F8tLTRuMc9YDSu7Mk=
+HToptktKaN_9AujikM5Rtrnu28wHibzPKOiGVmoA6W851vsS2mYPqKUAqPJGqK104UKsdS8eWPo=
+PEiD4MTET2IpETvXhnzSA1tyocUpaJljmSKcor9H_k7KNgTO3TOmKlDT33pVzNIay86b8czXmFm=
+MutfPmfIAgT3sHNvzl4XzgvtZtBqS32Kdvt_UU8ZX4TxpRG0kg2i92ZeJweBzbmQCRgTYk_VUsa=
+6Doid1oKwE82ippiLaLWeVlAGQd_mDoQRj9cJX9nsPO6rGRlRE1Gw4fI5aT8WuTEAv17hDe8PG_=
+heeFCPcSDyTDUHNzPzO7FMsST5aXVHZMRW-JT1frR-npn2Ni2ggxIfx4M7A2EHqXrP8pAkfEbuH=
+tw8bQj_pVX8E72yisc5BQfCrlM_0yQNDZbwfL0V8W8Ql9UthwT1mx1lEI5y-qhNAk0YJyMeAPmZ=
+FQofhdosTp1K9g9AVgz2qiTg19hpo9VfxFRu9gcemBkRbkUap8-lNi8_4oYx1cPE2SPKPbIxV3O=
+BnrmMY1eu_Dmbm5v_9ZOSRvOhslbBc_BJzCPJJ8qW-H9eEmH0jCOC2G2MiA9gu2-9WB1Zh0HGuW=
+itEM3H1sdBc83EvI3VmB7yoVmrt4kh7uWmM2sQEIoVD4tp7He3TzACd98Ny5ddtcrSZl2_0nI-V=
+PZqH64YPu5IZxsxGivPLz_uEWCwugXgiOEij69G1FjA6Enb9NUqJV7z5jAm45hvkWlnaRzGtaZu=
+q4OrNPkIkIC7XDZyLVNluho5JamfWJKIUZyraDGnKRzFcRBgYraNIlRCZNGBrS5GIbuhJw13tTm=
+vYmzsrgsauIU-5ccmF6xyEXsfByfC2RKXwT7P_iUpX1QLeypRGm0rg4eUI_67d3wD8nPpRQ6lr6=
+NlUtmZgOCTyBfAlVl3whkROJcxFrL6sBy5B7GuEw7PeAzJPmu_dH00sVRo1fCTapBZcO7Qwb797=
+YMbXcWa_id09SAwTATtwhft5wGn9eK5oUkXzJeuMTyQHAa--GtTSWQZfhWNCLxVg5_mPUDTnqzU=
+tS20LsC4zKrCr3QVzxk91AzVhbVv80hi-8nJ1GSJyIRaoUs64N1H8peK9j4ltAzjZgTRC8_F_AF=
+5XE2yl2Z4UE4B1ab8IU3Wn_d9RhED2HpeR9PsY4HtaaXN7TWSPvYdv5yEhfobNljb2-9qPzesXA=
+-JthvSnlX_FesXvOco5ugvvxCwnpYN7Lc7vHsbFUWxjeLQNZIrOhMDChn0NRjAvO6rjY35kBe9i=
+SCU9_4W-Yfwju8x0tnkcqBHO6Je-HhMpQZedSyEkoxWFKsjayjU02IY8u2SiU6ccsvrzDHOsgUI=
+GgkFkhz-ycQcJcDXxOQJnVIUcWpJX82_mCMiHbhUYBsBmuB5BySzFKD6La8sDgUb42fDe9HyZWN=
+Y-Yg6AZ0tWhpL3p5jZyVwkZk0LnDfHrOch4MdxJlplEGdacIpmq2Rr2dbcUzLh_TuiyHoh7jftY=
+Ut9Q0P5SCUxBcii4j9zeub9EQj0e6afslDKlJL9kWICh7Pn6VRWtn_N0_hfa5RgEwWrhCF6Lxkw=
+cIvvOkXuo6DY0tgQ53_I8U9Iv87Ng1GzYAyzEQuImOeTB1NHU8XPPkoO1K09PmkiwenyQFzHY4S=
+0Foqv6iK26NdN8LgUMKpJ_92SgqYUZsvN4AZRFs4ptm3FrEwXaNumoQyXfMiltLa3daz8-QieC-=
+mn0Y-WPIbRVhvPG5L1g5FsjBquqSNNxpuipDGQDRjj5o02i_x442kN8paVPgBc_npR2z2znTWvN=
+HaWXbrc7Gf4IKJX3Zp2Oc4-mh5aUDwhy7IDkmkdpbXvpzXJOrm5AF_zqfmQeBuLo1Dml0fpqiIM=
+HslWScpO4S-yOkdv5jh8otxdKHrzcib0pWhu8-D8xNgOPZjAsHSRTnq18JY4lqQVNzsUmTXixYb=
+qf_vIwOPYdmhMsMCDC85kJDgm_KOf8UxrU5DojxxsAHbZlhWSj1GxvfLHDRIap9OhdAX7FTP_XG=
+VZ_DUTuvBJu50e656vVBMYd_E2yp9Aso7JNnLRU1QBw0qicdUFVmXahGQ__RyAhQnHfDS9vWQ9g=
+WPuxY62Oyl0AIbC450r6w55IQQEZH5UDCmw2lglgdVS56G5FEJGky5RCFaui2RyW7ROxNU3mpI4=
+jCFt9x7NlysXXvhE8ydZ55TIYQac_q4xvTIJYbAPBSutGIDn0Tl0Puzxsg1gVEpxFo_XxTZPYx3=
+bHtuJUJhqZBw-TywV8fRRVoUgaWUwJU4wLs65FihrxCd8g29jQv2JLj0E84096sl3b54UFhkL-d=
+ACf7mKM4T49E2bz23Q-_1OgL37ZYONKZkpha1U46aaEs3oGmlkStT42YPoSH5g3jiJV991MsAeb=
+47z2SeYUSLUu4PUjIoVt6_pi3o7lG5gCQRnwmjxN2ujSC3MbGLPvHAOouBMPxc5l8CSp__WxzD4=
+BcjVDW6GHyzhRZQuHbTiDUrBnDoZIrQEabXyyhj4QcnAVkdKAo-7sS0voQe_8un7M869axqIMWj=
+tL-yD995X-d5-T95o0hfihSE1sEOMGG99Yz8WhPDb1NjT43nyEM8_UmXzZtFg6YdVsCSXOsqQS1=
+J20zYZuouMuEZAXjXyyDKi11uAfLZ5VwXEuOcAeHxePkjLEMNro0k-1GZMsKlZFz5tZiXI7yfvI=
+iWF23MxwblG6gI0xgZKiJrdXAjx6MxSm4xzGFM-rJ57olS2ewqN-RGcZZNrVuYN7au3NDMGUCEx=
+Hqz8QRDA41kMCQJTbMYwCZUKiQ5ftEXMoIzgi3O7vHvp6ffJEyLC5jgAnJs-WBnTJv3eeZa3nWi=
+1M6OPpAF3854M5gNSnBj2F2u0X5vBXkDF2ONIdp1Pk80S18uq4F2EGWX52-rP22B0ls7xTNfA14=
+bR9jrzjnSV1Zc436-uYUflp7-667d5s0AjWP_6BMpAvUrYFPFsx7V8JQHZ-L96mFDrbmmOCRsw3=
+0_pZP-t-6vWJ40RML2w_bUxMrfQPUjr3GeM1VLTsikLpxaZIC4o_T9RwiHOUuEIxM2qL0ruIRBj=
+YZBo-E4eCxXUvVknhJqMzgQY7uveZn5qPieaCXYwfQFjCZQwfm3XmoaY21fTFef6HL2QMQHmXUF=
+4tYZ57LxMzVxoohN2BfDb39AckO6663XLmNnD_a9mq7xiHb-lC0nk0tK-KxHqiIA4YrdQcxNPx8=
+0NVpM6HQQIvu5MMX5TFJMP3gargIomd4QC8Ch3LzkKVx9nzcp3zJSSt0ocs3wFrZ0MXne6zblRN=
+YvntDRHwT-AonuXF2Os8lE5Ok4k0NN9q7y1bwQ-cauGJyjOM_6Su6hY-7B1E8jE8hG9xylz5pcQ=
+0Ojk1fE6h_fjIiU-bByvB_KELca3DkG8SMoAZ1Q463QtBUB5RaMdUSmnsqDg1fl1KQcVhmLiflp=
+-VcW3JYHuiJRBA-uvEjbi6LMC6Y9Uu8xJHsHq0YUTHosmBQvwj36oBxsg0O_iJAArWwSxjv6jC1=
+i2zdRFc2zh2OdgqO6pdKQOzNxIHYOTKU4s7mCyAVxlaC-WY6X5QZdbCoFBTDK_k77jW_7mZYLtf=
+LmPJNhB4kw8DNa38Bj8bPjoTnQ1t8bXNaA8CvidvaI9vLxCWSP_0h8ci0eiUy7ON75QjHlqZy0s=
+wI-Gn0Pam4ajNIaH15gkhYX2jdKX6k2VcGmrNbiGd6IVsWjzUvgyOYAj7ZQeOd_jzXNQKxmriUS=
+Hrl1UrVmDftPdRS5KMY41lqln-pUOBRo0VaIrC_IquuQ6RKmtxAL5p0Pcug7Bq-kiQOd1Qjkjql=
+gyiROHRBXAMgvik0b0NDFHyKHGEpjpM6KNSGJ_MTU0nkKGaH7yCNVHm_MRjCwnDBIyzFSqUPaoV=
+da0ihBns8Lk30xOQ5QK_B14zWO_2zpfdrvk7VgTqAf65f-CgLOYGe01bquGLp33-TNx3Nhebh0r=
+NHshrAuWe-URB_u-H-QsbjUd4ZCMv2VfAwFJJJ4IkJ2A8LUDNtvV3fylEpz2NoRDfMzc6daYsw0=
+8Fw9imxlN6RcS93pnYCNGzvF2QdxEt2daYMhl-dU9PaDOnzgrtYDi1fS7OxfOgsCH06iWFyPiWq=
+zKvJvSWuDBDDhqK6hove44oMHZuliPqU5TBPC6nt2K3KJRZnSK-7NiAadrIlHpJMW0raV7Jfa5u=
+qYtTe5vqa0NLCfvJJBC4XSh04jMilhrZ1UpMwz-3AtZKMSPUfTZQE4EZJJSFEebEpRZy7OkOkOR=
+VbG4E6KMRtU64Vge957hKsFtIbXgvAsj8Vss6dfLb-NbCXYCsCyQqCjhPw2-y5wRixuMgk8qjcB=
+YPUzGfez4_VqvfB05oYARmeL8ljFo_1tHaQSBuK-R7Cluq3uX-Ts4A8nIaO7zqH0XKc0ewcqeQj=
+yO2b63RxTNv0bcp6dr3WORzrBFsaUUnJeR3JrNreia4qtpbXrtJhsVN4L6xwHX4x4FDB04eSAJt=
+OEbrVAH1jYVBSl5c5zlCleiMmk488Wqtu_v9PAPzPf0sS3ljInYRr7Q9OEy-duNe6H7aAdC1pVq=
+8n7wLKrvEzS-rXzJezWlTMQrGnOAxsJNdlXE7OgIkQpsQZFHV6rDApoDccRfFgwODn7yGNpoCHH=
+MgTpNjp9QcVdTHnBwz-n6RLYocdI5uEP8p-WkiRM7drxxUrn8XaKs-c3i_vHBDEJYfYiRSBRPB7=
+FnqBPZARkfFLGJmOamFOvi6itkC_w_GilplnA3Y-ZMvQQBnZxI_w0tqIMzgsWEl1Nz9riMvipyi=
+taObrRuxZShQvRRSZjoDvFX1r_nT2Nm6TVH0xRijEolxd6wAHvJTTy2VMJ8RFnI7UwvodnW7IWQ=
+I5JROkKId2mfmPDWljm26FcO4E1rDlDngsHfrRkMgzj_NYyH-XcdOyzz13Ew66aVdndJF9HWa5Y=
+qFSokKAYFS6kQt56cdMxQOA66WnlrABS9zg3-yjwYdxAU2hTAopurx9-JnR7yqwr75heddZWju_=
+mufVqhCz9tcAfnvTU8nObZSPqcihUeyY3oaUiLfOoE5y2N937VifU8tvEiCc0d5RUgYMTfeHBVK=
+RZMxXBSOLzuixe4YIRn3V3bwsepLQBnZPhBHw61qigIG0iUQFRwDakmlLDy1QYxCP3R5XNsRzJw=
+66JwIBL_FpT1-Nvfl-j479EGCTswHiwE9HVKJmeeDYcKz_cCU3_apfgEAIkfr56qu8pgwfxOy-D=
+O-ldZvyG38unzDyTbUYlEYO_rE23UkPDSHfv0TAYH26g08bu5Ar5FmwoMhnQc6p7hQOJzMLhVVp=
+_6SZjcYLk_XgpbaJ4wxrCcosiUUy-KUiEdgTNh9GBMjgeRL-rwvVUQZTmZSuxo3T45Ta3KAnyfP=
+5ckDbAr9sRmQETCPYCHnyVDpKNn8zkqEaQM_yNVgKfd8cmJYznJGByreX9b-ic0yCuWu4Hm9mzX=
+GEt4f4S_I5dXCXqWCMqB8YV_soqWoDOxTuwukMGcl5O7BVLS3l1OGSzMPL7uCzK3YzaEMPv4h95=
+MTUMXzjp0T_KeCNJRQ_XXDxwW9N02p3A_90r_nV1eSa3m4-O9vEc-AkiFLfRqAMGn8ArED83Z_h=
+YHA7x7rANBqt1S1MH9LxsNA7NiEKWQoW-EtkPSok2XFC7LmPDfEkyqBC0oSKrDb6zq51yqbDIHJ=
+K8MQEBHFfGo0sI2IhQDgTlS-8XaOCD7yYC2LYXkKOqTDfxru5NNkk5ytElC45fbY4W2kEQ28WRE=
+bua68O_fSTV3f5cjzAO-h-0HFbDk8bnID1j23RRSzYCQXlQUw6x_iDZdXo74eUyNnVgxIt7SO6I=
+pnmlz2ND5LlbirZ2oyNGWCY3jLN9RVAtg6pY64eJ6BC2cthsucg8mnH6d8Sb59y96Ve4iuwmdzq=
+h66xrZmgmSZvXDvsjGiPNpf7MvKtuSe8AgTsvtaaJkqhJs8WvhF5sAUYXjdk3FXkFCUvnSxnSUW=
+NTPtyY0Si_-MTpzrz62U50j-IFDxOltj1KeOIJGFQSWSgLSDbgoUR4sr6H_Y41rtVX5T1vMc57X=
+nmiKiRPGNGtZpVMaONZh6bE8TUUAib-o039STxJLko6sW-ix0hRFE6NBybRiWaAsv2ff_ahVgyj=
+iLSLwh5a3sUpzB-dKDXlvxIZat_FDhOP3GTp2RzgzD5bYHLIIMlLQYD3-lqnwsoMxKbvdIgrjCE=
+6OozOJFOmJ8Xaj9RwXuCgqeQ6ehIEHM0tBCxuNcMj8gmIg9Rq3hdFdU7tU3mqlNDpZh8nvLKrD4=
+1uNvTnzi8zwGs6pkiCUe2eSoRAXNZ83O66dJzM3wCTP_NdGuWijRrk2gysXk6rRsI4HyT1thiPZ=
+bd9NVqGt8EcAcRnkLiU2daoAiIVVRpxRq9OrEoKMOhBOhJYMT7CmBf9Ku8bqRy8PtWiaN2Lr3Jf=
+kadlU08QMdAxdhdWGzvwodQPgYMXxV0xsGATLshTtmPTJyCqFgE5xMzZktA0EFTFx7h7FtMcO_s=
+qY-px1R7iEkbwV4I5-VtqzstNgbgit2870KKXX3h0TBS_LrkJnZb39Oov45ofZKrg0rdekxAJAY=
+yc_g9Yrqsx-9q5GXwNSiDnbgdWAsU1u3Q3LJjV8aEypRLuSXHVRTGnhwg_ufiPlbgQ39UipO6gL=
+xyxadbU3UZy7gJDIr1JI4INdcuN88RmibEaaOTR3-HPDrJp5sg5iIWyoC06yLUzWtc2wHlP2jpf=
+KlvTLb5jX1OdtXK16RjK8Sc1FgTmCh9atOZO59bYfPViNkQlT03Z7HtINY2oD3-vhdxgqieW6kQ=
+C-u7OFKtLIk7ou2u7iVsTMI3GYrTqcTPGsC6PPDvHKRdLPmRPN_PnZibiPYSdl1LFKNTc6XhOtb=
+8Aer3OmlCRAMAjpujRQKgbXhp-6klsRG6ZnIC0KVP45nhC94Nwq1V5n4Z8j-FV4m2DHaek1CZiy=
+S_AMMCSiREoudFhIJcCbsJwN7vY1r6ZaiqDbHK7uEEkEOBsUQ5jSNk-ubZg9ZexSetH-cvCUSyW=
+Q6cV-loWGdbCBnb3L12fkhT-Fyh9x7gHL3SkkDbbXAzeCrNJJ7h5vbP1UEhRcejoqEOlQmCBd1B=
+OAnUPPrylPMJiUph80av9rGQqt4voF3Ncz5sDVwRwDDrIkPiQ_o_QB2QsKWNnmmhEeI0dVmbZgh=
+kEDaeN8blAKbBljxhU2dv-z_SbNe-z3AXg1BMrpUWz79-AfGioQ6QcTl3TCWI4PN-SEpfazzs3O=
+SsjKL70mXMYHu_S1iFm87tUx6XoZOpjmegU2W6qWCL6_R-A4udiLHEzbdnrbKv9ivV6tlP66Sy5=
+MUVJ_mk5WpWj67yqwzaz0jBQjs5TPtSI7Fgh6VS4HPxf9q3YivB6VUg1MVW8eor8kBtxm6Y7auT=
+ByxWIn2Nt1y87VPZfGUPZhFvv8GGnlvyvb5GJNseXnmsY80dkH8X0e0S969aDSENQdbm68tyQDF=
+R-CcduYIkPDOA-MBzac7-8KEcKmeVVKU3V2Jd5YFG0tGKhWVuI7za0TjNp24xguw8fkLIi2bBgO=
+3UBTo4UVswffLaQQBcApPQlHsgoJ75rGGz-2hDoCtElgd2PomeqYB_cZ_gbXS9WBLfEiHR91gy1=
+BULUaKfQqR8feiM13gyVzs1vqwwvMSle6pta4nwJr99EWA5l7ZH7wMiXVm-Qhbiv7w2aEMcL7ns=
+qNNyeveFFOOWMabNEGhOt6OJHEsb2wiFgVwhiGRtoyu-V2_LHpIIfl6j6pwkIAxcaXeScuMBjcd=
+OkTQ0MDESuToEdPZWeukHPtb72bB2dxS-6U2QW2_q0JhW5afkrHLr8jZJSHk3tqFizYby2w9I9M=
+dSDctP2IfRw6l2hmk8DzXC9snE3EQx46BZj-qrlgjRZIHPb_nt1Tulfsufd05qmmDy0-3I654Qf=
+FpocCd9sqFLtemhkuDVwIYhtOvfVasbC6ckG-nQ7x3gS-0g45IQ9zyH4Nkf15U9CIHI_kgrLoft=
+YpnUXh8YRaa_ABy0ZJqCEdPmm7xWqqc8ENImV6c0LJTHVIq--578cpVS3prwKe-KPtNjYmAmNET=
+U0TXltknmkgCUb6PFg2XEnvGe_FSz8lprinP5kCbkEm-b6qE1sFePUjjYkKzN-t9Qu-NzJKhuR2=
+w8tJcyyXmvOVNwCbttQtmTOC77UR0hc2vS4q1Cs7bvX-26T9EwDd3JBR4rAwr5n4u6ciy892D7f=
+2jlWfJNHWjd8nGtSrQpyIJNVk5ZtbmvaEyGzg5xwddmTqAIoaw2F1RiIx_s-3g/4tr/Ac2BGRD7=
+RMK6xIEf25QV3g/t13/h001.2aGX0nr6MSuUPFO_gsMzgE1bUVqBJp4Po9idZpuIbPM
+@guardian_sport
+.
+Today=E2=80=99s winners of our prizeless letter o=E2=80=99 the day is =E2=
+=80=A6 Admir Pajic =E2=80=A6 but prizes are back for the rest of the week f=
+rom Wednesday.
+
+RECOMMENDED LOOKING
+
+The final part of David Squires=E2=80=99s powerful series to set up the HRW=
+C, telling the story of
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEDom6Up7NBgS48fUZgZf5ceWpUTnbF7VpmxeQmzhZm-yT_LPwcuwwrW4pH=
+yT9BOCM3445OAs_AjYYrmq_mhqQkut7rNZewl0QYd79Hxiv3IcC0WY9VJ2ZEB8PPriEVLvVaslb=
+XV9FErA5lVr6HmGuE0f_xMnMzy0KY_vlvd2m7HcO3EqpA8t08L_MCTyIvkXlUQfv-LCG_kLWas-=
+c3XKzyEXju4ghByt7zp7loZQKl7mz1sW8mGXftF8H0hzb28LPw6n72BPcQ3HUNsg9qkNVB8RyYQ=
+2ttdcY5WMr-asCrSrQ/4tr/Ac2BGRD7RMK6xIEf25QV3g/t14/h001.fZXwVNJoLCddI9fqMnIZ=
+FuNrAuVUXUCrKqZaCvclyfM
+Rupchandra Rumba and his widow
+.
+
+
+The story of Rupchandra Rumba. Illustration: David Squires/The Guardian
+
+
+RECOMMENDED LISTENING
+
+The Football Weekly podcast is turning Football Daily too.
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECimGXIZA1iejAIbhh-nNrWQTsBTW2QPxJQkOMcBV2_yMAgHcT9qDC7j2g=
+iMzOxzZjrTgrMaIrQX4mdWSLwqUbKvpYPhiG-3Kzrrh-NtEWX8iiuJTY6s_rFvl-iFw9FrruNE2=
+hSl-aMA8XI3n-Fjl6f5XmpJ2xM-5gkbjdliapppxf_VVZhKtTn6prC_eJl4qu8lJ8m-3yKpsTYB=
+x3h9wBPSB46I7kydT3K1sz_9S4yktyr95OYcm2dHiG_QLJmp_Afnz4KtstSLdhN1zR7QcXdfNfR=
+5Xpx9zAzoFep9xfSCw/4tr/Ac2BGRD7RMK6xIEf25QV3g/t15/h001.0ly2rO6C2EtpL_Ns6EKo=
+rwpPfrNkQ5tsjI6KXDgXbLQ
+Here=E2=80=99s the first HRWC special
+, focusing on Groups A and B, plus: how did we get here?
+
+NEWS, BITS AND BOBS
+
+Celtic and Rangers never managed it, but Big Paper has landed a 10th Footba=
+ll Supporters=E2=80=99 Association title in a row for best Big Paper.
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEl33B1oii0a7B1Z7DbUtgg7tz5LLpjtQWcQr=
+BCILz3SJNiqmG39joXUO4umO-hDWRmMEbVl9atSXXgeCjz6rJm2-7JR29dPoT0IqPhjsdt6yk0h=
+XPG5yIBy4kJ4p3DdwJgVwroYhx5dvj1otHsJmIOWTCqECthz1haqiBHfUOR02h1bLLICbHpU4ps=
+HspiphnkxUF78mDBDPea8rQ8Dx7P7Q6Q1Wo5VSGRJEK5DS20bGMQGFlYrhdyR-JgQvJfDFR/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/t16/h001.Xzs3uKCBkxN8vDuh6EGWj6fRLzG1CcN8H3N8qKX9q9=
+g
+Whoop!
+Barney Ronay and the podcast are celebrating wins too.
+
+Chelsea have appointed Paul Winstanley as their =E2=80=9Cdirector of global=
+ talent and transfers=E2=80=9D, which means that they=E2=80=99ve now procur=
+ed Brighton=E2=80=99s manager, assistant manager, current player of the sea=
+son, first-team coach, goalkeeping coach, head of recruitment, etc and so o=
+n.
+
+England have revealed their
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEktxKo64ccLG7L6zQMWSbrGaf3_St9oZuTxw=
+xBJ38EQaaWkUhaxYcKb3kW-NfpoOtSSH4_108jmCr7pFVxlvdYgZnnLBbEdHbIuoy6dnp_OAaop=
+1j7GzzE_aE-IAdFYYgRfvFic76wiG4wBOBkWyGLcGUmA-6gHwEVFNTSFiDdUuVFq8-s2UtUEoIV=
+_yUHt4VfDDJBxkH62TFAZ5sBcnyq2Nl0T1aPYvsP12Xr1KqR3euttUdAIRl6GbFaFVt15T1/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/t17/h001.HoO8VTKwHI9FflCPlr0w11U38uZ86qBSrJU0GXivF_=
+U
+squad numbers for the HRWC
+, with James Maddison handed the, erm, coveted No 25 shirt which means the =
+Leicester playmaker=E2=80=99s fitness is not too troublesome.
+
+
+Prince William presents an England shirt to James Maddison before they head=
+ for the HRWC. Photograph: Eddie Keogh/The FA/Getty Images
+
+
+Aaron Lennon has called time on his career at the age of 35.
+
+And Ashton United of the Northern Premier League Division have offered to t=
+ake Erling Haaland on loan from Manchester City to stop the gigantic goalbo=
+t from seizing up while he=E2=80=99s in storage. =E2=80=9CIt just makes sen=
+se,=E2=80=9D
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSErkZkHtxqdOoDj2K7PR50YE-HsXgFCob5Ixz=
+issXKZf0U3nh_wzhEMDXlODprGaJENjtFOd9fmOM4_LFX3QTP2JMcD6mFtolEqSOel_Kaoyrwxb=
+o_fTaHwv--NRoK6Lb7w-AHWfK0lPHbyAzYVJQY8VYSC17BLzo-PmS5OOVFCbT1QCBVehJ5kS8yR=
+KC5oBYFuVRiCh2JyBrQfv0JVoEa4IOdj7A8368Eqk3ghbzP7wrX-MPTUmLMTBpQ4Ccw9-Gg/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/t18/h001.60kSZmFpBGKAMxMtirob1CgYqzRDeHrwupnNjGwhYi=
+A
+cackled manager Michael Clegg
+. =E2=80=9CCity aren=E2=80=99t playing, and we want to help by keeping [him=
+] fit. It makes more sense than him playing golf for six weeks.=E2=80=9D
+
+STILL WANT MORE?
+
+=E2=80=9CGiving [it] to Qatar was a mistake. It doesn=E2=80=99t belong ther=
+e.=E2=80=9D The Fiver=E2=80=99s World Cup-winning colleague, Philipp Lahm,
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEBYsb93GJSEF_C1-UhtUYc3WBy485gUl0ZOnK6lysuBFnMiiaF2cntsjY_=
+txRD4RGqy_bd8WhLa0hJHm-5F0menmrqooFc_D4xFvBse8LopPyae_VwJqf2udNOKAe8w19WDEI=
+B_kFTTB9HTxEV2o25eHAauR9dNYNF9Pva-qTRkLzyrHhH8GNo-MqUNjNiNmo7sdrkNNrqlOCf51=
+EKTksEyL08D2gqtVY1p6J8TB4wSWGHp5N2DzSZPo3ZL-3eqvIo/4tr/Ac2BGRD7RMK6xIEf25QV=
+3g/t19/h001.13hC1bEFjLJ2UmEfbjYtesTgRDhIfURokNbVSL9bFjo
+on why he won=E2=80=99t be going to the HRWC
+.
+
+Stadiums of shame:
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEnQuVGEA4GRDUbQnn9K-DVqHHpJq3amXWnx2=
+0Gmva4K8_c-EVj-sVW5C1PisgYPmUbAVQdnHJsr5bKKq1LgQLyIfJIIwJ6q8Nx-BAgpKNVKqk1F=
+xsd7B9gJ6H4wLKfARbdyHunJN94JfhHAVWrOfQFIYmcrb_R1LUQzLyObPAoitGvVIdO2vBcBZBk=
+OxL169bwpAT2DxiCaOiUEOJ5Enm-oHO2OQDX1vR6s6U6sNYS-3IsJKQ_HnHQFEwLhZEV2x-MQuq=
+Nz0GEUtJd2N7cFLUWQ/4tr/Ac2BGRD7RMK6xIEf25QV3g/t20/h001.pB7nnPWnI9QeFOWX6YPn=
+N7W4J8887JPxQRydwjxZvPA
+the HRWC numbers
+that Qatar=E2=80=99s Supreme Committee doesn=E2=80=99t want you to see. By =
+Sean Ingle.
+
+
+Outside Stadium 974 in Doha. Photograph: Kirill Kudryavtsev/AFP/Getty Image=
+s
+
+
+Like 90s bangers at a Skegness indie night, our HRWC guides just keep on dr=
+opping. Today:
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEGX5DeS9JLM0qw1_52V0QW_ZD6b6eIVmz_kr=
+QNfaSDhEtyHmYBrWDo9yW3mSXK__nMjw05AsGEpkvPvXjcUIl2Pkp6JeyFGZ6QYZknyByqkhOx3=
+sP_Atx8AcYkqg0xHdDfxJpjE8zLmULE52EhHNiocQGId4Y6X9TiAzOyV-tOpB4gz8s_dPg1qD3R=
+sB_vOdJqnZ0wt-WY9yRasp50emRmg/4tr/Ac2BGRD7RMK6xIEf25QV3g/t21/h001.oWvbIMUDY=
+RQQuX81vifRsBhmbciNmkpwCRPDwsKkRNA
+Brazil
+and
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEGX5DeS9JLM0qw1_52V0QW_ZD6b6eIVmz_kr=
+QNfaSDhFv1OF0qPYg0pT8qqOhgrSz24MwSZucoJvr0REXfDHAH3jzWXne2LsD_BexuBKgBCnW7_=
+j883ocTSkv6LELFZNgNQxLaczBs-DjpQbJBSPd1XgAcGobMdlfhadt_ZSOS-r9Br1SjGbUxRZfX=
+_iE7tkVbpig8NRCih1Xb3HpmTvi0A/4tr/Ac2BGRD7RMK6xIEf25QV3g/t22/h001.1GWAkCyTE=
+7HkD2KT-hzvTCGYuZZGdjEftYiTpeUtLkk
+Cameroon
+.
+
+Barney Ronay on Cristiano Ronaldo=E2=80=99s interview,
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEgXuhWEKg_IQoaItDsz0aVkzb6MuRtRqCGEg=
+nuaw5DSLlsgSlEE08d6BrVSK0rlDpTzSfsTz8mIyfIyNNp-jrT_ZepHY4CCM-e2jlaRNg_hd2Bo=
+9hlM46rKcRX8-qpY-87ciQ8K6AHJNppqhrhOwDJOxY0aY0XbgZvKFQkvYcrBSIT5RBrTRgiRTpX=
+wasqJVZyTZ0uaMl6Ody6Oqss-3YCP9VBBbVN9_PaJGZM8fpTx-Rr1Lsu0Ciyb6IbhHBDQjrJU7w=
+DsbStjOfuqRI2wpdrA/4tr/Ac2BGRD7RMK6xIEf25QV3g/t23/h001.iv01DrniQ4dIytgg7Nta=
+kHBraLcOKTBmcb7UFt3FrU8
+aka: SI-U-Later
+.
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECnAs-OF_4HlpIBAhCduXoVYaOdkX5Gf7NROLIiqpRj2NId7-DdSP49-eL=
+4V_kY5T7bcl3YT8ERLkuAOmYtd1ZOZnfU-pI65SM5P-s8RYgdIIC74-oS_4evJmBKIAp-cVUY-6=
+oXS-llbSmtXA9x8-F_ehj_gw1U2hoMVjzEvc2fiTEPSOOJfoM4ggoKzPL9w5y-EaL4my5pCggJJ=
+H2mIpIrlimjHWbFAgd210PLS5A07XwvGwqKFKGPikC4xjFBVYKrC1wSEXmTWkz2i6Of3LJi/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/t24/h001.gNZaEkZDk86sOMikMTmlQRHl_75QE_UJwMWJXVoww2=
+s
+HARSH
+?
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmRywBEaPvi_RtJMu7yqJeY-KfcQkFygBL8iKr=
+tR2qyoEOENqVXhchhObYorjYU1dHFQaVue3IZ0jfpPxqo43rCrCT80V1G0PVuUY9_H7wzK9ZTHv=
+dV2cbibCAUqfUtm-zq7RMKOLv5pASmxm9EIN2qeTbV-Hl2ZUmILhl3BxcQB5E/4tr/Ac2BGRD7R=
+MK6xIEf25QV3g/t25/h001.sfzw7TpoSmQ3R9vvrgzXMf5i5RNvcN4sT7b_9WjjEHQ
+Manage your emails
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6K_5zaO_ntyE7Unu01EppyvGETeBl6q8pRHQpPnXT70flQWGuE_Gdb39PQ=
+KswWa4CKXl3Wgp_M5RjOgQGCUyTMGebsFO8vNFhjnRt78S64aqX9zypfSREB3K87jCQMryfpjVX=
+bn4ldVPHETJs3vakir/4tr/Ac2BGRD7RMK6xIEf25QV3g/t26/h001.kdXM1hUvqvAvaj9YwCkr=
+sgXDP0AmKQNmP9J2j0qQmHs
+Unsubscribe
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEQ4CMBn5lxsH9-PgA1oxYTG-pQeO6rHCqy88=
+QrKbY0oFo3nGb520OHI1oai3nAt6EZHHFcFNgi5TUR2GGXQbNSEhp1-4QWqewXRpc435UZNH4Ya=
+gIh2hCHfMzLZUPh7w2uHOqT2KNamSB3K8uJgTVCy98txnPnCk0l7-UX5zoiMb0fHR_WFJbziywN=
+0MoY_lMxK_VTqkYDu2mk1igd6ncXYgf4PFDFs4-GK9OEIO-jAU/4tr/Ac2BGRD7RMK6xIEf25QV=
+3g/t27/h001.InK0HQXP0GvwnJ4J5msuaxEhIUaQ7D-qTHbHeurs33A
+Trouble viewing?
+
+You are receiving this email because you are a subscriber to The Fiver. Gua=
+rdian News & Media Limited - a member of Guardian Media Group PLC. Register=
+ed Office: Kings Place, 90 York Way, London, N1 9GU. Registered in England =
+No. 908396
+--dedd882ac1ee81ab5bc465d4c6bbcd947385921680f39f42fcd2e684ce70
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html lang=3D"en" dir=3D"auto" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=
+:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:o=
+ffice:office">
+<head>
+<title>What you won=E2=80=99t see in the Premier League this weekend | The =
+Guardian</title>
+<!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedg=
+e">
+<!--<![endif]--><meta http-equiv=3D"Content-Type" content=3D"text/html; cha=
+rset=3DUTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1">
+<style type=3D"text/css">#outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }</style>
+<!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><style type=3D"text/css">@media only screen and (min-width:=
+480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-70 { width:70% !important; max-width: 70%; }
+.mj-column-per-30 { width:30% !important; max-width: 30%; }
+      }</style>
+<style media=3D"screen and (min-width:480px)">.moz-text-html .mj-column-per=
+-100 { width:100% !important; max-width: 100%; }
+.moz-text-html .mj-column-per-70 { width:70% !important; max-width: 70%; }
+.moz-text-html .mj-column-per-30 { width:30% !important; max-width: 30%; }<=
+/style>
+<style type=3D"text/css">@media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }</style>
+<meta name=3D"format-detection" content=3D"telephone=3Dno, date=3Dno, addre=
+ss=3Dno, email=3Dno, url=3Dno">
+</head>
+<body style=3D"word-spacing:normal;background-color:#FFFFFF;"><img src=3D"h=
+ttps://ablink.editorial.theguardian.com/ss/o/u001.OMpll5AjohZ3LgbA8XhVqA/4t=
+r/Ac2BGRD7RMK6xIEf25QV3g/ho.gif" alt=3D"" width=3D"1" height=3D"1" border=
+=3D"0" style=3D"height:1px !important;width:1px !important;border-width:0 !=
+important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0=
+ !important;margin-left:0 !important;padding-top:0 !important;padding-botto=
+m:0 !important;padding-right:0 !important;padding-left:0 !important;"/><div=
+ aria-label=3D"What you won=E2=80=99t see in the Premier League this weeken=
+d | The Guardian" aria-roledescription=3D"email" style=3D"background-color:=
+#FFFFFF;" role=3D"article" lang=3D"en" dir=3D"auto">
+<!--{% comment %} Required Campaign-level variables {% endcomment %} {% ass=
+ign
+				identity_newsletter_id =3D "the-fiver" %} {% assign utm_campaign =3D
+				"TheFiver" %} {% assign CMP =3D "fiver_email" %} {% capture
+				unsub_url %}{{content_blocks.${Editorial_UnsubscribeLogic}}}{% endcaptu=
+re %}
+				{% assign dispatch_id =3D {{campaign.${dispatch_id}}} %} {% assign
+				url_parameters_unstripped =3D "utm_term=3D" | append: dispatch_id | app=
+end:
+				"&utm_campaign=3D" | append: utm_campaign | append:
+				"&utm_source=3Desp&utm_medium=3DEmail&CMP=3D" | append: CMP %}--><!--[i=
+f mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"=
+600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]--><div style=3D"margin:0px auto;max-width:600px;"><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;f=
+ont-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;dire=
+ction:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td>
+<!-- START - DO NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+<!-- LIFECYCLE EXCLUSIONS START -->
+
+
+<table width=3D"100%" bgcolor=3D"#041F4A">
+  <tbody>
+<!-- Support Bar -->
+							<tr><td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" role=3D"presentation" bgcolor=3D"#041F4A">
+									<tr>
+										<td class=3D"p-15" style=3D"padding: 15px;">
+											<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" role=3D"presentation">
+												<tr>
+													<td valign=3D"top">
+														<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" role=3D"presentation">
+															<tr>
+																<td class=3D"title-24 c-yellow" style=3D"font-size:24px; li=
+ne-height:28px; font-family:'GH Guardian Headline', Georgia, serif; text-al=
+ign:left; font-weight:normal; color:#FFE500;">
+																	<p class=3D"title-24 c-yellow reset" style=3D"font-size:24=
+px; line-height:28px; font-family:'GH Guardian Headline', Georgia, serif; t=
+ext-align:left; font-weight:normal; color:#FFE500; padding:0 !important; ma=
+rgin:0 !important;">
+																		<strong>Support the Guardian</strong>
+																	</p>
+																</td>
+															</tr>
+														</table>
+													</td>
+													<td valign=3D"top" class=3D"img" width=3D"10" style=3D"font-si=
+ze:0pt; line-height:0pt; text-align:left;"></td>
+													<td valign=3D"top" width=3D"120">
+														<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" role=3D"presentation">
+															<tr>
+																<td align=3D"right" class=3D"bg-fix">
+																	<!-- Button -->
+																	<div>
+																		<!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsof=
+t-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"https:=
+//support.theguardian.com/contribute?utm_source=3Deml&utm_medium=3Demedt&ut=
+m_campaign=3Dthefiver&utm_content=3DEditorial_CNHeaderControlAcq&CMP_TU=3Dm=
+awns&CMP_BUNIT=3Dedtrl&utm_term=3D6a9ade1d36027410842c48aaab236129" style=
+=3D"height:40px;v-text-anchor:middle;width:140px;" arcsize=3D"50%" strokeco=
+lor=3D"#866d4f" fillcolor=3D"#866d4f"><w:anchorlock></w:anchorlock><center =
+class=3D"ff-text-sans" style=3D"color:#052962; font-family: Arial, sans-ser=
+if; font-size:15px; line-height:19px; font-weight:bold;"><span class=3D"kee=
+p-blue">Support&nbsp;us&nbsp;&nbsp;&rarr;</span></center></v:roundrect><![e=
+ndif]--><a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.zFrJr=
+-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx3IF5rKLrpZ7i5OYjw2FpxFpAFCGJ3RrPpxurKDX=
+dpA_BnpoSfplZoe4FK6KFCtcVQC-QN4V41w5Le1xqSYgHEcNX3hE5qJ96ll55ttFrdCrW2T1-yu=
+3X1qmqcVJ6j-uVMEym68BIeLWNKsZaAHBjRAmTjhj0qx4j4JEQ7usvb0hRYtlTJcdIG0vQAlD6O=
+B-HiZ8OI5bPVDYbJanx9yxHqLnoKh80eFiqSO78JOCHwXELMltLH_vdcTXrgzNsmyEuxk/4tr/A=
+c2BGRD7RMK6xIEf25QV3g/h28/h001.2MnCB4jZz-uXqtmtl1XzOeqkCOkxKEP4iCWw7p_-8j0"=
+ target=3D"_blank" style=3D"background-color:#FFE500;border-radius:40px;col=
+or:#052962;display:inline-block;font-family:'Guardian Text Sans Regular', A=
+rial, sans-serif;font-size:15px;line-height:19px;text-align:center;text-dec=
+oration:none;min-width:auto;padding:6px 15px;-webkit-text-size-adjust:none;=
+white-space:nowrap;mso-hide:all;"><strong>Support&nbsp;us&nbsp;&nbsp;<img v=
+align=3D"middle" class=3D"text-14" src=3D"https://cdn.braze.eu/appboy/commu=
+nication/assets/image_assets/images/64ccbfe3feaa422ca99be922/original.png?1=
+691140067" width=3D"16" height=3D"16" border=3D"0" alt=3D"" style=3D"font-s=
+ize:14px; line-height:18px; color:#000001; font-family:'GH Guardian Headlin=
+e', Georgia, serif; text-align:left; font-weight:normal;"></strong></a>
+																	</div>
+																	<!-- END Button -->
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+											<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0">
+												<tr>
+													<td class=3D"text-14 c-white ff-gts pt-5" style=3D"font-size:1=
+4px; line-height:18px; text-align:left; font-weight:normal; color:#fffffe; =
+font-family:'Guardian Text Sans', Arial, sans-serif; padding-top: 5px;">
+														<p class=3D"text-14 c-white ff-gts reset" style=3D"font-size:=
+14px; line-height:18px; text-align:left; font-weight:normal; color:#fffffe;=
+ font-family:'Guardian Text Sans', Arial, sans-serif; padding:0 !important;=
+ margin:0 !important;">
+															Fund independent journalism=20
+														</p>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table></td></tr>
+								<!-- END Support Bar -->
+<img src=3D"https://email.mvt.theguardian.com/1.gif?identity_id=3D13579145&=
+amp;variant=3DEditorial_CNHeaderControlAcq&amp;send_id=3D6a9ade1d3602741084=
+2c48aaab236129&amp;position=3Dfooter&amp;" alt=3D"" width=3D"1" height=3D"1=
+" border=3D"0" style=3D"display:block!important;height:1px!important;width:=
+1px!important;border-width:0!important;margin-top:0!important;margin-bottom=
+:0!important;margin-right:0!important;margin-left:0!important;padding-top:0=
+!important;padding-bottom:0!important;padding-right:0!important;padding-lef=
+t:0!important">
+  </tbody>
+</table>
+
+<!-- PROSPECTS END -->
+</td></tr>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;word-break:break-=
+word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr=
+><td style=3D"width:598px;"><img alt=3D"Football Daily - The Guardian" src=
+=3D"https://i.guim.co.uk/img/uploads/2026/07/22/Football_daily.jpg?quality=
+=3D85&amp;dpr=3D2&amp;width=3D650&amp;s=3D38c2799d19ebd2d966f5426bc02ce45d"=
+ style=3D"border:0;display:block;outline:none;text-decoration:none;height:a=
+uto;width:100%;font-size:13px;" width=3D"598" height=3D"auto"></td></tr></t=
+body></table></td></tr>
+<tr><td>
+</td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 0px 0px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:598px;"><img alt=3D"Composit=
+e image of Folarin Balogun, Richarlison, Lamine Camara" src=3D"https://i.gu=
+im.co.uk/img/media/f3db0ac471466541873bbe856293cc1420626814/0_0_5000_4000/m=
+aster/5000.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D650&amp;s=3D1eb7f8d8cf4=
+8290ab5f70071f89f4236" style=3D"border:0;display:block;outline:none;text-de=
+coration:none;height:auto;width:100%;font-size:13px;" width=3D"598" height=
+=3D"auto"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text headline-text" style=3D"background:#FF=
+FFFF;font-size:0px;padding:16px;word-break:break-word;"><div style=3D"font-=
+family:Georgia, serif;font-size:13px;line-height:1;text-align:left;color:#0=
+00000;">
+<div style=3D"font-size:14px;line-height:17px;font-family:Arial, sans-serif=
+;font-weight:700;color:#0077B6;margin-bottom:8px">04/09/2026</div>
+<h1 style=3D"font-size: 24px; line-height: 29px; font-weight: 700; color: #=
+000000; margin: 0 0 0px 0;">What you won=E2=80=99t see in the Premier Leagu=
+e this weekend</h1>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 1 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;direction:ltr;font-si=
+ze:0px;padding:0;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" style=3D"background:#FFFFFF;font-size:0px;padding:16=
+px 16px 0;word-break:break-word;"><table cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" border=3D"0" style=3D"color:#000000;font-family:Georgia, s=
+erif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:no=
+ne;"><tr><td valign=3D"top"><span style=3D"font-size:24px;font-style:italic=
+;font-family:Georgia, serif;font-weight:400;line-height:140%;color:#0077B6"=
+>John Brewin</span></td></tr></table></td></tr>
+<tr><td style=3D"border-top:2px dashed;border-top-color:#999999;background-=
+color:#FFFFFF;padding-bottom:8px">=C2=A0</td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">NOTHING TO SEE HERE</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">That icy wind rattling the rafters is the =
+cold reality of what follows the closure of the transfer window, a hungover=
+ pall of regret. Despite <a href=3D"https://ablink.editorial.theguardian.co=
+m/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEDom6Up7NBgS48fUZgZf5c=
+eBLKr42K4LHJzFlvuGW4qxFxx5Qu3ze4S9zrQoC9tL-7_aJmPmRiofOXFCKTpXjkfj7njeriE1C=
+lAA2qla7PaptNIv8vwM866vbDSx8SubJziAwes4B_Yso-TORw-K2DPJhcziNFiRwquo810f9axe=
+JAhAOboCReeQOQoyJmvQfxz-LP4cixyi1juQr40-OxmNAHrWcfGl5Z9ieDG2h5CNPIRyDhfBz-m=
+kHMx8VHc9KNfaKypYYVydkvabFC7NgNtCdZSPtM80W8Lc_xxOlSDUA/4tr/Ac2BGRD7RMK6xIEf=
+25QV3g/h29/h001.bfY_CoxkmmMLK4rNskuL-YNI5EFI9uXRPOqEoZvDdx4" style=3D"color=
+: #0077B6;">=C2=A33.5bn shelled out</a> in the men=E2=80=99s window, severa=
+l things will <em>not</em> be happening in the Premier League when they mig=
+ht have been. When Arsenal host Chelsea for a most super of Sundays, Vin=C3=
+=ADcius J=C3=BAnior will <em>not</em> be playing in their attack, and neith=
+er will Gabriel Martinelli, whose lengthy social media disgrace farewells o=
+n <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFu=
+ifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPg28XRJ-yuNXtortbywHON3z=
+bhhxUBKtIdCF0Nqx3mIuUSx5VSPTLgkbxzhC1QnyJpSBlYCl2du4K-tP55npSUH-iIFJ_sisD5U=
+LfIRHDTZVmZXtaYzWeWPlvMaB5641HXEZhPWl_ZJ6eLUOfDhLDZQgqAoQ6izdOxMPryT4p12aB5=
+kSq2KLfo_ga1whJGlWaURwpTp8F10VIRop5s8st2uH9oBE7IncatBjzTbACepdE/4tr/Ac2BGRD=
+7RMK6xIEf25QV3g/h30/h001.lHdCx0_3wqX-TjJPy2UO8QAJrf3Fh4y3-EHvC71kdvU" style=
+=3D"color: #0077B6;">his departure for Saudi Arabia</a> pointedly made no m=
+ention of Mikel Arteta.</p>
+<p style=3D"margin: 0 0 16px 0;">There will be no Enzo Fern=C3=A1ndez for C=
+helsea, with him joining what he called a =E2=80=9Cbig club=E2=80=9D in Man=
+chester City and in his stead, Lamine Camara will <em>not</em> be lining up=
+ in Chelsea=E2=80=99s midfield. On Monday, the majority of Chelsea fans kne=
+w very little about Camara but now they yearn desperately, a love unrequite=
+d for the 22-year-old Senegalese tyro who, it says here, once played for Me=
+tz. Should the Gunners grind through the gears on Sunday, as is entirely po=
+ssible, expect to hear criticism of sporting director Andrea Berta. A most =
+modern phenomenon is suits having their names taken in vain. Liverpool trav=
+el to Ipswich later on Friday with fans wailing at a lack of cover at full-=
+back. Richard Hughes, also off to Saudi, may well have ears burning when a =
+year ago the Reds=E2=80=99 supporters were asking for his autograph. He wil=
+l receive little thanks for Liverpool having the highest net spend in the l=
+eague when the midfield is slow as a coach.</p>
+<p style=3D"margin: 0 0 16px 0;">The same could be said of Jason Wilcox if =
+Manchester United fans were able to scan his name into a song. Their red-sh=
+irted heroes will <em>not</em> feature Newcastle=E2=80=99s Lewis Hall when =
+they face Everton on Sunday. Though having no obvious replacement should Lu=
+ke Shaw suffer hamstring-twang is nothing on the personnel deficit at Hill =
+Dickinson Stadium. Fans=E2=80=99 wishes for Harrison Armstrong to stay were=
+ met but he no longer has Iliman Ndiaye to pass to, while Thierno Barry is =
+the sole striker available to David Moyes. That Everton currently own more =
+stadiums than strikers has become a hoary old gag within days of the club=
+=E2=80=99s deadline-day disasters. Folarin Balogun, the erstwhile Evertonia=
+n, will <em>not</em> be playing for Monaco against PSG this weekend, and ne=
+ither will he play for the club in Tin Pot.</p>
+<p style=3D"margin: 0 0 16px 0;">Richarlison, having hoped to return to Eve=
+rton, will also <em>not</em> be playing this weekend for Tottenham at Notti=
+ngham Forest, having been tinned entirely from Spurs=E2=80=99 Premier Leagu=
+e squad. His SMD post that =E2=80=9Cdespite this turmoil, I am under contra=
+ct at Spurs and will remain at the club=E2=80=99s disposal=E2=80=9D was fol=
+lowed by them trying to dispose of him. Mohamed Salah=E2=80=99s Trabzonspor=
+ is a reported destination as well as the usual Saudi escape hatch. Balogun=
+ looks to be heading for the Turkish Super Lig or the Saudi Pro League, too=
+. The funny thing about regret is that it=E2=80=99s better to regret someth=
+ing you have done than to regret something you haven=E2=80=99t done.</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]-->=20
+<table width=3D"100%">
+  <tbody>
+			<tr><td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" role=3D"presentation" align=3D"center">
+											<tr>
+							  <td class=3D"img pb-20" style=3D"font-size:0pt; line-height:0pt; t=
+ext-align:left; padding-bottom: 20px;">&nbsp;</td>
+							</tr>
+												<tr>
+													<td style=3D"border-right: 5px solid #FFE500; border-bottom: 5=
+px solid #FFE500;" align=3D"center">
+														<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" align=3D"center">
+															<tr>
+																<td style=3D"border: 5px solid #052962;" bgcolor=3D"#f1f8fc=
+">
+																	<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" role=3D"presentation">
+																	=09
+																		<tr>
+																			<td class=3D"px-15 pt-10" style=3D"padding-left: 15px; p=
+adding-right: 15px; padding-top: 10px;">
+																				<table width=3D"100%" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0" role=3D"presentation">
+																					<tr>
+																						<td valign=3D"top">
+																							<table width=3D"100%" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" role=3D"presentation">
+																								<tr>
+																									<td valign=3D"top" class=3D"title-24 mfz-18 mlh-22=
+ c-blue" style=3D"font-size:24px; line-height:28px; font-family:'GH Guardia=
+n Headline', Georgia, serif; text-align:left; font-weight:normal; color:#05=
+2962;">
+																										<p class=3D"title-24 mfz-18 mlh-22 c-blue reset" =
+style=3D"font-size:24px; line-height:34px; font-family:'GH Guardian Headlin=
+e', Georgia, serif; text-align:left; font-weight:normal; color:#052962; pad=
+ding:0 !important; margin:0 !important;">
+																											<em>Barry Glendenning</em>
+																										</p>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td valign=3D"top" class=3D"text-16 mfz-14 mlh-18 =
+c-blue ff-gts" style=3D"font-size:16px; line-height:20px; text-align:left; =
+font-weight:normal; color:#052962; font-family:'Guardian Text Sans', Arial,=
+ sans-serif;">
+																										<p class=3D"text-16 mfz-14 mlh-18 c-blue ff-gts r=
+eset" style=3D"font-size:16px; line-height:24px; text-align:left; font-weig=
+ht:normal; color:#052962; font-family:'Guardian Text Sans', Arial, sans-ser=
+if; padding:0 !important; margin:0 !important;">
+																											<strong>Guardian sports writer</strong>
+																										</p>
+																									</td>
+																								</tr>
+																							</table>
+																						</td>
+																						<td valign=3D"top" class=3D"img" width=3D"10" style=
+=3D"font-size:0pt; line-height:0pt; text-align:left;"></td>
+																						<td valign=3D"bottom" class=3D"img" width=3D"98" styl=
+e=3D"font-size:0pt; line-height:0pt; text-align:left;">
+																							<img class=3D"text-14" src=3D"https://cdn.braze.eu/a=
+ppboy/communication/assets/image_assets/images/67ebc669527c9f0074700205/ori=
+ginal.png?1743505001" width=3D"98" border=3D"0" alt=3D"Person Image" style=
+=3D"font-size:14px; line-height:18px; color:#000001; font-family:'GH Guardi=
+an Headline', Georgia, serif; text-align:left; font-weight:normal;">
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class=3D"px-15 py-10" style=3D"border-top: 2px dashe=
+d #dcdcdc; padding-left: 15px; padding-right: 15px; padding-top: 10px; padd=
+ing-bottom: 10px;">
+																				<table width=3D"100%" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0" role=3D"presentation">
+																					<tr>
+																						<td class=3D"text-16 pb-15" style=3D"font-size:16px; =
+line-height:20px; color:#000001; font-family:'GH Guardian Headline', Georgi=
+a, serif; text-align:left; font-weight:normal; padding-bottom: 20px;">
+																							<p class=3D"text-16 reset" style=3D"font-size:16px; =
+line-height:20px; color:#000001; font-family:'GH Guardian Headline', Georgi=
+a, serif; text-align:left; font-weight:normal; padding:0 !important; margin=
+:0 !important;">
+<b> Hi there,</b>
+<br><br>
+If you=E2=80=99re a regular reader of Guardian=E2=80=99s invaluable and exp=
+ert sports coverage =E2=80=93 the match reports, the exhaustive comment and=
+ analysis, the videos, our Football Weekly podcast, the photography, the li=
+ve blogs, the unprecedented volume of women=E2=80=99s sport coverage, and t=
+he cartoons (who doesn=E2=80=99t love a Squires, eh?) =E2=80=93 then please=
+ consider supporting us.=20
+<br><br>
+
+We love that the Guardian is not behind a paywall. But we believe that it i=
+s =E2=80=93 if you can afford to do so =E2=80=93 worth paying for. We rely =
+on financial support from readers to keep it that way.
+<span style=3D"background-color: #ffe500"><a href=3D"https://ablink.editori=
+al.theguardian.com/ss/c/u001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx3IF5r=
+KLrpZ7i5OYjw2FpxFpxBAnhSzojEwLhEpF6W3pxLXX7MzjE38Iwpx0fqy2uolevEURJK3tPCJzw=
+RZqjtDt3NovBibJqP1rNeYrSfumTCFn11nBOWmIWIN4y7G3ADKFfHX8opnAhgsFjZgayqVyLd6A=
+DnFCQV-3hrroFy7DFWsnsfXWSN1v3Wjisr7cmm5yk6SNN00E_R3lgSdYVOn8fXUqrpjq8nPV2dO=
+txxvQszDRC05m28qrwrOT8tbhJn4hyQA4TxXqTJ6LFV2OBQt3Wd_TnaMTMfriw9jk3MjiCQ/4tr=
+/Ac2BGRD7RMK6xIEf25QV3g/h31/h001.26JRTVAbQuYSkfVyTllWD3hne26CZq0PTWQC7-T5n8=
+Q" conversion=3D"false" title=3D"" style=3D"text-decoration:none; color:#00=
+0000;"><u><b>You can support the Guardian from as little as=20
+=C2=A34 =E2=80=93 and it only takes a minute. Thank you. </b></u></a></span=
+>
+																							</p>
+																						</td>
+																					</tr>
+
+<tr>
+																						<td align=3D"left" class=3D"bg-fix pt-10" style=3D"pa=
+dding-bottom: 10px;">
+																							<!-- Button -->
+																							<div>
+																								<!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-mi=
+crosoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"=
+https://support.theguardian.com/contribute?lid=3D3ti73k39f6mv&utm_source=3D=
+eml&utm_medium=3Demedt&utm_campaign=3Dthefiver&utm_content=3DEditorial_CNFi=
+vePillarsSportsTriggerEdAdJune25&CMP_TU=3Dmawns&CMP_BUNIT=3Dedtrl&utm_term=
+=3D6a9ade1d36027410842c48aaab236129" style=3D"height:40px;v-text-anchor:mid=
+dle;width:140px;" arcsize=3D"50%" strokecolor=3D"#866d4f" fillcolor=3D"#866=
+d4f"><w:anchorlock></w:anchorlock><center class=3D"ff-text-sans" style=3D"c=
+olor:#052962; font-family: Arial, sans-serif; font-size:15px; line-height:1=
+9px; font-weight:bold;"><span class=3D"keep-blue">Support&nbsp;us&nbsp;&nbs=
+p;</span></center></v:roundrect><![endif]--><a href=3D"https://ablink.edito=
+rial.theguardian.com/ss/c/u001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx3IF=
+5rKLrpZ7i5OYjw2FpxFpZsgGvXGnDT-JI3dNQcTGbJ1D8XcWyM_ue-Dy0WnjGDBn6u-ZFy6Who_=
+HaQgV7aIoWjcptBSFQsASn7NE9exQwDLHiidUhfhaeqVvbV9bohqqSy4JuXD6sSSzDi_iA-JHp5=
+7p8PUEYLQrZUiFLHTywcl3FQIuAL221hh0NSg-D6DHcMOzJGjxNEG1NoPnziwwK8Gv24avk8tiV=
+HGRPxp5hrNl4zawCqcbhOSh-9z0GXJ4oYzmgwY2voERG-EFBqzVoWnae3J4cNcT_pCUe49ZAw/4=
+tr/Ac2BGRD7RMK6xIEf25QV3g/h32/h001.z_CE1QXxrQ62H0Cun6vaaEbCoeW00mbum8byHKUT=
+mes" target=3D"_blank" style=3D"background-color:#FFE500;border-radius:40px=
+;color:#052962;display:inline-block;font-family:'Guardian Text Sans Regular=
+', Arial, sans-serif;font-size:18px;line-height:24px;text-align:center;text=
+-decoration:none;min-width:auto;padding:6px 15px;-webkit-text-size-adjust:n=
+one;white-space:nowrap;mso-hide:all;"><strong>Support&nbsp;us&nbsp;&nbsp;<i=
+mg valign=3D"middle" class=3D"text-14" src=3D"https://cdn.braze.eu/appboy/c=
+ommunication/assets/image_assets/images/64ccbfe3feaa422ca99be922/original.p=
+ng?1691140067" width=3D"16" height=3D"16" border=3D"0" alt=3D"" style=3D"fo=
+nt-size:14px; line-height:18px; color:#000001; font-family:'GH Guardian Hea=
+dline', Georgia, serif; text-align:left; font-weight:normal;"></strong></a>
+																							</div>
+																							<!-- END Button -->
+																						</td>
+																					</tr>
+																				=09
+																				</table>
+																			</td>
+																		</tr>
+																	</table>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<td class=3D"img pb-20" style=3D"font-size:0pt; line-height:0p=
+t; text-align:left; padding-bottom: 10px;">&nbsp;</td>
+												</tr>
+											</table></td></tr>
+										=09
+<img src=3D"https://email.mvt.theguardian.com/1.gif?identity_id=3D13579145&=
+amp;variant=3DEditorial_CNFivePillarsSportsTriggerEdAdJune25&amp;send_id=3D=
+6a9ade1d36027410842c48aaab236129&amp;position=3Dfooter&amp;" alt=3D"" width=
+=3D"1" height=3D"1" border=3D"0" style=3D"display:block!important;height:1p=
+x!important;width:1px!important;border-width:0!important;margin-top:0!impor=
+tant;margin-bottom:0!important;margin-right:0!important;margin-left:0!impor=
+tant;padding-top:0!important;padding-bottom:0!important;padding-right:0!imp=
+ortant;padding-left:0!important">
+  </tbody>
+</table>
+<!-- END Support Free Independent Journalism --><table role=3D"presentation=
+"><tbody><tr><td><div style=3D"height:20px;line-height:20px">=E2=80=8A</div=
+></td></tr></tbody></table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">LIVE ON BIG WEBSITE</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Join Scott Murray at 8pm BS=
+T for red-hot Premier League updates on Ipswich 0-0 Liverpool.</p></div></t=
+d></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]-->=20
+<table role=3D"presentation"><tbody><tr><td><div style=3D"height:20px;line-=
+height:20px">=E2=80=8A</div></td></tr></tbody></table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">=E2=80=8ARECOMMENDED FOLLOWING</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Now on <a href=3D"https://a=
+blink.editorial.theguardian.com/ss/c/u001.HesXJ57d0x1owJZ-aZPL3dMFWr92HeUFQ=
+k2v_wBSJ_UtgE-pwHb4UgXNOWZZo0YVxxwURJTh4pagIEz-e5iiLLvWgGrJSjzS9eI4znaXqZIX=
+BgACYC9P6aENz7Gtjz6FYNtrghwgn_YkWqJGN-Jm5sP8i8yF7iwp_zsqdIU0e9k0kfjkc0qQHLe=
+GPPmoi3zmaxQsG1OomvAYsIFwUxXj2IF7RDLIAQIrhvhdtz591XoZCtT9P8EnEvpuchUGj49icG=
+38aS7Jm1PRdywk0F8-e3EpGOkHRZo9lEVFATp03mgm_ctQMDfL3x0rwDnY5GVzfw977jEbw9Rc6=
+pbf2nRaJPXVCqGLmAUl4EMuum_ZEqwgJDBVwgHpjonD4aMJiPh8Se8Qwulm13pcplgBgY0Enb01=
+R94PzuUsuRbD6aurVK9qxV5n9CIvLTd06XHmzPvqXe8sZd8prLwFJ1SqkpcKqr0O9_xPF_nhQ4V=
+I0EIr7j3DKBQN9tHyXnktOU8E9z0xfXJ3KiVjo-jb91qZ-iM8jQMH4jJGBxC3hk-uvdP99vCSUT=
+onerWdgClQcE-A7kQR29pzhFbf8uuR-MlC27Dmlmg9Jcen9scKDrezF_C6WB_sBUR7l3WQ0tkPn=
+-qHL74qH6Yf6y69fXq2dmmxyJGPM6AgF6QlxkLcWvAix8eMoJeWYPFcxXcZgUz8sWP9XX8NAxmx=
+OLCmhsGf8gqOfiSGi-V_L35uLICQoNm4Ah0gsp9aHM2SVFj9PymAHe3sapGTn0YGAlfekQojK1G=
+NGksZwBZJBMkxFG4Q0aTGhPF0xeuKpNRXjo5Frr5ahnE4E4HTsLBQ6kc13G__lNwO3MvHb2ggXQ=
+iuuJZ5T57ViwqtSbLBJ2QJAsarfwMaeabP1gJuKw7b-NEKh7rGLm9kObiEVXoPqeS8J3Sof-0Tv=
+qfa0ieDp1Gs7-cow9wgFwRHl1cubYcxwehjUPcucP8UshErPKg5kz1fftx37Yvf2bkmEkRv9334=
+tIis5WBS1z3rQBzKMkcFb9kv0oB0zmThoW9drxZgQfc_o6jno4z1axPRl5-jZExVpY64gjznzZs=
+umJPb_CaS_6WzB27wXJG3LnFDfYejJtL-0T3IJoGk10bH1VXsZoEs2-OootkYiM0z7Lgn5jXvoP=
+r3FE1rq3OkI0xRrS8cpgIOzp2dIZ0IXkbqkA2-S0UDLzijL-X5165AJ7sSc8TI0p-LqZtQ3Gvhd=
+uPRgb1q28DdGtBEHN2eFKQnZwba8JIqEGXSdhD22ZdNl5v-xs8YaS1xnoIZq2AN8zBjBTopSFDN=
+XEgFHgxFOkfwWTC-uNDDWqNs3n5iuVqItnEXDgFBQDF3A794uBLE_wfQO4jn789IkccHym_RqKs=
+3cEMAcfHyKgmu8rPgucM6Tvd69SHiYp8ebuyOYQZqtQoTF9LadVeR3SJyaDzxzMgds4hhVAhmeJ=
+XgDO1CL9o_-8rTA7644bjQS7Jh3XJlDuKEs4hAJqUh6Gs4EDoK47aBHOQfDcfHXbBLTBY7UWN_9=
+ap3I1VMEDSJlpjmdaSJBAJWQJCIvfdY2ObpjSnExNX712MrpCF6GjImt3holF_Z0QZo97cQHh-2=
+O_U4qY7s8G673kXG9I5rrREkc0PwuIyxZe47sh4zA28VbDXnyx6wvgd1Vuwfk2bwycAEj5M9bTB=
+HPWbMijwI3fAsK8ykyvKueVaEZMLiQPIKOBibiobXTZEPewrajNIkqfrBdoidODhVC1UNFBOBt-=
+satjUYikMlSdbW3MmR3MsJWLFEsvMctVKvDwFrLtTh4Zgt1BkMLoWDSjPZTd-stCsFlBJY4RxO0=
+HqAMKNlswOBqGcOrj00ys0q6VUYxwQRqvkDTV9527W4ytSQmHIKahrVC3mLG4Fj9Sdkd8ea1t6J=
+WUJYXp8V7r_l83WJqCrpnU6Zo5TVzCysLnHjm05o6Anz4eGs12tEaCdfvTEvQNOKHTL6HH5NnHW=
+cjSIdH_Dhtb_0Tkxne2rKdyctVCbD1yJYNlunCXIK34xeXRbeK4c190PKRSAHzvUzqkEVKxfOtH=
+cpJJTDemCorL-eWm3DD_f8lsKUcO3STeQhK3r2QRj-KEx6L_WKTSqbFWFLsYP3YNPtQB6azgLRj=
+YMMpTO-Dt40NXud5-mrLtgVOmM53aQIaOIOHt42eD_tdVWPUIW9z94bk_mKWXunLu1W8nGiTQws=
+g-bTlDjdw7rRzLSutzT_Z6WyOGTtBK37gglO3rVxtXLsYc40QFKjd3v3hxgACh5xAJdBUwl3xQb=
+nwsx1B9H9KK7Cj1km6p7A_pcajxRQKFJpmhnTOxKxT_ldNrNuc985fsiVI-DRuU2PHG-gJu7Ibi=
+Z0Sx_mHmfirTTu-IC-xiTJdcA1E1hf_b4fQ3zNvlMHRGPAOpibkCDmux0r4nfJfwjrcz80Soysr=
+c-XuYrstypIJgLSbG98ZRktTRydBDHk-txoXc4zE003lK1xNT1DC3GY1SmXV92EifoEjwZyKs3Q=
+1n1z0CkvaTmTFY48-GvG-iFszFxUy3Y4vjeHZLfVZt4oX-brgsqjXnZLnmOuHrlkpNjpEfOjDFO=
+jJHr8jAUtFtmxqHLH_xs0alcaX_5ozoVsJ3rseTlQdHEuLPnUoGvEUcULvYYnATMkL1nE3vvz0A=
+VcNyaN13k8jxKo6wgfoWZ0HNueQAELIR0sf-Kng_MLKCWU3Hdg5FkuXaNm0znsk_shmfUxbyE8U=
+5IsehsBFZQjYI6OLdcEcxXv5DqXREPYiWQoXf_FPNWcF_QpF-O6OnKYfOWpz7ds3VqQ4wl6IxgA=
+cSoD58mAlyneK76zPmio_SecQhi-26UTmyLlstSHHm7UbWsa6X2sCbPIGfXF4chKhWhbQQTrZR3=
+lRsjxSlGOHaEAehQwOzTPZ3ECcRpKoQX1Gebt5AFaDEFY6PBxOB20CAWztfxJWwhlBlMkUaicBf=
+DI_HuxovyvhDHkKYAMfKkHsb1J1cgGfyuGcLAOvr0tmjv5CjzRoax-Js10e8uXAESsjaiB4STM9=
+0w75JG3XNI_OfCRk9keyziZS7Jn1jN8U7ZMTLLUttuE2KWduuPXpRdcMwuPJITdvgtofBScV6zk=
+2zaHhRWKHOIvupe5neVPjXmH8a7TZ-b5ZjwUbcd69hLbR0qYT67hpUL-4IAMtGouSXSJUGw7iJV=
+yyVH55CS05g2eIy70tebEWqyqAfNvMz12J3E77JYP9hfeSJhoPcGHmn_QLMwY65VbONu7UAz7_r=
+aFA2zL7HZ_e3kvosROSQklhCFEyd6mHZauR-hXksnzG5_0mR8XxC03tjGmKeB2Xh2fCNlgLf31T=
+bDWn-AEL6amZAw9Sc5NeIr-OiTeeL7matMgE-D-6Naxw8TUHzT7Eldb_KFiFJ0vmP1mg5bN4sJF=
+-zNdKUFPLywRPi_BtXxRMNJLcisK3bg6-YALYKAox5f6Ue_MbTTW-n0bxSjpHEO-RSqPTsCIBh7=
+_qL3go2iVr835EnfsaKmBJ4UC1QaEYGXmudhLLe1S3bVDXAth8QVgePL5dyh6yUxfxGzXk-UqkZ=
+zkuXfIg1_C8DOppIakx6k8Jy4UNYXyvazuEyusaqNIad1VM87-rT9NZ2ItWoGsd2kNW9sx-TgOe=
+YS-DvLjV8cyrBSLzS9yjY9yi17DdFp_aiit2LhxeA7FURiBG4UUtXVboTMlZcetV-QD-1-18seK=
+DHsdy0B_1EECN9ru8uWNSL4gVk_9djvwM_ZfKlKLEakFd3wGPzRa7BvcvQcapqZDC0WwEY8UVbE=
+3eTAWvJrjS_ga39JeSXv-N0vv53nw4fB5mp4WG2GtttrgSS_7OpWjb_Mq14gZAWj5hC9SRrm8eF=
+I_KmYVaXPvkddhD3dsCmaUD29MICUiPqpkmDoM8XK8pqz3WcjZo67M5nudKdaqTPJnEmfc-DBqs=
+rLpW0Kx_VoR3H_KKrPm0jvDw3BO0V9i--TkNwMaQC2TMAm0S1ZcN8Wg7azNVl1bYCD1n_FAn38v=
+rcfwQaHrkiG0RRI7bCtIyOKGxW0199qeNiNi11CgMA6qjB5r-2aD6ZayMhsJPjtHw-laX4bU02Y=
+kihYzNvCJE4IoaJllaXb8D_x9993gHt0IA1HybXREqKqbAEEpGjo_sO1EcIfXbhpDvH8roYZx6M=
+gzXJhlCeWcFwpjcfNrJfbyI_yEzVmhnk9u4Z-frEc_RcQ2vIuZgso3dJ7lyJUypSWbr_TZbibLw=
+GEBuv28raK0E1wjxjtFUktw_N6EdfNtul_qQYtPyRUOytaXP-mZJqkQnKV1ZSvODz-8evz3O2cK=
+1FoHnvOczUC2fi7jDa5X1TextdMPfmgasM6JDq9_ItoOWB_BePjFKBtdIaPy97KxVo4Y5HZTss4=
+4r8JFTzf6LhddcI8vPgpS4W9r-l5uUtQivLtMQphbbctPfPgq38fYHs1gHg-BvKGzEUojxCLOt4=
+WLizoNFuPnRulgGrmka502nFkg66uYkftNII_MTpdOnEhkNs8ZshT_GAmHSH_x13mHHM25rCbZ5=
+Qq4e6F-yodYGKfx99XkHGPF50uac19B51z4tR0IXhYdqEUnAY5ilW8opg0l7QGeeRFet6vnIusL=
+EG1Ap5Xrh0aKm5dHGlaSSQUMsKGMTuDhWo3gSQMVHmJzT_B7I6dzlNQYlOqG0r0GjEdpE-ZmRFq=
+YRDpHzGzsbh_079ARjmlzql769tf09G1i98YNwHgv867wsb06-ASBPlUU840O55S0CvKoiEVInW=
+fFKw8mt9L_8Tvnfe9aC6LaafoLfHj6IsU50_8RONgCgJjqFP1unW6cOP95Od2dW3IHNLL-hJHje=
+d-yXyYcEB_YKh6hMJ1qOAST9cN-FOxs3XWnvX-9wLzA5iYESjXVkXuFctxn7ldil-EbJKrLSUPw=
+EQABOGibg-_ShdPpVubGfLaNOOpKOn7j5ppu8BK0m-1e1LP8LnnWfP_616MpGtS3Iu1uCu_OMjt=
+HXslxJlDII6YvU6CeOQ-xDBaVko55AtzERX1fm0Up1u3qV73t9s--2V3AsHJ6KDx2ysjJYadfDN=
+xXu9chx7TRmcJ6rTSD55Qbr6yNBRPIEFgclla-rWoipdjQewxf8HUD1n2z9p6iyMAcDndx2yE8j=
+KdrtEv3ePE2SlNQLQRhsL3G0_sJjts2NjEteZwKoihpHG4SkezrhOSKkId32PBWsBRlbWzW4_Xd=
+SjgLrZMshplhDvy-7lrkNHvQkq6yRUvmRFCrXumLdd71lKBfyQxklcnYjv8DbPo4jkn4cuqkn_O=
+D2cfM970INbz0tbCvBSnEu8jlYke6rKgsgCHpJSLuxsTgrHJSn3iU9BJeSOrKk9Y52WKMSNdl6s=
+-7e_3NVChB3Pf43fWgEj0UWGm9ceInwYxzqBH5_7Q56D1xQ2Z1rpWL2qhwJduyelU9IMMqt7QyS=
+Mmxyz-dGbKAGTRqc_Yy2T5YP6vrYPGhJBy0_PcZRVgglwCE01FQLMSSr4jmlo2eIwwKohyAMhfX=
+JgQbsuXhKmkqF27ErbMQwxTYBkJFZBM1S3EVQOqIN_3bm0qKxEhjp-GXC7ItzQXd8NQlbefDHnm=
+myzs0HK6LoNxaVUvEDIsjQ3ioNcoXwPYkxFdIvbDpsoIZxCaZsS-CkDwlsbsdnWlNxcEiXoG46w=
+NcT0ZXFQUbP-XztZKGT1ooc8DrapnPKRTJlSaVqxOCzL1fcQq-9YIT_5u9HjAoFS0LosMgsG2hZ=
+LRE48m3P8zxNinMgTmEt-E2ZQKPG20YhH8THjkSkhDCcOMUp09BraIF07jttiX7skEHgSzEYz51=
+PxUXj6NJeo6ZXUAYUQLMh2tla_kUTgzQSy4LJZXcevGr5CvLA5NRAB19umkrUyzjzqxqqsoDb79=
+z2w5uuuwIkHbfn8SbM00v10sIMaCCklYKzTlCHt4TR-8-fFjrRYEwS_dSxu5qKXF4cZz52I_Swt=
+O7vqLGsH7XRPKBxyJ7MGMn7FydhguUk22CC3d7I6MDxdT0hUPWWw8rwsqR9ATwhGDq1ATmXY_Yf=
+ftr-qHYlX1GKU9vliOBKVR7VTUpTJ1u2xQUTRFUgaeYXKyJrIzb0aaI-8i1xbJviZFQwmNkKNTb=
+JlWQ2BBpylejxY9RSI2kJ5Hq_bVuXgO6fvHg19zp0SfpVeBu4M_PCzXU1cAgCduaNLRVPRbXsf-=
+w6LyjKEQ5PLt-50wbXamCSdz4/4tr/Ac2BGRD7RMK6xIEf25QV3g/h33/h001.BcURsx4RV0j8D=
+npbXrxbHI0YY2TEnQBEG6LC9Vvu1fA" style=3D"color: #0077B6;">BlueSpace</a>, <a=
+ href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.HesXJ57d0x1owJZ=
+-aZPL3dMFWr92HeUFQk2v_wBSJ_UtgE-pwHb4UgXNOWZZo0YVxxwURJTh4pagIEz-e5iiLLvWgG=
+rJSjzS9eI4znaXqZIXBgACYC9P6aENz7Gtjz6FYNtrghwgn_YkWqJGN-Jm5sP8i8yF7iwp_zsqd=
+IU0e9k0kfjkc0qQHLeGPPmoi3zmaxQsG1OomvAYsIFwUxXj2IF7RDLIAQIrhvhdtz591XoZCtT9=
+P8EnEvpuchUGj49icG38aS7Jm1PRdywk0F8-e3EpGOkHRZo9lEVFATp03mgm_ctQMDfL3x0rwDn=
+Y5GVzfw977jEbw9Rc6pbf2nRaJPXVCqGLmAUl4EMuum_ZEqwgJDBVwgHpjonD4aMJiPh8Se8Qwu=
+lm13pcplgBgY0Enb01R94PzuUsuRbD6aurVK9qxV5n9CIvLTd06XHmzPvqXe8sZd8prLwFJ1Sqk=
+pcKqr0O9_xPF_nhQ4VI0EIr7j3DKBQN9tHyXnktOU8E9z0xfXJ3KiVjo-jb91qZ-iM8jQMH4jJG=
+BxC3hk-uvdP99vCSUTonerWdgClQcE-A7kQR29pzhFbf8uuR-MlC27Dmlmg9Jcen9scKDrezF_C=
+6WB_sBUR7l3WQ0tkPn-qHL74qH6Yf6y69fXq2dmmxyJGPM6AgF6QlxkLcWvAix8eMoJeWYPFcxX=
+cZgUz8sWP9XX8NAxmxOLCmhsGf8gqOfiSGi-V_L35uLICQoNm4Ah0gsp9aHM2SVFj9PymAHe3sa=
+pGTn0YGAlfekQojK1GNGksZwBZJBMkxFG4Q0aTGhPF0xeuKpNRXjo5Frr5ahnE4E4HTsLBQ6kc1=
+3G__lNwO3MvHb8oEHzQ8bvSLMDolcDWXgt2RUYLr_uGX1JvNMAi8-8ujsdYZZhw3znZgPFR2dTX=
+B3x6zHKmOhZO1DrCfZpHvTkRIxbAu8dH7O3FvuWLLIAph6ZUgWLyq2Ni-ATsB4ADjJnPIyGbGxD=
+rqtVw_OtktTnU1kgD0bORXtPcvV110SzghwTVovqqP842--dKO5pRCebkvBogKXKZ_CFm0aBvcv=
+jIo6V8pZS0Yv4egbdqcdw1TTaagQDehDzVxw5iQuWSUv8InUwFpu6rePSWoprF_OzSg5Dwrk_aY=
+rFSzxVAb1qL5ZMsLEuUijhmX07qSLEijGZ1V5k5vXnAZ6NKbFwwB5b9S3HOEHay3Y43vobRow0q=
+_lxvyRmVghYRvU2sPvHEiijISoIosfoz0vdg6iNZiu0CGyRV7RNkOqnnVC9y_Wxn9087bYJg-dj=
+Hh3YlD4-8dXY4Y930wAK8KOZRxHL7Dh6Fv_s6qqPRz381xCEzc82THE2837fUsmfctvUMz6LF3k=
+kTuIiO5ovYmELlBX0MM2NsWlQvBbasiXvuT0ROQ68vJUaEht8c-R8XpvF6z4b3MydKZ6ed8crwc=
+rW9v1RaTBv1a9I3rsC0A8V8ZmSe-k4tQGl6AURyaVorKXfV7JWNJ2x4YVNW-Ec3tBk7RcFowpht=
+k7RZ8Wa17uHpwnxfPr4Xr1hxBXxDHpXrwL-_iOJurtHVwtl9W9iTcOqUjnmF_fnETr9fR0AzwLt=
+mPHTNGh4ob99Rp427YKDPM5EdwMgttNgfzqZ22nI-oKaNZpSSmhpbRM5mrE2Fmz1bYAVoLMCMnX=
+wfZBB1nnImzJoCHUlp4uXrz94Pcv9BuQmMC_ZA40jcy1CIQ0_yJn4SkzdjVMWPKYPiWH0XkED9i=
+FIPEavdG1S3YDZZ7xuFP3gkyliv-2U9s7B6qLlal218xMxfsVhXkYcH9758wlbKs5BsqRO9azWE=
+VngaWlcP8GPC4ERNx-LPKangSDNv27vQ4qjye8J6WedcDtjja9xVtQN11OmjkCGzrjYu_LKQlUz=
+kYQYL-ZEac1jAh4zClgnG2CkEzYAg3ZAAJBOYpcunkL2ISHdjsT1qqJHhd1DzQEvtjBX2PYQrPG=
+UCOh2p0oym0OmXJAS0LLADhBwMRTwDzR_nxpr7CE3MSQ3lFd4zzbi2ZhUgdioGjRldliAXi32Jk=
+g5MS9RkBV2JqxZUsvK1AcUTeSY1bU_F7v1a2-gTYE7MVM4NZqaktF-2jIojCjTbnN1qJHLKiOo5=
+26Tvl0RjOdvNF6xruhuQ7-Js33WecvkX5L6qjGNpj_LUIMjadYOcYcOj5X5oiQ4UXLPsVv9k5Al=
+xawd09MGGtdIknXoReh_izC_BUkOYGs9ZX8YuckoCDip0IivsWIRo9iVlRz3qORprd39hJvy6CV=
+aFCdSurXAmqzddc_tyMIvDpIG1kdsXHt8smYITGqA58kvC5v800VfibJ1JYuuj8LXfh-LkHr9FW=
+gahHik3TZdC3uKXM3R-JIp-i-EyHEHmUnGvmHjtakxFyneU7xtWuo6wtFc67QYj93i9TDOkgGlg=
+GPpHrN2uZC3crDqsWSA7tM3WUubfIGTydfQ3F5TDuRBBZCqIUmNeG4PfRqNZZcooA-RRlsppESd=
+5YsxDRHy4tq36V_j_mGF29aRX0VK-YIZU_RnfnL7zpx_OPXCShfxjDag042H4nqDgz5Xag_RGrm=
+MXO36OPW0_myyR8e_NZYR3-_9nM57jxSz1CtF1VZQ1gqmVWpG3I_UruNyreHj2R4sJTKyrd47V2=
+U744I36ZTcWIllMuEMwX5Bx0IVLSa2Vl8sYNDSwsOSAHzUyFifX3QK5d2TPsyUzurHxcQhDNCjd=
+q5y3z86ItObmJ4fbDZTd5kmlY5wHyFT83nXRLEoOoeRh7WKLwp87SW_HFmoNNj9mfeJ6otgfd2C=
+m_vXTDOLpyGM3X-GUArbbe0udKyRdAURUK3PvlXfTcA4HQphkse5Yw3V7w6JjsPSm-CdvwqnHjD=
+wsfljmh_Qq48TLNpiWexnrZPqz1eAkvnLdGfyx7VXcbKelCs8Ny7nFDqBc8vh8UjJar-5oFKf-j=
+nuiwdDIuwAL9NsVVPrcTj4vTnjvtZntfqGSGhnks1pYB6G3GPPn8kHKiK5apLD3-TLz8qGh0BN6=
+uaBPIbiDHwZjpYgoDa6V7c77PkbC6fXrjOnZNxxgfm-RF3qqUyqG6QhgKAB_47oXHKeko7KSeFP=
+HyiKP3KsvQcGNRMza2Sv3qqdd658ic2h3PGofqrszotPbONsYwcnNeKgNwf2-c6Yck9a9ZNqm8F=
+ZteGbroescFwZPpoZkxXY8z1y0tLEtjrRIXrQ1yFwzXSZiRf4S5mxnBQL6jiQD4vv1fzKp8usS3=
+JAw6X_m0C87moctNl727QXdZSRBc8j4Vf_fmETN13ZVTpYW-yLcgLL9F8KvjWMiPyauxp_I_Uw8=
+Vur905hmupWP3qvnGxYfV7bE04bgfPgfCB1Q3KL3xH1UEf55KBjKdqQkh0yjh2FBiyf6KxTS1Bw=
+z0J_hDqoqtdapLkfAVhxWRoPrhCAJnLo6eiZ4fcBx7DUVynUHPjXoclrgnyVYO3Krz0coCBJFvR=
+LO3rLK58EQosp5jsosMRC9vt65RkASVcDJSWrFIBLhDRGo3lFmu_qp5Qm7m8AngO0gfm8qT4aVt=
+vzgK5retRpiTJkrvIqT098WpNI6X5k4sWmYrv4VUlyN8zijCVPTUKeOCq-9Ee3pxTXfFSsowrHI=
+S1VbbFU06ytyl10aVIITA_FnyGrn33lYoQd1iABX4HHVifCMvp8nkk6K-c5rS4btgDcpJBWaPi6=
+JP9rNUY8TS1PPLXbwvlI0JSwHTlTYNefdTB44L99OrfLyjYdkn6-oOUezkzo3v13Oe-E7pVeCGv=
+uxe5oY2_fGeFRFT9PX_rVRFg-_wfJuYBsv7Z1oHuYP7XLpM0Sbq5ftOi9C5usKvVlP5hoD1K26s=
+YsfTTHFDHmlZ2RhoNoD21jMz1MWgYlpgbygeEPVSVgJx-GeqA5-_sATYbuz1a0dn41uIib96KWh=
+0wTaLmcQZThVaHjEJQfz-809ef-ul-ZkDbjLO9MF9QZwWJoPkaEo4f2H_ZhDci3j73YMndx_-x0=
+XTTj3zmXfK566d0i9nleS9B-Waaamph2yXTuEgsdRP5DVgLI-oMQlxQ7l3aaqtWoCAeuKLDoAOb=
+4QMfKGbdlrrgLQ3TtYevyUnS5rsdjuR0hWwlUsQCleiW0RsStA-JcZz9iVmOdEx5N4z5vIr9tFQ=
+P7XnVaZrv7PKwsHXVwKNFauofnbD8uIEVGnNliwLSRnfEZm-Jzw4fZy9yNRaj2lldoCyWMPM854=
+s6S85S03fxZa_iuLBDRkRGYeGmyfKc4kylJYHAkI8eg2LJgIN68FtgxIP3sSMIxhzto2bUNVdOP=
+zJevfNdTVvxMZmzoRuzIDCKQPM0QFEwx3nIM93AfLOXPet3PBQajNnRSWW55ChwtNimGIAV8m-u=
+mPP08IStR-OdiqIJZY3FlG-04QoIAXlnJZ7y-t6_VlU49Lil-q1vJERQRfYe3DZsevgmQ82bsnq=
+YAhE3fCV1N9uzbWg3b08qdjTQv3W3fuaPgsDNdqhgkEHNz-Xb0BiFNfbRDTGUuZ6cWZLBuAKbcU=
+xULZ6z9V74k0dlgM06tUMu96a0P4q35Sw1a-C7uy_WKgXMHZsUP-WY8EnWySD19pXgAkQoeaZ8G=
+ZgiG0UnBHrSnyjPMFQKIihAzc-UrnhV04X3mZHKne1PV-D44cayduw3fNcigK7KmYVj7ErJsnkx=
+DqHnAri0ca-LPSKFYGhnw9ZF8qkm67JD0FuJyWFY5pCjGrOrKXL0a6T0V5BPq9kjvCwcmktRSl9=
+7x_VfC3SIKtxjv4nXU1zrfrecTp0FZTjKubXKR60m5z-pFvRAXI2FbJG_bPDl6JZk35M5LMnRcQ=
+YCdgvq5iSfuXOdiUrQRDA0ymug573sSiewHHuKmrfcVSxN4coczF9BFzArqQL_qxgGWen2776sn=
+zT4sboR4Jo8g9L9KEMIBQYaEdq16nvuhq9MiyecyUSN_dVDf5RI2F1x8vPJHChSc_30MDk0ynBq=
+uzhqdW452mdAOOcKlaOZ5mnJr9eC8WowTP933VQ2HC1Hy9w0cp6whLK2K0gNe2vwzDvOFpgt6Gg=
+izahb3cvzyl4i8sOUqbtgfTJC40ygEtR_LfTeSXvNqDQ6LGG5KE6AUw4VIGDt5t3zf91klWk1x0=
+IjrsVXFOLyZiIDParZK_pNVtq3ry7sjlcCgdo1_nPx5RoslcnPDxoJZQLCKDY8Gaa6u2sbbEcPO=
+LOnj9E8uPRk3IGH1M3VQb1tQkMN8uByfQxXHGIaxt4vC5js5RyriAgIuAyCY0FNZaYhNyP_zFtY=
+IbYZ6520FRDSSiqlMJ0AzXWrf8mB1r5h8SIgLPGyhRMkNnvQ_PvrUYVFeVblHvrApOZTUbt0XPy=
+Wr7V0_PrL55kuNnYQNPWQoSzOwsfULhmdpmJWZnfNnpZDAhdeOaMP8hIHdp1hJVsnZ92fdHexHi=
+tGApLRhWdDHOHiQz8HBlUas08oqSZRoBfPN_MKFi7raS4TewYjjA5m063ki4nqQyhLsQXt6i9Bo=
+fJeb2MmR_phuk9m7Paq2TVAZawC9S4gF_Qw3oYtW9yd6tOttk0Rww7TKeeKwD41mInHYc1CZR3t=
+VZfk1uW8bdYL2HTfhz5BR-EHMMakd7DDN4cImneeN9sRBlUX4X0w_9PhzSJ7_kenhwdKjOCwoaf=
+JtQRR1HVUtInGSB2M6UINzRw8gemAyuk2Dlhm4bu5EyRjhsIxfI4GQW9rCPBp_QDtxs31-s1FHe=
+261moVo51kXwOR6CBqoOS0grjmMpLXXBq8cY7pxcXGRMWeVSPTSEo9oX9ieH1QLFPcOaR2fBb-_=
+mXuqlDnHRstSJJQYKwWxV3bLszKlXBKZCFckwkTMxUCpIcRxxL9BMEyWS03DDioLlC1HDQjq5DJ=
+OguEF6IJtaUSbLJhZlU3-__0bvYSyWnrXCh1bR_eJcCzaRPLHzljtMAPOtqOXun26YQ4ZpCQvR_=
+NcufpbtJ-LDQH7ymlIeenLDOwCaI7FWNrQJyEYFEL9485mQOCHrmDvN7a_nB0qSDcvRg1wnamel=
+eo67Oq_YRh1_Tg8yvUs4v0g/4tr/Ac2BGRD7RMK6xIEf25QV3g/h34/h001.rTDdKJB38RwN6IL=
+TG2cBoEwYEQi42135QMRxgh5DnUc" style=3D"color: #0077B6;">TikBook</a>, <a hre=
+f=3D"https://ablink.editorial.theguardian.com/ss/c/u001.HesXJ57d0x1owJZ-aZP=
+L3dMFWr92HeUFQk2v_wBSJ_UtgE-pwHb4UgXNOWZZo0YVxxwURJTh4pagIEz-e5iiLLvWgGrJSj=
+zS9eI4znaXqZIXBgACYC9P6aENz7Gtjz6FYNtrghwgn_YkWqJGN-Jm5sP8i8yF7iwp_zsqdIU0e=
+9k0kfjkc0qQHLeGPPmoi3zmaxQsG1OomvAYsIFwUxXj2IF7RDLIAQIrhvhdtz591XoZCtT9P8En=
+EvpuchUGj49icG38aS7Jm1PRdywk0F8-e3EpGOkHRZo9lEVFATp03mgm_ctQMDfL3x0rwDnY5GV=
+zfw977jEbw9Rc6pbf2nRaJPXVCqGLmAUl4EMuum_ZEqwgJDBVwgHpjonD4aMJiPh8Se8Qwulm13=
+pcplgBgY0Enb01R94PzuUsuRbD6aurVK9qxV5n9CIvLTd06XHmzPvqXe8sZd8prLwFJ1SqkpcKq=
+r0O9_xPF_nhQ4VI0EIr7j3DKBQN9tHyXnktOU8E9z0xfXJ3KiVjo-jb91qZ-iM8jQMH4jJGBxC3=
+hk-uvdP99vCSUTonerWdgClQcE-A7kQR29pzhFbf8uuR-MlC27Dmlmg9Jcen9scKDrezF_C6WB_=
+sBUR7l3WQ0tkPn-qHL74qH6Yf6y69fXq2dmmxyJGPM6AgF6QlxkLcWvAix8eMoJeWYPFcxXcZgU=
+z8sWP9XX8NAxmxOLCmhsGf8gqOfiSGi-V_L35uLICQoNm4Ah0gsp9aHM2SVFj9PymAHe3sapGTn=
+0YGAlfekQojK1GNGksZwBZJBMkxFG4Q0aTGhPF0xeuKpNRXjo5Frr5ahnE4E4HTsLBQ6kc13G__=
+lNwO3MvHb8oEHzQ8bvSLMDolcDWXgt2RUYLr_uGX1JvNMAi8-8ujsdYZZhw3znZgPFR2dTXB3x6=
+zHKmOhZO1DrCfZpHvTkRIxbAu8dH7O3FvuWLLIAph6ZUgWLyq2Ni-ATsB4ADjJnPIyGbGxDrqtV=
+w_OtktTnU-fG88B5Qoc2gI58fFXMZToEzEacsmPJDtrx4UC1ggm7ehZp6u3pjB4tuAnCdKxgQC2=
+rbbIOvyxGIqAYPOVPy51FeVSN0sUHG7-HrP2icdJmbG3K6FaiihVGCNgYtR6Uc9b0pGTwDkYwRm=
+NoRtT_YXUP3ZU8WRjk2HbklCVITll_oDswOputK9OAJuYQ8xNll-fTgQ1GMG5hNizGGAv6ikwdE=
+7_wx2YEiiE1qO-1B-HE_aFhpU_fOJAPUjCWMcJNvvx517Tvjj5gVeTN-86CCmNWCzvj7OMxHk-F=
+kY1Q_x4gsgMqDNA2N1gPhdbNDHq99wvUwOeBipjVnJAUwBAOnb64wEmO2vsBeK6GqXGftdW-QPW=
+hlOEZ3wiuYNAi_fGWGz5MkBtPQb6O7nwu_hR4OXA4JwSOsd2wzoS9M8US-QUw8O3jWc2y4lWPhY=
+dVe5lO3tc_tCtPgVzggnTnRN7xddx3M7bO9FPC3ssED2zwrmoqI_t7hsOXJIZH02nHaKO6YiccZ=
+qdg1LDziTIwX3DdfAee_MLWtdp4AmITmUH7twZelJbST-byfgzncud0tYlcCKrqAyV-zimIlZvx=
+pOozYEKaUVaorDi8H0WLo8vjvcd0jBwxH4k370n8YD6hDwGkBdosK8GQadvH31X0O_pVT1g7wFl=
+RZmyVJDoh3T5q0T8I-Bd4cpGrkiIMT6fM9gKxYQDEX_Tb1W4ZiHhXzi1PPpl5WeBcn9rWxq1MCm=
+vRjOYF4fMEgEE960F5pa6Ln1MuLf5CROtJ9gLJe6IgIjpUaGhEHdGfAj4zVbxAEfEXGpwk5dXaL=
+-OeDgBVfne4RZgR932bbgbHVtDwYNYx7LHgRPDvaur6L8D0hB4K_m4Ylp5Upc_DASPF0x4cSU0k=
+ST7kfZ-1nBDfU4rqwKA4UzOW8gd98WBhbGTJQ-tX9FmRCy_UYTsdY8-HjaQEpTBPDYYDMcY-I9Z=
+W2LpFgcdsTQxpP9SfLOROCnctIm-28QFJyFPIesX1OS3qxz5dYnGb9QXFKMpTE-UYyTJrPi4bC_=
+Gi3-dpaylza48vqdJRhbfz8jJ99gFG_tjNaeh0porz7S4j_S8LqY3C-54wj6tzazJ6BbqtaVrTU=
+6cLDyIJToJfsfWhtyM_UTmw18uSwUxKuJg0quIx6XmLvZMwjpkhGqICTteiGySg-5UcNJGAgmAY=
+lqU0e9huRjO-EsZPePbs2RIjjusTEWRckyhJBhQiULwZNbFpnTH_0VcNrAMl48vwrxgACfArG35=
+pVI0Yts1fEdd27DbZKQWt_MD6Lu9WZ2M154aTqlpIDVw35kjq2axSjL8SkWm_NU14Tg3Zuc3iZ8=
+DthkOxJov57WR9cUTgQ9uCQEaAni1Hb0FNu2xW2i2ppZHc8H6b7q6Gz9ZPPPyGGpCcclDUNPgEL=
+dJhSYEY50eZdFyYqfoUAkCESibByF8RW7G0Q2j9IPQ4yQebQzsHhsp0in8y8AkB4lhwlxGxUEVr=
+sQJsiIDVsE7fAiW7nzIOHwGfx9RBm2GHqo4xX6_AXA7FrvY1erqJW4J60orEvmbUKphN1Of2zve=
+hcEFBERPsIPPZjtABp_qg7RAdARXygnN4Q__6RKzw30udcoZ-fvCLBSZ9bQqgM0Yo462uEAvwvx=
+lsI03WX5Es5ifxkmOMwn9QJaNgtf_nSe3GEkFFIeu_7wzTQv7YsN1AlmHFngaIyRR4z_7KdRNb_=
+w8bKnnwa0ORmtJNZNCixcgmLL_jMbC65YzP51Dr6ZABweWP41LPfdE-qqMEN4yXaMf5J4uLmgFe=
+wiQGHvLeF7R_imLpSoJVplMbInCRBj3QyedDSCRMraVKBAANaqKhJRbL0u1D-n40cZ2b72tN6CR=
+tzug_SJKs45mxkp5VD2zFL62mgrAy4clRLjYmwISIG0_Z7UG1I8DcxW7h40YRPkW-K46KTyuFC_=
+vmWZ2Z9al74vMLmcTAn1-O1RHCRURagF80CkpeY8zFeDbT-5Eice-cQ8uQis_bfQbBQtDr-yQX2=
+iqUSIwRzDf4Pc2UI8Yb77pGnbWmF5K84e3aIqm3X6NJcVJ9Hmv_pJO3b1E6ij_s8wiji2DB3EhS=
+CJVYNZa1yC1Q8qKhFYHgZyjB1WGjaYQQTas47VCYqZJbVnIwf6WrHjrqjpStuoUcfOQhN1T_scN=
+1zIvcW0fMnbsOCJLixH7ldkbTL8boYEuArbpYMSnnQaG0EX1GPy4O4hSvxBSJhUqMwXR8-mtB9W=
+Lh9uOP6hMuxL7iQmo1SXIBSKZMElh3GpgMBX1AmpUI8zO0jcKAVnuRxl_x7BeEkwmZoKso0prs8=
+6cORs12kZZ3lPXVazca7gsEC16tcK7th_CfI3AW1DpnwQHiLiiakBrK1zModp8aIXX-hITfV7TC=
+iDahWnn9UjKVC269JiDTQaby1H1NB_P6NjbK3IkC2DId8YX0lMwoSuxUi7F3csgWaM3B_O6WSD5=
+HtSBmT5S5CwIVQLgF-4I_ZjnVcrD3UEtZx5yp3Nbr9myXCkfWhi4SQ6uAdkd2A1fAyhRIebC9Xz=
+v4wboTRPF219QetEU-HK4CXMWTn8wIWj8S3pyxpigVcU00YzfJDLZqxuleeJOt4KTnRXvBuAf-B=
+Ij7QQvABGg7hyCOAC-BJdtXtux7Xo_mrD_g8zZW12Msn9EKogXvv2rLywNBRRqGBSJ6mQfBmWUn=
+2gNhHLdVNayJc6C_H0hQPVB5P4F366uoqW8lwxF1-UiOsG9yFkkUnwaGGhsqMaIQF98UpImkSBC=
+R7iMkaR1ze_IqNZa4KpMlR5Qp8xlmRF5nuObNznNPqmhpO-OUTpOfds7TcXaj23rQlSJ2-3aEwZ=
+kiVKV3u3Ynl_tMvIVL8YeywFAeJDrIOl4Z_v-BBkKC6Op202f2zn-sgTV0b1meDnMHnZwqgQZmF=
+jHjaOmykIxPUtWR06zSdv2ADEi2xCTK0YXpfgeCDwuugSIg5xOZnYBZ7PTgY19UJDSWUq7v9zph=
+mRF6bnZ4WGXqktc2Hbc86k9NMA03zrp6JRaxmRB7nwykH7IkpaqpBqmTN2VtCTHYXvCoEA5w4Sh=
+aoU0duIDoVbQqvNx4Ny6ag0TX5onqLsFDZAukTnngyoToy2Qf3pNGbC8lqMrWZhmgaHj9dPiEr_=
+SKuqbaGA2PCCjbFyuVI8IvgSAnX3WeoJseWh0Jl0Zwj27vUxOpY254v1iNhIQ_e85LngguWLG0L=
+nuiX_1kE4sMJzqGxVFn3qWkssqXZU2VjGZQyjAfYKIyIJ7c0axfF_d98_mC51tFmruJUIYhpg-h=
+2POZE28-4zWSFpAZdDFbPtzJBzUu9OT_8EWu7IdxFUIK5vP92DB9tu9ll-30KlKoKBfQXOwT6W3=
+B6jW2oCL18YfroPhpwBtLfP2elxPDDOslyH4RJ4ChBkxq6j-iKjecW_3tgvgyNZcQexXf2jmxHT=
+qepMqITiaT_XvhnIBigi1bC36FtKiJpCD1RadhMqUWfTpB6VepXWIiCtbG6iIWgdVz64WuhtUjv=
+VI9vJcfE8qXjbyIWt47syziN-7bHaqq57qMBG7-7yaSQraJ-kcc1Yhw993cpDhSpHPJd5Ds5A-h=
+h7Gnlig0FzFoMug9cq2xfU8NPE3avZb7ESoTFdR28CHlW9Tj32IE4y4HgOiW3t2_mtugpfJ0dpt=
+zCoVyU5dLwKrBTRkjlWTb0gp0IoUGHbL-Mp1QIVmNi1f_xvp5QyxwTGjmMxfQMMj6NxDVbf6aL2=
+A2jwIzvrSrwnn3Wrr3bDbORiQ_7qbzdAIrTRXE7ur0xC80DlQ03Lsz4ohZx67zD0Rpm55tSHiXE=
+ToHWpY-imabw2gFo0d7CqPjpAF4VSU3Xh6M98--E-rxLmyncWPR9-tklOWn_bKq7IHWwOUtAK5y=
+bECofCj-pTewyd-mytGx0nbIp7ZWs3Kuep0j_kf7EIIRuc6OTwpMyPZCxaQhUkad_1TrULYo2Cx=
+5GWDWTK7PxtsJWbFLhw8PiN1fLEQFVzTNX67FfWSWebYoKCXL_MFWv9tkQ7_RG1MMyTXISCYzHb=
+W2IChnYniL5Zvp4QzGnusoTbRdvIsrAJYjvyQGG7vaic4HFTFdcH2UytQIJiOpCZM5poqDA64v5=
+0vQK4NxBvhZkigEPXo7WaBLtm-a2G4FLQS-4iRCOgfG-A08qkMVNEaZaTDIxbYB427OVdhKBahG=
+HskfKq8-khWS9oCzfnutNCKh-nq4Ixh8biXey4fwC5Bd0Vo_M0ahVml1ZaHLEf3vfL5UkJW9YBc=
+JelGwtvVZ76e_7zKyM5ltYR0bQ4xz56tT24ANUcqOhzAzYkEuCg5w8PWNkj2NpDkSDs6dTYJlfL=
+OIqmedCtWgPCNvO8EEiScLALF_7iFGRJqSTmNWIhVw5JaffESq-Fmc63LtJTnVzCJhcRiRltVY8=
+ZoEGg5zifu2Zd8MYKjCC_MMjsr3kKKrFasJkrp5ShnIqfvmKtoNiY7VoagpF-ul1S7KutAXKsXp=
+HJxg9fYC6NEJxOuVKT5kX8PC0Z3-Ah1fAEkltc5Ow0-lXoFB5rpNpV8hfULw1Qtnk0It6NSuBwj=
+aKVG57BqG-us-2O4sY5_qIP3IGx56Y4H6bhpKua2yQExPqhH3h9862lNmthPjhtQydPQsYJPweC=
+AFbccbM9ZjjyZVV7aaQ8cDd-M46AgE7RMKxuSA-XJhuimR_IIelhb64Bdyd5ffixCzST8KEVJBk=
+XnevGPbsF_syhr6QcB2zpzTrC-72eKF_Bboa1BEP9UqKxs-y07TKlTFlf1RQj5US8mFbkMjb15H=
+WCDlS88vCH1GoEBAT60c5fwd8LV7f3EXVXKo6pLLj5_hfasPKl4mFWZH5RCdrwdj8b0yYwgYewa=
+3IoN69hqU7PImY0Fd_Z35ArpQmga_YGA9FU13VQ3dHm6F3kovJYZunWbH0WJ9tMmJdS3g63sohS=
+PJSzI8YZ7ZQNDPG1cE0-9-rWmrwPcAbJ69B9TE5TAbK2JDbFODop3WZAxk_EMQ-Yxt8KMGFKML-=
+S3f8HXSKWpDvLIoFJIw/4tr/Ac2BGRD7RMK6xIEf25QV3g/h35/h001.OldzqQiDsrF0A1nb_WM=
+yS2eRUQJ_MZgXhqnbMX_FErc" style=3D"color: #0077B6;">Instachat</a>, all the =
+lesser disgraces.=E2=80=8A</p></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 4 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">QUOTE OF THE DAY</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">=E2=80=9C[He] is in fantasy=
+ land!! The examination of performances assessors is forensic. When I was b=
+oss, referees=E2=80=99 performances were forensically examined. On my watch=
+ [he] could not have done what he said with the monitoring systems in opera=
+tion =E2=80=A6 [I=E2=80=99m] satisfied he is talking nonsense=E2=80=9D =E2=
+=80=93 Mike Hackett, the former head honcho at PGMOL, reckons former refere=
+e Mike Dean is full of =E2=80=A6 baloney <a href=3D"https://ablink.editoria=
+l.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBjH7m=
+DHKy8NLTHPhsGN9KVoRPbTOK0zItJljPGmvLDxH7RGvIKFhPT4DpI5tqCOT9TGk0Gk5HP1fCTVz=
+NUf8d-NYQAFLEFcJtEn3rnokuWXPCWsjXimL0-hazdXRX8Q8q-wtrMnR7vM6852RtlRYahXoqu8=
+9kUS3vCeEcOvtv7uZn0bEy5ussnbNSad8MUUHqHCXmdcZS8WCt1Q-5qmjSF8GsJCoiZTz14PEiJ=
+jaWv37Cm74eSteTRF620LqdRPeOlJX_RtPOLWNeyNg-BPghintY9poLl03NF52JH-cwpB_K9Lb-=
+tbFYEeYwd-bt9U0QYZA3JYV4WnRuEFMFeUSjYDK-w0UlLYs-yWQWqWuTtZu0yBZARV3Xo1VrSd-=
+wKkNo/4tr/Ac2BGRD7RMK6xIEf25QV3g/h36/h001.gY0wgKnQ6gT6W-amkwJ3IXj02GVi9I90i=
+ria__xGAK4" style=3D"color: #0077B6;">with claims he tried to stay in the c=
+entre-circle</a> while overseeing matches and would time how long he could =
+officiate for <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001=
+.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgVFAokZKeXC=
+0jcgGJqjYzYczovkrUQRRoG8sESK1Dz18hG0R7uW1yiG0e6wxWdvHJJPU7sHGRRFf5_l1mytLYd=
+Zj_-M8nGpx7jfrYLaPTgesmHQgkacxP0dcHXaQRuJSHgT8-v5hLYfInxjsTDQ-daB-N0SqMsENL=
+mrix8aoNBPJ-_UhjE0SV4ag8kk6N9sE3dTqTSzrr42ObEzt2_Ur1SQ/4tr/Ac2BGRD7RMK6xIEf=
+25QV3g/h37/h001.ucmskKoPWP6iut-MNgl28dXve82gDoSwnfjJz1rt5SM" style=3D"color=
+: #0077B6;">without blowing his whistle</a>.</p></div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Mike Dean=
+" src=3D"https://i.guim.co.uk/img/media/2bc7ba1270e1108262ea893eca923db3b11=
+bfdd2/210_0_2173_1738/master/2173.jpg?quality=3D85&amp;dpr=3D1&amp;width=3D=
+600&amp;s=3D3630f2e9cf07297f78255b04518bf341" style=3D"border:0;display:blo=
+ck;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;=
+" width=3D"566" height=3D"auto"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Mike Dean being very Mike Dean, earlier. Photog=
+raph: Peter Cziborra/Action Images/Reuters</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 5 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">FOOTBALL DAILY LETTERS</h2></div></td></tr>
+<tr><td align=3D"left" style=3D"background:#FFFFFF;font-size:0px;padding:0 =
+60px 10px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:22px;"><img alt=3D"quote" sr=
+c=3D"https://i.guim.co.uk/img/uploads/2022/11/17/blockquote.png?dpr=3D2&amp=
+;quality=3D100&amp;s=3D9610f58be45a50b23f088ff688c98a3b" style=3D"border:0;=
+display:block;outline:none;text-decoration:none;height:14px;width:100%;font=
+-size:13px;" width=3D"22" height=3D"14"></td></tr></tbody></table></td></tr=
+>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 60px 10px;word-break:break-word;"><div style=3D"font-family:=
+Georgia, serif;font-size:16px;font-style:italic;line-height:24px;text-align=
+:left;color:#121212;"><p style=3D"margin: 0 0 16px 0;">Re: <a href=3D"https=
+://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7f=
+IEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgVFAokZKeXC0jcgGJqjYzYczovkrUQRRoG8sESK1D=
+z18hG0R7uW1yiG0e6wxWdvHJJPU7sHGRRFf5_l1mytLYdZj_-M8nGpx7jfrYLaPTgesmHQgkacx=
+P0dcHXaQRuJSHgT8-v5hLYfInxjsTDQ-daB-N0SqMsENLmrix8aoNBPJ-_UhjE0SV4ag8kk6N9s=
+E3dTqTSzrr42ObEzt2_Ur1SQ/4tr/Ac2BGRD7RMK6xIEf25QV3g/h38/h001.0PYorCh55iNQ-D=
+NjfOsA_DIyj1cnZYt1TUYRP0onwh4" style=3D"color: #0077B6;">yesterday=E2=80=99=
+s Football Daily</a>. Perhaps Messrs Vardy and James thought they had booke=
+d Jasper Carrott to kick off their hilarious podcast party. And got the not=
+-so-funny doppelganger Mike Dean instead?=E2=80=9D =E2=80=93 Jim Arrowsmith=
+.</p></div></td></tr>
+<tr><td align=3D"left" style=3D"background:#FFFFFF;font-size:0px;padding:0 =
+60px 10px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:22px;"><img alt=3D"quote" sr=
+c=3D"https://i.guim.co.uk/img/uploads/2022/11/17/blockquote.png?dpr=3D2&amp=
+;quality=3D100&amp;s=3D9610f58be45a50b23f088ff688c98a3b" style=3D"border:0;=
+display:block;outline:none;text-decoration:none;height:14px;width:100%;font=
+-size:13px;" width=3D"22" height=3D"14"></td></tr></tbody></table></td></tr=
+>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 60px 10px;word-break:break-word;"><div style=3D"font-family:=
+Georgia, serif;font-size:16px;font-style:italic;line-height:24px;text-align=
+:left;color:#121212;"><p style=3D"margin: 0 0 16px 0;">With Premier League =
+clubs now owned by a motley assortment of hedge funds, petrostates, billion=
+aires and so on, perhaps the time is right to take a leaf out of pro cyclin=
+g=E2=80=99s book and name the teams after their owners and sponsors. It wil=
+l be a regular reminder to fans that the football entities they support are=
+ far removed from the community-based groups of like-minded individuals tha=
+t the word =E2=80=98club=E2=80=99 denotes, and that they are instead cash-c=
+ow playthings of the mega-rich. As for me, I=E2=80=99ve been a fan of Fosun=
+ International Debet since they were known as Bhatti Brothers Manders Paint=
+s and Inks=E2=80=9D =E2=80=93 Neil Withers.</p></div></td></tr>
+<tr><td align=3D"left" style=3D"background:#FFFFFF;font-size:0px;padding:0 =
+60px 10px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:22px;"><img alt=3D"quote" sr=
+c=3D"https://i.guim.co.uk/img/uploads/2022/11/17/blockquote.png?dpr=3D2&amp=
+;quality=3D100&amp;s=3D9610f58be45a50b23f088ff688c98a3b" style=3D"border:0;=
+display:block;outline:none;text-decoration:none;height:14px;width:100%;font=
+-size:13px;" width=3D"22" height=3D"14"></td></tr></tbody></table></td></tr=
+>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 60px 10px;word-break:break-word;"><div style=3D"font-family:=
+Georgia, serif;font-size:16px;font-style:italic;line-height:24px;text-align=
+:left;color:#121212;"><p style=3D"margin: 0 0 16px 0;">As someone who likes=
+ watching football rather than wasting time on transfers, this week has bee=
+n boring, to say the least. Not so dull that it=E2=80=99s been enough to pi=
+ck up a book, mind, but still. However, the result was that, after finding =
+out that West Ham have a midfielder called <a href=3D"https://ablink.editor=
+ial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR8KMwGPbExmxMGvHN3UsxfJE5=
+9IC5Mga6OZP2MIaX6KxFmaB5jpvB_Nl8NFfAZhEaSCKLHoA5qlx-8zC2UK175kk0gRFqTzsugUa=
+MoGQTX2Nq8fHIvyY9eSAijNg25Q-nSnzqWmSRhFHTJJxdFcba2_o4h96zWdWw7DfRJP08Yibz78=
+bv1B7rKG-4uxsyEKWLNty96ScuVazza4WXy7Qu94/4tr/Ac2BGRD7RMK6xIEf25QV3g/h39/h00=
+1.sxfpgptbVZ4a1i7wdC4juT5Hc_v6MtM3m2pL2xOhgD0" style=3D"color: #0077B6;">En=
+gels</a>, I was sent down an internet wormhole and discovered that there is=
+ also a Brazilian midfielder called <a href=3D"https://ablink.editorial.the=
+guardian.com/ss/c/u001.8P_iYkg0_u5AycVUkiWn7G2NbW-SadK6MiFfsuSK2bCFtgH23NnS=
+HNe2d4eGSkEkL4BaHWVXR1nTPsE5M5bnLrrmZbNJWnzliCE0BVj-m9hRfNWpzOopJbyTYB3XPoZ=
+LsymJ2Tft7n6xsZ7ifaPwYRP0s95FjgtFsDg3vUv_NFdN2XpS9iix7lQqAuUoydtTBgtNoXA48D=
+yam2amTAFn4A/4tr/Ac2BGRD7RMK6xIEf25QV3g/h40/h001.1CUFjpGVMgKKqnHuI2kyZpw3dm=
+08YazklvL8Y4OSjnM" style=3D"color: #0077B6;">Marx Lenin</a> (his real name,=
+ not just a nickname). Now, if only we could get them to play together, we =
+would have something. Revolutionary tactics, no one in the centre or on the=
+ right wing, everyone on the left (a bit like Arsenal circa Henry, Pires an=
+d Ashley Cole), etc=E2=80=9D =E2=80=93 Noble Francis.</p></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">If you have any, please sen=
+d letters to <a href=3D"mailto:the.boss@theguardian.com?utm_term=3D69c6a4d8=
+b3bfc791c6ed7b366d271ebb&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&a=
+mp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D69ca87fbedf7fec0=
+3459a8e02d8586c2&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_m=
+edium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a15ae6fde895db943165ba5=
+94d212f6&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3D=
+Email&amp;CMP=3Dfiver_email&amp;utm_term=3D6a1852d05d7d9008810ace981a759e73=
+&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&am=
+p;CMP=3Dfiver_email&amp;utm_term=3D6a1eef0936d70ff33a9ff32c57eeaf2a&amp;utm=
+_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3D=
+fiver_email&amp;utm_term=3D6a21828d9451bba74ed4242c28b385c7&amp;utm_campaig=
+n=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_em=
+ail&amp;utm_term=3D6a22e00139997ad8ba5b22c2d0ae78fb&amp;utm_campaign=3DTheF=
+iver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;=
+utm_term=3D6a26db4a9afc3d8fe82d38c4d11f16f5&amp;utm_campaign=3DTheFiver&amp=
+;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=
+=3D6a2c1af40c70b6f1f6dc1f60bfb36f30&amp;utm_campaign=3DTheFiver&amp;utm_sou=
+rce=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a428=
+c069ecfc8f943afdcd235997bb3&amp;utm_campaign=3DTheFiver&amp;utm_source=3Des=
+p&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a43ec9b7c035=
+9ba3f2752b309e2f746&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;ut=
+m_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a452dce923cc4045ce0a=
+5226bef128d&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=
+=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a4660d3bad497881ad5c148e43bf=
+a32&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail=
+&amp;CMP=3Dfiver_email&amp;utm_term=3D6a47cc1aca4af9b6ef9f435f26bccf50&amp;=
+utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=
+=3Dfiver_email&amp;utm_term=3D6a4a7664a79b84047034827b5a9849db&amp;utm_camp=
+aign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver=
+_email&amp;utm_term=3D6a4ba928ff69daf1a6a720e159c7a55b&amp;utm_campaign=3DT=
+heFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&a=
+mp;utm_term=3D6a8c4e65668e77df85df7e9fbe444425&amp;utm_campaign=3DTheFiver&=
+amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_t=
+erm=3D6a8da545fbf82deb9f888b8cd387b64f&amp;utm_campaign=3DTheFiver&amp;utm_=
+source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a=
+8ef617111d6185b39bc4e23d570b1e&amp;utm_campaign=3DTheFiver&amp;utm_source=
+=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a91a505=
+fea686f1038436f5f7f0b633&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&a=
+mp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a96e3c2e4e3982a=
+5db816deca651da0&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_m=
+edium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a983aa719a9ac79dec01569=
+66591c71&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3D=
+Email&amp;CMP=3Dfiver_email&amp;utm_term=3D6a9ade1d36027410842c48aaab236129=
+&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&am=
+p;CMP=3Dfiver_email" style=3D"color: #0077B6;">the.boss@theguardian.com</a>=
+. <strong>Today=E2=80=99s prizeless letter o=E2=80=99 the day goes to =E2=
+=80=A6</strong> <strong>Neil Withers. Terms and conditions for our competit=
+ions, when we run them, are <a href=3D"https://ablink.editorial.theguardian=
+.com/ss/c/u001.HesXJ57d0x1owJZ-aZPL3dMFWr92HeUFQk2v_wBSJ_UtgE-pwHb4UgXNOWZZ=
+o0YVxxwURJTh4pagIEz-e5iiLLvWgGrJSjzS9eI4znaXqZIXBgACYC9P6aENz7Gtjz6FYNtrghw=
+gn_YkWqJGN-Jm5sP8i8yF7iwp_zsqdIU0e9k0kfjkc0qQHLeGPPmoi3zmaxQsG1OomvAYsIFwUx=
+Xj2IF7RDLIAQIrhvhdtz591XoZCtT9P8EnEvpuchUGj49icG38aS7Jm1PRdywk0F8-e3EpGOkHR=
+Zo9lEVFATp03mgm_ctQMDfL3x0rwDnY5GVzfw977jEbw9Rc6pbf2nRaJPXVCqGLmAUl4EMuum_Z=
+EqwgJDBVwgHpjonD4aMJiPh8Se8Qwulm13pcplgBgY0Enb01R94PzuUsuRbD6aurVK9qxV5n9CI=
+vLTd06XHmzPvqXe8sZd8prLwFJ1SqkpcKqr0O9_xPF_nhQ4VI0EIr7j3DKBQN9tHyXnktOU8E9z=
+0xfXJ3KiVjo-jb91qZ-iM8jQMH4jJGBxC3hk-uvdP99vCSUTonerWdgClQcE-A7kQR29pzhFbf8=
+uuR-MlC27Dmlmg9Jcen9scKDrezF_C6WB_sBUR7l3WQ0tkPn-qHL74qH6Yf6y69fXq2dmmxyJGP=
+M6AgF6QlxkLcWvAix8eMoJeWYPFcxXcZgUz8sWP9XX8NAxmxOLCmhsGf8gqOfiSGi-V_L35uLIC=
+QoNm4Ah0gsp9aHM2SVFj9PymAHe3sapGTn0YGAlfekQojK1GNGksZwBZJBMkxFG4Q0aTGhPF0xe=
+uKpNRXjo5Frr5ahnE4E4HTsLBQ6kc13G__lNwO3MvHb8oEHzQ8bvSLMDolcDWXgt2RUYLr_uGX1=
+JvNMAi8-8ujsdYZZhw3znZgPFR2dTXB3x6zHKmOhZO1DrCfZpHvTkRIxbAu8dH7O3FvuWLLIAph=
+6ZUgWLyq2Ni-ATsB4ADjJoUelKRi9eBQcz1mfL4WkSZwOOFU5E4tbgOijO0eQSOcKjnFsMvH_cO=
+lsrDkjxriueIrqZ3Vs8zGhrgfdQXDKrA6WmwtEodjJzVTB_vrnEJe3IsaFTXb-vSkrgwpjxej1c=
+4EA6nnJvzTaw0gBMnSTMfMgjkg9L5YmPch7xx2waDgNzs8olRTTZO_Piaq20-cw3X_0mxCk5xvG=
+92gJMmUO8vNNU1NnTnGOJ37SEKjCLw_7huLKMykfz6K6x0YaRa8rYTjZrnpuNnjfLOk6c-3G4CT=
+TqJF7E2nIP9aPgXhwHat7xbive4ZJneFo6pB9qwrBJ1NihzRXQ9F5xyjIQCxKj-MiOs_3M2VkC9=
+pwdtdG4HnNF8kd9qkVYQCUlvbWpnsw8CD2HrglyP0LFRj3CucvB4xVyeX-RuTXdHJ6cR4E8Eub8=
+mwias_bgmobWUZfOalJuZmSFGcMNsvaOR5cyZEKFX-Qh9l0ecvz-nlFXs8IvD_4NjoNFtE9rTH-=
+kSJziCMvAXe5akNNDqYGHRz9WDxcm1h0UMlAT4_EGqx3bY0Pauu1UoDZb1GRrhHLHx9c3F7wrBW=
+HRXr-GLM3MxMzRx2b4ShL7JAnhMOZMKk5jjoDKDwg0kznO1ufSQ1kyB4JPlgdYtnUIWUfb38JB1=
+l3PEh6pDl7-yotn2NvEbEHnFFJODW_YrHGoIOnhBqJ2OpGnBq7FdoIYtUwPDuoRyh8586THYr2F=
+L2vPNzX1Nxph_FrKO8EmEgGT4EBjCVAaafrFIot41TKubZ4H8JzowvJfWwGr5OT7dslTv2qbrqE=
+A6VLp1fJpIHVIvxTQhuxV2eMR-7mJlzJvfKA24IjYJgVUQDKRbms_SDXGaGrkEmu46D3kIv3Bnq=
+jCwDcU2_Zb8gZR41SqhTKoqzvH2bSBMuvdYoNsqxiFh_HdWAh2rlo0R4r5oQHXdfY6-ggIE33Iw=
+qHwH7-oIXJcGiSBky1OHsolDPyUAVviWMvd1ASE1JLzHRlQhuFZxh92ApZaE7SRtlxxRuhC2ARP=
+C9jj14aQgzZ_oSE7cYFgHHxsPOectPVKeCFf6daQUqY2krX-P_TKDpi4qeBG42uS4yjEFTeTKVu=
+-LHokCkH8uQEuxAqFZ1Xpn4yuGA1tliuak68x58eJwZc4msAhEV3MiX2_R3b5e1wS4gBtbW8i7v=
+ZqxNU0IiYu-m-zjrtBMYKcEOO0xUNX09KrbikMPmWH7mABS8LOKU5h8TeEffrgautEGS6O_gY3u=
+bea7lHztaN-ZO608G9oQnCMVEBs3iIFnec_wt1T8spvmHSDDndOkio3Rnqp-gYR514EoDpxxGPn=
+UX3MROZ5mNHtwkVCifqgobK7eOqa0Me1IFuoARXSa2nKYEe7fnZMMdtxqFFrXv99mTsWlE8bmyG=
+tgEYoCOXEbKRD88levJA6Fl5JDEFMnyQAbFTNPjNafFEOyn0yKOk9JCFEY5rJlMtaA-vkXSUIig=
+VNJB1KQA6fK16i5MP5-MuwbphBVvknBEbNzRg1ablOY-pdNfdViNkbYX8tk7dLmmCoEt1lhtf0y=
+2gB-DkuZNKbGoGzykXDS-bPNJ5SW3eKcMQojWpp8tZtRCSjX_gURT9Y7UjN7bAGiMJEuEgj2kPI=
+dpCiaiba40Z_iBVo50xDer20k-Rtvvl4Lq_by0MGATeaUc3Xhv83A6cV821q5z1mqXwOsPm31nZ=
+pBL4aKbcHPRyuNm7bV5acckdwAN4cLFNoEjM95hl4uTsOlC7GCDW0pOHUuz9tQPF7YRM0xC0KzK=
+y9wwGDlnTaO2YI3vEIoYprfDoLCTCvfTtZq_1AGaKwHfAKEQ20r0xUzUDa4SoNshGR-R68CMWWD=
+JWhFG4Upo20vgCwzXqq6j9FbaVfipzbzHbSEsXmgt7H5JlxjHb2AiOmu14rKgKaELNPpy_FwcyU=
+8bOhla4btZTZilanlXedV3l7O59sp8jK8wQiMQmpiPL3xgHFkox3WgnixS3iUcmCBBZNW5Xed-w=
+EMQTwhyObFz2imvAXaaNIKYuikO_pwmdO8c1aUZt3U0pmFjL1BcMXI1bjf1HEqPjdCWi6on8WnI=
+1FEkv9Blb38zw4vGg8b8SVlbUxD2BgHEH_DbbYoxvje-tC3uIdv9pytycy0sAZqqBChivnjWC5W=
+CpNChp4W2K2OCX_V3ctzdgRRVFZRFBMeRmITR4W7fm3NA2hVpaw51wG5j2gNqhtqVMp1UBCkXy3=
+PVb0_AlvjkgA4cw2CsFqOysQ98JrV_nFl4zxBUdaN_4QaW8dTW88LYI20HeN7m9vUSXEwQwZJjC=
+UCBL69LCRa6SDSFlL4BV1_CxQ9LElo5Vj-U9Obs1smcknT8-0qL4g3B3ziGvKtK5_rS-4bkKg8O=
+bOZp5uPi-7Z7WFBqEl0quTY4X4GVAog1LuvKFfA9KNJ0Jw-cjpYrzv1YJKPEBfn0YNa5W73fcXw=
+pzQMkDqIC_1GoNqDklyO0nVW43cJf6S0xc9qqKhxXuf_rRjV233Dgmcc7zPqV51fPEqqmf_3Als=
+IldpQIpOIUBxua93NkXPvmEJVKW8wSEWko6YfFZYNdlNIk2QzQS_RbTYnD606hGDjVPW3ulp-hE=
+kNglIB7irgk2XwDmTvqrGsgNjXM9-sLudEmsVK-bDwHiTqM_74mxfYjoEIkPsOCBxMlzc6YVb3k=
+g0ObQTR25UHZ3eqc3-vSfYFfCxmmUZF7wDTiAZ-5cfHTdQBPcfle6f_ClOUMur6ecjfN0t2Sejt=
+QEI6Q2p-u8S38rq7XB3GU0Vi-mek4Am8oOWCReFIinpUltN3y33yPsNn5Rop938L1vtYEd8AIyl=
+pOJUMS5tT28oUSQl59c7ILzh7pdeTiZLY0EpsPF6uFV6esKhk_moyWtt4RYg1angjJDCHxYFbGB=
+43dkkDtd-sJEttY5_FZeZAMZI8U8ycjs-ELk4MqKDwTpL6Wi5vaIFYRuJwkb_9ZwLbv25ORStSP=
+qvF7cy1vP7sXIT3vbhjsHILxbf9lyiEnG3VaS06lDppYNzeo4M6D34THng2GEEkbFtP7obwtthv=
+B2k1bLtfJDgk1UVRD65lTtj3VZE7iY1tQTMM1sxS1TmM25VT_S7HMcsYdAt-n35RS-o-EekMkat=
+hR3YMN2ZoOAILzgOVTk8Q6J731Zp5fRf91m4tStIRshi_XesAv6c7kBUMY98ag-L0IGMForuvRT=
+6q7P7GiaP7B-f_fLQsn44YfS39rIy-BxOedk76VC-FVkJQRZ1CK0iLv5RBp1aAB9z9Wpu4xvj_Z=
+_FCeqh2yqf100U2dEZaE693-qkgKPHS6A2oIKpsH-RnXaBUQuPgOVS3WcH5rjtxuiR5nSCZNBiD=
+yJYhq5SkV1IfLZei_ryRIm2eI90veotnhEstfinLeGz8FNXJZdM01UIFgfNbze7BGZXMlRWZpZ6=
+7k3vSeFUqmIvYllsBKXz3g04r2Ip8UWLNztS5G764dfGP7x-g-MSXXcpPP3rllYUwDnl6x4Bxkw=
+a9EBcbaR0o8G0yFcy6_FkylSWQlDSbXHUcrnO6clSjvM4dUcQ9t5bLmVAf407LOJT9HMxnEfUF5=
+EWjNYxoRqk34SE1MOf4sRGsKQQsg5i3rSfmGGPjWNxmYZfWb7gybHXw_YtZWm6Y83PA6nmN5PhO=
+ZAnPGvOL7XDZEfg_EsxBMm8uzrA7C3mTwD5PljQ7R-prjxODeGpuA9qupRFB9uyENndAxL95e50=
+nFQq2Pk_6z1znp7zabxUb6XbRFFPpA32ZbyHpLbRCFbEPykqDJwEdXWLHuN_x3qMCImi-sHFv7-=
+Im0GOFIGm6kNUWxJO11pUL1wpaGQ52VHZ5YyZqPCIfl1ojilebgvpyg7aR_h_6sj0iNi54kOFf4=
+sQPK_POm0wxoMUJd4oVY79hUhNKQ3zaz3XRhA2BEDlnPfuhDxcTQBJswON2ajsNGdiZr5dWlwFq=
+1qgJ0gn2Hko0d9sDyd37NHdQMAVQYLJimon73fOHg6kLLJ4gwLBtwayW1kyRarhZOx5eV7dhkqX=
+nMrRsRPq_4Y__K-yfC8dTrSjN2V-niL4iGtKHNcPMFlGHB0CYiSxff4K6tZB9BMAq2YOuzKmzPU=
+b2PwByZWXxHH-vuktdrUGoIiz-8Q9HFs3-gOIhpNcwoVSKaK6L-Jig2lFv6ByqNikxyZKwbsPth=
+rVPjUSlNI9PcGaTkDhyYZ-8CWw6sH_-rJ2uV-WhV0HC8o6ZPGYMwg_B8koiNsGHqgetlnF6lbSX=
+WmxOMgFkidKLchUkXWzTUmA2O-Z6vlH7SCAsEbyFhPcdd-zCnFx32QFC4MDI_dD1Xzmm1HB_NsQ=
+lS8UNiatmWJcAFcGpgmMtHeGDaF-C4lrg_nE7AT24DscZ5v62xToJbhFuWyLxByspU2tFGy7xX5=
+Y9m78yDm0zdqFUWtXQPaxb6xly5Kq3If0Qv6SBNzBJSI4SILAT7mPpsWr2snxHghtliywHh4OZW=
+IwGkjVEs_dwSJjQU38OEDzW9sPkgnPIYd-CBN81BILX5LLm5RECs6ypy5wP8HOf3tyYXwZ9spNf=
+h9Me5Trj9wNWLjaWPnac__Zc8Lbo3IH314pMBujpsJ2YR4FeLtrwwu5UMSiPHJRvslrAFBK9nWr=
+rLlTH2mugCgxU1W9yel2I8DIYFIECfrlOw_O10M_LCehBuGKf9HM_zP6NooolT-rJHhJk9-UbS4=
+rYoRPgDxm4ldEgTQwL2z_VhCxMj_4MaPXMDZR_qb1G6JGJXSGdfGPjGvpet2pQEoHl4ag2yfWlx=
+q6ox-ST6enGFbyBWPlmSCmtyulg-VkG1q7WqToJ-6cjWe6jq3tsDtsaE3_2wUFovVMbb9RzZqUQ=
+bhyMu37J8E8LynQJdZaG9Nw5yZJ1ZMeQcDVu6b6NAhBzOgkVJ43v6Z9HHHCFwHFOmnbRp3mhQH-=
+C4SfNvRnOMguyHfj0EqT2DxvemVTl1zFBZprgIj7XhcgP3HX1Vy4yP15VAdWO17QR83fYWAn9x-=
+iGXgEMckws3gg-B7oUa32UqpIqvqW_ojb0BLVfWqh1g8bHywICYUk4HMVfnPOWJPaO7jyWvlX7L=
+-PKj59LHC0Ki5wA2UzDJuoyho_mEGdK6RwbgqcPAoHwEUknoH9Lv_IVFY_v392MNuQfz3fdIpB-=
+7GF6Upzi9fBKdXwI1wUl3bPTtp9d1h2uX0ORwa9bYJUgVY5zQC4CEixxRF9SbM5qszm_jduPtpG=
+Bmhw1rHm4Fmtfl2E1g_4hlKn4z9HipA93W78HBq8sbxoVllSuVz67SlhaPJs2Ev91VlztsStQ5_=
+I6iRJRRE83g5EetG6MyJTt-19Amyyx-TBaXSGIxINcJT5-YemVlftMO4FKkpnxZNmrayRc8sO1c=
+SwKcxAygRAjnoi9ajeffPvqPFCBVfDCC_rlPt-nFbz2eKob6ch2g23j_FEedi0fPJGX9C1hn-lv=
+7nywZUMP6NTAlbA15F0kwws9xHqi2N0wb0-JVXVJPy4-Fbp5vTdYKOzbXA8pfQK0B9hSNiSJ4q0=
+LLRcW33_0zqiIJBHeMSZfkrEaZjtHnzquAMx4JH1CdstvJLjgGqnZmwgozw5k/4tr/Ac2BGRD7R=
+MK6xIEf25QV3g/h41/h001.UPjFJY0rQdDbo8iDAx43y8N0K5cTI6vsMlNC-S71aqw" style=
+=3D"color: #0077B6;">here</a></strong>.</p></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 6 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">DISAPPOINTMENT OF THE DAY</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;"><strong>1 September:</strong> =E2=80=9CThe=
+ club in general [excites me], being such a prestigious Premier League club=
+. And then you have the added bonus of the [Bigger Cup] =E2=80=93 it doesn=
+=E2=80=99t fill me with anything but excitement. I can=E2=80=99t wait to ge=
+t out there and show that I can hopefully do it on the biggest stage=E2=80=
+=9D =E2=80=93 <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001=
+.bWbSBs52tMH68SDa8T0iTJ1qCeNFv6vQ5c62cN7Crfo91eP4oX66vtlbVnOI2CyRm0iACww0gd=
+wZ5AQDSnOLJTS-Xe2xnLh4KGcz4TgLuykrLmdxHbZF-AaamkL_AVIjNozaiiAHOb3DWaVZ2fOOc=
+BK9CfmFxcsqt-Ucuww8Xg0dRfsTHU3n8ZC6sI2KprVmQGDmIHYm4rGnxdqonCmLNLSZnNAIIfak=
+GNggwet4V9BOOsH1r2R08LN9G77TRLrp/4tr/Ac2BGRD7RMK6xIEf25QV3g/h42/h001.yLP5xt=
+7zGcDFIp9llQZ961oh92--xj4x7OvWmFOHEPA" style=3D"color: #0077B6;">Taylor Har=
+wood-Bellis</a> signs for Aston Villa and can=E2=80=99t wait to show off hi=
+s talent on those big European nights.</p>
+<p style=3D"margin: 0 0 16px 0;"><strong>4 September:</strong> Unai Emery o=
+mits him from Villa=E2=80=99s Bigger Cup squad. Ouch.</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 7 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">BAD?</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Southend host Yeovil in the=
+ National League on Saturday, folks, and you=E2=80=99re probably wondering =
+why this tea-timely missive is bothering to mention a game between the 96th=
+- and 99th-ranked clubs in the English football pyramid. Unless you=E2=80=
+=99re a regular at Roots Hall or Huish Park, you=E2=80=99d be justified in =
+telling us to beat it. That=E2=80=99s your clue right there. Subtle, eh? Ye=
+p, Southend=E2=80=99s manager Kieron Dyer left hacks bemused as he tried to=
+ shoehorn in as many Michael Jackson song titles as he could into his pre-m=
+atch press conference =E2=80=A6 for charity. Off the wall? Maybe, but he di=
+dn=E2=80=99t do too bad. =E2=80=9CObviously, at the club, we wanna be start=
+in=E2=80=99 somethin=E2=80=99 really good, recruitment is a massive part of=
+ that,=E2=80=9D <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u0=
+01.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBjH7mDHKy8NLTHPhsGN9KVoRPbTOK0=
+zItJljPGmvLDxH7RGvIKFhPT4DpI5tqCOT9TGk0Gk5HP1fCTVzNUf8d-NYQAFLEFcJtEn3rnoku=
+WXPCWsjXimL0-hazdXRX8Q8q-wtrMnR7vM6852RtlRYahlGjbNZp8xkKs0UPU97RK44zoZ1akZw=
+9CktcqelMNEmOpTg00k-oyny6I6za6pWNf-2hko515fkRQ-EQJWolQ_etZ4lv6rxA-FPuPmlBYG=
+-aTTIKFSsnD21VVNh2NWVjeRQPKytLBBTVy8zvqn34Lm-FyWrDb22k4lGofJ4av8eefBQsCAmGB=
+nGqFYiDxiyLwg96xO3O_N_88LXGNPka-EA_5SJ0IdCuNjeiERhQuEDc/4tr/Ac2BGRD7RMK6xIE=
+f25QV3g/h43/h001.f9Ebfdx1NFQ_XoS5dBpmK72mGZ8gIMBgNGBRb8UQq5M" style=3D"colo=
+r: #0077B6;">he moonwalked</a>. =E2=80=9CWe have targets in mind [but I] ca=
+n=E2=80=99t name names, but it could be some random Joe Bloggs or a random =
+Billie Jean.=E2=80=9D On the match itself, he thought it was only human nat=
+ure that fans should expect a belter between two of the league=E2=80=99s to=
+p sides. =E2=80=9CYeah, I expect a real thriller of a game on Saturday=E2=
+=80=9D =E2=80=A6 but if results aren=E2=80=99t great, he added: =E2=80=9CIt=
+ is always good to reflect and look at the man in the mirror. Football is n=
+ot black or white. There is always going to be the good, there is always go=
+ing to be the bad.=E2=80=9D You probably want to scream now, so we=E2=80=99=
+ll jump off this carousel.</p></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 8 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">RECOMMENDED BUYING</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Football Weekly Live events=
+ have begun. If you want to see Max Rushden, Barry Glendenning and other to=
+p, top pod squad members in the flesh, you can do so in that there <a href=
+=3D"https://ablink.editorial.theguardian.com/ss/c/u001.zFrJr-OAD6MUXPGxMNJG=
+7LU-YBazevQtwRgYbO5Ad0mM4Zq3z1hVdUf6aDyjK2cey0m_74Rf5Eo7968MixttNc3xXP6C0hY=
+hS4JOHOZMlMfaXyl3bEse-hsz7LRpxYUmN-ad4ERWCvLJf7jJZ_uevdms6otXhHUSjOmsCT3oDc=
+tsU5GIz5SISqGHIdmQBh_EDh6YT5dAbGbU8o3UvlipyPvbod7EGBvip1vwJWgP7F8/4tr/Ac2BG=
+RD7RMK6xIEf25QV3g/h44/h001.WyZtvYtr1CgmygWfUMAEyMvT00Ivjaj3zE-TghZtBI4" sty=
+le=3D"color: #0077B6;">London on 9 September</a>.=E2=80=8A</p></div></td></=
+tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 9 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">NEWS, BITS AND BOBS</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">London City Lionesses have claimed that <a=
+ href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_=
+XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgODHD_yF5QEpsXKGAkxSjK99rqk=
+GJxClCQ_FrP2nXJfmgigzhn9CMr936EAJEqGWqjw-YV8VOJwSM2FKjtJhTMgXOLFij9sssC6kST=
+0rpHxO-IzLQzcZ3FVKxGvPlKq28521-DDx0NbmARWe-99V5fJLq38bCQiRwzmNd7zKbAVcFikQ9=
+ig-i2DDNRhEcjnqCgbtxQrrp5gWW78TcLb9QkgzIToqIxxLlY4P347oC20Y/4tr/Ac2BGRD7RMK=
+6xIEf25QV3g/h45/h001.Vu3tWxtcqxOVu6suqXMjof0natPeo_dS5hH4Wpp4Ztg" style=3D"=
+color: #0077B6;">their front-of-shirt sponsorship deal</a> with Nike is a r=
+ecord and bigger than some in the Premier League.</p>
+<p style=3D"margin: 0 0 16px 0;">Arsenal have been handed <a href=3D"https:=
+//ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fI=
+EMgszcCSneHEBjH7mDHKy8NLTHPhsGN9KVoRPbTOK0zItJljPGmvLDxH7RGvIKFhPT4DpI5tqCO=
+T9TGk0Gk5HP1fCTVzNUf8d-NYQAFLEFcJtEn3rnokuWXPCWsjXimL0-hazdXRX8Q8q-wtrMnR7v=
+M6852RtlRYahRJLMUm2UBXcUiooXd_PXy80iwZAq3gCKJ_bUb74eYb_Ab_zogLRtU4D3BFQ3iim=
+W_UgMqsr-x0ZAfd68daMtIbbL4Nt-YmRDbQ3Qy71sCEJVRYrSzfIb1vYko1QciANp2zx43TsUYb=
+vMch4iwv4SyOoIGWw9F0W2GMy5MFx4Ro3EetWZ4eFh81kd5PpW6Q1YQSiCtGk5udPA0FbbzTw_U=
+jjQcP9nvdChevo4ZJMQdrY/4tr/Ac2BGRD7RMK6xIEf25QV3g/h46/h001.D5_58uDX_iuIAUwi=
+jPXweh0-H1-iocHcB0Tok5T6xYs" style=3D"color: #0077B6;">some tough games</a>=
+ in Women=E2=80=99s Bigger Cup, with the tombola for the group phase pittin=
+g them against Barcelona, Lyon, Benfica, Paris FC, HB K=C3=B8ge and Inter. =
+Arsenal and Chelsea haven=E2=80=99t got it too easy either.</p>
+<p style=3D"margin: 0 0 16px 0;">Away fans <a href=3D"https://ablink.editor=
+ial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBjH=
+7mDHKy8NLTHPhsGN9KVoRPbTOK0zItJljPGmvLDxH7RGvIKFhPT4DpI5tqCOT9TGk0Gk5HP1fCT=
+VzNUf8d-NYQAFLEFcJtEn3rnokuWXPCWsjXimL0-hazdXRX8Q8q-wtrMnR7vM6852RtlRYahuRP=
+zqMfGQRhSapd9NFRt82bmSfBOCyO86pexxEEoaD-wVjpxkBa1ZqKSvqCb0wRaKyWfhXNQrkzK-s=
+g4ng3BpTdUT8xygAVkVHMxDlJqKgbkMUzzZvneScHTwT3Z-7w-fFmxMQyGR_jXiC-NLuhkITOo6=
+OlRsLDxnTGk0HO1B-AOzi_05TPcTZ9u9bA5UlqGd3CQKuv_2uAU4iPcfC_f_Q5Vcu7n7Z5Gja-_=
+8k-6lwI/4tr/Ac2BGRD7RMK6xIEf25QV3g/h47/h001.y5BXMnRxaPEkfbiuPxPpp7kLSqFxqlF=
+CFMd4AeCp9W0" style=3D"color: #0077B6;">have been banned</a> from Old Firm =
+games for the remainder of the season after a pitch invasion and other naug=
+hty behaviour in the Rangers v Celtic match in March.</p>
+<p style=3D"margin: 0 0 16px 0;">Royal Mail owner Daniel Kretinsky <a href=
+=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18I=
+RyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgVHfGXzn5n_Yw9Z8Qsx2dsDmOk4jEMH2=
+K7uW2UViJLmBZA695ejnGtTUbNvjGNv5qhzCUIdR6cR5ck7ohf76fydklOcU4P2BDbr34AT7dVP=
+Kui3_eA8tCzeT9Hp2pu6kEXQl3C58eY5H0PqQehQndn2W3Je9r67J1gA3Zgl_F54F52yHdta6ME=
+sctQODXxb3zvoWwn1oSBQq6txNB38KV-yXlD_8D3t6AKMw_9pI6sa3o6Kb01uDL3q4JsoeIqNsS=
+/4tr/Ac2BGRD7RMK6xIEf25QV3g/h48/h001.l64-Jxg98imJRjzlLjCdhdCKknCeleIidipgv4=
+1ZTBk" style=3D"color: #0077B6;">is set to become the biggest shareholder</=
+a> at West Ham after striking an agreement with David Sullivan, dealing a b=
+low to Amanda Staveley=E2=80=99s hopes of buying a stake in the Championshi=
+p club.</p>
+<p style=3D"margin: 0 0 16px 0;">England Under-21 vibes can expect to incre=
+ase by 100% after Conor Coady was brought in to assist Lee Carsley in upcom=
+ing autumn fixtures.</p>
+</div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Conor Coa=
+dy" src=3D"https://i.guim.co.uk/img/media/a5e3576fd2fe0482ec4b5b719a64b79ea=
+8c77781/0_331_5000_3002/master/5000.jpg?quality=3D85&amp;dpr=3D1&amp;width=
+=3D600&amp;s=3D6f9f576ee8a7e4776fa0ef549b5ce974" style=3D"border:0;display:=
+block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13=
+px;" width=3D"566" height=3D"auto"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Conor Coady bringing the energy in a training s=
+ession. Photograph: Tony McArdle/Everton FC/Getty Images</div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">Liverpool have signed 18-year-old forward =
+Djylian N=E2=80=99Guessan from Saint-=C3=89tienne for =E2=82=AC5m. The nift=
+y winger will spend the first half of the season on loan at Brest before th=
+e Reds review his next step in January.</p>
+<p style=3D"margin: 0 0 16px 0;">And we=E2=80=99re not sure if Enzo Maresca=
+ has been trying to rival Dyer by wedging a winning theme into his press co=
+nference before Manchester City host Coventry, but he=E2=80=99s done a damn=
+ fine job if so. =E2=80=9C[Enzo Fern=C3=A1ndez] is a winner, with a winner=
+=E2=80=99s mentality and knows how to win. The [Human Rights] World Cup, [C=
+opa Gianni] =E2=80=A6 the main thing is he=E2=80=99s a winner,=E2=80=9D roa=
+red Maresca. =E2=80=9CWhen you belong to a squad and another winner arrives=
+, they are always happy.=E2=80=9D</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 10 --><table role=3D"presentation"><tbody><tr><td><d=
+iv style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody>=
+</table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">STILL WANT MORE?</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">It=E2=80=99s Friday =E2=80=93 so here are =
+<a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuif=
+c_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgIKsHX1B2nAEodQdh4PLqw-A0=
+vUGzkdCsPKiiBcY4DKy2p_LULEhAnRc69Xr8ZbCuNN-cCD7TpYqS6eSRY9VpJnnucU4JDMRqdSn=
+TBUBPMgDFmC_nFePBGQNe_MXf-BpHPLhlnpNSTwuKnKUjwWErjpQPtSuEj-eavGopUBY5EIn46L=
+ZzoKxw-W2SHNS8hlPyxDnBFtWnNslmklr9COJgZEYzr15uczgNW-NnWZ0B6SE/4tr/Ac2BGRD7R=
+MK6xIEf25QV3g/h49/h001.d-RAhMvfbxxDqsvVpAUCIO1db-8RC74OS0E6p8xKIWY" style=
+=3D"color: #0077B6;">10 things to look out for</a> in the Premier League th=
+is weekend.</p>
+<p style=3D"margin: 0 0 16px 0;">=E2=80=9CI play at my best when I=E2=80=99=
+m on that edge of being =E2=80=A6 being horrible.=E2=80=9D Nottingham Fores=
+t=E2=80=99s new =C2=A345m man, Liam Delap, <a href=3D"https://ablink.editor=
+ial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgt=
+jhYSJYcaNsDra0BxnPg-gQtoRwyTPke_dIlUX_bulDtKKOuWI8coopdA3H2u2noxr0JEY0vLg1a=
+ZauVCvdXnEQj8d0Y8bsH0chlzm6hHl1X-7wI63c05e-yJZvk8AnwN8bbu4d_UTL0a0m4MOF_rh6=
+6BTL8kzacifyzyQ5xervDNLxRA6TrdDQfJ2O32t5qh2_iY_PYkcLTEQlVJMv6te8SE2Mw4d_dta=
+WsVfMBzk1EzZxXxAH2ormpBno8ybIyVhYlx_T1EmOJDv0pAkUtwKJCTGFBuwHb9f6RuyQNzw/4t=
+r/Ac2BGRD7RMK6xIEf25QV3g/h50/h001.xpXIgnP1HVFSNmsxuxJ9jLKt-cE6FDVKw8sntWRwR=
+dk" style=3D"color: #0077B6;">gets his chat on</a> with Ben Fisher.</p>
+</div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Liam Dela=
+p" src=3D"https://i.guim.co.uk/img/media/63d9989251670b67f839eeba3543da1c84=
+cca77b/0_1562_4000_3772/master/4000.jpg?quality=3D85&amp;dpr=3D1&amp;width=
+=3D600&amp;s=3Dca981696e50b914aac2e1e64088b9bd8" style=3D"border:0;display:=
+block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13=
+px;" width=3D"566" height=3D"auto"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Liam Delap not being too horrible, earlier. Pho=
+tograph: Ritchie Sumpter/Nottingham Forest FC/Getty Images</div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">Our 14 <a href=3D"https://ablink.editorial=
+.theguardian.com/ss/c/u001.HesXJ57d0x1owJZ-aZPL3dMFWr92HeUFQk2v_wBSJ_UtgE-p=
+wHb4UgXNOWZZo0YVxxwURJTh4pagIEz-e5iiLLvWgGrJSjzS9eI4znaXqZIXBgACYC9P6aENz7G=
+tjz6FYNtrghwgn_YkWqJGN-Jm5uVB9WMu-wXrWe4EEaF2A1E-B7DoAjPsOaCiSFSXbGaJxmFPyV=
+r_IbwHDcmTsoKWQ999upBVDt1vJAsQIb848toLZ9eubbb6_uE3OfSJ64sEfROEscURIKb3N7-Gn=
+_OKKEXOhrA6wvDHbQilyRLo8_IM9GPtct3Zcj86HhI8BA_Y0ag_ZJlGvwzrntzeCBbk2b9H16PU=
+5408k5rl4ozpWnmSe96IaBHm_vBeRek2j3bELqj9V8s2mpwfZLJZ1ZVkEgo21tlWavfj0hThjxI=
+gYJbqG7ANaqzIK0KtUJ-wTlUD5uANX2Ms75Rw6xBMhLrdRzY2sX2y7GYf2jLM3V1SNmluqP3gcb=
+Di1gayvQ_dQn7KyU3QuF0KYnXn43uyzqyqrbmyXM01p7fR7ep1l_1CGz58yc0o26nLayuuIhMZK=
+9vD1E9bIz5ML69upfQnwHwWXG8--IugTPltyAGFaE9fjnkCnlztIEei_YPtAgewkVaME-S8FM0M=
+9GAscUUjFDyAgxMQdmFB2spXstondwj09t8PXRzLQGofRiuX_abdvxFaLuoHQ-awEXrwakRXDXy=
+WvOe-iuu4bZXbIWHD0kZxmc7qiC9IXgqkaPfeuw_aeQhwALqJFZ0Ew_WHSBpyP4wPVWmp8UePf7=
+aVJTq_Dyrj68Nau8UXHOsRE1PulIY-V-rQxFOl9Id7fWtjGMi2pHXRAt-oD6P1sIJoC0jziSJ-g=
+bcsylZTZY7g1zwcsBj9GIPlImPUywSemyq6pUYWAiCr7qqEfxZa0LMoBVt0nvZveNJuPI6Tvuel=
+1CeSta39ZiyiKzppsiQwTta4svrRgxDbvWYXW3ZHve5ZdZyLHI8e-vXJ6WpLIM7J73uCr--MMjB=
+iVeNgheAaZ23GNYOR4a75JN-DeUV5ucXGumS7n71NDmIkePlwyGbUi-rUx0UApBgN6a8U2A_DAT=
+9OsTx7FaQE0EyUmCWt0MufGLtwKiLomQ0QQZnlxFRYVU_0qr37z38ombOexhv1tAYZHoTYh8KDo=
+UfZGvAGB44okzxbcqeB5s5gOkzuRqBZIOTzXZ38kpOiFCEpTL6C2rvzimLc4rEbWHezH8Ot0I92=
+JrKindy42WY/4tr/Ac2BGRD7RMK6xIEf25QV3g/h51/h001.EBZNG50Aq3BcvHhlAzKNUItozwl=
+On2ZsCOKZakJLawE" style=3D"color: #0077B6;">WSL season previews</a> are now=
+ complete, with <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u0=
+01.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgVL16M0WA=
+OWXdftAD0Y_jccmbyuDefYwD389PT1fqi0tbYHZGHLVyTLhQK1zhp8niGsOeTK3VHrjUX3hPbLM=
+05CZ5bECudvU1BlnSzEwO2Vl2t_Qm7XQAQVso3dY7A-ikCyMbZPyKY7x436e9VqKQwfRfkkUI7P=
+8AtxFLALssoSU9XQsepMw9b913kRjG4CzSfHkg7pmmzsOrH7k2aS1uiRjmIY07cFwVpsBhf9Jad=
+_s/4tr/Ac2BGRD7RMK6xIEf25QV3g/h52/h001.oYiK8DwSDMHdq3L2PTIHQ-jRAP3iYAWQrjSX=
+CHvTU5k" style=3D"color: #0077B6;">West Ham</a> rounding them off.</p>
+<p style=3D"margin: 0 0 16px 0;">Suzanne Wrack has been answering your ques=
+tions ahead of the new WSL season. <a href=3D"https://ablink.editorial.theg=
+uardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsSlfZ_lZNS=
+byVU_IR038WwWHPzkeZs-9mIUvUBFbDquU-S1pYDN_eTwPr--b4jRY5MJ_cqsGCflEAxyHFWk3f=
+84fH8e46dNiTBUtBSxoaA3MBTg5NkPHj6Xz550NOz7Z-X10qxFHQ17ZTwS9nyNjel6k0RFJX7de=
+RfUT74gPgeHBgr9z3fVyY7T0Q4fZTBUwZlPE9gnBKTMMat30S8P45Lmc5FIjVnOm09nHPqWBsMN=
+GZZfTFnMB7nCsSCbxw0HG2Am0lJ7D1MlTD6T4x4XsW/4tr/Ac2BGRD7RMK6xIEf25QV3g/h53/h=
+001.MZtmB_8DNU1F94tzJk9aVJFshMV_V0BN9M1Wyo048xY" style=3D"color: #0077B6;">=
+All her answers from the reader Q&amp;A are here</a>.</p>
+<p style=3D"margin: 0 0 16px 0;">Crystal Palace have lost their opening two=
+ games and new manager Pierre Sage was left frustrated by their late transf=
+er-window shenanigans. Here=E2=80=99s <a href=3D"https://ablink.editorial.t=
+heguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJ=
+YcaNsDra0BxnPgIaRkUV-lsdmZsNcVdhkpnjXRv-BuvwaM0D1TsQlwMxg01emAcw3mTXCPfGVS4=
+JvyHxGZa40SVwon6gCllQtk3HCmYmXbM-vbBKMOk71O-o6xoIi-mODIH9TqMkRfrO6JAtcn7JLJ=
+DxpqlVGClyCtXNIHGU10GnpFOoU5f2MyuGhXm5wCSftwzlAGrzf0i65nzSjkvEwnR53R-gRyOef=
+TwOFXf0qV3tkbMTMZBY4JrFo/4tr/Ac2BGRD7RMK6xIEf25QV3g/h54/h001.xkHzyvrhYz_ZFy=
+V2oYzCz22zrIWU1D7oLwNZeXEykO0" style=3D"color: #0077B6;">Ed Aarons on the c=
+haotic start to a new era at Selhurst.</a></p>
+<p style=3D"margin: 0 0 16px 0;">PSG are also yet to win in the league and =
+Monaco pose a tricky task on Friday evening, but <a href=3D"https://ablink.=
+editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSn=
+eHEBgtjhYSJYcaNsDra0BxnPgobTuOLn8pA-HmEiYjnNpxn8j1TWpAHtHjmlEFvfaZhNbJ4HmjZ=
+UvIfBhm95YmBCc9iXsEwyQRm8cuxNuUkoO_tWqcYT35yVJ-HSnSyUOjNpldm3qY-F4H5m4A0CAM=
+n_cHgVkvpipEbhWgcJNELjMxYGzTe59jdRuOoPMnNNbdAuDBZx3BYzBJ6GXhyh_InkUPzEM5DiU=
+6IdBP89w9rgL8w/4tr/Ac2BGRD7RMK6xIEf25QV3g/h55/h001.HFh_mzyE2CqqQCiJy6NgsjN5=
+YDM0MK5LRamscZBnmRs" style=3D"color: #0077B6;">Rapha=C3=ABl Jucobin sees an=
+ energised Luis Enrique</a> ready to blood his new signings.</p>
+<p style=3D"margin: 0 0 16px 0;">Lucas Herrington has become one of the mos=
+t expensive Socceroos of all time since signing for Hull. The teenage defen=
+der has been <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.=
+Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgIKsHX1B2nAE=
+odQdh4PLqwzNklDRMRB_vMVGGibFCcJPdGJJzIkS00P2yxDzDSBD5cIK9qBnYqxXTfuPjPHXDpp=
+pxVj8a4UkbIEUXsD2-J-ACHhix4htOXwrZnTq0nR61Yf2-y9mTunVeaHt9Is8OED7Ak6Y9-ZdrD=
+egYx02jz6bomkDOqo17RaTuWufGXO1uOAY35ecXc8wpI3VnTrDCcRy0ZfHHMe2ddmuoQ_PtORh7=
+DgkD6WHnpkIrakYIdInz/4tr/Ac2BGRD7RMK6xIEf25QV3g/h56/h001.dLA2XPTWfldxprXgFe=
+7G0qy1edfhuBGC5bvBB-YPo9w" style=3D"color: #0077B6;">telling Joey Lynch abo=
+ut how he plans to adapt to the Premier League</a>.</p>
+<p style=3D"margin: 0 0 16px 0;">And there are still transfers going on in =
+various leagues. View the <a href=3D"https://ablink.editorial.theguardian.c=
+om/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEDom6Up7NBgS48fUZgZf5=
+ceBLKr42K4LHJzFlvuGW4qxFxx5Qu3ze4S9zrQoC9tL-7_aJmPmRiofOXFCKTpXjkfj7njeriE1=
+ClAA2qla7PaptNIv8vwM866vbDSx8SubJziAwes4B_Yso-TORw-K2DPJhcziNFiRwquo810f9ax=
+eJAhAOboCReeQOQoyJmvQfxz-LP4cixyi1juQr40-OxmNAHrWcfGl5Z9ieDG2h5CNPIRyDhfBz-=
+mkHMx8VHc9KNfaKypYYVydkvabFC7NgNtCdZSPtM80W8Lc_xxOlSDUA/4tr/Ac2BGRD7RMK6xIE=
+f25QV3g/h57/h001.56AxF_WYPYgh-6gYoC9vVa2PrmbwBP6Jo4OTo26FojU" style=3D"colo=
+r: #0077B6;">men=E2=80=99s</a> and <a href=3D"https://ablink.editorial.theg=
+uardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEDom6Up7NBgS=
+48fUZgZf5ceBLKr42K4LHJzFlvuGW4qxDunCi25lbWdX3qFS9qZeHjLDYHPKeQ-EdXwA4LeBbSg=
+edPsFTxyIPKCNZ5hOpiAJ2K_oKxdPLXrVI_74B-dkgR-9BC_ngZGYhGKGne0n2tPBBuvN7i38Pl=
+4zUNLOC4_m9u-HUXEseW3oY3X_GOUgAUxATd7WJusjU5YCsrA91bXj6YcskPV1F2KZKxfNqysmZ=
+n-zyWWIb5tOVLgUZZ-gMY2wk-ZtnsPt181oZs7EbuEWBKFa1U59sP14sz4xk0C4w/4tr/Ac2BGR=
+D7RMK6xIEf25QV3g/h58/h001.PptE76UFah87KC3RFxldEmS4PO8riBzTlINRj477s5w" styl=
+e=3D"color: #0077B6;">women=E2=80=99s</a> in our interactives.</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 11 --><table role=3D"presentation"><tbody><tr><td><d=
+iv style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody>=
+</table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">MEMORY LANE</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;"><strong>31 January 1934:</s=
+trong> a crowd of more than 68,000 turn up to watch Arsenal host Tottenham =
+in the north London derby. Spurs=E2=80=99 Willie Evans scored twice in a 3-=
+1 win to put his side firmly in the title race. But it ended up being Arsen=
+al=E2=80=99s season. They conceded the fewest goals of any of the league=E2=
+=80=99s teams, a handy habit that is still in evidence today.</p></div></td=
+></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Arsenal a=
+nd Tottenham fans in 1934" src=3D"https://i.guim.co.uk/img/media/083a7fab0e=
+0b658d6ee537d96d41399b3a4e1997/0_0_3578_2695/master/3578.jpg?quality=3D85&a=
+mp;dpr=3D1&amp;width=3D600&amp;s=3D1aed7e51656ebdc53e11112e17425802" style=
+=3D"border:0;display:block;outline:none;text-decoration:none;height:auto;wi=
+dth:100%;font-size:13px;" width=3D"566" height=3D"auto"></td></tr></tbody><=
+/table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Photograph: A Hudson/Getty Images</div></td></t=
+r>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 12 --><table role=3D"presentation"><tbody><tr><td><d=
+iv style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody>=
+</table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">LETTERS PRIZES ARE BACK ON MONDAY!</h2></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--><table role=3D"pr=
+esentation"><tbody><tr><td><div style=3D"height:20px;line-height:20px">=E2=
+=80=8A</div></td></tr></tbody></table>
+<table width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"padding=
+:0"><div style=3D"margin:0px auto;max-width:600px">
+<!-- START - DO NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+<!-- LIFECYCLE START -->
+
+
+<!-- PROSPECTS END -->
+</div></td></tr></tbody></table>
+<!--[if mso | IE]></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]--><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td=
+>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" wid=
+th=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:=
+0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margin:0px aut=
+o;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"width:100%;"><tbody><tr><t=
+d style=3D"border:1px solid #DCDCDC;border-top:5px solid #999999;direction:=
+ltr;font-size:0px;padding:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:566px;" width=3D"566" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:566px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;text-al=
+ign:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:3=
+96.2px;" ><![endif]--><div class=3D"mj-column-per-70 mj-outlook-group-fix" =
+style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;v=
+ertical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ve=
+rtical-align:top;padding:0;padding-right:16px;"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Georgia, serif;font-size:20px;line-height:20px;text-align:left;colo=
+r:#000000;">Get in touch</div></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Guardian Text Sans, Arial, sans-serif;font-size:13px;line-height:20=
+px;text-align:left;color:#000000;">If you have any questions or comments ab=
+out any of our newsletters please email <a href=3D"mailto:the.boss@theguard=
+ian.com" style=3D"text-decoration: underline; color: #0077B6;">the.boss@the=
+guardian.com</a>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td><td class=3D"" style=3D"vertical-align:top;width:169=
+.8px;" ><![endif]--><div class=3D"mj-column-per-30 mj-outlook-group-fix" st=
+yle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ver=
+tical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vert=
+ical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left" =
+style=3D"font-size:0px;padding:0;padding-bottom:16px;word-break:break-word;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr><td =
+style=3D"width:169px;"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBlRXChRrlHyDctO_P2Zbh90=
+4HUqDY1L1mYeQJ_SQVy7f2Hol-cdE_Hzk3OArC_WXFmi1Ikx6hzAIskit1Mgy479fdyyBtcEkNa=
+BXMFzymEuQZgirfxzTDrouQ_7mXd85Zw021nQ0TO7wZZAGt4XwtGG3mZBArdq9GB-2rOtzsjBw/=
+4tr/Ac2BGRD7RMK6xIEf25QV3g/h59/h001.ISUms8xqz2Pe8BOJqDdbdQ_0AhSPBNMhlAPDk5t=
+EszY" target=3D"_blank" style=3D"color: #0077B6;"><img alt=3D"https://www.t=
+heguardian.com/uk" src=3D"https://cdn.braze.eu/appboy/communication/assets/=
+image_assets/images/614211d0ff8fcb5f969e0ccd/original.png?1631719888" style=
+=3D"border:0;display:block;outline:none;text-decoration:none;height:auto;wi=
+dth:100%;font-size:13px;" width=3D"169" height=3D"auto"></a></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;padding-bottom:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left"=
+ class=3D"text text-with-border" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><div style=3D"font-family:Guardian Text Sans, Arial, sans-se=
+rif;font-size:13px;line-height:20px;text-align:left;color:#000000;">
+<a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71=
+YMHfBFwuXBK43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmRywBEaPvi_RtJMu7yqJeY-Kfc=
+QkFygBL8iKrtR2qyoEOENqVXhchhObYorjYU1dHFQaVue3IZ0jfpPxqo43rCrCT80V1G0PVuUY9=
+_H7wzK9ZTHvdV2cbibCAUqfUtm-zq7RMKOLv5pASmxm9EIN2qeTbV-Hl2ZUmILhl3BxcQB5E/4t=
+r/Ac2BGRD7RMK6xIEf25QV3g/h60/h001.t_cY0XD04eUpANEh-NE1yUsdvtNEVnM7lGMLT7jHA=
+MM" style=3D"font-family: Guardian Text Sans, Arial, sans-serif; text-decor=
+ation: none; color: #0077B6;">Manage your emails</a> | <a href=3D"https://a=
+blink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK43AaH4pdD=
+evU7uuHt6K_5zaO_ntyE7Unu01EppyvGETeBl6q8pRHQpPnXT70flQWGuE_Gdb39PQKswWa4CKX=
+l3Wgp_M5RjOgQGCUyTMGebsFO8vNFhjnRt78S64aqX9zypfSREB3K87jCQMryfpjVXbn4ldVPHE=
+TJs3vakir/4tr/Ac2BGRD7RMK6xIEf25QV3g/h61/h001.XbSwb4JrE7d9OGWtfe2odTgqrGg2t=
+OURvcGLw3RJJmQ" style=3D"font-family: Guardian Text Sans, Arial, sans-serif=
+; text-decoration: none; color: #0077B6;">Unsubscribe</a>
+</div></td></tr></tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;padding-bottom:16=
+px;word-break:break-word;">
+<p style=3D"border-top: solid 1px #DCDCDC; font-size: 1px; margin: 0px auto=
+; width: 100%;"></p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #DCDCDC;font-size:1px;margin:=
+0px auto;width:566px;" role=3D"presentation" width=3D"566px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;word-break:break-word;"><div style=3D"font-family:Guardian Tex=
+t Sans, Arial, sans-serif;font-size:13px;line-height:20px;text-align:left;c=
+olor:#999999;">You are receiving this email because you are a subscriber to=
+ Football Daily. Guardian News &amp; Media Limited - a member of Guardian M=
+edia Group PLC. Registered Office: Kings Place, 90 York Way, London, N1 9GU=
+. Registered in England No. 908396</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table>
+</div>
+</body>
+</html>
+
+--dedd882ac1ee81ab5bc465d4c6bbcd947385921680f39f42fcd2e684ce70--
