@@ -1,0 +1,935 @@
+Delivered-To: m.ike.mcconigley@gmail.com
+Received: by 2002:a05:6802:6058:20b0:64d:970d:4142 with SMTP id r24-n2csp2327402oca;
+        Thu, 10 Sep 2026 08:50:30 -0700 (PDT)
+X-Received: by 2002:a05:620a:450a:b0:92e:8310:7369 with SMTP id af79cd13be357-93980729fd5mr5038075285a.37.1789055430548;
+        Thu, 10 Sep 2026 08:50:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789055430; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nQj4WvKH39Aeg0mxdgxUD8e2regYwN0ZlPUA4S7nYuBblkULk/GobfFZbwOwqmgidA
+         q2+JBbv+9H9a7FBQFcdk8jEfbAZZXzzxm5Qv+X1gZX/rNe9lja/sIUHhGk0BR+kckhrJ
+         ARa8aelIg5MKq5fFHgNptIQRKawreW574ybrgpZrELbzOx+mvx3eyCJ7NP8t7RV8s4+V
+         Y9xb4wO3+XmFMVZq5pNs8mMcm3Ua9wZCTp1oR8KBKcGSLMtNad8t6qfLJnfj5X3GJAsd
+         HdIwfArarVrKnWqAhzgG1LI7sOF2sIS+7LDrhtcltyjfLrAKxrBicuLj0u8Zw4GM41xR
+         sLMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=list-unsubscribe:list-unsubscribe-post:precedence:mime-version
+         :subject:message-id:to:from:date:dkim-signature:dkim-signature;
+        bh=5vgDKx+oOI2gcoO1VVL2U6DDUFQMmrfRSjOhy7+DdMk=;
+        fh=mzqY7NEmODHKJczJs8+j4iO37HCGFqhFcn02BBJl2YM=;
+        b=HKlmxmtY4o7z4FKG+L+gC8TzDNC8lJC9UbPtEZy0msJBXfmcVsVYx+G+JNt5cakLZq
+         b+vP4+OQApmJjRcesoQkcLEOar0pRLywuQXV/fMatP5JjFtbZaFe5RhnISbjRKaN0vCN
+         SCMUax1nxUQ0bIhZKSdPvYS8sO1zQWrn2DMBrUGS4YZeT+59WSg/ASpVLQBJ2uXdzt6N
+         zz+agv+F4FHNTUtPeSt8bqjbklMwk8y+/QC4EelB+OzXqNKwXVRnwuEmVpPHc22EEI4P
+         zTODdzXBcxF1wltqBMAIlAsLFX5S6LrZZlPB/SlM2nVpHKMkfk2+K7H8WuTrFekCaLhz
+         qyqg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@newsletter.thetimes.com header.s=sailthru header.b=aTqs3ykQ;
+       dkim=pass header.i=@pmta.sailthru.com header.s=mt header.b=URId5zje;
+       spf=pass (google.com: domain of delivery_20260910115030.47416934.76126@bounce.newsletter.thetimes.com designates 192.64.238.43 as permitted sender) smtp.mailfrom=delivery_20260910115030.47416934.76126@bounce.newsletter.thetimes.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=thetimes.com
+Return-Path: <delivery_20260910115030.47416934.76126@bounce.newsletter.thetimes.com>
+Received: from mta238-43.sailthru.com (mta238-43.sailthru.com. [192.64.238.43])
+        by mx.google.com with ESMTPS id af79cd13be357-939e81d2bc1si15718285a.565.2026.09.10.08.50.30
+        for <m.ike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Sep 2026 08:50:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of delivery_20260910115030.47416934.76126@bounce.newsletter.thetimes.com designates 192.64.238.43 as permitted sender) client-ip=192.64.238.43;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@newsletter.thetimes.com header.s=sailthru header.b=aTqs3ykQ;
+       dkim=pass header.i=@pmta.sailthru.com header.s=mt header.b=URId5zje;
+       spf=pass (google.com: domain of delivery_20260910115030.47416934.76126@bounce.newsletter.thetimes.com designates 192.64.238.43 as permitted sender) smtp.mailfrom=delivery_20260910115030.47416934.76126@bounce.newsletter.thetimes.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=thetimes.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=sailthru; d=newsletter.thetimes.com;
+ h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:
+ List-Unsubscribe-Post:List-Unsubscribe; i=noreply@newsletter.thetimes.com;
+ bh=5vgDKx+oOI2gcoO1VVL2U6DDUFQMmrfRSjOhy7+DdMk=;
+ b=aTqs3ykQFd+fgp8v8S0lZ0/H5vPg1xZTIz8omNeS+zsqyfoAD4QOhnoxV2ImUbwguyvQC+NY0msX
+   QGwDRWESS62PiZUyxF4mT9vSbyLSss35TAGwMp0pCtGloqQ4nRtbyoOjqtGfNhSYbnUcRInlIN2d
+   6u7wNXig3yNoPZJRRnKHwPNy78pdw2Lx3xx7K7q12gKMaPyVFgFJDgID5JkJj0DHbSkI+UhjoxkH
+   7ivIFaP5AXlN6WwP1gNUoPnbahVJdKGkaMDOWE2/k8WfgrkNZmm0rl1NTneI6A3TS0+ZNl9qec4L
+   nFVZkMIN15Vsv2VgTOUz3FpfyJmxBA0UL3sFQQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mt; d=pmta.sailthru.com;
+ h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:
+ List-Unsubscribe-Post:List-Unsubscribe;
+ bh=5vgDKx+oOI2gcoO1VVL2U6DDUFQMmrfRSjOhy7+DdMk=;
+ b=URId5zje7EvB1gXzZxlyO9gPYIyEFS8OqgL7Nl7b4tE2+2FtytjNkXAYgrb0TGo5LBfNw98iMz54
+   JQzZJt6MzaZ+PWxC4oVx7rzZFc83GE9Vkd/eCAOrWtHVk+uO7Q3WiXVpArPlrQikIitw1S/hi0ai
+   m1SCjNn6DaJ2OPYGgFc=
+Received: from pmta-prod-relay6.sailthru.cloud (10.55.63.220) by mta237-109.sailthru.com id hkb8sc3791s6 for <m.ike.mcconigley@gmail.com>; Thu, 10 Sep 2026 10:50:30 -0500 (envelope-from <delivery_20260910115030.47416934.76126@bounce.newsletter.thetimes.com>)
+Date: Thu, 10 Sep 2026 11:50:30 -0400 (EDT)
+From: Times Money <noreply@newsletter.thetimes.com>
+To: m.ike.mcconigley@gmail.com
+Message-ID: <20260910115030.47416934.76126@sailthru.com>
+Subject: Investing your money: Week Two
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_6467882_1022201916.1789055430350"
+Precedence: bulk
+x-job: 9245-47416934-20260910
+X-Feedback-ID: 9245:47416934:campaign:sailthru
+X-TM-ID: 20260910115030.47416934.76126
+X-Info: Message sent by sailthru.com customer The Times UK
+X-Info: We do not permit unsolicited commercial email
+X-Info: Please report abuse by forwarding complete headers to
+X-Info: abuse@sailthru.com
+X-Mailer: sailthru.com
+X-JMailer: aws-campaign-mailer-29.sailthru.cloud
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Unsubscribe-Web: https://link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9cs8b52.1mqm/bff4cb38
+List-Unsubscribe: <https://link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9cs8b52.1mqm/bff4cb38>,<mailto:unsubscribe_20260910115030.47416934.76126@mx.sailthru.com>
+X-rpcampaign: stnrp47416934
+X-steri: 47416934.76126.0
+
+------=_Part_6467882_1022201916.1789055430350
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"u=
+rn:schemas-microsoft-com:office:office" lang=3D"en"><head><title></title><m=
+eta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><met=
+a name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"><!--=
+[if mso]>
+<xml><w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word"><w:D=
+ontUseAdvancedTypographyReadingMail/></w:WordDocument>
+<o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/=
+></o:OfficeDocumentSettings></xml>
+<![endif]--><!--[if !mso]><!--><!--<![endif]--><style>
+*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{c=
+olor:inherit!important;text-decoration:inherit!important}#MessageViewBody a=
+{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.de=
+sktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}.im=
+age_block img+div{display:none}sub,sup{font-size:75%;line-height:0} @media =
+(max-width:620px){.desktop_hide table.icons-outer{display:inline-table!impo=
+rtant}.image_block div.fullWidth{max-width:100%!important}.row-content{widt=
+h:100%!important}.stack .column{width:100%!important;display:block}.mobile_=
+hide{min-height:0;max-height:0;max-width:0;display:none;overflow:hidden;fon=
+t-size:0}.desktop_hide,.desktop_hide table{display:table!important;max-heig=
+ht:none!important}.row-8 .column-2 .block-1.text_block td.pad{padding:0 10p=
+x 12px 10px!important}.row-7 .column-1 .block-1.text_block td.pad{padding:1=
+6px!important}.row-8 .column-2 .block-3.text_block td.pad{padding:16px 10px=
+!important}.row-8 .column-2 .block-2.text_block td.pad{padding:0 10px!impor=
+tant}.row-11 .column-1 .block-1.icons_block td.pad{padding:40px 0 0 0!impor=
+tant}.row-11 .column-1{padding:0 0 40px 0!important}}
+</style><!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup {=
+ mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]--></hea=
+d><body class=3D"body" style=3D"margin:0;padding:0;-webkit-text-size-adjust=
+:none;text-size-adjust:none;background-color:#fff"><div class=3D"sailthru-e=
+mco-preheader" style=3D"display: none; max-height: 0px; overflow: hidden;">=
+Choose where to invest | Check fees | Invest regularly</div><div style=3D"d=
+isplay:none"><a href=3D""><img src=3D"https://link.thetimes.com/img/6a464fc=
+f7d55e1fcfb02eb9cs8b52.1mqm/7229063c.gif" alt=3D"" border=3D"0" /></a></div=
+><table class=3D"nl-container" width=3D"100%" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-t=
+able-rspace:0;background-color:#fff"><tbody><tr><td><table class=3D"row row=
+-1" align=3D"center"=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:=
+#fff"><tbody><tr><td><table class=3D"row-content stack" align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000;=
+width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column col=
+umn-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0"><tr><td class=3D"col-pad" style=3D"padding-top:5p=
+x"><table class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace=
+:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad"=20
+style=3D"padding-bottom:5px"><div style=3D"font-family:Arial,sans-serif"><d=
+iv class style=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Ari=
+al,sans-serif;mso-line-height-alt:16.8px;color:#696969;line-height:1.2"><p =
+style=3D"margin:0;font-size:14px;text-align:center;mso-line-height-alt:16.8=
+px"><span style=3D"word-break: break-word; color: #555555;"><span style=3D"=
+font-size:12px;"><a href=3D"https://link.thetimes.com/view/6a464fcf7d55e1fc=
+fb02eb9cs8b52.1mqm/ef7546c0" target=3D"_blank" style=3D"text-decoration: un=
+derline; color: #696969;" rel=3D"noopener">View in browser</a>=C2=A0</span>=
+</span></p></div></div></td></tr></table></td></tr></table></td></tr></tbod=
+y></table></td></tr></tbody>
+</table><table class=3D"row row-2" align=3D"center" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbody><tr><td>=
+<table class=3D"row-content stack" align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0;background-color:#fff;color:#000;width:600px;margin:0 a=
+uto" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"100%"=
+=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table class=3D"image_block block-1" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"5" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pa=
+d" style=3D"width:100%" align=3D"center"><div style=3D"max-width:150px"><a =
+href=3D"https://link.thetimes.com/click/47416934.76126/aHR0cHM6Ly93d3cudGhl=
+dGltZXMuY29tLw/6a464fcf7d55e1fcfb02eb9cB550dbbc7" target=3D"_blank"><img=20
+src=3D"https://media.sailthru.com/composer/images/bazh/so1qeqwa/5jw/es9/m4c=
+/Dual%20masthead.png" style=3D"display:block;height:auto;border:0;width:100=
+%" width=3D"150" alt=3D"" title=3D"" height=3D"auto"></a></div></td></tr></=
+table></td></tr></tbody></table></td></tr></tbody></table><table class=3D"r=
+ow row-3" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table=
+-rspace:0;background-color:#fff"><tbody><tr><td><table=20
+class=3D"row-content stack" align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;background-color:#fff;color:#000;width:600px;margin:0 auto" wi=
+dth=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;v=
+ertical-align:top;width:100%"><table class=3D"divider_block block-1" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"padding-top:10px;padding-left:5px;padding-right:5px" align=3D"center"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td cl=
+ass=3D"divider_inner" style=3D"font-size:1px;line-height:1px;border-top:4px=
+ solid #01000d"><span style=3D"word-break: break-word;">&#8202;</span></td>=
+</tr></table></td></tr></table><table=20
+class=3D"image_block mobile_hide block-2" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"width:100%;padding=
+-bottom:5px;padding-left:5px;padding-right:5px" align=3D"center"><div class=
+=3D"fullWidth" style=3D"max-width:590px"><a href=3D"https://link.thetimes.c=
+om/click/47416934.76126/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2J1c2luZXNzLW1vbmV=
+5L21vbmV5/6a464fcf7d55e1fcfb02eb9cB115be6bd" target=3D"_blank"><img=20
+src=3D"https://media.sailthru.com/composer/images/sailthru-prod-74t/editor_=
+images/money_banner_desktop.png" style=3D"display:block;height:auto;border:=
+0;width:100%" width=3D"590" alt=3D"" title=3D"" height=3D"auto"></a></div><=
+/td></tr></table><table class=3D"image_block desktop_hide block-3" width=3D=
+"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none=
+;max-height:0;overflow:hidden"><tr><td class=3D"pad"=20
+style=3D"width:100%;padding-bottom:5px;padding-left:5px;padding-right:5px" =
+align=3D"center"><div class=3D"fullWidth" style=3D"max-width:590px"><a href=
+=3D"https://link.thetimes.com/click/47416934.76126/aHR0cHM6Ly93d3cudGhldGlt=
+ZXMuY29tL2J1c2luZXNzLW1vbmV5L21vbmV5/6a464fcf7d55e1fcfb02eb9cC115be6bd" tar=
+get=3D"_blank"><img src=3D"https://media.sailthru.com/composer/images/sailt=
+hru-prod-74t/editor_images/40dd93e6-a744-4f8e-8a97-9051eae7db07.png" style=
+=3D"display:block;height:auto;border:0;width:100%" width=3D"590" alt=3D"" t=
+itle=3D"" height=3D"auto"></a></div></td></tr></table><table class=3D"html_=
+block block-4"=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D=
+"pad"><div style=3D"font-family:Arial,Helvetica Neue,Helvetica,sans-serif;t=
+ext-align:center" align=3D"center"><table align=3D"center" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" data-lt-version=3D"3.0.0" style=3D"width: =
+100%; max-width: 300px; margin: 0 auto; table-layout: fixed;">
+<tr>
+<td align=3D"center" style=3D"line-height: 1px; width: 300px; max-width: 30=
+0px;">
+<a href=3D"https://link.thetimes.com/click/47416934.76126/aHR0cHM6Ly9zbGkud=
+GhldGltZXMuY29tL2NsaWNrP3M9ODY3ODg3JmU9bS5pa2UubWNjb25pZ2xleUBnbWFpbC5jb20m=
+cD00NzQxNjkzNCZsY3RnPTZhNDY0ZmNmN2Q1NWUxZmNmYjAyZWI5YyZzdHBlPWRlZmF1bHQ/6a4=
+64fcf7d55e1fcfb02eb9cB35ba505e" rel=3D"nofollow" target=3D"_blank" style=3D=
+"display: block; width: 100%; max-width: 300px;">
+<img src=3D"https://sli.thetimes.com/imp?s=3D867887&e=3Dm.ike.mcconigley@gm=
+ail.com&p=3D47416934&lctg=3D6a464fcf7d55e1fcfb02eb9c&stpe=3Ddefault&li_coor=
+d=3Ddesktop&collapse_width=3D300" border=3D"0" width=3D"300" style=3D"displ=
+ay: block; width: 100%; max-width: 300px; height: auto;" />
+</a>
+</td>
+</tr>
+</table></div></td></tr></table></td></tr></tbody></table></td></tr></tbody=
+></table><table class=3D"row row-4" align=3D"center" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbod=
+y><tr><td><table class=3D"row-content" align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0;background-color:#fff;color:#000;width:600px;margin=
+:0 auto" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"16=
+.666666666666668%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weig=
+ht:400;text-align:left;vertical-align:top;width:16.666666666666668%">
+<table class=3D"image_block block-1" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"width:100%;padding-top:=
+5px;padding-left:5px" align=3D"left"><div style=3D"max-width:95px"><img src=
+=3D"https://media.sailthru.com/fss/fvbdit/506d30d8-b61e-43ca-94d5-a44a387c6=
+a95/Noble-Johanna_ROUNDLE_7di0.png" style=3D"display:block;height:auto;bord=
+er:0;width:100%" width=3D"95" alt=3D"" title=3D"" height=3D"auto"></div></t=
+d></tr>
+</table></td><td class=3D"column column-2" width=3D"83.33333333333333%" sty=
+le=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left=
+;vertical-align:top;width:83.33333333333333%"><table class=3D"text_block bl=
+ock-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break=
+:break-word"><tr><td class=3D"pad" style=3D"padding-top:5px;padding-bottom:=
+2px;padding-left:5px;padding-right:5px"><div=20
+style=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"f=
+ont-size:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-he=
+ight-alt:16.8px;color:#2e2e2e;line-height:1.2"><p style=3D"margin:0;font-si=
+ze:14px;mso-line-height-alt:16.8px"><span style=3D"word-break: break-word; =
+font-size: 18px;"><strong><span style=3D"word-break: break-word; color: #00=
+0000;">Johanna Noble</span></strong></span></p></div></div></td></tr></tabl=
+e><table class=3D"text_block block-2" width=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-top:5px;padding-bottom:2px;padding-left:5px;padding-right:=
+5px"><div style=3D"font-family:Arial,sans-serif"><div class style=3D"font-s=
+ize:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-h=
+eight-alt:16.8px;color:#696969;line-height:1.2"><p style=3D"margin:0;font-s=
+ize:14px;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; color: #696969;">Money Editor</span>=
+</p></div></div></td></tr></table></td></tr></tbody></table></td></tr></tbo=
+dy></table><table class=3D"row row-5" align=3D"center" width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-c=
+ontent stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;border=
+-radius:0;color:#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><t=
+d class=3D"column column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0;font-weight:400;text-align:left;vertical-align:top;width:100=
+%"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><t=
+d class=3D"col-pad" style=3D"padding-bottom:5px;padding-top:5px"><table=20
+class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-t=
+op:20px;padding-bottom:5px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-s=
+ize:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-=
+alt:21px;color:#000;line-height:1.5"><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"w=
+ord-break: break-word; font-size: 18px;">Welcome to part two of our Investi=
+ng for Beginners series. Last week we looked at why you should consider inv=
+esting, but now it=E2=80=99s time to make things happen.&nbsp;</span></p><p=
+ style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"=
+word-break: break-word; color: #000000; font-size: 18px;">&nbsp;</span></p>=
+<p style=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">Here we=E2=80=99ll=
+ walk you through exactly how to get started, including picking a platform =
+and setting up your investment plan.&nbsp;</span></p><p style=3D"margin:0;f=
+ont-size:18px;mso-line-height-alt:21px">&nbsp;</p><p style=3D"margin:0;font=
+-size:18px;mso-line-height-alt:27px"><span style=3D"word-break: break-word;=
+ font-size: 18px;">The first step is to choose a website or app through whi=
+ch to invest, often known as a =E2=80=9Cplatform=E2=80=9D.&nbsp;</span></p>=
+<p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:21px">&nbsp;</p><p sty=
+le=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"word=
+-break: break-word; font-size: 18px;">There are plenty out there and the ri=
+ght one for you will depend on what type of investments you want (for examp=
+le, stocks or funds), how much help you require (whether you=E2=80=99re con=
+fident choosing your own investments or want it done for you), and how much=
+ money you have to invest.&nbsp;</span></p><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:21px">&nbsp;</p><p sty=
+le=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"word=
+-break: break-word; font-size: 18px;">Choose one that feels easy to use =E2=
+=80=94 don=E2=80=99t be afraid to try a few before you commit.&nbsp;</span>=
+</p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:21px">&nbsp;</p=
+><p style=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><a href=3D"https:/=
+/link.thetimes.com/click/47416934.76126/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21=
+vbmV5L3NhdmluZy1pbnZlc3RpbmcvYXJ0aWNsZS93aGljaC1pcy10aGUtYmVzdC1pc2EtcGxhdG=
+Zvcm0tZm9yLXlvdS16dHRiNTAzOXo/6a464fcf7d55e1fcfb02eb9cB69b68d04" style=3D"t=
+ext-decoration: underline; color: #0068A5;">Our guide can help you navigate=
+ the options</a>.</span></p></div></div></td></tr></table><table class=3D"d=
+ivider_block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspa=
+ce:0"><tr><td class=3D"pad"=20
+style=3D"padding-top:15px;padding-bottom:5px;padding-left:5px;padding-right=
+:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-h=
+eight:1px;border-top:4px solid #59a485"><span style=3D"word-break: break-wo=
+rd;">&#8202;</span></td></tr></table></td></tr></table><table class=3D"text=
+_block block-3" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-b=
+reak:break-word"><tr><td class=3D"pad" style=3D"padding-top:5px;padding-bot=
+tom:10px;padding-left:5px;padding-right:5px"><div style=3D"font-family:Geor=
+gia,'Times New Roman',serif"><div class style=3D"font-size:14px;font-family=
+:Georgia,Times,'Times New Roman',serif;mso-line-height-alt:16.8px;color:#00=
+0;line-height:1.2"><p style=3D"margin:0;font-size:14px;mso-line-height-alt:=
+16.8px">
+<strong><span style=3D"word-break: break-word; font-size: 22px; color: #000=
+000;">Week 2: </span></strong><span style=3D"word-break: break-word; font-s=
+ize: 22px;"><strong>What are the options?</strong></span></p></div></div></=
+td></tr></table><table class=3D"text_block block-4" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-top:5px;padding-left:5px;padding-right:5px"><div=
+=20
+style=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"f=
+ont-size:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-he=
+ight-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:18=
+px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">Platforms such as =
+Freetrade, JPMorgan Personal Investing and Moneyfarm can work for newbies w=
+ho want someone else to handle their investments. Complete a short question=
+naire to assess how much risk you are comfortable taking, and they=E2=80=99=
+ll direct you to a ready-made fund that fits the bill.&nbsp;</span></p><p s=
+tyle=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000; font-size: 18px;">&n=
+bsp;</span></p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:27px=
+"><span style=3D"word-break: break-word; font-size: 18px;">Others, such as =
+Hargreaves Lansdown and AJ Bell, suit those wanting a hands-on approach. Th=
+ey offer thousands of funds and stocks from which to build and manage your =
+own portfolio, though they have some ready-made options as well.&nbsp;</spa=
+n></p><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:21px">&nbsp;</p><p sty=
+le=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"word=
+-break: break-word; font-size: 18px;">Whichever platform you choose, the be=
+st account for most people is an Isa. You can <a href=3D"https://link.theti=
+mes.com/click/47416934.76126/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L3Nhdm=
+luZy1pbnZlc3RpbmcvYXJ0aWNsZS9ob3ctdG8tcGljay10aGUtcmlnaHQtaXNhLWZvci15b3VyL=
+WFnZS1uYzA5dnRybmM/6a464fcf7d55e1fcfb02eb9cB919c89bd" style=3D"text-decorat=
+ion: underline; color: #006699;">invest up to =C2=A320,000 through an Isa</=
+a> each tax year and all your profits are tax-free.</span></p><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:21px">&nbsp;</p><p sty=
+le=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"word=
+-break: break-word; font-size: 18px;">You might already have a cash Isa and=
+ that=E2=80=99s fine. You can split your allowance between different types =
+of Isa as long as the combined amount across the accounts doesn=E2=80=99t b=
+reach the annual limit. Crucially, it=E2=80=99s up to you to keep track.&nb=
+sp;</span></p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:21px"=
+>&nbsp;
+</p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span sty=
+le=3D"word-break: break-word; font-size: 18px;"><strong><em>Did you know? <=
+/em></strong><em>Profits on investments held outside an Isa may be subject =
+to capital gains tax of up to 24 per cent. </em></span></p></div></div></td=
+></tr></table></td></tr></table></td></tr></tbody></table></td></tr></tbody=
+></table><table class=3D"row row-6" align=3D"center" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbod=
+y><tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;background-color:#fff;border-radius:1px 0 0 0=
+;color:#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=
+=3D"column column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-r=
+space:0;font-weight:400;text-align:left;vertical-align:top;width:100%">
+<table class=3D"html_block block-1" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0"><tr><td class=3D"pad"><div style=3D"font-family:Arial,H=
+elvetica Neue,Helvetica,sans-serif;text-align:center" align=3D"center"><div=
+ style=3D"text-align: center; width: 100%;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" da=
+ta-lt-version=3D"3.0.0" style=3D"border-collapse: collapse; margin: 0 auto;=
+ max-width: 600px; width: 100%; table-layout: fixed;">
+<tr>
+<td align=3D"center" style=3D"line-height: 1px; padding: 0;">
+<a href=3D"https://link.thetimes.com/click/47416934.76126/aHR0cHM6Ly9zbGkud=
+GhldGltZXMuY29tL2NsaWNrP3M9ODY3ODkyJmU9bS5pa2UubWNjb25pZ2xleUBnbWFpbC5jb20m=
+cD00NzQxNjkzNCZsY3RnPTZhNDY0ZmNmN2Q1NWUxZmNmYjAyZWI5YyZzdHBlPWRlZmF1bHQ/6a4=
+64fcf7d55e1fcfb02eb9cCda71b41b" rel=3D"nofollow" target=3D"_blank" style=3D=
+"display: block;">
+<img src=3D"https://sli.thetimes.com/imp?s=3D867892&e=3Dm.ike.mcconigley@gm=
+ail.com&p=3D47416934&lctg=3D6a464fcf7d55e1fcfb02eb9c&stpe=3Ddefault&li_coor=
+d=3Ddesktop&collapse_width=3D600"=20
+border=3D"0"=20
+width=3D"600"=20
+style=3D"border: 0; display: block; height: auto; max-width: 600px; width: =
+100%;" />
+</a>
+</td>
+</tr>
+</table>
+</div></div></td></tr></table><table class=3D"divider_block block-2" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad"=
+=20
+style=3D"padding-top:30px;padding-bottom:5px;padding-left:5px;padding-right=
+:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-h=
+eight:1px;border-top:4px solid #59a485"><span style=3D"word-break: break-wo=
+rd;">&#8202;</span></td></tr></table></td></tr></table><table class=3D"text=
+_block block-3" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-b=
+reak:break-word"><tr><td class=3D"pad" style=3D"padding-top:5px;padding-bot=
+tom:10px;padding-left:5px;padding-right:5px"><div style=3D"font-family:Geor=
+gia,'Times New Roman',serif"><div class style=3D"font-size:14px;font-family=
+:Georgia,Times,'Times New Roman',serif;mso-line-height-alt:16.8px;color:#00=
+0;line-height:1.2"><p style=3D"margin:0;font-size:14px;mso-line-height-alt:=
+16.8px">
+<span style=3D"word-break: break-word; font-size: 22px;"><strong>What to kn=
+ow about fees and charges&nbsp;</strong></span></p></div></div></td></tr></=
+table><table class=3D"image_block block-4" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"width:100%;paddin=
+g-left:5px;padding-right:5px" align=3D"center"><div style=3D"max-width:590p=
+x"><img=20
+src=3D"https://media.sailthru.com/fss/fvbdit/15822058-97d9-435c-a8ea-452dad=
+9cfe17/3F3FCTW_6spp.jpg" style=3D"display:block;height:auto;border:0;width:=
+100%" width=3D"590" alt=3D"" title=3D"" height=3D"auto"></div></td></tr></t=
+able><table class=3D"text_block block-5" width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=
+=3D"padding-top:10px;padding-bottom:20px;padding-left:5px;padding-right:5px=
+"><div
+style=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"f=
+ont-size:12px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-he=
+ight-alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:18=
+px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">Platforms apply ch=
+arges in different ways: some charge a percentage of the amount you have in=
+vested, while others have a flat fee. Many have =E2=80=9Ctiered pricing=E2=
+=80=9D, meaning those with larger sums may pay slightly less.&nbsp;</span><=
+/p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:18px">&nbsp;</p>=
+<p style=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">Some platforms cha=
+rge each time you buy and sell an investment. The amount may depend on the =
+type, for example a fund, investment trust or individual share. Others incl=
+ude a certain number of trades per month or year within the charge.&nbsp;</=
+span></p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:18px">&nbs=
+p;</p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">Charges are import=
+ant. Every penny you pay in fees <a href=3D"https://link.thetimes.com/click=
+/47416934.76126/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L3NhdmluZy1pbnZlc3R=
+pbmcvYXJ0aWNsZS90aGUtaXNhLWVycm9yLXRoYXQtY291bGQtY29zdC15b3UtMzAwMDAtbTlrbG=
+05N25j/6a464fcf7d55e1fcfb02eb9cBebb9e2c5" style=3D"text-decoration: underli=
+ne; color: #006699;">eats into your profits</a>. When choosing a platform, =
+weigh up whether a flat fee or percentage charge works best for you (flat f=
+ees are usually better value for larger pots). Consider how often you will =
+trade and how these costs could rack up.&nbsp;</span></p><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:18px">&nbsp;</p><p sty=
+le=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"word=
+-break: break-word; font-size: 18px;"><a href=3D"https://link.thetimes.com/=
+click/47416934.76126/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L3NhdmluZy1pbn=
+Zlc3RpbmcvYXJ0aWNsZS93aGljaC1pcy10aGUtYmVzdC1pc2EtcGxhdGZvcm0tZm9yLXlvdS16d=
+HRiNTAzOXo/6a464fcf7d55e1fcfb02eb9cC69b68d04" style=3D"text-decoration: und=
+erline; color: #006699;">Our platform guide</a> analyses the fees charged b=
+y some of the most popular platforms out there.</span></p><p style=3D"margi=
+n:0;font-size:18px;mso-line-height-alt:18px">&nbsp;</p><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"w=
+ord-break: break-word; font-size: 18px;">Remember, you also pay a fee for y=
+our investments on top of the platform charge =E2=80=94 be sure to factor t=
+his into your sums. Funds and investment trusts usually charge an annual pe=
+rcentage fee; for individual stocks there is usually a dealing fee to buy, =
+but no annual charge once you own it.&nbsp;</span></p><p style=3D"margin:0;=
+font-size:18px;mso-line-height-alt:18px">&nbsp;</p><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"w=
+ord-break: break-word; font-size: 18px;"><strong><em>The big number: </em><=
+/strong><em>=C2=A335,496 =E2=80=94 how much you=E2=80=99d have if you inves=
+ted =C2=A31,000 a year for 20 years and it grew at 6 per cent a year, with =
+annual fees of 0.5 per cent. This is =C2=A32,429 more than the =C2=A333,067=
+ you=E2=80=99d have if your fees were 1.5 per cent. </em></span></p></div><=
+/div></td></tr></table></td></tr></tbody></table></td></tr></tbody></table>=
+<table=20
+class=3D"row row-7" align=3D"center" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stack" alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#f=
+9f9f9;border-radius:0;color:#000;width:600px;margin:0 auto" width=3D"600"><=
+tbody><tr><td class=3D"column column-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0"><tr><td class=3D"col-pad" style=3D"padding-bottom=
+:5px;padding-top:5px"><table class=3D"text_block block-1" width=3D"100%" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td=20
+class=3D"pad" style=3D"padding-top:6px;padding-bottom:6px;padding-left:10px=
+;padding-right:10px"><div style=3D"font-family:Arial,sans-serif"><div class=
+ style=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-=
+serif;mso-line-height-alt:16.8px;color:#696969;line-height:1.2"><p style=3D=
+"margin:0;font-size:14px;text-align:center;mso-line-height-alt:16.8px">A me=
+ssage from<strong>&nbsp;</strong>InvestEngine</p></div></div></td></tr></ta=
+ble></td></tr></table></td></tr></tbody></table></td></tr>
+</tbody></table><table class=3D"row row-8" align=3D"center" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td><table class=3D"=
+row-content stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspac=
+e:0;background-color:#f9f9f9;border-radius:0;color:#000;width:600px;margin:=
+0 auto" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"50%=
+"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:middle;width:50%"><table width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tr><td class=3D"col-pad" style=3D"padding-bott=
+om:16px;padding-left:16px;padding-right:16px"><table class=3D"image_block b=
+lock-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td=
+=20
+class=3D"pad" style=3D"width:100%" align=3D"center"><div style=3D"max-width=
+:268px"><img src=3D"https://media.sailthru.com/fss/fvbdit/eb45f57a-9143-41d=
+2-b4cf-ee147f2c6f98/unnamed+%289%29+%281%29_1ub2.png" style=3D"display:bloc=
+k;height:auto;border:0;width:100%" width=3D"268" alt=3D"" title=3D"" height=
+=3D"auto"></div></td></tr></table></td></tr></table></td><td class=3D"colum=
+n column-2" width=3D"50%" style=3D"mso-table-lspace:0;mso-table-rspace:0;fo=
+nt-weight:400;text-align:left;vertical-align:middle;width:50%"><table=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D=
+"col-pad" style=3D"padding-bottom:5px;padding-top:5px"><table class=3D"text=
+_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-top:10px;pad=
+ding-right:10px"><div style=3D"font-family:Georgia,'Times New Roman',serif"=
+><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:16.8px;color:#000;line-height:1.2"><p style=3D"margin:0;=
+font-size:14px;text-align:center;mso-line-height-alt:16.8px"><span style=3D=
+"word-break: break-word; font-size: 20px;"><strong>Win your =C2=A320,000 Is=
+a allowance&nbsp;</strong></span></p></div></div></td></tr></table><table c=
+lass=3D"text_block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-top:10px;padding-right:10px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-s=
+ize:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-=
+alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:14px;te=
+xt-align:center;mso-line-height-alt:24px">
+<span style=3D"word-break: break-word; font-size: 16px; color: #000000;">Ge=
+t the chance to win =C2=A320,000 to invest with InvestEngine, the fee-free,=
+ award-winning investing platform. Simply open an account and fund it with =
+at least =C2=A3100 to enter the prize draw and give your long-term wealth a=
+ head start. Capital at risk. ETF costs apply. T&Cs apply. One prize winner=
+. Competition closes 31/10/2026. Prize paid into a General Investment Accou=
+nt and does not count toward the winner=E2=80=99s annual Isa allowance.&nbs=
+p;</span>
+</p></div></div></td></tr></table><table class=3D"text_block block-3" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"=
+><tr><td class=3D"pad" style=3D"padding-top:16px;padding-bottom:12px;paddin=
+g-right:10px"><div style=3D"font-family:Arial,sans-serif"><div class style=
+=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;=
+mso-line-height-alt:16.8px;color:#000;line-height:1.2"><p=20
+style=3D"margin:0;font-size:14px;text-align:center;mso-line-height-alt:16.8=
+px"><a href=3D"https://link.thetimes.com/external/47416934.76126/aHR0cHM6Ly=
+9pbnZlc3RlbmdpbmUuY29tL3Byb21vL3dpbi0yMGsvP3V0bV9jYW1wYWlnbj0yMGtwcml6ZWRyY=
+XcmdXRtX21lZGl1bT1BZmZpbGlhdGUmdXRtX3NvdXJjZT1UaGUlMjBUaW1lcyZwYXJ0bmVyPVRo=
+ZSUyMFRpbWVzJnBhcnRuZXJfaWQ9NjAwJnV0bV9jb250ZW50PU5ld3NsZXR0ZXIy/6a464fcf7d=
+55e1fcfb02eb9cB94e1c9e8" target=3D"_blank" style=3D"text-decoration: underl=
+ine; color: #006699;" rel=3D"noopener"><span style=3D"word-break: break-wor=
+d; color: #006699;"><u><span style=3D"word-break: break-word;"><span style=
+=3D"word-break: break-word; font-size: 16px;">Enter now</span></span></u></=
+span></a></p></div></div></td></tr></table></td></tr></table></td></tr></tb=
+ody></table></td></tr>
+</tbody></table><table class=3D"row row-9" align=3D"center" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbody><t=
+r><td><table class=3D"row-content stack" align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0;background-color:#fff;color:#000;width:600px;marg=
+in:0 auto" width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"=
+100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table class=3D"divider_block block-1" w=
+idth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"=
+pad" style=3D"padding-top:30px;padding-bottom:5px;padding-left:5px;padding-=
+right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_in=
+ner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #59a485"><=
+span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td=
+></tr></table><table class=3D"text_block block-2" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-t=
+able-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pa=
+d"=20
+style=3D"padding-top:5px;padding-bottom:10px;padding-left:5px;padding-right=
+:5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div class=
+ style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;=
+mso-line-height-alt:16.8px;color:#000;line-height:1.2"><p style=3D"margin:0=
+;mso-line-height-alt:16.8px"><span style=3D"word-break: break-word; font-si=
+ze: 22px; color: #000000;"><strong>The simple secret to success</strong></s=
+pan></p></div></div></td></tr></table><table=20
+class=3D"image_block block-3" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0"><tr><td class=3D"pad" style=3D"width:100%;padding-left:5px;pa=
+dding-right:5px" align=3D"center"><div style=3D"max-width:590px"><img src=
+=3D"https://media.sailthru.com/fss/fvbdit/1a07ea85-a8da-4ad1-a34d-699eff879=
+dce/3CT1BGJ_7jtg.jpg" style=3D"display:block;height:auto;border:0;width:100=
+%" width=3D"590" alt=3D"" title=3D"" height=3D"auto"></div></td></tr></tabl=
+e><table=20
+class=3D"text_block block-4" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-t=
+op:10px;padding-left:5px;padding-right:5px"><div style=3D"font-family:Georg=
+ia,'Times New Roman',serif"><div class style=3D"font-size:12px;font-family:=
+Georgia,Times,'Times New Roman',serif;mso-line-height-alt:18px;color:#000;l=
+ine-height:1.5"><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"w=
+ord-break: break-word; font-size: 18px;">The easiest way to grow your money=
+ over the long term is to invest little and often. Set up a <a href=3D"http=
+s://link.thetimes.com/click/47416934.76126/aHR0cHM6Ly93d3cudGhldGltZXMuY29t=
+L21vbmV5L3NhdmluZy1pbnZlc3RpbmcvYXJ0aWNsZS9ob3ctdG8taW52ZXN0LXBqMmN3bDl3cA/=
+6a464fcf7d55e1fcfb02eb9cBd1800404" style=3D"text-decoration: underline; col=
+or: #006699;">regular investment plan</a>, a standing order that invests a =
+set amount in your chosen investments each month.&nbsp;</span></p><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:18px">&nbsp;</p><p sty=
+le=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"word=
+-break: break-word; font-size: 18px;">Automating the process takes the effo=
+rt and emotion out of the equation =E2=80=94 you don=E2=80=99t have to reme=
+mber to do it or worry about the timing of your investment.&nbsp;</span></p=
+><p style=3D"margin:0;font-size:18px;mso-line-height-alt:18px">&nbsp;</p><p=
+ style=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">A =C2=A325 monthly=
+ investment could grow to =C2=A311,634 after 20 years, assuming annual retu=
+rns of 6 per cent after charges. Increase that to =C2=A350 a month and you =
+could end up with =C2=A323,677, while =C2=A3100 a month could grow to =C2=
+=A346,535.</span></p><p style=3D"margin:0;font-size:18px;mso-line-height-al=
+t:18px">&nbsp;</p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:2=
+7px">
+<span style=3D"word-break: break-word; font-size: 18px;">The other benefit =
+of regular investing is known as <a href=3D"https://link.thetimes.com/click=
+/47416934.76126/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L3NhdmluZy1pbnZlc3R=
+pbmcvYXJ0aWNsZS9tb25leS1kYXlzLXNpbmNlLTIwMDAtaW52ZXN0b3JzLWxvc3Mtc3p0bGpmOW=
+h4/6a464fcf7d55e1fcfb02eb9cB37d31c32" style=3D"text-decoration: underline; =
+color: #006699;">pound-cost averaging</a>. This is where you buy fewer shar=
+es in a company or units in a fund when they are expensive and more when th=
+e price has fallen and they are cheaper.&nbsp;</span></p><p style=3D"margin=
+:0;font-size:18px;mso-line-height-alt:18px">&nbsp;</p><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"w=
+ord-break: break-word; font-size: 18px;">This simple trick gives you a bett=
+er average price over the long-term, helping to smooth your investment jour=
+ney.</span></p></div></div></td></tr></table></td></tr></tbody></table></td=
+></tr></tbody></table><table class=3D"row row-10" align=3D"center" width=3D=
+"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td>
+<table class=3D"row-content stack" align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0;background-color:#fff;border-radius:0;color:#000;width:=
+600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column column-1"=
+ width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:=
+400;text-align:left;vertical-align:top;width:100%"><table width=3D"100%" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"col-pad" s=
+tyle=3D"padding-bottom:5px;padding-top:5px"><table class=3D"html_block bloc=
+k-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td c=
+lass=3D"pad"><div style=3D"font-family:Arial,Helvetica Neue,Helvetica,sans-=
+serif;text-align:center" align=3D"center"><div style=3D"text-align: center;=
+ width: 100%;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" da=
+ta-lt-version=3D"3.0.0" style=3D"border-collapse: collapse; margin: 0 auto;=
+ max-width: 600px; width: 100%; table-layout: fixed;">
+<tr>
+<td align=3D"center" style=3D"line-height: 1px; padding: 0;">
+<a href=3D"https://link.thetimes.com/click/47416934.76126/aHR0cHM6Ly9zbGkud=
+GhldGltZXMuY29tL2NsaWNrP3M9ODY3ODk3JmU9bS5pa2UubWNjb25pZ2xleUBnbWFpbC5jb20m=
+cD00NzQxNjkzNCZsY3RnPTZhNDY0ZmNmN2Q1NWUxZmNmYjAyZWI5YyZzdHBlPWRlZmF1bHQ/6a4=
+64fcf7d55e1fcfb02eb9cDc265aa28" rel=3D"nofollow" target=3D"_blank" style=3D=
+"display: block;">
+<img src=3D"https://sli.thetimes.com/imp?s=3D867897&e=3Dm.ike.mcconigley@gm=
+ail.com&p=3D47416934&lctg=3D6a464fcf7d55e1fcfb02eb9c&stpe=3Ddefault&li_coor=
+d=3Ddesktop&collapse_width=3D600"=20
+border=3D"0"=20
+width=3D"600"=20
+style=3D"border: 0; display: block; height: auto; max-width: 600px; width: =
+100%;" />
+</a>
+</td>
+</tr>
+</table>
+</div></div></td></tr></table><table class=3D"divider_block block-2" width=
+=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:1=
+5px;padding-bottom:5px;padding-left:5px;padding-right:5px" align=3D"center"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td =
+class=3D"divider_inner" style=3D"font-size:1px;line-height:1px;border-top:4=
+px solid #59a485"><span style=3D"word-break: break-word;">&#8202;</span></t=
+d></tr>
+</table></td></tr></table><table class=3D"text_block block-3" width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" st=
+yle=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td=
+ class=3D"pad" style=3D"padding-top:5px;padding-bottom:10px;padding-left:5p=
+x;padding-right:5px"><div style=3D"font-family:Georgia,'Times New Roman',se=
+rif"><div class style=3D"font-size:14px;font-family:Georgia,Times,'Times Ne=
+w Roman',serif;mso-line-height-alt:16.8px;color:#555;line-height:1.2"><p
+style=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px"><strong><span =
+style=3D"word-break: break-word; font-size: 22px; color: #000000;">Week 2 c=
+hecklist&nbsp;</span></strong></p></div></div></td></tr></table><table clas=
+s=3D"text_block block-4" width=3D"100%" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-r=
+space:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-left:=
+5px;padding-right:5px"><div=20
+style=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"f=
+ont-size:12px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-he=
+ight-alt:18px;color:#000;line-height:1.5"><ol style=3D"font-size:18px"><li =
+aria-level=3D"1"><span style=3D"word-break: break-word; font-size: 18px;">C=
+hoose a platform.<strong> </strong>Read reviews, ask for recommendations, a=
+nd try a few before you commit&nbsp;</span></li><li aria-level=3D"1">
+<span style=3D"word-break: break-word; font-size: 18px;">Check the fees. Un=
+derstand whether a percentage or flat fee works best for you.&nbsp;</span><=
+/li><li aria-level=3D"1"><span style=3D"word-break: break-word; font-size: =
+18px;">Set up a regular investment plan.<strong> </strong>Automating the pr=
+ocess makes it easier and lets you benefit from pound-cost averaging</span>=
+</li></ol></div></div></td></tr></table><table class=3D"divider_block block=
+-5" width=3D"100%" border=3D"0" cellpadding=3D"0"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:15px;padding-bottom=
+:5px;padding-left:5px;padding-right:5px" align=3D"center"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"=
+ style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_i=
+nner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #59a485">=
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d>
+</tr></table><table class=3D"text_block block-6" width=3D"100%" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-ta=
+ble-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad=
+" style=3D"padding-top:5px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-s=
+ize:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-=
+alt:21px;color:#000;line-height:1.5"><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:30px"><span style=3D"w=
+ord-break: break-word; font-size: 20px; color: #000000;"><strong>Have you r=
+ead?&nbsp;</strong></span></p><ul style=3D"line-height:1.5;mso-line-height-=
+alt:30px;font-size:18px"><li aria-level=3D"1">
+<span style=3D"word-break: break-word; font-size: 18px;">How to start inves=
+ting? Our <a href=3D"https://link.thetimes.com/click/47416934.76126/aHR0cHM=
+6Ly93d3cudGhldGltZXMuY29tL21vbmV5L3NhdmluZy1pbnZlc3RpbmcvYXJ0aWNsZS93YW50LX=
+RvLXN0YXJ0LWludmVzdGluZy1vdXItY29sdW1uaXN0cy1hbnN3ZXIteW91ci1xdWVzdGlvbnMtb=
+G13eHJscDhj/6a464fcf7d55e1fcfb02eb9cBe0f0781d" style=3D"text-decoration: un=
+derline; color: #0068A5;">expert columnists answer your questions</a>&nbsp;=
+</span></li><li aria-level=3D"1">
+<span style=3D"word-break: break-word; font-size: 18px;">How to handle <a h=
+ref=3D"https://link.thetimes.com/click/47416934.76126/aHR0cHM6Ly93d3cudGhld=
+GltZXMuY29tL21vbmV5L3NhdmluZy1pbnZlc3RpbmcvYXJ0aWNsZS9zdG9jay1tYXJrZXQtY29y=
+cmVjdGlvbi1pbnZlc3RtZW50cy1mazd2bmRjYjA/6a464fcf7d55e1fcfb02eb9cB23f43ea5" =
+style=3D"text-decoration: underline; color: #0068A5;">your first stock mark=
+et wobble</a>&nbsp;</span></li><li aria-level=3D"1">
+<span style=3D"word-break: break-word; font-size: 18px;">The exact amount t=
+hat means you=E2=80=99re <a href=3D"https://link.thetimes.com/click/4741693=
+4.76126/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L3NhdmluZy1pbnZlc3RpbmcvYXJ=
+0aWNsZS90aGUtZXhhY3QtZmVlLWFtb3VudC1wYXlpbmctdG9vLW11Y2gtaW52ZXN0aW5nLXBsYX=
+Rmb3JtLXBlbnNpb24tNmM1aG5mbW1y/6a464fcf7d55e1fcfb02eb9cBdc241ae4" style=3D"=
+text-decoration: underline; color: #0068A5;">paying too much for your inves=
+tments</a>&nbsp;</span></li></ul></div></div></td></tr></table><table class=
+=3D"text_block block-7" width=3D"100%" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rs=
+pace:0;word-break:break-word"><tr><td class=3D"pad"=20
+style=3D"padding-top:15px;padding-left:5px;padding-right:5px"><div style=3D=
+"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-size=
+:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-alt=
+:21px;color:#000;line-height:1.5"><p style=3D"margin:0;mso-line-height-alt:=
+27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong><em>Next w=
+eek: </em></strong><em>Got your account set up and ready to get started? Ne=
+xt week we=E2=80=99ll tell you exactly where to invest your money</em></spa=
+n></p></div></div></td></tr></table><table class=3D"html_block block-8" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pa=
+d"><div=20
+style=3D"font-family:Arial,Helvetica Neue,Helvetica,sans-serif;text-align:c=
+enter" align=3D"center"><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" data-lt-version=3D"3.0.0" style=3D"width: 100%; max-w=
+idth: 300px; margin: 0 auto; table-layout: fixed;">
+<tr>
+<td align=3D"center" style=3D"line-height: 1px; width: 300px; max-width: 30=
+0px;">
+<a href=3D"https://link.thetimes.com/click/47416934.76126/aHR0cHM6Ly9zbGkud=
+GhldGltZXMuY29tL2NsaWNrP3M9ODY3OTAyJmU9bS5pa2UubWNjb25pZ2xleUBnbWFpbC5jb20m=
+cD00NzQxNjkzNCZsY3RnPTZhNDY0ZmNmN2Q1NWUxZmNmYjAyZWI5YyZzdHBlPWRlZmF1bHQ/6a4=
+64fcf7d55e1fcfb02eb9cE93413df9" rel=3D"nofollow" target=3D"_blank" style=3D=
+"display: block; width: 100%; max-width: 300px;">
+<img src=3D"https://sli.thetimes.com/imp?s=3D867902&e=3Dm.ike.mcconigley@gm=
+ail.com&p=3D47416934&lctg=3D6a464fcf7d55e1fcfb02eb9c&stpe=3Ddefault&li_coor=
+d=3Ddesktop&collapse_width=3D300"=20
+border=3D"0"=20
+width=3D"300"=20
+style=3D"display: block; width: 100%; max-width: 300px; height: auto;" />
+</a>
+</td>
+</tr>
+</table></div></td></tr></table></td></tr></table></td></tr></tbody></table=
+></td></tr></tbody></table><table class=3D"row row-11" align=3D"center" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tbody><tr><td><tab=
+le class=3D"row-content stack" align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:=
+#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"colum=
+n column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;f=
+ont-weight:400;text-align:left;vertical-align:top;width:100%"><table class=
+=3D"icons_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-r=
+space:0;text-align:center;line-height:0"><tr><td class=3D"pad"=20
+style=3D"vertical-align:middle;color:#000;font-family:inherit;font-size:14p=
+x" align=3D"center"><table class=3D"icons-outer" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspac=
+e:0;display:inline-table"><tr><td style=3D"vertical-align:middle;text-align=
+:center;padding-top:20px;padding-bottom:15px;padding-left:5px;padding-right=
+:5px"><img class=3D"icon" src=3D"https://media.sailthru.com/composer/images=
+/sailthru-prod-74t/Done%20icon.png" alt=3D"" height=3D"auto" width=3D"32"=
+=20
+align=3D"center" style=3D"display:block;height:auto;margin:0 auto;border:0"=
+></td></tr></table></td></tr></table><table class=3D"text_block block-2" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-wo=
+rd"><tr><td class=3D"pad" style=3D"padding-bottom:10px;padding-left:16px;pa=
+dding-right:16px"><div style=3D"font-family:Georgia,'Times New Roman',serif=
+"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:25.2px;color:#3b3b3b;line-height:1.8"><p style=3D"margin=
+:0;font-size:14px;text-align:center;mso-line-height-alt:39.6px"><span style=
+=3D"word-break: break-word; font-size: 22px;"><strong><span style=3D"word-b=
+reak: break-word; color: #000000;">... that=E2=80=99s all for now</span></s=
+trong></span></p><p style=3D"margin:0;font-size:14px;text-align:center;mso-=
+line-height-alt:32.4px">
+<span style=3D"word-break: break-word; font-size: 18px;"><span style=3D"wor=
+d-break: break-word; color: #000000;">If you enjoyed this newsletter email =
+us to let us know what you liked at <a href=3D"mailto:newsletters@thetimes.=
+co.uk?subject=3DDaily+Briefing+newsletter:+feedback" title=3D"newsletters@t=
+hetimes.co.uk" rel=3D"noopener" target=3D"_blank" style=3D"text-decoration:=
+ underline; color: #006699;">newsletters@thetimes.co.uk</a><a href=3D"mailt=
+o:feedback@timesmoneymentor.co.uk" style=3D"text-decoration: underline; col=
+or: #006699;"></a></span></span>
+</p></div></div></td></tr></table><table class=3D"text_block block-3" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"=
+><tr><td class=3D"pad" style=3D"padding-top:5px;padding-bottom:10px;padding=
+-left:10px;padding-right:10px"><div style=3D"font-family:Arial,sans-serif">=
+<div class=20
+style=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-s=
+erif;mso-line-height-alt:25.2px;color:#696969;line-height:1.8"><p style=3D"=
+margin:0;font-size:18px;text-align:center;mso-line-height-alt:25.2px">
+<span style=3D"word-break: break-word; font-size: 14px;">Download our app f=
+or <a href=3D"https://link.thetimes.com/external/47416934.76126/aHR0cHM6Ly9=
+wbGF5Lmdvb2dsZS5jb20vc3RvcmUvYXBwcy9kZXZlbG9wZXI_aWQ9VGltZXMrTmV3c3BhcGVycy=
+tMaW1pdGVkJmhsPWVuX1VTJmdsPVVT/6a464fcf7d55e1fcfb02eb9cB2397fb22" target=3D=
+"_blank" style=3D"text-decoration: underline; color: #1d1d1b;" rel=3D"noope=
+ner">Android</a> and <a href=3D"https://link.thetimes.com/external/47416934=
+.76126/aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS9nYi9hcHAvdGhlLXRpbWVzLXVrLXdvcmxkLW5l=
+d3MvaWQ0MzY3OTIzMjE/6a464fcf7d55e1fcfb02eb9cB7c7449de" target=3D"_blank" st=
+yle=3D"text-decoration: underline; color: #1d1d1b;" rel=3D"noopener">IOS</a=
+></span></p><p style=3D"margin:0;font-size:18px;text-align:center;mso-line-=
+height-alt:25.2px">
+<span style=3D"word-break: break-word; font-size: 14px;"><a href=3D"https:/=
+/link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9cs8b52.1mqm/bff4cb38" target=
+=3D"_blank" style=3D"text-decoration: underline; color: #1d1d1b;" rel=3D"no=
+opener">Our newsletters</a>&nbsp;| <a href=3D"https://link.thetimes.com/ext=
+ernal/47416934.76126/aHR0cHM6Ly93d3cubmV3c3ByaXZhY3kuY28udWsv/6a464fcf7d55e=
+1fcfb02eb9cBb33a3e6e" target=3D"_blank" rel=3D"noopener" style=3D"text-deco=
+ration: underline; color: #1d1d1b;">Privacy Policy</a> | <a href=3D"https:/=
+/link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9cs8b52.1mqm/bff4cb38" target=
+=3D"_blank" rel=3D"noopener" style=3D"color: #1d1d1b;"></a><a href=3D"https=
+://link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9cs8b52.1mqm/bff4cb38" target=
+=3D"_blank" style=3D"text-decoration: underline; color: #1d1d1b;" rel=3D"no=
+opener">Unsubscribe</a>&nbsp;| <a href=3D"https://link.thetimes.co.uk/click=
+/47416934.76126/aHR0cHM6Ly93d3cudGhldGltZXMuY28udWsvc3RhdGljL3Rlcm1zLWFuZC1=
+jb25kaXRpb25zLw/6a464fcf7d55e1fcfb02eb9cBca1207ed" target=3D"_blank" rel=3D=
+"noopener" style=3D"text-decoration: underline; color: #1d1d1b;">Terms of s=
+ervice</a></span>
+</p></div></div></td></tr></table><table class=3D"divider_block block-4" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"p=
+ad" style=3D"padding-top:15px;padding-bottom:15px;padding-left:8px;padding-=
+right:8px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;m=
+so-table-rspace:0"><tr><td class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e4e4"><span =
+style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr=
+></table><table class=3D"text_block block-5" width=3D"100%" border=3D"0" ce=
+llpadding=3D"5" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-=
+lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad"><d=
+iv style=3D"font-family:Arial,sans-serif"><div class=20
+style=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-s=
+erif;mso-line-height-alt:21px;color:#696969;line-height:1.5"><p style=3D"ma=
+rgin:0;font-size:12px;text-align:left;mso-line-height-alt:18px">
+<span style=3D"word-break: break-word; font-size: 12px;">You have received =
+this as part of your subscription. If you <a href=3D"https://link.thetimes.=
+com/oc/6a464fcf7d55e1fcfb02eb9cs8b52.1mqm/bff4cb38" target=3D"_blank" style=
+=3D"text-decoration: underline; color: #696969;" rel=3D"noopener">unsubscri=
+be</a>&nbsp;you will still receive offers, promotions and market research e=
+mails, unless you have also unsubscribed from these communications.&nbsp;Th=
+is email is from a member of the News UK group. News Corp UK & Ireland Limi=
+ted, with its registered office at&nbsp;1 London Bridge Street, London, SE1=
+ 9GF, UK,&nbsp;is the holding company for the News UK Group and is register=
+ed in England, no. 81701. VAT number GB 243 8054 69.</span>
+</p></div></div></td></tr></table></td></tr></tbody></table></td></tr></tbo=
+dy></table></td></tr></tbody></table><!-- End --></body></html>
+------=_Part_6467882_1022201916.1789055430350--

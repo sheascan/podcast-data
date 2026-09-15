@@ -1,0 +1,1508 @@
+Delivered-To: mike.mcconigley@gmail.com
+Received: by 2002:a05:6802:6058:20b0:64d:970d:4142 with SMTP id r24-n2csp2200321oca;
+        Thu, 10 Sep 2026 07:23:20 -0700 (PDT)
+X-Received: by 2002:a05:622a:e3cd:20b0:530:7e64:2842 with SMTP id d75a77b69052e-5307e6429a0mr244424051cf.26.1789049524082;
+        Thu, 10 Sep 2026 07:12:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789049524; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Woi4/DdqHJNWrQm2Bl+Ex7xaglt73rjuZr9ZgIYxCqKc5ZbPdUr778w1EUNePaKWQY
+         CwslLd90KyncIJQo5keQ/qMWrMAxu46+/eRl33/KxFrllfUMoAKlRaK7qcvyZVnbbdN7
+         1hNGh/V1Ey7Wx7aWDRvTwW1BzdCPeRTdLAGRid8PcO5AO93oOKygawq/N34Y+Vg79Kkq
+         oeJpTgiR0hP7qajH/s/dZohJcZjTFUt/aUlB+WVZPcALZwVoNrx6RhPeGu7PG+CJGuIh
+         pKnsjYi8pr5ceN1GBp7mWiZIxnznABzOFXnAu+ijltTFvfFuSbGc4US64mrBtcEEjXJJ
+         rMPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:list-unsubscribe-post:list-unsubscribe:reply-to:subject
+         :message-id:mime-version:from:date:dkim-signature:dkim-signature;
+        bh=i/5g7vFg2L4szwovj98OjFUFEPFGvYnXb2vfFbLvuAY=;
+        fh=tUTYCbTOUI69DxYKXGXRz08XnPP7jEKRU6E5rS0DFR4=;
+        b=ersi3kMoiY8PsWIuBS5nQDEF1hxqfUDzJriezXux7qM35FxkDMhOATWgZ2QQO8txMN
+         42vTKCMXkgkeWlf2RiIg5QiLWeQN2AqvPi2OazWkPzu7D1By9i4Gb8McOtDsOf0VpNI+
+         1LLwg6esgw64D+RFjYSmqj8719hqo0vig1vSW7AxfNaxMzh6BjJb+X/8cDcYneToVMBy
+         SLtxkuIUcAcwJEyEB4UBVBioUE9aFnjyC8uFMhWn8cSqKa7RvBhmQDozSCqv5wV7+vZC
+         FzaaW75CnPOqIKcMkIqwjTBAFi5LQQ5UEfgdvb6QWLtAjqJ1NBX+ZD8oxIdhvr7sVRw9
+         U3Aw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=GtxdbGwj;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=EPNeswi9;
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 167.89.49.187 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+Return-Path: <bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com>
+Received: from o4054.abmail.editorial.theguardian.com (o4054.abmail.editorial.theguardian.com. [167.89.49.187])
+        by mx.google.com with ESMTPS id d75a77b69052e-530544b5232si235217301cf.268.2026.09.10.07.12.03
+        for <mike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Sep 2026 07:12:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 167.89.49.187 as permitted sender) client-ip=167.89.49.187;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=GtxdbGwj;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=EPNeswi9;
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 167.89.49.187 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=editorial.theguardian.com;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=s1; t=1789049522;
+	bh=i/5g7vFg2L4szwovj98OjFUFEPFGvYnXb2vfFbLvuAY=;
+	b=GtxdbGwjgC7Eqp+hl4frUE17QaiplUmdoaiSGTxnmqqgju0odKWseNIagh5SU9veNsTJ
+	wXPNez9eHb1Vwpa4owXYGaM0ClxnsnN0Lde2uNaCOoADoeNteNkrcgktTdxq292RDPJBpn
+	EIHe4Wi+JaOQt5QPcjD1Fv3IhSDhkgbyViBTyfQj8NZwlDj10WE8enaErv18tKfe4t4KmZ
+	Sdhqb7Az2t6V4rWur+8uQBM1gGfG3IY0Nylg3Gf8dmwplzfL34YBIF8ES8djJ8fw8LaxC3
+	bzR2ZVeGpIym2nN7S9YOZVR3Pl/E8Jw7+yh9vIUW27sMeAm1ta2QstRzt+Khve7g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; t=1789049522;
+	bh=i/5g7vFg2L4szwovj98OjFUFEPFGvYnXb2vfFbLvuAY=;
+	b=EPNeswi9wuIgclKilhBsTUhZhKRCZJdod45+lQI0/ktPAyH3JY8t1DTQF65qbGvABhor
+	rK9I3rpZ/1OjtKX6Atxu1zEia2JJpbKcdh7fKgT2MvjSXpy11psVTIgcqkknRoUIuwSk9l
+	OhIU1LvtRYKAmx0jqVtEqgI25y/8WZIjI=
+Received: by recvd-canary-b6c986757-cmt9b with SMTP id recvd-canary-b6c986757-cmt9b-1-6AA2BAB2-42
+	2026-09-10 14:12:02.607025984 +0000 UTC m=+730960.012209423
+Received: from ODE0Mzg3Mw (unknown)
+	by geopod-ismtpd-15 (SG) with HTTP
+	id 6iCrGQC1R1qQ5QNClj5LxQ
+	Thu, 10 Sep 2026 14:12:02.571 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=504d5ce9ab431ceb24860c34dff52953ece4dd3dcafda9941c5b129ea060
+Date: Thu, 10 Sep 2026 14:12:02 +0000 (UTC)
+From: The Guardian <info@editorial.theguardian.com>
+Mime-Version: 1.0
+Message-ID: <6iCrGQC1R1qQ5QNClj5LxQ@geopod-ismtpd-15>
+Subject: David Beckham may soon add another title: US soccer Hall of Famer
+Reply-To: soccerwithjw@theguardian.com
+List-Unsubscribe:
+ <https://profile.theguardian.com/unsubscribe-all/13579145%3A1789049521/1298ba5c7b5872ec32973fea4888d373215aa859>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EH=2FXI28ruo0ozWDQcpBSyaYR+tUix=2FHrsngcfNTFfr7ETe3ubjr340jdBR?=
+ =?us-ascii?Q?S=2F0glDit9NpIVoJQO9P29qVNgxtUjvRaLP1UAGJ?=
+ =?us-ascii?Q?v=2Fnr9txEL5QMO0zLR75FSeqNrdp2AwmiyrKy19F?=
+ =?us-ascii?Q?CDMvsgMfKEoxbn8DwYxl0x+Ggju2hONqtCKzS3d?=
+ =?us-ascii?Q?GA6lBcEn0ksChc1DG0LqQlx5aV6mHfFpNOZDO7B?=
+ =?us-ascii?Q?DEZQkt7dr109d=2F1JNW2jYn5OELGrdczwUWMjlon?=
+ =?us-ascii?Q?2A4d1NKZnmQ0v9sDaV4i28k9Eg=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDrjDW6011yC6XOo?=
+ =?us-ascii?Q?3uya5MX4M4Z9f4223b5+89JpSXEPDrEQizll1zS?=
+ =?us-ascii?Q?hfveLkYyLptV9sH8XGTIZAyv12OTmKeQ=2FUQcJZt?=
+ =?us-ascii?Q?oNwdEaY20clxmOFdgU6iAAwuh=2FDDNbB21gADvwu?=
+ =?us-ascii?Q?IShI+FNM7S8qq27xqlCtGiwZx0odaRAP3YNBaqa?=
+ =?us-ascii?Q?hNXfhbxgJbVYpCcuZVe8hW0PsKJcLnEsLRboxzB?=
+ =?us-ascii?Q?OGtoLxt=2FTwIq=2F7N2EKsQzM+rpsN1I8dN0mcNNka?=
+ =?us-ascii?Q?0bS=2FlF7axOaeMC0mZC=2FrmmCOxyn4oBmGfgw8rL2?=
+ =?us-ascii?Q?nruTFNArKNbZ90K81QePlOh47FrMILR3qVM929h?=
+ =?us-ascii?Q?rhqsoDdQaWRKU+qcoUzz=2FibEVdgahEqD+qsUtgX?=
+ =?us-ascii?Q?ZHme+wWvmvqbE3wNXzF5EBg4byONssfFpjzATb3?=
+ =?us-ascii?Q?RfqXOBpsGM3JyIlQ0IYAzXbwPrnoB4cpQJUnmBK?=
+ =?us-ascii?Q?yDyIoUFRyzZscu1Hn3LsZH40KLr+01=2Fbj+CLXXO?=
+ =?us-ascii?Q?0=2FfpfWgzw=3D=3D?=
+To: mike.mcconigley@gmail.com
+X-Entity-ID: u001.BbpwILxocfqEYp+CrGsJkw==
+
+--504d5ce9ab431ceb24860c34dff52953ece4dd3dcafda9941c5b129ea060
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+
+
+
+
+
+
+=E2=80=98Football saved Dad=E2=80=99s life=E2=80=99: meet the coach of the =
+England women=E2=80=99s Parkinson=E2=80=99s team | Football | The Guardian
+
+
+=E2=80=98Football saved Dad=E2=80=99s life=E2=80=99: meet the coach of the =
+England women=E2=80=99s Parkinson=E2=80=99s team
+
+
+It began with getting her dad into walking football after his diagnosis =E2=
+=80=93 now Gemma Darvill is taking a national team on tour to Canada
+
+
+Gemma Darvill helped set up the England women=E2=80=99s Parkinson=E2=80=99s=
+ team and is their first head coach.
+
+
+Tom Garry
+
+
+When Gemma Darvill=E2=80=99s dad, Les, was diagnosed with Parkinson=E2=80=
+=99s disease aged 58, joining a walking football team stopped him from conf=
+ining himself to his own home, and she believes the game saved his life.
+
+What she could never have foreseen was that, eight years later, she would f=
+ind herself coaching
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR9NJ=
+KsxYgqJheqAQJ2aJHuDWu4BXkIHMunr5mNasbApZX8gBEMKnavqHXaatmdxdSnAnTAc0c4WjBgP=
+Ka3fdNONHgTPnI9hygI3ooi9a__3E_IQlZ2XSsegmPZEZF6rWj5Cyd87MQ9pHCbMdqZ4oenYuPw=
+44_rAst5EPFt6e13m0HYZ8bIaVuVzwuU4-rRnOjwXamdbr6gzWMMIOKbB4_fwpu-qOJXMs8C9yE=
+6U40iBED-b2ZjSp3S1gQAS0y0jDnw/4tx/ujI1VfiVTA2Oipjl0tuN-A/t0/h001.msoX6rJbIP=
+k_mxWYP2tBs3JNcTZXyQ5uGruDtKYGmYw
+the first England women=E2=80=99s Parkinson=E2=80=99s team
+, helping transform the lives of women with the disease from all across the=
+ country. She is set to embark on a journey to Toronto to help spread aware=
+ness of the ways in which walking football can help put the brakes on the p=
+rogression of Parkinson=E2=80=99s symptoms.
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgheJRfn2C8QHWmY_n2Q1g9NKX9lqar90G-lL=
+SB3CzPdTAS_gLQnaifEPXUN6c7ZsjUVwhjD2OWJFV-1_sPwDgXJhFAyRSjYNy8YlyBWKvIPkNc9=
+GVsJSSGcqgwXgsNaZa5FlxI6w0aqdFhCSjRFd2uYHDTy9T4j320jTtjFiJVDZVN-uxckOKf65_2=
+iDUh1iAQqHmsNEqulxWoVgVBTjTr8MxCJTnI0yknoJ9qeDw8lph6_FqP0xySLc0JJMSON5kkJIG=
+hC93nzc_MKotPLTcWA/4tx/ujI1VfiVTA2Oipjl0tuN-A/t1/h001.UPgfRRWFx9rIvMY8VWmV7=
+dM4VOmH1Jmrh88PODIp1PQ
+
+=E2=80=98A dream come true=E2=80=99: behind the scenes with Wolves Women as=
+ they enter new era
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgheJRfn2C8QHWmY_n2Q1g9NKX9lqar90G-lL=
+SB3CzPdTAS_gLQnaifEPXUN6c7ZsjUVwhjD2OWJFV-1_sPwDgXJhFAyRSjYNy8YlyBWKvIPkNc9=
+GVsJSSGcqgwXgsNaZa5FlxI6w0aqdFhCSjRFd2uYHDTy9T4j320jTtjFiJVDZVN-uxckOKf65_2=
+iDUh1iAQqHmsNEqulxWoVgVBTjTr8MxCJTnI0yknoJ9qeDw8lph6_FqP0xySLc0JJMSON5kkJIG=
+hC93nzc_MKotPLTcWA/4tx/ujI1VfiVTA2Oipjl0tuN-A/t2/h001.RUuV2XD5cwfqirc6-K_85=
+PLyNoH6AWBbYyACH-fs-ic
+
+Read more
+
+
+A teacher at Swallowfield primary school in Woburn Sands, in Milton Keynes,=
+ Darvill=E2=80=99s interest in walking football was sparked by supporting h=
+er dad. She now coaches what is believed to be the first walking football t=
+eam specifically dedicated to women with Parkinson=E2=80=99s,
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR9NJ=
+KsxYgqJheqAQJ2aJHuBTAiGV7txo6Oxv3h9idbuYYmh-mBOFpltiw5VVDrjPLf0ib-wIUJS9pbG=
+g1SpfnpTfDMlDDOyaVRniWfSUHhxhBcKN_nYIzhfLUofiPNbKHmnNbhRudUMPkXfXDsepsAqez4=
+4VIE9rSHB9Ky2cxcV1GRJovhhwtU3oVZ1ALO9WjCBsujRiIMByMxrYjr1EbOK60zn3pQvTSAekj=
+dQEGUl4/4tx/ujI1VfiVTA2Oipjl0tuN-A/t3/h001.QZVDZYCxsBMdPdRBIrJ10JgWDymjfhRJ=
+FQagY8ZliCA
+the Parkinson=E2=80=99s Pioneers
+, who train in Solihull and have seen a tenfold increase in their membershi=
+p in just over three years. That led to her appointment as the coach of the=
+ first England women=E2=80=99s national side.
+
+There are reportedly about 166,000 people in the UK living with Parkinson=
+=E2=80=99s disease. It is a progressive brain condition for which there is =
+no cure, but known treatments
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR7eq=
+a6bER7lgw_49fRrzXG-ToPCjIFb6y_j74XWIS48jauwEgl7tMt_s2zcl2Gw6L-8Go39bYSgJXvd=
+xx3DtMqMhvb_M0vs3NKdsbNszs4bNd3MeA9Ka49VqZwQloQvcogSn4gUtv5xVfUv8wlxA9irO3R=
+2l2gIHTEv3VHja7iOuo_F90FDTYUKEzSdcVu71S7kd4UvD3lna9KmdlTPiWEoaXGXI0r0img4Yy=
+q_b8eYA/4tx/ujI1VfiVTA2Oipjl0tuN-A/t4/h001.kqUd8zbT2SilJtgvXdg7UZHH9jQy3Zcp=
+PFPPO8GUoVo
+can help reduce the severity of the main symptoms
+. Darvill, who says exercise =E2=80=9Chelped slow down the progression of t=
+he disease=E2=80=9D for her dad, recalled: =E2=80=9CWhen he was first diagn=
+osed, it hits you hard. But football genuinely saved his life.
+
+=E2=80=9CAt first, he didn=E2=80=99t want to leave the house. He used to ha=
+ve a season ticket at Tottenham [but] he gave that up. He didn=E2=80=99t te=
+ll any of his friends. He just stopped doing everything. He really struggle=
+d with life in general, [even] getting out of bed. And then we found this f=
+ootball session. His team=E2=80=99s called
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR7eq=
+a6bER7lgw_49fRrzXG-ToPCjIFb6y_j74XWIS48jauwEgl7tMt_s2zcl2Gw6L-8Go39bYSgJXvd=
+xx3DtMqMhvb_M0vs3NKdsbNszs4bNd3MeA9Ka49VqZwQloQvcogSn4gUtv5xVfUv8wlxA9irO3R=
+2l2gIHTEv3VHja7iOuo_F90FDTYUKEzSdcVu71S7kd4UvD3lna9KmdlTPiWEoaXGXI0r0img4Yy=
+q_b8eYA/4tx/ujI1VfiVTA2Oipjl0tuN-A/t5/h001.UMS4A8NbOy_Qu13SASqMgFGR3zXNEpXL=
+uq9l0a04Okg
+Fighting Fit Football
+[based at Watford=E2=80=99s training ground]. I took him along one week and=
+ he=E2=80=99s never looked back since.
+
+=E2=80=9CSo, just to be able to give back a little bit, I guess that=E2=80=
+=99s why I still do it: to help others who get diagnosed, to show them that=
+ there is still a life after being diagnosed with the disease and you can m=
+eet lots of incredible people, and still try to do things as normally as po=
+ssible.=E2=80=9D
+
+
+Gemma Darvill=E2=80=99s first coaching role was with the Parkinson=E2=80=99=
+s Pioneers, a team she helped set up in 2023. Photograph: Handout
+
+
+Darvill, who has played football since she was 10, was spotted cheering for=
+ her dad on the sidelines of a tournament at St George=E2=80=99s Park and w=
+as promptly asked by Annie Booth, the founder of the Parkinson=E2=80=99s Pi=
+oneers, if she would be interested in helping set up the team. To Darvill, =
+helping out felt natural: =E2=80=9CI=E2=80=99ve always coached football as =
+well as played, and I was a teacher, so I used to run football camps for ki=
+ds in the school holidays.=E2=80=9D
+
+Booth and Darvill have seen the Parkinson=E2=80=99s Pioneers blossom into a=
+ flourishing community, explaining: =E2=80=9CI remember our very first trai=
+ning session, it was only three of us. We now have over 40 ladies coming to=
+ the sessions. It=E2=80=99s incredible.
+
+=E2=80=9CThey use it as a social network as well. So after the sessions, ev=
+eryone stays for a bit of food, a conversation, and they can just discuss l=
+ike their symptoms, how they=E2=80=99re coping. And we=E2=80=99re family no=
+w, really, if I=E2=80=99m honest. Everyone just helps each other out.
+
+=E2=80=9CWe train at Solihull purely because the ladies come from all over =
+the country. We have ladies from Manchester, we have myself coming from Mil=
+ton Keynes, we have people in Devon.
+
+=E2=80=9CSo it=E2=80=99s the most central location that we could find to tr=
+y to make it as fair as possible for everyone travelling. So we try to meet=
+ up once a month and then we enter the tournaments as well.=E2=80=9D
+
+As well as prohibiting running, walking football includes several different=
+ rules to the mainstream game. There is no offside rule, no heading, no thr=
+ow-ins and it is a non-contact game. Darvill says: =E2=80=9CI=E2=80=99d say=
+ the tactics are the same [in general]. But you can=E2=80=99t tackle from t=
+he side or from behind in walking football =E2=80=93 it has to be face-on.
+
+
+Darvill=E2=80=99s first involvement with walking football for people with P=
+arkinson=E2=80=99s came through helping her father after his diagnosis. Pho=
+tograph: Handout
+
+
+=E2=80=9CEveryone with Parkinson=E2=80=99s has a very different level of th=
+e condition. The walking element just helps keep them all safe. We have a b=
+rilliant physio on board as well who is specifically a Parkinson=E2=80=99s =
+physio, which is brilliant, and she helps us a lot with the warm-ups and th=
+e cool-downs and just makes sure that ladies are getting what they need. It=
+ makes their brain think about something else. [For example] I=E2=80=99ve g=
+ot one lady who can=E2=80=99t walk in a straight line but if you put a spor=
+ts ladder down in front of her, she can walk through it. It=E2=80=99s reall=
+y interesting.=E2=80=9D
+
+The growth of the Pioneers meant that Darvill was the natural pick when the=
+ Walking Football Association (WFA) was launching the first England women=
+=E2=80=99s Parkinson=E2=80=99s team with trials last year. Then, in August =
+this year, the WFA and the Football Association
+https://ablink.editorial.theguardian.com/ss/c/u001.wtfWA9uPAn8i7Lb0U_hU2v9n=
+ZlmCV7oJ1Y4sUxPOpSmH6JCPKOcMYNzB2wr12FLzLjUdIfwLs0xvzbS55OgMhsAhkGiwgsGUODu=
+1teDeTTm6UDGwSJkRbsOkb0RvvogGUFccjj8a_J1bHW7czPLcS5_pcU0SRJfTIzyzhhqlLvu7kY=
+HCUFlVe16JgI-lBR-UR1b-hcsAUsJo_lnSMGmfDYyxhU5mS9rb65JPsQS4m7ttVadlrD5kb6UkJ=
+8zrTUohFzsjL4T1PAngw7aXJfj2kLuhuD5NEVOZ1STXz1dDTOI/4tx/ujI1VfiVTA2Oipjl0tuN=
+-A/t6/h001.aPl0_SZWbOa2QLE3mUKX-GbNPdm3fMHsLylxXrZZre8
+announced a new partnership
+that will install the FA as walking football=E2=80=99s governing body in En=
+gland with the WFA now the delivery partner for the game. The collaboration=
+ was partly aimed at benefits such as being able to streamline the registra=
+tion of referees and agree on a unified set of rules. Darvill adds: =E2=80=
+=9CThat=E2=80=99s a positive, going forward, that they=E2=80=99re coming to=
+gether a little bit more.=E2=80=9D
+
+Darvill=E2=80=99s England team play six-a-side and the players range in age=
+ from 36 to 66. They have held training sessions in Watford, Droitwich and =
+Bedford so far, but are about to cross the Atlantic to join the England men=
+=E2=80=99s Parkinson=E2=80=99s team on a landmark trip to Canada for an int=
+ernational showcase of the benefits of walking football and a series of inv=
+itational friendlies.
+
+The team travel on Saturday for one week in Toronto. The teams have been cr=
+owdfunding to try to help cover the course of the trip. Darvill=E2=80=99s
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR0FT=
+CgS03rVGEe36uvJl-eDaGYoVSMfWtemBxBJbrh6NMfV9A82YaNokDJ4g51GznWGGWj6oofvpET-=
+oTJG9mELo0sIIrNvBH52ZusJ-gwrzvMOAlf0rEAdBw_rVDXog_AYxGhqsob5dbhFaClX7K9I5wJ=
+7NfEugu3GRLUg3IqwHWOLWstkp8HOk3SIHdfTsWwdYaqQDLNYQOaVdRU3dkwUPDF4L1sWv2P3ML=
+LVsWFhPWcmgJ22mhvz4A36d34kcJhiZ9TLal524ewabdN09BGOKxd3aVJArmtaItpXKGqdT/4tx=
+/ujI1VfiVTA2Oipjl0tuN-A/t7/h001.tBHKAlUh41q1OPjtVcpQEsjmNxWfOMDolgOnLh80tKs
+own fundraising page
+has raised over =C2=A3400 and a
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR0FT=
+CgS03rVGEe36uvJl-eBjK3nvr9UDNaAI6OBz60SuLVYSk5JQdWnkZRcNIO943p34YyJ3okODGcH=
+Jn-TnXiAfuMMSCniUh4DQT-KQk-TeYtpBjkQmiZrzTzOedpmkww2cMEKT2hTFxbl3ohJD684Smw=
+TlTHGzloSeAPwER6zZCgcgnExkeVwzdv19TY81lf1Iq8KXs7dU1ZYn1g7t4gWiCcnGNptbOwFe1=
+nZe-slPD4936Da5KKLGmoR82Pcn3xhyaEXQ_N6mrvYIj8yHy7GbeS_rr81AlY_DZ-5fobKl/4tx=
+/ujI1VfiVTA2Oipjl0tuN-A/t8/h001.bCixHoIzR_MHT2fXzaXzxTvU3TelgWSMrL3a0o5zTQY
+wider fundraising page for both the men=E2=80=99s and women=E2=80=99s sides
+has drawn in more than =C2=A317,000. Darvill says: =E2=80=9CWe=E2=80=99re d=
+oing it because we want to raise awareness of Parkinson=E2=80=99s in Canada=
+ and help those out there with Parkinson=E2=80=99s. We=E2=80=99re trying to=
+ showcase sort of what we do, to try to reach more people.
+
+=E2=80=9CWe=E2=80=99re going to play two American teams when we=E2=80=99re =
+out there, an over-40s team and over-60s all women=E2=80=99s walking footba=
+ll team [non-disabled], and then we=E2=80=99re going to play some men=E2=80=
+=99s teams as well. We=E2=80=99re running a Parkinson=E2=80=99s fundraising=
+ day too, where we will run the session ourselves, we=E2=80=99ll put on the=
+ coaching drills and have a bit of fun to try to get as many people in Cana=
+da interested.=E2=80=9D
+
+For Darvill, it is a mission with a deeply personal motivation, with her ow=
+n gratitude to walking football for how it is helping her dad continuing to=
+ drive her to help others with the condition.
+
+Get in touch
+
+If you have any questions or comments about any of our newsletters please e=
+mail
+mailto:moving.goalposts@theguardian.com?
+moving.goalposts@theguardian.com
+.
+
+This is an extract from our free email about women=E2=80=99s football, Movi=
+ng the Goalposts. To get the full edition,
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEGbzqwwTyBS-ncKoaKDpUxqYGdN-Utohhrym=
+PwXexFBA5s1t27yKAw-MgW1UhZ9BdxsfTjLqd_C3LQKKJuXgEJdocDWUFAZs5XLXvkxZY7KdlGQ=
+zB-2zmeQ2aJR1GXcjeo_a6CW45WOiNf9uh1oiylQQolXqjtEaekmbOHSpLgBwXi6ejos4Qmd3w5=
+LdSruMXE6-v9hUCuXkHV86RPFm9hkcu0kq4KWedg_GZ-zGlCaiPk5Kg1Y0Iacb8xoaGif522Op0=
+KKUk_3v8gm5tA9eBmmiXnlKkqKkYifZrEGUosog/4tx/ujI1VfiVTA2Oipjl0tuN-A/t9/h001.=
+oUxH5I_cD03lkuuhg-9tH5nuEKUAQLvvmrN6H4sKurs
+visit this page and follow the instructions
+. Moving the Goalposts is delivered to your inboxes every Tuesday and Thurs=
+day
+.
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmRWLgxpeM4Hg5EFO6EyZ7K10A9RxtXMMfV-TQ=
+hbbeQTSZwgoloMDY-nPj63pdp_3ba8ZaF82EBPBexQ7ASL1V2WlFSX-exvUOYXxJzhO7f3XXOgw=
+_KM6Mcg5GpsyHhXdJ_Bq2Oqp2dMjwy_buHfEY-eLuC3DToyt6VlI1bUEtgXrQXItGQebvAYSp8b=
+0fH0eCT/4tx/ujI1VfiVTA2Oipjl0tuN-A/t10/h001.Err9UVq1xZRJqwg4Wsgh4OZJXqZ6ccf=
+7QxgE1yqc1UM
+Manage your emails
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6K_5zaO_ntyE7Unu01Eppyv6yx8t7pkcPcb-aaqeDGW2MvA1lrDzi5qR8A=
+YZTyHFKutsjvvdosb6J11_6DfZij2KPfxHp3vZCH-trc-1aiTAktTV1stcRsSYqxDGYn2HhuXNJ=
+rBgQU9UTzDhoVjtDL6sTuBwXxJm1LhBESAzhSVIQ/4tx/ujI1VfiVTA2Oipjl0tuN-A/t11/h00=
+1.0JI8dFzU2UmOJIVULs23fPuFq_fqm49zWKDhnEmhAlI
+Unsubscribe
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgCem_qcMHk-oMeTi2ViWhPYjqH-5ZNT4m3Bn=
+CXaJ9UN5IPgIXIQg4B7yViF9zVrTXXjtGg0udvBs8BfDzWvi-7GCOp9ZBtN3_SYhZRbIYSbK9O4=
+aa_CI8gQP3yparviXnTEQ1iOf-PuYCP6bQra6qa1Gxghzb8WdVUxO3BOitZeGmIOzrlXUdsFSq4=
+qF9ync2vKz-k4_VhqOcCsht9EyN4wZ4u_pMbIpszgpCvVwT-J5phgqzHBM6XNgAaHw1KgNUcSyk=
+QNm3I4INKRr3dUR8f_TAh9DCZ2DTZpJNVu36_NE/4tx/ujI1VfiVTA2Oipjl0tuN-A/t12/h001=
+.W-GuSEX0bElJPkEF-jZyDmXbfeXyC4yTW3MSFAz9ZUo
+Trouble viewing?
+
+You are receiving this email because you are a subscriber to Moving the Goa=
+lposts. Guardian News & Media Limited - a member of Guardian Media Group PL=
+C. Registered Office: Kings Place, 90 York Way, London, N1 9GU. Registered =
+in England No. 908396
+--504d5ce9ab431ceb24860c34dff52953ece4dd3dcafda9941c5b129ea060
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd">
+<html><body><img src=3D"https://ablink.editorial.theguardian.com/ss/o/u001.=
+OMpll5AjohZ3LgbA8XhVqA/4tx/ujI1VfiVTA2Oipjl0tuN-A/ho.gif" alt=3D"" width=3D=
+"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !imp=
+ortant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !i=
+mportant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !=
+important;padding-bottom:0 !important;padding-right:0 !important;padding-le=
+ft:0 !important;"/>
+<div style=3D"display:none !important;visibility:hidden;mso-hide:all;font-s=
+ize:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:=
+0;overflow:hidden;">The English superstar has gotten no shortage of recogni=
+tion, but his contributions to the American game deserve an official title<=
+/div>
+<div style=3D"display:none !important;visibility:hidden;mso-hide:all;font-s=
+ize:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:=
+0;overflow:hidden;">=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF </div>
+<p>
+
+
+
+
+
+
+
+
+
+</p>
+<title>David Beckham may soon add another title: US soccer Hall of Famer | =
+The Guardian</title>
+<!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedg=
+e">
+<!--<![endif]--><meta http-equiv=3D"Content-Type" content=3D"text/html; cha=
+rset=3DUTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1">
+<style type=3D"text/css">#outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }</style>
+<!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><style type=3D"text/css">@media only screen and (min-width:=
+480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-70 { width:70% !important; max-width: 70%; }
+.mj-column-per-30 { width:30% !important; max-width: 30%; }
+      }</style>
+<style media=3D"screen and (min-width:480px)">.moz-text-html .mj-column-per=
+-100 { width:100% !important; max-width: 100%; }
+.moz-text-html .mj-column-per-70 { width:70% !important; max-width: 70%; }
+.moz-text-html .mj-column-per-30 { width:30% !important; max-width: 30%; }<=
+/style>
+<style type=3D"text/css">@media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }</style>
+<meta name=3D"format-detection" content=3D"telephone=3Dno, date=3Dno, addre=
+ss=3Dno, email=3Dno, url=3Dno">
+<div aria-label=3D"David Beckham may soon add another title: US soccer Hall=
+ of Famer | The Guardian" aria-roledescription=3D"email" style=3D"backgroun=
+d-color:#FFFFFF;" role=3D"article" lang=3D"en" dir=3D"auto">
+<!--{% comment %} Required Campaign-level variables {% endcomment %} {% ass=
+ign
+				identity_newsletter_id =3D "soccer-with-jonathan-wilson" %} {% assign u=
+tm_campaign =3D
+				"SoccerwithJonathanWilson" %} {% assign CMP =3D "soccerwithjonathanwils=
+on_email" %} {% capture
+				unsub_url %}{{content_blocks.${Editorial_UnsubscribeLogic}}}{% endcaptu=
+re %}
+				{% assign dispatch_id =3D {{campaign.${dispatch_id}}} %} {% assign
+				url_parameters_unstripped =3D "utm_term=3D" | append: dispatch_id | app=
+end:
+				"&utm_campaign=3D" | append: utm_campaign | append:
+				"&utm_source=3Desp&utm_medium=3DEmail&CMP=3D" | append: CMP %}--><!--[i=
+f mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"=
+600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]--><div style=3D"margin:0px auto;max-width:600px;"><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;f=
+ont-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;dire=
+ction:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td>
+<!-- START - DO NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+<!-- RETENTION START -->
+
+<table width=3D"100%" bgcolor=3D"#041F4A">
+  <tbody>
+<!-- Support Bar -->
+							<tr><td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" role=3D"presentation" bgcolor=3D"#041F4A">
+									<tr>
+										<td class=3D"p-15" style=3D"padding: 15px;">
+											<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" role=3D"presentation">
+												<tr>
+													<td valign=3D"top">
+														<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" role=3D"presentation">
+															<tr>
+																<td class=3D"title-24 c-yellow" style=3D"font-size:22px; li=
+ne-height:26px; font-family:'GH Guardian Headline', Georgia, serif; text-al=
+ign:left; font-weight:normal; color:#FFE500;">
+																	<p class=3D"title-24 c-yellow reset" style=3D"font-size:22=
+px; line-height:26px; font-family:'GH Guardian Headline', Georgia, serif; t=
+ext-align:left; font-weight:normal; color:#FFE500; padding:0 !important; ma=
+rgin:0 !important;">
+																		<strong>Support independent journalism</strong>
+																	</p>
+																</td>
+															</tr>
+														</table>
+													</td>
+													<td valign=3D"top" class=3D"img" width=3D"10" style=3D"font-si=
+ze:0pt; line-height:0pt; text-align:left;"></td>
+													<td valign=3D"top" width=3D"120">
+														<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" role=3D"presentation">
+															<tr>
+																<td align=3D"right" class=3D"bg-fix">
+																	<!-- Button -->
+																	<div>
+																		<!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsof=
+t-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"https:=
+//support.theguardian.com/contribute?lid=3Dn4nprx02s4sh&utm_source=3Deml&ut=
+m_medium=3Demedt&utm_campaign=3Dsoccerwithjonathanwilson&utm_content=3DEdit=
+orial_CNAcqHeaderUS&CMP_TU=3Dmawns&CMP_BUNIT=3Dedtrl&utm_term=3D6aa2ba84dea=
+f1c46101f8369f21b86ad" style=3D"height:40px;v-text-anchor:middle;width:140p=
+x;" arcsize=3D"50%" strokecolor=3D"#866d4f" fillcolor=3D"#866d4f"><w:anchor=
+lock></w:anchorlock><center class=3D"ff-text-sans" style=3D"color:#052962; =
+font-family: Arial, sans-serif; font-size:15px; line-height:19px; font-weig=
+ht:bold;"><span class=3D"keep-blue">Support&nbsp;us&nbsp;&nbsp;&rarr;</span=
+></center></v:roundrect><![endif]--><a href=3D"https://ablink.editorial.the=
+guardian.com/ss/c/u001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx3IF5rKLrpZ7=
+i5OYjw2FpxFpxSXIHulE_d4GdC3ITvl1dRHKvrTDvQp5VLmFcLv79CMOOnWeqkfgus_CXlVgcII=
+0833RiY20-OdYFs83k6EU_aCdqXjcTjk7oDU_TXdgSYLW9M5PFqn1fRj2H8H0PArLD9v5FTSccT=
+8U7iOvzNIjPIPDf8ZTALGQZRYdbpUbhsocdD9gerg2D6ZGEe4GyDIxPY7hpHvRTCuXl3Xki5xY2=
+PxGRHzXqy87SNIivnNiEBZMM0lgn51v9EWQV5C7dt1hqqw9MIcrzjz0JZPk2Mx6aQ/4tx/ujI1V=
+fiVTA2Oipjl0tuN-A/h13/h001.PUr-yGiGrWwGXYfnAqjjbrHiX28bZhW7BjR5IiCLqDI" tar=
+get=3D"_blank" style=3D"background-color:#FFE500;border-radius:40px;color:#=
+052962;display:inline-block;font-family:'Guardian Text Sans Regular', Arial=
+, sans-serif;font-size:15px;line-height:19px;text-align:center;text-decorat=
+ion:none;min-width:auto;padding:6px 15px;-webkit-text-size-adjust:none;whit=
+e-space:nowrap;mso-hide:all;"><strong>Support&nbsp;us&nbsp;&nbsp;<img valig=
+n=3D"middle" class=3D"text-14" src=3D"https://cdn.braze.eu/appboy/communica=
+tion/assets/image_assets/images/64ccbfe3feaa422ca99be922/original.png?16911=
+40067" width=3D"16" height=3D"16" border=3D"0" alt=3D"" style=3D"font-size:=
+14px; line-height:18px; color:#000001; font-family:'GH Guardian Headline', =
+Georgia, serif; text-align:left; font-weight:normal;"></strong></a>
+																	</div>
+																	<!-- END Button -->
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+											<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0">
+												<tr>
+													<td class=3D"text-14 c-white ff-gts pt-5" style=3D"font-size:1=
+4px; line-height:18px; text-align:left; font-weight:normal; color:#fffffe; =
+font-family:'Guardian Text Sans', Arial, sans-serif; padding-top: 5px;">
+														<p class=3D"text-14 c-white ff-gts reset" style=3D"font-size:=
+14px; line-height:18px; text-align:left; font-weight:normal; color:#fffffe;=
+ font-family:'Guardian Text Sans', Arial, sans-serif; padding:0 !important;=
+ margin:0 !important;">
+														=09
+														</p>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table></td></tr>
+								<!-- END Support Bar -->
+<img src=3D"https://email.mvt.theguardian.com/1.gif?identity_id=3D13579145&=
+amp;variant=3DEditorial_CNAcqHeaderUS&amp;send_id=3D6aa2ba84deaf1c46101f836=
+9f21b86ad&amp;position=3Dfooter&amp;" alt=3D"" width=3D"1" height=3D"1" bor=
+der=3D"0" style=3D"display:block!important;height:1px!important;width:1px!i=
+mportant;border-width:0!important;margin-top:0!important;margin-bottom:0!im=
+portant;margin-right:0!important;margin-left:0!important;padding-top:0!impo=
+rtant;padding-bottom:0!important;padding-right:0!important;padding-left:0!i=
+mportant">
+  </tbody>
+</table>
+
+<!-- ACQUISITION END -->
+</td></tr>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;word-break:break-=
+word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr=
+><td style=3D"width:598px;"><img alt=3D"Soccer Desk - The Guardian" src=3D"=
+https://i.guim.co.uk/img/uploads/2026/07/27/Screenshot_2026-07-27_at_9.47.4=
+1_AM.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D650&amp;s=3D9f812cd31ba406f84=
+3169e9c42cd40b9" style=3D"border:0;display:block;outline:none;text-decorati=
+on:none;height:auto;width:100%;font-size:13px;" width=3D"598" height=3D"aut=
+o"></td></tr></tbody></table></td></tr>
+<tr><td></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 0px 0px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:598px;"><img alt=3D"A soccer=
+ fan holds a poster of David Beckham as they wait to enter an event to anno=
+unce David Beckham's new Major League Soccer franchise in Miami, an Adidas =
+company handout picture of midfielder David Beckham wearing the Los Angeles=
+ Galaxy shirt, David Beckham poses next to his star during a ceremony honor=
+ing him on the Hollywood Walk of Fame in Los Angeles." src=3D"https://i.gui=
+m.co.uk/img/media/8262dabc3684b783d13be91b44a8e2818eb3a8b0/0_0_5000_4000/ma=
+ster/5000.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D650&amp;s=3Deb430850275b=
+795cd8b8f3ae9b0ed8c0" style=3D"border:0;display:block;outline:none;text-dec=
+oration:none;height:auto;width:100%;font-size:13px;" width=3D"598" height=
+=3D"auto"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text headline-text" style=3D"background:#FF=
+FFFF;font-size:0px;padding:16px;word-break:break-word;"><div style=3D"font-=
+family:Georgia, serif;font-size:13px;line-height:1;text-align:left;color:#0=
+00000;">
+<div style=3D"font-size:14px;line-height:17px;font-family:Arial, sans-serif=
+;font-weight:700;color:#0077B6;margin-bottom:8px">Sep 10, 2026</div>
+<h1 style=3D"font-size: 24px; line-height: 29px; font-weight: 700; color: #=
+000000; margin: 0 0 16px 0;">David Beckham may soon add another title: US s=
+occer Hall of Famer</h1>
+<div style=3D"font-weight:400;font-size:20px;line-height:24px;margin:0;colo=
+r:#121212">
+<p style=3D"margin: 0 0 16px 0;">The English superstar has gotten no shorta=
+ge of recognition, but his contributions to the American game deserve an of=
+ficial title</p>
+<ul><li><p style=3D"margin: 0 0 16px 0;"><a href=3D"https://ablink.editoria=
+l.theguardian.com/ss/c/u001.HesXJ57d0x1owJZ-aZPL3dMFWr92HeUFQk2v_wBSJ_UtgE-=
+pwHb4UgXNOWZZo0YVxxwURJTh4pagIEz-e5iiLLvWgGrJSjzS9eI4znaXqZIXBgACYC9P6aENz7=
+Gtjz6FYNtrghwgn_YkWqJGN-Jm5uVB9WMu-wXrWe4EEaF2A1E-B7DoAjPsOaCiSFSXbGaJxmFPy=
+Vr_IbwHDcmTsoKWQ999upBVDt1vJAsQIb848tqj9CRyZTxP10Rhuno3GNxKNRfy_AAQosOuA2q0=
+kGKJ8V_9uRkwHLSswNifab7mcfIPIlpP-NY93pmMXQBp8NkVac_E2qY7Slmnwg5jvEqR5uG9t0I=
+z8yYr1_UQjMRW0TK5rMSQBRsWDFtuEJQAaVxDiYlZ7L11-K6qfHuS3Q0QHgjzbygwWMktUdBq3c=
+XMmuyS1Igs4pd3Qupuvn4jjYxAXlwT6_cGouq76c4yEiJ5NAwnCoFWjHOYDX9uLj-jRFnBVRaVc=
+-5vmKN3OwlYJbtRhq9booFygKnqNvPRrnrLcwIxA47CEq8P6hoqLsNM0gIzsq-fn53jjpAuXPO3=
+XQtARzoqaoE-IEZwKeF0tMf3Va7Sxd3esJfg2mCBuhoG0UEkHoWfnsZu_o456DaomTLnN3MtbBN=
+peCHpsGEM1cM9M_eaJWeIF0aNjp8pAI1cN3KW7HxiY75z_yQGTfJ13O7NfcDZvddycdadOaLQDa=
+Lu6NKPJKbcmGgr8tVIq5IwrimpyW2Q0LepN8MGsbHovdqWrxYP55i_FbvCjU_DHBnEMWvtv6Xo9=
+0hrFvfEhIhGD2l2vWyQnKto0a5bfLT7hovPXp7QGfAIPWP1cF9-krZ0IxeO9cTo_eDJHIcXTwQy=
+EOGNMy2Mu3-s075Hsno0uO7t4jofHejufS-FwyiCb_r1ReSVWJumbkrkEwSyHaiNtPTgxiL8VUK=
+1uYNQLo_NkM2RT6DdnNvaAyd7wnbWGA9nXtImA0VVpilIj4g_l1V9pQT6O1IPtZoSNZ8QZ0YE-5=
+YVzEQeIHG0XpQav9uScwZ6P0Z6X8NdryryfLOjH9b_q923Cbk6COVizdAge0ihnerM7swdwq8np=
+bAw9lzTYuz-45hMO2y6bV2axyk-Byef0o1oDj4j2waX7rhw42hsz6tzhNeeLroBU9jlnRB8MR-i=
+Zj-zlmTJLennfGWxDxR0nH7BMa24khOAjsLiVg3YjFOTb1yUJbjiL0WV24ivrISwp778H2Y7XBp=
+95lHEMonUdxYVTEYNxJeccMWm2nBvkIvSdMGqm8gEfydoHoFALZZe61bBYMDb91hzL5IyP7n5ZZ=
+VnVlki-6R2Rg5VFMNKU3MxUiZ9ZOHXcs9FT00P9_LBh6QoPVB7ouqjttwzsqNaqUHT4HGps0usX=
+PllmjE9Si4g4D-p9ZXdB9Y6oa1pxadIqKlyfaiWUWUdrfkKDQ-68Pwvly1aaCjq_6McBnot5xSj=
+IFk-682oskykJUAyK3VlSF18CtjaXYaOYOiGnELuDuhkRQOx_87pzJkI-YQ9MbEPdkhEVqSYk64=
+LyNEQhoxd_EoEon-ck7pNHz0Y3xmMSJ5NoNQg3szHOu7AI4dXyqKkWv1zzrFyATzRyC0T3ajXcp=
+k3sgpHl7tgQI13WWVaKGs/4tx/ujI1VfiVTA2Oipjl0tuN-A/h14/h001.aTonShL9VHt3Q_2Lc=
+Ths8uJ5mAs1weLSex1bo2V4t9s" style=3D"color: #0077B6;"><strong>Sign up for o=
+ur free newsletter here</strong></a></p></li></ul>
+</div>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 1 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;direction:ltr;font-si=
+ze:0px;padding:0;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" style=3D"background:#FFFFFF;font-size:0px;padding:16=
+px 16px 0;word-break:break-word;"><table cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" border=3D"0" style=3D"color:#000000;font-family:Georgia, s=
+erif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:no=
+ne;"><tr>
+<td valign=3D"top"><span style=3D"font-size:24px;font-style:italic;font-fam=
+ily:Georgia, serif;font-weight:400;line-height:140%;color:#0077B6">Pablo Ig=
+lesias Maurer</span></td>
+<td width=3D"110" height=3D"90" style=3D"line-height:0;font-size:0"><img sr=
+c=3D"https://i.guim.co.uk/img/uploads/2026/05/28/Pablo_Mauerer.png?quality=
+=3D85&amp;dpr=3D2&amp;width=3D120&amp;s=3D9d33231f94bfbe49b35556b7c92aa264"=
+ alt=3D"Pablo Iglesias Maurer" width=3D"110" height=3D"90"></td>
+</tr></table></td></tr>
+<tr><td style=3D"border-top:2px dashed;border-top-color:#999999;background-=
+color:#FFFFFF;padding-bottom:8px">=C2=A0</td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">Next spring, when the US Soccer Hall of Fa=
+me welcomes its newest class, there will be pomp and circumstance. The hall=
+, which sits in a corner of Toyota Stadium, home of Major League Soccer=E2=
+=80=99s FC Dallas, will feature the enshrineds=E2=80=99 signature red jacke=
+ts. There will be glad-handing and speeches from players and coaches, misty=
+-eyed reflections on their upbringings and their careers.</p>
+<p style=3D"margin: 0 0 16px 0;">Many involved will be American-born soccer=
+ legends, of course. Yet every once in a while, a player whose footprint ex=
+tends well beyond the borders of the United States graces the stage. Such m=
+ay be the case next year when the hall potentially welcomes English legend =
+David Beckham into the fold.</p>
+<p style=3D"margin: 0 0 16px 0;">Some readers abroad =E2=80=93 and certainl=
+y plenty of readers here in the States =E2=80=93 will wonder why an ostensi=
+bly <em>American</em> Hall of Fame would admit non-Americans, something it=
+=E2=80=99s done since its inception. The answer lies in the nature of the A=
+merican game itself. Even our earliest heroes =E2=80=93 Joe Gaetjens and th=
+e like =E2=80=93 were immigrants, with Gaetjens scoring his famed goal agai=
+nst England in the 1950 World Cup when he wasn=E2=80=99t even a US citizen =
+(he never ended up becoming one).</p>
+<p style=3D"margin: 0 0 16px 0;">Advance through the decades and big-name, =
+American-born heroes do start to emerge, but they are still outpaced by tho=
+se from abroad. The history of the North American Soccer League is replete =
+with foreign-born members of the country=E2=80=99s hall of fame such as Pel=
+=C3=A9, Franz Beckenbauer and Carlos Alberto. Even the Major <em>Indoor </e=
+m>Soccer League got its due eventually: just last year, Steve Zungul, the =
+=E2=80=9Clord of all indoors=E2=80=9D, was inducted. Tatu, another foreign-=
+born legend of the arena, seems likely to go in this year.</p>
+<p style=3D"margin: 0 0 16px 0;">All of which is to say, there=E2=80=99s pr=
+ecedent for this. If you made a sizable contribution to soccer in the Unite=
+d States, you=E2=80=99re eligible =E2=80=93 period. It=E2=80=99s the way it=
+ should be.</p>
+<p style=3D"margin: 0 0 16px 0;">By that standard, there=E2=80=99s no doubt=
+ing Beckham=E2=80=99s credentials. Perhaps the most direct analog for his c=
+ontributions is the career of Pel=C3=A9, who arrived stateside in 1977 and =
+transformed the landscape of the game in this country. Like Beckham=E2=80=
+=99s stay with the LA Galaxy, the Brazilian=E2=80=99s playing career was su=
+ccessful. He won a league championship in 1977 and was wildly productive th=
+roughout the entirety of his stay in the US. He did every interview, signed=
+ every autograph, more or less, and went on to found a soccer camp in New J=
+ersey that produced thousands of soccer-mad children, more than one of whom=
+ went on to feature for the US men=E2=80=99s national team. He remained a p=
+resence for decades after his retirement.</p>
+<p style=3D"margin: 0 0 16px 0;">Still, after all of that, professional soc=
+cer in the US more or less collapsed within seven years of his departure.</=
+p>
+<p style=3D"margin: 0 0 16px 0;">Beckham=E2=80=99s playing career with the =
+Galaxy (2007-2012) was in some ways more successful than Pel=C3=A9=E2=80=99=
+s. Much has been made about his tumultuous arrival in the US, so expertly t=
+old by the late, great Grant Wahl in his book The Beckham Experiment<em>. <=
+/em>After the smoke cleared, though, Beckham was a mainstay for the Galaxy,=
+ working alongside Landon Donovan (a Hall of Famer himself) to lead the clu=
+b to a pair of league titles and two Supporters=E2=80=99 Shields.</p>
+<p style=3D"margin: 0 0 16px 0;">His true effect, though, came at a league =
+level. Major League Soccer created an entirely new roster mechanism =E2=80=
+=93 the designated player rule =E2=80=93 to accommodate Beckham=E2=80=99s a=
+rrival, a guideline that fundamentally changed its reality. Like Pel=C3=A9,=
+ scores of uninitiated fans filled MLS stadiums to see Beckham. And just as=
+ the Brazilian did, Beckham stayed well beyond the end of his playing days,=
+ eventually founding Lionel Messi=E2=80=99s Inter Miami, the current standa=
+rd bearer of the league.</p>
+<p style=3D"margin: 0 0 16px 0;">The Hall of Fame inducts candidates in thr=
+ee categories: player, veteran and builder, the last of which is reserved f=
+or those whose work was primarily off the field. Beckham=E2=80=99s inclusio=
+n this year comes in the veteran category, where he=E2=80=99s nominated alo=
+ngside nine other deserving candidates. The presence of his name has been t=
+he subject of much debate among the hall=E2=80=99s voters, of which I am on=
+e.</p>
+<p style=3D"margin: 0 0 16px 0;">Arguments against his inclusion center on =
+the fact that, in several years, Beckham=E2=80=99s name seems likely to com=
+e up on a list of =E2=80=9Cbuilder=E2=80=9D nominees. Certainly, helping to=
+ found Inter Miami, and luring the greatest player in history to play there=
+, is worth considering by that standard. So if he stands a good chance of m=
+aking it in that way, then why not save this spot for someone else?</p>
+<p style=3D"margin: 0 0 16px 0;">To me, though, voting him in now is an eas=
+y decision =E2=80=93 why wait? Beckham=E2=80=99s playing career alone stack=
+s up favorably against many members of the hall. And while he is unquestion=
+ably a =E2=80=9Cbuilder=E2=80=9D, so much of that work was simultaneous wit=
+h his career as a player.</p>
+<p style=3D"margin: 0 0 16px 0;">His mere presence on field legitimized a s=
+till fledgeling league and led to a decade-long boom that saw it nearly dou=
+ble in size. This, of course, is not solely Beckham=E2=80=99s doing =E2=80=
+=93 far from it =E2=80=93 but I could easily make an argument that Beckham=
+=E2=80=99s influence on American soccer is as big as Pel=C3=A9=E2=80=99s =
+=E2=80=93 and Pel=C3=A9, of course, has a place in the hall.</p>
+<p style=3D"margin: 0 0 16px 0;">So, English-born Beckham will be getting o=
+ne of my votes for induction. In truth, three of my five selections for ind=
+uction (Beckham, Tatu, Ken Cooper Sr, Tiffany Roberts and Clint Mathis) are=
+ foreign-born. That feels truly American to me.</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 2 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">Champions League head-turner</h2></div></td></tr>
+<tr role=3D"presentation"><td style=3D"padding-bottom:8px;border-top:2px da=
+shed #999999;background-color:#FFFFFF"></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Two socce=
+r players in jerseys with blue and red vertical stripes running on a green =
+soccer pitch with crowds beyond a Heineken ad." src=3D"https://i.guim.co.uk=
+/img/media/310adec3fc55cda4fc22be35918b55313e5e8dc8/0_0_4121_2747/master/41=
+21.jpg?quality=3D85&amp;dpr=3D1&amp;width=3D600&amp;s=3Da2c8572c70d0daa3020=
+1b05e458efde5" style=3D"border:0;display:block;outline:none;text-decoration=
+:none;height:auto;width:100%;font-size:13px;" width=3D"566" height=3D"auto"=
+></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Lamine Yamal had a great performance against Fe=
+yenoord in the Champions League. Photograph: Newhouse Media/MB Media/Getty =
+Images</div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">The Champions League is off and plodding t=
+hrough its embiggened league phase, with 36 teams playing the first of eigh=
+t lucrative midweek fixtures. Real Madrid <a href=3D"https://ablink.editori=
+al.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtj=
+hYSJYcaNsDra0BxnPgQz0JFmBwdNgsBrPBlrwLUKe0eQ6HrXF9ac9B0xcOzy3r0sYa-hgrWAnyI=
+sLAuV5QAnAA64gwB2VDuID_VIAqNNaR-lGUDyNM9IRn8IVDQkMaEBQsRtx8qRpckMoftK8BDfQM=
+HJocf1Tr97Ru8u-Ih9Aznu3gtYjxvwBCGTNd4uhpJYxcarzgPrUK6SjrS6CGd9YTaSAmTSw4Pc2=
+bbN4bFwyCgjC6FT1QRjyynl5a0oOP39OVb-g3eiofe4MkzoXYPgB04GYaciWuTfaJtuDVqg/4tx=
+/ujI1VfiVTA2Oipjl0tuN-A/h15/h001.Y9bHImCLTnc-asiJmk-FmSXYhWPxrPYEEX--aQm3Sl=
+E" style=3D"color: #0077B6;">withstood a late threat</a> from Inter, Man Ci=
+ty <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmF=
+uifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgmaJqUUVZIIIKpSIJjq3LA=
+sAUFoSPs7eXGFSYynpTLVfS0HcIXX2rbs4jH_1swAhKuW3daBPay1B-rpGNWdBHvqoE6WJrBYRJ=
+DIygr0nEbT_R_yKt5cQteanbf05z8D--wq3g_yB5yoLuhgInq6tA5fiifwR6xhKiJd8Zda9mUB1=
+a_QwYdB7Vpn7kCeoO_zskKq0-S4ar7cOQztA9l3sQ4Cyfg_g7DTziHV8Kbb7LKSIdDtrauI_Zoi=
+fLqva4CNzZo_uK-LSuHqGczDKQNK3m2w/4tx/ujI1VfiVTA2Oipjl0tuN-A/h16/h001.l-mgAq=
+qwWMS3-a4p1hhbfqfBUT__GWLv-J4XgwzqD_E" style=3D"color: #0077B6;">won their =
+first continental clash</a> post-Pep, and the showmen of Barcelona opened t=
+heir campaign with panache in a 5-1 thumping of Feyenoord.</p>
+<p style=3D"margin: 0 0 16px 0;">Lamine Yamal was especially lively in <a h=
+ref=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG=
+18IRyTNtZQ7fIEMgszcCSneHED_M98oT0Yx4o-mNe2vcLpTToxiOR-AlM0vhqPvVE_58FZJbAs7=
+srARPB9UG9lhrZ42-yT8qsJszNl8Bv0-EOg-1z-GfKwUXh-LuSrVBsdl5P3vd9UOoxuOueGrpdN=
+1DJyvSinE3iMF1-ceW4esinJParg9KeYgToQWR7ezb1OxtKEEP3HgbIUBOAzV8bIXyv-y25FUuq=
+cpTV7UsShcRocvi_AVBZMHJ-5Q9FUTAlR_l4KEk3O-bTmmv0qsLPXTlqeCF5vhMuwFznYuX1IbT=
+1CM/4tx/ujI1VfiVTA2Oipjl0tuN-A/h17/h001.zP-cT_vBEt_16xxqnu-D5uW_6lFWxXP0bpk=
+AmCOS9WA" style=3D"color: #0077B6;">Wednesday=E2=80=99s win</a>, an encoura=
+ging sight after his injury-riddled World Cup. He left grownups giggling th=
+roughout Camp Nou as he found a seam in the defensive wall to bury a 21-yar=
+d free kick, in between assists on the opening and final goal.</p>
+<p style=3D"margin: 0 0 16px 0;">As always seems to be the case for Barcelo=
+na, Hansi Flick=E2=80=99s side are a popular pick to win this year=E2=80=99=
+s Champions League. Those hopes seem better founded as this bumper crop of =
+La Masia prospects can now operate with the assurance that comes from Rodri=
+=E2=80=99s masterful sweeping and shepherding in midfield. Then again, even=
+ Feyenoord managed to find their own opportunities to exploit the Bar=C3=A7=
+a defense, capitalizing on their upfield wanderlust with incisive counters.=
+</p>
+<p style=3D"margin: 0 0 16px 0;">Better teams will be even more effective a=
+t exploiting their weaknesses, but that=E2=80=99s a problem Flick will face=
+ another day. For now, the reigning champions of Spain are atop the early s=
+tandings with aims to win a first continental title since 2015.</p>
+<p style=3D"margin: 0 0 16px 0;"><em>=E2=80=93</em><em>Jeff Rueter</em></p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 3 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">Elsewhere on the Guardian</h2></div></td></tr>
+<tr><td><table style=3D"border-collapse:collapse;font-size:20px;line-height=
+:22px;table-layout:fixed;width:100%;border:none" class=3D"LINK">
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgc=
+AT6BG_PxM_2ETXYHPy6rZ2R-JX87Cwa_Q7jL4zB-h81RqZrzmNvlB_t7K5Az_CHn8OtaxAAObjO=
+yGHhzsYeP6WWz7QCEIBnkV9hn36N4-_bbxvaZ9CgvWI6LgLzGrC9CMuxFdbnzX3aNysvdntQHxE=
+8Kh4g5FN_CfL9dKoJ4FaETtF65cCnxCxWpqkWNY4hMvfMbuHS_50WsjxJXEE9tE1wse8LCT-jDj=
+6psCwi7uRePB5FFtu2rx5QEGS_U1UbXl0eiew-9WK-mymdYoY-KM6X1NBJCHqmDrp0DSDD6ow/4=
+tx/ujI1VfiVTA2Oipjl0tuN-A/h18/h001.0tYYqs_MmilIGZ-u8aV_BgGc_2JBODFFY3SiC_Ba=
+P-0" style=3D"text-decoration: none; color: #0077B6;">Men=E2=80=99s Ballon =
+d=E2=80=99Or 2026 power rankings: Who has the best chance to win the big pr=
+ize?</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEBgtjhYSJYcaNsDra0BxnPgcAT6BG_PxM_2ETXYHPy6rZ2R-JX87Cwa_Q7jL4zB-h81RqZrzmN=
+vlB_t7K5Az_CHn8OtaxAAObjOyGHhzsYeP6WWz7QCEIBnkV9hn36N4-_bbxvaZ9CgvWI6LgLzGr=
+C9CMuxFdbnzX3aNysvdntQHxE8Kh4g5FN_CfL9dKoJ4FaETtF65cCnxCxWpqkWNY4hMvfMbuHS_=
+50WsjxJXEE9tE1wse8LCT-jDj6psCwi7uRePB5FFtu2rx5QEGS_U1UbXl0eiew-9WK-mymdYoY-=
+KM6X1NBJCHqmDrp0DSDD6ow/4tx/ujI1VfiVTA2Oipjl0tuN-A/h19/h001.ymXzC80UiMCwtK9=
+QXX8pjF18LX12QIBdBtmPax1_JlA" style=3D"text-decoration: none; color: #0077B=
+6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/im=
+g/media/c6d70e5deb7935122b52388ca978e3acdbb3d744/0_0_5000_4000/500.jpg?qual=
+ity=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3D6e9662530d716f614f85834fa2243c=
+07" alt=3D"Men=E2=80=99s Ballon d=E2=80=99Or 2026 power rankings: Who has t=
+he best chance to win the big prize?"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgW=
+JzM60qXU9NoPkXf8oXiGXYE6TqztgEmJULss3H3QwBmckd4ks9y38mYoLYLwktZjC6svntVYoqq=
+58y16BO2vfA_d9cLvPKPHxvMUEGuudm-WY4XJzd9BGkw4hoWxI-ZElwFDmq_0OL3h3MpAqh9TwF=
+sQ_PCkVEBM2vVG77oN7BI1MO0IzYQE33N5rduI4heCtKnxifsJ732bU6SUmLpkB7YQWE_BBtwEK=
+XJxR8QJRHQ02yiEmyUlBhrZgb7aDgkK7dSqcbGuA7OAKYSqcVTmA/4tx/ujI1VfiVTA2Oipjl0t=
+uN-A/h20/h001.T0Ka1yRQM-vK-WoTmF-us-7ZN7hCbG4jjaStWfTXW2o" style=3D"text-de=
+coration: none; color: #0077B6;">An interview with Dani Olmo: =E2=80=98Winn=
+ing the World Cup changes you, it changes your life=E2=80=99</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEBgtjhYSJYcaNsDra0BxnPgWJzM60qXU9NoPkXf8oXiGXYE6TqztgEmJULss3H3QwBmckd4ks9=
+y38mYoLYLwktZjC6svntVYoqq58y16BO2vfA_d9cLvPKPHxvMUEGuudm-WY4XJzd9BGkw4hoWxI=
+-ZElwFDmq_0OL3h3MpAqh9TwFsQ_PCkVEBM2vVG77oN7BI1MO0IzYQE33N5rduI4heCtKnxifsJ=
+732bU6SUmLpkB7YQWE_BBtwEKXJxR8QJRHQ02yiEmyUlBhrZgb7aDgkK7dSqcbGuA7OAKYSqcVT=
+mA/4tx/ujI1VfiVTA2Oipjl0tuN-A/h21/h001.8hL7dkp7cxbjiHzx8iyAeg6B5rSBzcKoFdCA=
+p9vGOq4" style=3D"text-decoration: none; color: #0077B6;"><img width=3D"160=
+" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/2054650759c79=
+da62a63530e7007d526220244f0/297_0_2970_2376/500.jpg?quality=3D85&amp;dpr=3D=
+2&amp;width=3D160&amp;s=3Dcd6f85a3be4d5578303823bd619a7228" alt=3D"An inter=
+view with Dani Olmo: =E2=80=98Winning the World Cup changes you, it changes=
+ your life=E2=80=99"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgt=
+hAMNqiCeq-FXCztUh9z5Jh9fg2KU6pHsNyybAAgH5zkRtwZmoWlcEWA57wkvmJ3ZgWbt1t6yAkf=
+6BNHH7-UIzTXK-lSEju78VrrU0Xp5Vac32J_YECkFNRh4oQ7jjriQUlDNAl_wCIZ5GNR8kerK4q=
+yS5XtH-HCPo3b_VHXKH7FmdAnou-KwG5c9hv4XtllHRi7fl9XDfn_PHRI3dZyCvBQWjj5WMb9jl=
+p2pRKPf-KnAS3MLw55tj0qxvwcRJQVZrovqexCQXPJUx5KKmeucVkxFRX4-1jutkkUxp1H03A/4=
+tx/ujI1VfiVTA2Oipjl0tuN-A/h22/h001.teD7vD9Nf87ZCF30Oa7IG6jEh0XtkYm-i_7DgDHJ=
+-jQ" style=3D"text-decoration: none; color: #0077B6;">Infantino installs lo=
+yalist to oversee Caribbean as he splits Fifa management</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEBgtjhYSJYcaNsDra0BxnPgthAMNqiCeq-FXCztUh9z5Jh9fg2KU6pHsNyybAAgH5zkRtwZmoW=
+lcEWA57wkvmJ3ZgWbt1t6yAkf6BNHH7-UIzTXK-lSEju78VrrU0Xp5Vac32J_YECkFNRh4oQ7jj=
+riQUlDNAl_wCIZ5GNR8kerK4qyS5XtH-HCPo3b_VHXKH7FmdAnou-KwG5c9hv4XtllHRi7fl9XD=
+fn_PHRI3dZyCvBQWjj5WMb9jlp2pRKPf-KnAS3MLw55tj0qxvwcRJQVZrovqexCQXPJUx5KKmeu=
+cVkxFRX4-1jutkkUxp1H03A/4tx/ujI1VfiVTA2Oipjl0tuN-A/h23/h001.RQ96e0u4isb8zzx=
+ZHtCxvqA3DzAhNwTcR4FjnDbN1iY" style=3D"text-decoration: none; color: #0077B=
+6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/im=
+g/media/1d77c2900d77b045f95a55d54b62f0a0ac7a6378/0_161_1088_870/500.jpg?qua=
+lity=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3D525e8a42182adec8b101f3182c55c=
+5b3" alt=3D"Infantino installs loyalist to oversee Caribbean as he splits F=
+ifa management"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgb=
+hf6iG544407x8uQ58BKdjR8sXgmkhGdcegdDnJ_wxcGTdkuBVbcA_RNUmmPltuNf-Li895Pg2NJ=
+vcIeV1qdmt-EMofcbvhe_-YUBMeRJt9v6gOM90jxs3C3I2m_o7pmomISrifWd_tsC32CtQz4HRb=
+MMpszQ_De4a3IyQBoz7tp4GIMhLwFb-gsygfyq0AvnCTF3T29C8Ib5tqCuZVhaRdZ5NJjNWACrM=
+bItBy9owLfnKtGY8b8SWlpuIVfgJMi5C0EUkwFnUpKEtJnbWeT8w/4tx/ujI1VfiVTA2Oipjl0t=
+uN-A/h24/h001.mKevmy_Has3NoCbFp5vzbdXAInFYhIpwixXsQDbznHI" style=3D"text-de=
+coration: none; color: #0077B6;">Man City-bound 16-year-old Cavan Sullivan =
+is MLS=E2=80=99s chaotic revelation</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEBgtjhYSJYcaNsDra0BxnPgbhf6iG544407x8uQ58BKdjR8sXgmkhGdcegdDnJ_wxcGTdkuBVb=
+cA_RNUmmPltuNf-Li895Pg2NJvcIeV1qdmt-EMofcbvhe_-YUBMeRJt9v6gOM90jxs3C3I2m_o7=
+pmomISrifWd_tsC32CtQz4HRbMMpszQ_De4a3IyQBoz7tp4GIMhLwFb-gsygfyq0AvnCTF3T29C=
+8Ib5tqCuZVhaRdZ5NJjNWACrMbItBy9owLfnKtGY8b8SWlpuIVfgJMi5C0EUkwFnUpKEtJnbWeT=
+8w/4tx/ujI1VfiVTA2Oipjl0tuN-A/h25/h001.fYM3RrcVyAiRYuV-MnSsS_jt2h_-bgiN63rm=
+hw4zmLM" style=3D"text-decoration: none; color: #0077B6;"><img width=3D"160=
+" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/25ba936e223ba=
+1f0411546abb4af4b54bbb04855/0_30_2596_2076/500.jpg?quality=3D85&amp;dpr=3D2=
+&amp;width=3D160&amp;s=3D38b8623f95f89bccda6e0558c619fb48" alt=3D"Man City-=
+bound 16-year-old Cavan Sullivan is MLS=E2=80=99s chaotic revelation"></a><=
+/td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgX=
+scubXe6OqHzyf8wX7TQOj2WC88omfVrfzgdTvTBBKGF3Idw5rBEvJsnJZNlx57Pfab69LZfDjA9=
+UPDGnRDiaTUdsTYqx86NubtcCZWIWdmkN8DWR4tyZqIzz1R1FkRta7evS18h1Xiib1zAomV0gHp=
+p1Z8jK_t_sV4l9lxUxmFFZmpci4kFDwZ3UvltbVHttoK82gkTIDQh9TpZvGmFqaIC3jtfXnqrii=
+i2ivHu_k8HpLCGsZzJNxkaM3aY_H7W/4tx/ujI1VfiVTA2Oipjl0tuN-A/h26/h001.4vARMIdh=
+9GI0lWpD66scmyj66b-ZOHlEiOlfEdDn8jY" style=3D"text-decoration: none; color:=
+ #0077B6;">=E2=80=98The heartbeat of game day=E2=80=99: how NWSL fans in Bo=
+ston built culture from the ground up</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEBgtjhYSJYcaNsDra0BxnPgXscubXe6OqHzyf8wX7TQOj2WC88omfVrfzgdTvTBBKGF3Idw5rB=
+EvJsnJZNlx57Pfab69LZfDjA9UPDGnRDiaTUdsTYqx86NubtcCZWIWdmkN8DWR4tyZqIzz1R1Fk=
+Rta7evS18h1Xiib1zAomV0gHpp1Z8jK_t_sV4l9lxUxmFFZmpci4kFDwZ3UvltbVHttoK82gkTI=
+DQh9TpZvGmFqaIC3jtfXnqriii2ivHu_k8HpLCGsZzJNxkaM3aY_H7W/4tx/ujI1VfiVTA2Oipj=
+l0tuN-A/h27/h001.VvlspfeWS_2kL4D4roaFpu6LewF60w5vQDlucm5JZQg" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/5a061293f3943e670f3f91d63ff72160fc4=
+036ce/82_0_5720_4579/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=
+=3Df426977e2e5e3a1711f353125c2f23e7" alt=3D"=E2=80=98The heartbeat of game =
+day=E2=80=99: how NWSL fans in Boston built culture from the ground up"></a=
+></td>
+</tr>
+</table></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 4 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">Games to watch</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0;word-break:break-word;"><div style=3D"font-family:Georgia, s=
+erif;font-size:16px;font-weight:400;line-height:22px;text-align:left;color:=
+#121212;"><table style=3D"width:100%" role=3D"presentation"><tbody>
+<tr><td style=3D"padding:0 16px 0 16px;border-top:2px dashed #999999"><p st=
+yle=3D"margin: 0 0 16px 0;"><em><strong style=3D"color: #0077B6; font-style=
+: normal; font-weight: 700;">Thursday</strong></em><strong>:</strong> There=
+=E2=80=99s still one more day of Champions League to go, and absent a clash=
+ between big names, the game most worth tuning in for may be <em><strong st=
+yle=3D"color: #0077B6; font-style: normal; font-weight: 700;">Como v RB Lei=
+pzig </strong></em>(3pm ET, CBS Sports Network) with the former making thei=
+r debut in the competition under Cesc F=C3=A0bregas.</p></td></tr>
+<tr><td style=3D"padding:0 16px 0 16px;border-top:2px dashed #999999"><p st=
+yle=3D"margin: 0 0 16px 0;"><em><strong style=3D"color: #0077B6; font-style=
+: normal; font-weight: 700;">Friday</strong></em><strong>:</strong> In the =
+NWSL, <em><strong style=3D"color: #0077B6; font-style: normal; font-weight:=
+ 700;">Kansas City Current v Orlando Pride</strong></em> (8pm ET, Amazon Pr=
+ime) pits two teams with plenty of talent but undergoing big changes agains=
+t each other. KC parted ways with sporting director Vlatko Andonovski in a =
+tersely worded press release, despite his record-breaking success with the =
+team last season. And Orlando fired head coach Seb Hines recently despite h=
+is past success.</p></td></tr>
+<tr><td style=3D"padding:0 16px 0 16px;border-top:2px dashed #999999"><p st=
+yle=3D"margin: 0 0 16px 0;"><em><strong style=3D"color: #0077B6; font-style=
+: normal; font-weight: 700;">Saturday</strong></em><strong>:</strong><em><s=
+trong style=3D"color: #0077B6; font-style: normal; font-weight: 700;"> </st=
+rong></em>In the Premier League, <em><strong style=3D"color: #0077B6; font-=
+style: normal; font-weight: 700;">Tottenham v Everton</strong></em> (12.30p=
+m ET, NBC) features two teams desperate for points for different reasons. T=
+hat evening, <em><strong style=3D"color: #0077B6; font-style: normal; font-=
+weight: 700;">Nashville SC </strong></em><em><strong style=3D"color: #0077B=
+6; font-style: normal; font-weight: 700;">v Inter Miami</strong></em> (7.30=
+pm ET, Apple TV) will be a meeting between two emerging rivals who are also=
+ the top two teams in the league this year.</p></td></tr>
+<tr><td style=3D"padding:0 16px 0 16px;border-top:2px dashed #999999"><p st=
+yle=3D"margin: 0 0 16px 0;"><em><strong style=3D"color: #0077B6; font-style=
+: normal; font-weight: 700;">Sunday</strong></em><strong>:</strong> No deba=
+te here: the game to watch is the Manchester Derby. <em><strong style=3D"co=
+lor: #0077B6; font-style: normal; font-weight: 700;">United v City</strong>=
+</em> is at 11.30am ET on Peacock (with plenty of coverage, live and otherw=
+ise, on the Guardian).</p></td></tr>
+</tbody></table></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--><table role=3D"pr=
+esentation"><tbody><tr><td><div style=3D"height:20px;line-height:20px">=E2=
+=80=8A</div></td></tr></tbody></table>
+<table width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"padding=
+:0"><div style=3D"margin:0px auto;max-width:600px">
+<!-- START - DO NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+
+<!-- RETENTION START -->
+
+
+
+
+
+<table width=3D"100%">
+  <tbody>
+			<tr>
+				<td>
+					<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+ role=3D"presentation" align=3D"center">
+						<!-- Padding -->
+						<tr>
+							<td class=3D"img pb-20" style=3D"font-size:0pt; line-height:0pt; tex=
+t-align:left; padding-bottom: 20px;">&nbsp;</td>
+						</tr>
+						<tr>
+							<td style=3D"border-right: 5px solid #FFE500; border-bottom: 5px sol=
+id #FFE500;" align=3D"center">
+								<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"center">
+									<tr>
+										<td style=3D"border: 5px solid #052962" bgcolor=3D"#f1f8fc">
+											<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" role=3D"presentation">
+												<tr>
+													<!-- Body copy -->
+													<td width=3D"100%" colspan=3D"3" valign=3D"top" style=3D"paddi=
+ng: 10px 10px 10px 10px" bgcolor=3D"#f1f8fc">
+														<table style=3D"width:100%;">
+															<tr>
+																<td align=3D"left">
+																	<p style=3D"font-family: 'GuardianTextEgyptian', Georgia, =
+serif; color:#000000; font-size: 16px; line-height: 22px; text-align:left; =
+margin: 0;">
+																		The Guardian is a reader-funded news organization that an=
+swers to no one other than the public. You can <a href=3D"https://ablink.ed=
+itorial.theguardian.com/ss/c/u001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx=
+3IF5rKLrpZ7i5OYjw2FpxFpAFCGJ3RrPpxurKDXdpA_BnpoSfplZoe4FK6KFCtcVQD2KO161MnL=
+UiHDlviIeRM0t0JJLh2C6UDWdwz1KMR62fNQqM9zbfXimaR8FJDVW-DccoYY8arx7fJlSdPbLz-=
+ExJSho4NS_XUgjt1m2MY68msKK91RFA_WHh7FAdRozYbdrWCwN8L7PwaePUyVaRUNp8LwGoZ3CG=
+uEpdjk0i_QXexTowU77z5lhgCuhnKpBeQ/4tx/ujI1VfiVTA2Oipjl0tuN-A/h28/h001.5bQ10=
+QO3V_y0Wjg3_ka_-QFFs7PrODOyqIOpkg4INM4" style=3D"font-color: #000000; color=
+: #000000; text-decoration:underline;">support us here</a> =E2=80=93 it=E2=
+=80=99s quick, and any amount helps. Thank you.
+                                  </p>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<!-- CTA -->
+													<td valign=3D"middle" colspan=3D"2" style=3D"padding: 10px 0px=
+ 20px 10px" bgcolor=3D"#f1f8fc">
+														<table align=3D"left" role=3D"presentation" width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width: 100%">
+															<tr>
+																<td valign=3D"middle" align=3D"left">
+																	<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" ro=
+le=3D"none" align=3D"left" style=3D"border-collapse: separate !important;">
+																		<tr>
+																			<div>
+																				<a href=3D"https://ablink.editorial.theguardian.com/ss/=
+c/u001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx3IF5rKLrpZ7i5OYjw2FpxFpAFCG=
+J3RrPpxurKDXdpA_BnpoSfplZoe4FK6KFCtcVQD2KO161MnLUiHDlviIeRM0t0JJLh2C6UDWdwz=
+1KMR62fNQqM9zbfXimaR8FJDVW-DccoYY8arx7fJlSdPbLz-ExJSho4NS_XUgjt1m2MY68msKK9=
+1RFA_WHh7FAdRozYbdrWCwN8L7PwaePUyVaRUNp8LwGoZ3CGuEpdjk0i_QXexTowU77z5lhgCuh=
+nKpBeQ/4tx/ujI1VfiVTA2Oipjl0tuN-A/h29/h001.tDhCx7g5uloCkDIDnSCcIWs1hP0R7Zi8=
+bXXDN3jZtX4" target=3D"_blank" style=3D"padding: 10px 0px 10px 10px; backgr=
+ound-color: #000000; border-radius: 40px; color: #ffffff; font-family: 'Gua=
+rdian Text Sans Regular', Arial, sans-serif; font-size: 16px; line-height: =
+24px; text-align: center; text-decoration: none; min-width: auto; padding: =
+10px 15px; -webkit-text-size-adjust: none; white-space: nowrap; mso-hide: a=
+ll;">
+																				<strong>Support&nbsp;us&nbsp;<img valign=3D"middle" cla=
+ss=3D"text-14" src=3D"https://cdn.braze.eu/appboy/communication/assets/imag=
+e_assets/images/65ef28410d2aa8005eed83c5/original.png?1710172224" width=3D"=
+16" height=3D"16" border=3D"0"></strong></a>
+																			</div>
+																		</tr>
+																	</table>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- Padding -->
+						<tr>
+							<td class=3D"img pb-20" style=3D"font-size:0pt; line-height:0pt; tex=
+t-align:left; padding-bottom: 10px;">&nbsp;</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		<img src=3D"https://email.mvt.theguardian.com/1.gif?identity_id=3D1357914=
+5&amp;variant=3DEditorial_CNApr25ShortMiddleAcqUS&amp;send_id=3D6aa2ba84dea=
+f1c46101f8369f21b86ad&amp;position=3Dfooter&amp;" alt=3D"" width=3D"1" heig=
+ht=3D"1" border=3D"0" style=3D"display:block!important;height:1px!important=
+;width:1px!important;border-width:0!important;margin-top:0!important;margin=
+-bottom:0!important;margin-right:0!important;margin-left:0!important;paddin=
+g-top:0!important;padding-bottom:0!important;padding-right:0!important;padd=
+ing-left:0!important">
+  </tbody>
+</table>
+
+<!-- ACQUISITION END -->
+</div></td></tr></tbody></table>
+<!--[if mso | IE]></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]--><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td=
+>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" wid=
+th=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:=
+0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margin:0px aut=
+o;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"width:100%;"><tbody><tr><t=
+d style=3D"border:1px solid #DCDCDC;border-top:5px solid #999999;direction:=
+ltr;font-size:0px;padding:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:566px;" width=3D"566" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:566px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;text-al=
+ign:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:3=
+96.2px;" ><![endif]--><div class=3D"mj-column-per-70 mj-outlook-group-fix" =
+style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;v=
+ertical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ve=
+rtical-align:top;padding:0;padding-right:16px;"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Georgia, serif;font-size:20px;line-height:20px;text-align:left;colo=
+r:#000000;">Get in touch</div></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Guardian Text Sans, Arial, sans-serif;font-size:13px;line-height:20=
+px;text-align:left;color:#000000;">If you have any questions or comments ab=
+out any of our newsletters please email <a href=3D"mailto:newsletters@thegu=
+ardian.com" style=3D"text-decoration: underline; color: #0077B6;">newslette=
+rs@theguardian.com</a>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td><td class=3D"" style=3D"vertical-align:top;width:169=
+.8px;" ><![endif]--><div class=3D"mj-column-per-30 mj-outlook-group-fix" st=
+yle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ver=
+tical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vert=
+ical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left" =
+style=3D"font-size:0px;padding:0;padding-bottom:16px;word-break:break-word;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr><td =
+style=3D"width:169px;"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAnMu9V-uhz-U3L0GbVLcqz5=
+H_NyZeYAG7WqtQpiczrjqwNx0z7C8pLUZ266_6HOA-iK-5jp6FXK2G3aQkEfWBhLQ3AZQpMF3V1=
+f0jCpJXvXAb8qgiCyHCLW5rb8ekGvq7hq2tkCVUTfVZ4ga_XDADvpas-g_yGKHmIU2GIYGhYUk6=
+-QJqAdYMSj7Aw8aZGPcyLsf-Q1hHC5EVRR0puwgWU/4tx/ujI1VfiVTA2Oipjl0tuN-A/h30/h0=
+01.6FKgbZ-APDPirHyR6QWQorcUa3qBsffMTbMFlWFcepU" target=3D"_blank" style=3D"=
+color: #0077B6;"><img alt=3D"https://www.theguardian.com/us" src=3D"https:/=
+/cdn.braze.eu/appboy/communication/assets/image_assets/images/614211d0ff8fc=
+b5f969e0ccd/original.png?1631719888" style=3D"border:0;display:block;outlin=
+e:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width=
+=3D"169" height=3D"auto"></a></td></tr></tbody></table></td></tr></tbody></=
+table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;padding-bottom:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left"=
+ class=3D"text text-with-border" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><div style=3D"font-family:Guardian Text Sans, Arial, sans-se=
+rif;font-size:13px;line-height:20px;text-align:left;color:#000000;">
+<a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71=
+YMHfBFwuXBK43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmRWLgxpeM4Hg5EFO6EyZ7K10A9=
+RxtXMMfV-TQhbbeQTSZwgoloMDY-nPj63pdp_3baDNw2nwDMXA2Vy3siSYdQyvdiFZESD8abay7=
+FURhsUxrKX047sUFD97VcVL2FyrL-NM-pyb94Mwe_8atY_1CvJLSlY-cnmvYBmo3IbQ0xBCV6HQ=
+XBFAJAkm68Ob_qPUlcByj8HfkQbnaYA7MbIG8urA/4tx/ujI1VfiVTA2Oipjl0tuN-A/h31/h00=
+1.gYEPE_5ayporA9oayTMfacuxpaPcDkX7W9pYeSftrVw" style=3D"font-family: Guardi=
+an Text Sans, Arial, sans-serif; text-decoration: none; color: #0077B6;">Ma=
+nage your emails</a> | <a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK43AaH4pdDevU7uuHt6K_5zaO_ntyE7Unu01Eppyv6=
+4P1mcqNhUDYBXNKMDfiQtRak4Sahmmj9tOnwPsSwzGN33ykPob4ud3oa97lSX4cLqzFLDKBDUnM=
+XMIH_51dzB4OxfWWl9Bm6T_mTCcD64PtaWU-Gz6P3V0y5f0ygVlAVGDRBuB-05v28vFXcKn-Ug/=
+4tx/ujI1VfiVTA2Oipjl0tuN-A/h32/h001.ldTCIEYZoirGkPwtrvk-TIFXsjOHBjKSZK2qb_F=
+Mtz4" style=3D"font-family: Guardian Text Sans, Arial, sans-serif; text-dec=
+oration: none; color: #0077B6;">Unsubscribe</a>
+</div></td></tr></tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;padding-bottom:16=
+px;word-break:break-word;">
+<p style=3D"border-top: solid 1px #DCDCDC; font-size: 1px; margin: 0px auto=
+; width: 100%;"></p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #DCDCDC;font-size:1px;margin:=
+0px auto;width:566px;" role=3D"presentation" width=3D"566px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;word-break:break-word;"><div style=3D"font-family:Guardian Tex=
+t Sans, Arial, sans-serif;font-size:13px;line-height:20px;text-align:left;c=
+olor:#999999;">You are receiving this email because you are a subscriber to=
+ Soccer Desk. Guardian News &amp; Media Limited - a member of Guardian Medi=
+a Group PLC. Registered Office: Kings Place, 90 York Way, London, N1 9GU. R=
+egistered in England No. 908396</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table>
+</div>    </body></html>
+
+--504d5ce9ab431ceb24860c34dff52953ece4dd3dcafda9941c5b129ea060--
