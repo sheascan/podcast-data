@@ -1,0 +1,1578 @@
+Delivered-To: mike.mcconigley@gmail.com
+Received: by 2002:a05:6802:34da:20b0:64d:970d:4142 with SMTP id e26-n2csp4739799oce;
+        Tue, 15 Sep 2026 04:13:03 -0700 (PDT)
+X-Received: by 2002:a05:6a20:9386:b0:3d3:ae50:97c7 with SMTP id adf61e73a8af0-3dd52a222b9mr1515418637.20.1789470782883;
+        Tue, 15 Sep 2026 04:13:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789470782; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OEqibkTzDkXyglJrAtLTSiw0oEEk2QMqYVXrGagR0lwpp1Q8ilL849htl3x9qlbVof
+         PtwLkGtwJKCUrZMsEEsPVypHq1MPeHcH0907JJm/ypbC42rFK2NfFfGBBoMB86BL1yMh
+         BTvsOc+/9ZMT0CnQG2VgIPOjuvIXFHGDouQlVe/1/zM+uD9PuggRqE4+0uvFZOHQnmrm
+         ki4KVXnQUzjbS4+c9pVUoLBzgEwVe6y+hJI5kcm0E6lWRWwKqKfw4Ad2f4wApUAtf4pU
+         xSbWbdZdjDOFTDKhwjdJ4WL7b2xJJLWw8oTUUECo6kWYQ5Kwf0pzRBOd1d/M+z0mfvq7
+         NWhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:list-unsubscribe-post:list-unsubscribe:reply-to:subject
+         :message-id:mime-version:from:date:dkim-signature:dkim-signature;
+        bh=cggplL9h0sXjYglgrrn0y+y75Ba5rL2FaxXCj2utXrc=;
+        fh=tUTYCbTOUI69DxYKXGXRz08XnPP7jEKRU6E5rS0DFR4=;
+        b=nurXbUKRqC+W5G14tk4ht0GA/oM2IGjTmftFQY5cXevjf6yNBtosl91VdVZ18QGEFe
+         DyvBr9oGVp42HI2PwaYgOHlmUXIUp3HjJW5TjZq+QVe4bROOsobLVMYPuUzpnLccKlcr
+         w25RG8vfyQhpGfqv5lqESUMd8sH75vn5BUGeHNLs1zMpGeJijYP+AR2+zFACZ0hFfN5V
+         ivPiRiTw021kJKDy6szCQ8yv4jgl6iFVtkRc41W97zYqRzrbjDMK0Cs/3frEf0n7a0cx
+         SId702qH4RcNafTA8El+SBEY+B87A+SWRCj3RzhpvBxJ3rcmvy4Y/dECjFBpSrcUwG9v
+         q/IA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=QQUFWQMJ;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=ViSZaWXr;
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 223.165.120.202 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+Return-Path: <bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com>
+Received: from o4890.abmail.editorial.theguardian.com (o4890.abmail.editorial.theguardian.com. [223.165.120.202])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-cc4c68822c8si23279135a12.338.2026.09.15.04.13.02
+        for <mike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Sep 2026 04:13:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 223.165.120.202 as permitted sender) client-ip=223.165.120.202;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=QQUFWQMJ;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=ViSZaWXr;
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 223.165.120.202 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=editorial.theguardian.com;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=s1; t=1789470781;
+	bh=cggplL9h0sXjYglgrrn0y+y75Ba5rL2FaxXCj2utXrc=;
+	b=QQUFWQMJ6GgEJ1v4jqDSeKzSVgZ+acC/52qodqe0XFQSHgZlRIWv66a/Co4r6v1aDjJ6
+	wHOumG6FVPa6fq4LdpJ2tf+uBjVTYfA//Gh636i3Z5b+AuwQ6rgHfSWwcMVxIA2lyi18CI
+	OuJvVfGh4AsGTyA0fHx6GNLgJyuNF1BwZdiibqRl31LDryYhN9Rbt2pKK3KhPuoKyFxYIh
+	ha7/PylmojruP0AIOW0tfD3GYw1TZLuXMYVNQ3G8MkjHrp4BTN1HRIcxVs46QeX5u+Krgk
+	p7nwgwevQvSXfUkS8wp1qzu7/JcTVjgrCkOLoncSBkwegMwbkUFcbcueIevMycjA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; t=1789470781;
+	bh=cggplL9h0sXjYglgrrn0y+y75Ba5rL2FaxXCj2utXrc=;
+	b=ViSZaWXr5ojGpVuDxwTtpUvg0CA0sKXwyV5H6DTacDN6KuMN7PQk2FjKwJpoz/4TfGje
+	2P2NkCExj23afOAw0zP9XkQwXI1QUdjqGgmLqlcMdXHQLGucpTLWP6vphMHnsZoA9bSvHP
+	bZiLWWJVg98H6yY+dqcWn8lM0d6S2Xj08=
+Received: by recvd-68fdbf8579-bn652 with SMTP id recvd-68fdbf8579-bn652-1-6AA9283D-4E
+	2026-09-15 11:13:01.49035008 +0000 UTC m=+1860499.783298788
+Received: from ODE0Mzg3Mw (unknown)
+	by geopod-ismtpd-canary-0 (SG) with HTTP
+	id tbFgd1rhTXqg1Fy8utX4pQ
+	Tue, 15 Sep 2026 11:13:01.427 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=c41c758f94d581ac24af9eded2c12edcb1220bb4f10f9e16f0af1ab422a5
+Date: Tue, 15 Sep 2026 11:13:01 +0000 (UTC)
+From: The Guardian <info@editorial.theguardian.com>
+Mime-Version: 1.0
+Message-ID: <tbFgd1rhTXqg1Fy8utX4pQ@geopod-ismtpd-canary-0>
+Subject: Why this AI warning hit differently
+Reply-To: techscape@theguardian.com
+List-Unsubscribe:
+ <https://profile.theguardian.com/unsubscribe-all/13579145%3A1789470781/8044ab93b9cd4f24608dc231d2c5ccc6ad1afc49>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EH=2FXI28ruo0ozWDQcpBSyaYR+tUix=2FHrsngcfNTFfr7ETe3ubjr340jdBR?=
+ =?us-ascii?Q?S=2F0glDit9NpIVoJQO9P29qVNgxtUhhZ7n7Wjxm3?=
+ =?us-ascii?Q?qEw+=2FCuzm8JI5Dx+RsXxh3wjQJWR=2F=2FNrjOcONiU?=
+ =?us-ascii?Q?R5JEJlkq=2FmfUxhFUAYOBZpw7DHWzVr=2FQpCbP3Ap?=
+ =?us-ascii?Q?u3zep34UECbc4PbVHm3UIQ+01B=2FbXSa0uISX4mw?=
+ =?us-ascii?Q?zok7peJUWT5tWCqZUwFkeCUfd+=2FX4xNJRLGBMLI?=
+ =?us-ascii?Q?SUk1fGAYzXup9R41mTxwJENy9A=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDrjDW6011yC6XOo?=
+ =?us-ascii?Q?3uya5MXG1rwXrNOiHT=2Fly6w9aiL4yAdjvuxJc=2Fb?=
+ =?us-ascii?Q?H49ZG5L4hWn1PuyFmsdfJR70W6PlCPV8xtYj2G9?=
+ =?us-ascii?Q?xEQvPE8OU6ZisB=2F=2FrJMADmkfah5W7jSJPvewg6f?=
+ =?us-ascii?Q?wETwwYeqqiIqkHqDl5JcGc5lT+jHy4PbJvBbVuL?=
+ =?us-ascii?Q?x52WrK1ld5QHf2YYhnhNhoGhV6q50VeVjinEY2e?=
+ =?us-ascii?Q?erJddL2dQc6UF4D5XWnSgmJQBfRKlVclsOIZJdq?=
+ =?us-ascii?Q?bYl8YqbfA54xKbFl8VAHyKW8KnVyRlsQdFVmTnW?=
+ =?us-ascii?Q?M2RxQm2VeWRj5qlZkJ+aRt=2FnSQgiGOyZb9xOrBk?=
+ =?us-ascii?Q?9Eio6o+eeUe3cm1vXAdin+1S6EspIl+s3VxQsNo?=
+ =?us-ascii?Q?pt4UCP=2FEZ4f1hAObW+UaadLj=2FtHJ0xnnk2Kk49A?=
+ =?us-ascii?Q?A19oUCqjWPIgS3GhlLSne0MycfLY7IEXlNejSXc?=
+ =?us-ascii?Q?Wk5u7ZE3LW+A0umjOq7y3rTokKsCV6I7xp7Q9A1?=
+ =?us-ascii?Q?5nIwVsq0A=3D=3D?=
+To: mike.mcconigley@gmail.com
+X-Entity-ID: u001.BbpwILxocfqEYp+CrGsJkw==
+
+--c41c758f94d581ac24af9eded2c12edcb1220bb4f10f9e16f0af1ab422a5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+
+
+
+
+
+
+OpenAI releases new AI agent =E2=80=93 after admitting one went rogue | Tec=
+hnology | The Guardian
+
+
+OpenAI releases new AI agent =E2=80=93 after admitting one went rogue
+
+
+Plus: Americans think they have it bad with unwanted surveillance. They sho=
+uld visit London
+
+
+Who would have thought that an a AI agent would escape containment? Photogr=
+aph: Dado Ruvi=C4=87/Reuters
+
+
+Blake Montgomery
+https://ablink.editorial.theguardian.com/ss/c/u001.wtfWA9uPAn8i7Lb0U_hU2kE-=
+FtQiRYGJ_41pt4vU2TSUf81RrgtarsPO61KLhx2YJCTb1eSoI4GV9wEpY57BZftTSY0qN4BPKRW=
+_R9R7-dca80eaUNlloAelu7fI7VlNbyQV8RGrCnxcG-LP_SRsTQpOuhdF8u4G3VH-0dA5l3-Fz4=
+M-Kw_CvWtoKW4Swx7c644BuPqF83jrS4Q5QCnmLKqxMrYqWCQ9kMpD6lUC-jY/4u2/6-9JS_n7T=
+9S_pJHlQ-jd9g/t0/h001.WGKBEM2CUqDWhkBAfhgYktzWkIPgfs11UJjF1V-WIOM
+@blakersdozen=20
+
+
+Hello, and welcome to TechScape. I=E2=80=99m your host, Blake Montgomery, U=
+S tech editor at the Guardian, writing to you after visiting Coney Island i=
+n New York City, where I ate a hotdog, rode a ferris wheel and enjoyed a qu=
+intessentially American summer holiday.
+
+Today in tech, we=E2=80=99re examining OpenAI=E2=80=99s new model release a=
+nd the Silicon Valley=E2=80=99s monopoly power, and wondering why Brits and=
+ Americans have such vastly different opinions about surveillance cameras.
+
+OpenAI hails
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFetC2-vz-iSNLdPCE5TRVFwdA4kOfb9q2TUpN=
+8LeZPzUsLCq_XU6wkU_ZyuUcO9K82zpvsh5u6AzuFPaXsYxSjYN6nwFLfZRph-ZeqFa_8_HPFiX=
+OYx8kAiV3UUMXRY_0OcTLgXDOqtLY8a7xTAqOCkSlH6dn7LY27bua3E4qezxD-71i6v6Ysxtqng=
+qo4zDLUssrmoM1zVGx6DFG3kHI85rRShm-WoJQfYam5NxsNjvBJtxnngetR7sjrQEJEISSO/4u2=
+/6-9JS_n7T9S_pJHlQ-jd9g/t1/h001.N-Wfvt3MI7W8_5a7qK30OKvnTG6q9wWR6IHDNd-tG3M
+=E2=80=98new era of artificial general intelligence=E2=80=99
+even as a grim future emerges
+
+OpenAI released a new artificial intelligence model this week, Astra, just =
+as more concerning reports are emerging about hacking by a rogue agent in J=
+uly.
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeXvqjKx9MTfkGaqE9z8Qc8RoPI4wQaOp77QL=
+k36aN0PzIXPrB1uR9bH23YWUs6mhiSt3Q3TXWFoYz_M3OKos9XGclGp2HPiy2seDta8c1SH2sb5=
+99DFQzpboJE99O6zapSDAEa85NoDSd4PpVrTv9_LIyjAImW8dlZZ4raFUOtCiD_gOoWTC8fzzuT=
+635ghuBAS4_jeR9ZngrblECydrSqk5d74JJwk73_onRLNejNMqSyVenyTFmtenTwaRyfuPC/4u2=
+/6-9JS_n7T9S_pJHlQ-jd9g/t2/h001.6yQkTtvImjpDcStmpbYyW1Qwq7AwWeELMGRo2zx_e_Q
+
+Conservatives split from Silicon Valley allies as datacenter backlash grows
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeXvqjKx9MTfkGaqE9z8Qc8RoPI4wQaOp77QL=
+k36aN0PzIXPrB1uR9bH23YWUs6mhiSt3Q3TXWFoYz_M3OKos9XGclGp2HPiy2seDta8c1SH2sb5=
+99DFQzpboJE99O6zapSDAEa85NoDSd4PpVrTv9_LIyjAImW8dlZZ4raFUOtCiD_gOoWTC8fzzuT=
+635ghuBAS4_jeR9ZngrblECydrSqk5d74JJwk73_onRLNejNMqSyVenyTFmtenTwaRyfuPC/4u2=
+/6-9JS_n7T9S_pJHlQ-jd9g/t3/h001.4YraSdn1tChYIXI3jFPTqAHKg-vRq3kDtbGsRF8gTzc
+
+Read more
+
+
+OpenAI=E2=80=99s president, Greg Brockman, heralded the new model as =E2=80=
+=9Cartificial general intelligence=E2=80=9D (AGI), a fuzzy term that at its=
+ basic level means an AI that is more capable than a human being at intelle=
+ctual tasks. =E2=80=9CIt=E2=80=99s not unreasonable to feel that we are now=
+ in the AGI era,=E2=80=9D he said.
+
+But if the announcement sparked amazement, it was as much cause of concern.
+
+In July, OpenAI revealed that its AI agent, a type of software capable of c=
+arrying out tasks autonomous in response to human instruction, had gone rog=
+ue during safety testing and hacked a developer forum, Hugging Face. Last w=
+eek, news broke that the agent had not only hacked Hugging Face, but also a=
+ German website, and that different AI agents had staged conversations with=
+ each other and seemed to have discussed how to collaborate on breaking con=
+tainment.
+
+OpenAi had delayed Astra=E2=80=99s release due to concerns over its cyberse=
+curity capabilities, even announcing a supposed pause on developing its AI =
+in the middle of August. That pause seems to have been short-lived, only tw=
+o weeks.
+
+The combination of Astra=E2=80=99s capabilities and OpenAI=E2=80=99s recent=
+ disclosures points to a worrying future. If the model is better at hacking=
+ than its predecessors and smarter than a human, will the future consist of=
+ one cyber-attack after another, forever, launched autonomously and without=
+ oversight, by rogue AIs? (Please not.)
+
+OpenAI itself has warned of this future. The startup=E2=80=99s chief global=
+ affairs officer told a Guardian reporter in late August that people should=
+ prepare to defend against =E2=80=9Congoing, persistent=E2=80=9D cyber-atta=
+cks.
+
+As ever, though, we should take fever-pitched warnings about AI with a grai=
+n of salt that tastes like marketing. It is great business to be the creato=
+r of near-omnipotent technology, especially if you need to gin up excitemen=
+t =E2=80=93 fearful or positive =E2=80=93 that will hype up your upcoming d=
+ebut on the stock market.
+
+Read more:
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeMV1o9Ijy-0QesKHpCO382WgTWK1ACWyCZFm=
+atsn9iKD2KT0_ytzFIgW3GXjan_XAutSBYtdsgSEjMP0EZodQNjnJXXPoXxvCCK0gg4X65cFiGR=
+DJw4-SOnd43etcM47RpSAVNQQcleGAeeeamC9a0r6FfLt1tGFuO92j0-zmq_3bnqXyT3Ckm34G4=
+o4DopOKWSpCZ99oDI1nrsgBKvhI7bc05S62uiJv5MAaRWMYKmw/4u2/6-9JS_n7T9S_pJHlQ-jd=
+9g/t4/h001.NDNmcDW9CHYqZ59LN5W0Ac0JeQBw_sv97L8tdbDdQzE
+=E2=80=98We are hitting a different chapter=E2=80=99: OpenAI leader warns o=
+f threat of =E2=80=98persistent=E2=80=99 AI cyber-attacks
+
+This week in AI
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFe-rHtvbreQkstfRJz3ER8I2a8urFT0TxDnRA=
+UwmSKYUKBnde6_YRP9ikLYggdTn-Ae8VK-TKM96EookNr2JsZAFpbqDeJY5-Iuu36da7Bf8BlYN=
+fy239tHP5ux4BncByNSAkcaKBq2FWAa6AnmAcNiP3lOTQcMvskWbJKSn4pBclKfFEfAlyJ-DfWn=
+ND_BoC83OuCqI9mjWcH7ATw7l4nhESlFcfO13kw5XispnyAv6k/4u2/6-9JS_n7T9S_pJHlQ-jd=
+9g/t5/h001.om-ZZPsMJh3paV8SFc8pKy-gtr0Z0ty3R1v6YxybHtA
+Nvidia to buy developer platform Hugging Face in $12.9bn deal
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeGsMzakjsEhVXq5aLB96mfwKvCV-5jyUAqcb=
+IM017ErWKxBQLNbvnXBZ1M36ZZx2jJJv1CGiTWZ-oLB4RGSL8H21-Byzr8FXFcSSgF68X9dDiIw=
+v8C33n31U3qpsZ2NJa40XjwSC6Slwz1FFOzPrYl3JQ5wXA9mTAYb9KPqcN9FdU8un_LIrpOdhIg=
+cNWf0QYVqzH-KsLXpiqXzV6pc0gPpMNwB9y-1gOjl3tsTIOs2E/4u2/6-9JS_n7T9S_pJHlQ-jd=
+9g/t6/h001.si_Hkapbnkudg9nHUCSNU_8ZEuKF8bUvFc9Yt71HGy4
+New York City to ban student AI use in public schools until high school
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeyFU__Se4FbPyS0e8AMFIH0jXB0uNaZGt2cG=
+q5f8ni5bkFUyrS6UB0QIGx88SVO9WsWNsFIaYvo6mwdeznFJanPFOYd6QesP0wjxSXXDqz4QRN-=
+BpgOGK3UcdfsTS3zs_6FkmdMotExhUfvKNMTP3YWaStYErK4KQVqv0yfRdmbGk8ocAMLkjCAmeh=
+vOl4rNnpO5NRniHvoI7iBBrb5kETQ/4u2/6-9JS_n7T9S_pJHlQ-jd9g/t7/h001.8DxGdeuKak=
+htqEPWzN-twHxgNJuN9tpHsjNufl8j-vU
+Freelancers are getting buried with =E2=80=98soulless=E2=80=99 AI slop clea=
+nup: =E2=80=98It=E2=80=99s a shame we need to do it=E2=80=99
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEBcesS4OwWnIKU5xW3WQjdcp16ciT2y3dCiJwwGcmKESh7QeXHL6VqQ7XH=
+k2hyx8EOKgLqifzsuCgDWIUIXr9Sm2fe7pIUIvSTXdQxL2kg2BoltPLTcOrGT6bE-vh4T2jvJQg=
+w2orHOS1CQQ3xNNjdMhbc8W8mzjYAnC3EHiYzc409DbnidGl7PQZDOnFlWeMXFchM3Aspu6bMaj=
+DiiePrPnteH3NSYeaLtHeDFVe8gr7n2j1XdVitPJPB6Fr4_J1k/4u2/6-9JS_n7T9S_pJHlQ-jd=
+9g/t8/h001.n0E6ZJF0l96wEMkosykJj701EfiyR994HvKNutqD1wg
+Tumbler Ridge mass shooting victims file 30 new lawsuits against OpenAI
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeVQeeppDwDpuabThgS3oG4T7PNmhU07aRyoJ=
+5J36Lub2tGpGvP57wzVujzmSeug-oUjzFp9wQqZwHZL6rbyrOphkfUk2jP6DZ-ZPInYHUKiqP7P=
+YOl4ZtU5PiwurJ5DvX-7Jv6jL0_rts2UBairjv7Uql-mLkVPaVfnUg1rADnzU3mZ-6TSzbnnHl9=
+AgrLQj-Aj_IcckY9ZLV0x30idzTiVd62m4GHT_gyAi0ozPSFYo/4u2/6-9JS_n7T9S_pJHlQ-jd=
+9g/t9/h001.wdht-9KIsfddauutbItlQ5h8bB3J83FRsSHsPe0RrQk
+Child sexual abuse survivor alleges Elon Musk=E2=80=99s AI chatbot used pho=
+tos of her to generate new illegal images
+
+Flock backlash highlights differing attitudes towards surveillance
+
+
+The US is in the throes of a major political backlash against technology. W=
+e=E2=80=99ve talked in this newsletter before about the hatred of the hyper=
+scale datacenters, which power artificial intelligence and have blanketed t=
+he US. And now there=E2=80=99s a secondary wave of contempt sweeping the na=
+tion.
+
+Cameras =E2=80=93 automated license plate readers, to be specific =E2=80=93=
+ made by Flock Safety are inspiring ire and violence across the country. Th=
+ese cameras snap pictures of car=E2=80=99s license plates as they drive by.=
+ According to Flock, about 120,000 cameras erected across the US conduct 2b=
+n scans of license plates per month.
+
+Like datacenters, the cameras offer a physical object to resist, unlike a s=
+ocial network or a piece of software. It=E2=80=99s quite a lot easier to pr=
+otest a gigantic ugly building or an ominous black camera on the side of th=
+e road than it is to give up Instagram.
+
+Widespread video surveillance in the US isn=E2=80=99t entirely new. In the =
+aftermath of the terror attacks of 11 September 2001, the US government vas=
+tly increased the scope of its surveillance of telephonic and digital commu=
+nications. Flock now offers local law enforcement a nationwide searchable d=
+atabase of license plate scans, and police officers have been
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR7l0=
+i3omFT-LEnbcI1ckSgVec6y0BNm-LOESkhfw0KB5rmwVs1V1TOd_mvbNka4nzLrO2WuzJK-PBT7=
+Hb0a_VfzvaF83Rv4B6UDmxKaLkTLmRpQ1qqRNK90tg2C8aV4MOYKbJSfadbQDCLdlnvcAw83N5r=
+H9tU9zqNO8QTVZkHBaaXJaDepO4lD-qdPk5ZS1GBNL--glLZ8B_R3LyKg25-cpKa_lDbarhgFPY=
+WMfeei7TTlFq1iMkgZ2AhR1wVyTtjWm7W6VWmKsD0tZyBRt9LMPLCBos_PvzM6tCVrmkN06r5Rg=
+Y-vkFF1Jt01Zplr7bA/4u2/6-9JS_n7T9S_pJHlQ-jd9g/t10/h001.XYEBkM8WrqLX_Fvc51rw=
+bla23hj1tW92VXCQuWFlG_Y
+documented abusing it egregiously
+to stalk their romantic partners.
+
+In the UK an estimated
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRzcQ=
+904TH2TSVFO56yXuASR6eV-wzpyiPyZC4LDhK0M9NqcQLUu_p3i3oVMYfQGMgsoIUhl8_9fytNX=
+ZG7hb8Tmtc24zPCBZDDhVnH5yE4yix4Nom1JeaPQ7USuOFbLaLTf7FeH42lQ59fJUXiHepLKZJl=
+d3rLmOqO4QgjnZn4DycCUqj-RbmEovq8Iz9rtFyl1nooZrczE3FkP31MfTY2i42k1kXI0K5lqSP=
+BcZWKcFrU_a8JY3e_IxJbyn7azgsA/4u2/6-9JS_n7T9S_pJHlQ-jd9g/t11/h001.AG-gGfqPv=
+P4g9OZEowmSzBQiXQd7xmsasghYGqtQyJc
+1m surveillance cameras are operational
+, and they have not drawn a similar level of political heat.
+
+London erected the =E2=80=9Cring of steel=E2=80=9D surveillance cordon, whi=
+ch included the wide deployment of CCTV cameras, in the early 1990s, in res=
+ponse to bombings by the Provisional Irish Republican Army.
+
+Both countries went through their surveillance evolutions roughly a decade =
+apart. Those 10 years saw rapid advances in technology that defined the pub=
+lic spaces that governments wanted watched =E2=80=93 physical town squares =
+or the digital one =E2=80=93 and growing awareness of the profound impact o=
+f tech surveillance on the general public. Simply put, the UK went through =
+its transformation at a time when surveillance by tech companies was not to=
+p of mind. And Americans aren=E2=80=99t accustomed to cameras on every corn=
+er the way Londoners are. We=E2=80=99re more likely to joke that each of us=
+ has a
+https://ablink.editorial.theguardian.com/ss/c/u001.TXQfNyEMZ_311gAJD03AegPE=
+6jv_7duKUxKPUuZ80JsSRcJDf-tSeDWaosnkNPGGCCc452JW8j_48OupcElm9L0skeTaqVkoQpx=
+LvHfm_260sgg4kFruJm9LqMT1RFsppOYNZRADPvZ2cHynpUR9v9M-nSr1O0jekrf6JtciujnsIy=
+NgaUbxQh87fa5uJIV5MFLVga6Kv_D3Y9u_dfTWSW46XUtg-2rZoBArkMCxoIgppB_51MXU1Eynr=
+GFMlPPcOGM7FUt_xmibuYBwRMWZEw/4u2/6-9JS_n7T9S_pJHlQ-jd9g/t12/h001.4IChFAWrJ=
+6NYqg-63cl_O0PkirKXHI7MdxF6vd5I7F8
+personal FBI agent
+monitoring our search history.
+
+In addition, there hasn=E2=80=99t been an era-defining violent incident on =
+the scale of 9/11 or the IRA bombings that would have softened the American=
+ public to cameras watching their cars. So instead,
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEDUZSC8KPzZutimV4n8d8SzFPAnVIgS67gxSd6KEvhW-WyNPJjrjjG7Mn7=
+fzDST-vWC7wVAA4tl4AZHG30W67zREbSEumHAfCCYVscyh2Zvfk8NFv65gTSLiR9ZDfmK836fq7=
+jQHrOK7JoE5NBmBC_alM_e8sbmQE4lRZQ7K9DzbIF5cq5GK7KZxFssFbmhHvv8A6HM3Xki2Lv4H=
+p_v6LakextvtCKKcVqHMVoxtREIXQ3QLWfT9y3Vqfn4WaZyr0E/4u2/6-9JS_n7T9S_pJHlQ-jd=
+9g/t13/h001.EcDw4yfXUDtmkgW-7j2Qz6z6OzOSYGw3SEUKyG1b9do
+Americans are destroying them for fun
+.
+
+The wider TechScape
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAj81x6_Tc9-jX4_SreAx0rjOBiiqLocwkG2OxWkJf6oq0tffk8FoLBiPH=
+OQOs3hp9OPgMNO9NZeBkAHBy9VfQo1EjQ_Nzc4EFAMFJ0_8k4aZyoIXmejPPMIdnw7gO4HLeFwT=
+seDGYAwawdWx52a5v9XjRUWPPE9RWfKqDCWb-zjnmBS6uN7rhrBNLBJ5let2jTSUuClwKigpJa4=
+xFHw9n8ZppTBEHYBbyK-we7t06b_sPCtK0AvzHgUmVKGM3NO-Y/4u2/6-9JS_n7T9S_pJHlQ-jd=
+9g/t14/h001.31YGdC8eDlasNGFuhxGY_k8ZUqi6sakgePoX-sbq6sc
+The six best e-readers in the US, for every kind of book lover
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFefaJNUba1gtTYIR6VFaRc2ZMfS-C0YbjcqPd=
+mEWDTv4748L9errpmF5rYxbSGWQDhryaiI-3VltNl3MtoHK9wsfDIdwL834ECqF7UlNDRDSSgmr=
+LoQWPS8vwvGVDv_LzjYyeW6YDJXdHng5TIAMbIPyUJ5oE5DbYKhfbOd490JkGKVJCRUrUX_e7h-=
+sP348BhFvOnX9M8IkcVpAWHMIaCmgHWAPMgDJaVYmiQB29rAL4/4u2/6-9JS_n7T9S_pJHlQ-jd=
+9g/t15/h001.oJ2LDHJd8xl0zcBSGerWbYEZpFC4hZe4mcilf3bE388
+Apocalypse prep or pure pragmatism: what is behind Peter Thiel=E2=80=99s mo=
+ve to Argentina?
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFerVrwLu5fRQzHbCwQGod89x8pWHMrayIB19u=
+XS_7_Zcmqdhe1o7Xuo3ZhLY1aME8-xaert0DVvUAMu61P6hlCBRe7DNnlQfHKuIV8cQ1ppGQkAq=
+uc9VQpDlxLy4d869OXg7GY3jo0zWqA-Y5YOBYtAlYGIzOGZglKAVv8kj9MQJQenOnnU3RZJH5Wn=
+0CrnsHirfYkcOkjG3CTPtbZ5CvdU8_OBoP47ZXADB4YUU1WK8BeJ6SYWPBwP0CO9wwtI9At/4u2=
+/6-9JS_n7T9S_pJHlQ-jd9g/t16/h001.qkl5uVsuKofhk02EJmPkJu0ulU-sfWV-yiaoDkZTev=
+k
+London=E2=80=99s first self-driving taxis for hire hit the streets
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAhzD0WUI17vwhqJTqDOvEGJA3jMtcxlFekRI_NByi4IT3uQJJsPfHkCGS=
+28UqAAZpOm5R7SDQ6ZAlC5Y-lX6HdDfAuU4sGnPlb7K5Y_uZc-1NS4nhD-z6VGYlRzt5604as3j=
+5TKvK0UffbU5sJzlGlmn9i1UsGnoZ0Vl0GWaj8essspi6CI1wBA01h-4DlvOQb0tqTbpEIpchvE=
+Cv2A_0iAjLUHNE1kcSjyRXkXb8YXEwiyDA9vjgUZMcX3d9gwKve54KcEgwOJfmogJ9VVXl20H0j=
+n7kZ7KN9C9LqBGeOAQ/4u2/6-9JS_n7T9S_pJHlQ-jd9g/t17/h001.NtkotCVz_s4v7H2RPRRY=
+yC_6zXt7WUqdo6QTTnGdPIc
+Bring on the drones: how a technology revolution is being rolled out across=
+ Africa=E2=80=99s nature reserves
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFe9FMdiHHscky_Y_dShip_BkNV1AbGLqisGZv=
+4_Gr-cv2xh_q519k6qXlpWj334UCatN1QX-M8g0nTrs4IpjnAw8e0JPHRfaZ6P0szrtQBTnUPGZ=
+L72-z3ZcaawncBYoZ3Zbwx813By1DIbhKq_bdfaOo452l-CHOcRAwzdHpyrwc30xwWvwQgdHeRO=
+rYm69TkqW0aHmOlVa9EH1HkVWh26DjZZbPcMG6RJyAKs9PpfhiowFMTP9IouPmwFjENGz5Z/4u2=
+/6-9JS_n7T9S_pJHlQ-jd9g/t18/h001._o0WVcgQ8vEMXv9cLNTYi47I3eQZNJOLHOWQNUi9_F=
+0
+Google defeats US justice department bid to force ad tech sale
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmRUlU5PQoe94qclsjLS95kHijGuAxcNpC0M_1=
+d86nTk-IqwXjBJCAqrVTp9B_nPSaT-hrl-P185KvpfZZSDTgtXbeSTePd9YRS6lGhbgrzB_wJVY=
+ICo4KDscWlhLtU00EKtbCJ9BF1WwSKE127an0sSpDF2j1qRyaU87Pk8tVL8ak/4u2/6-9JS_n7T=
+9S_pJHlQ-jd9g/t19/h001.gi0ArN9Zk_sNBLYu0erx9tEY3A_vme-u34m4sSdHVbI
+Manage your emails
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6K_5zaO_ntyE7Unu01Eppyv5G3U6IivQCPQTveUdjQ2LiEuF4HjpFdhSR-=
+amVQ6rCkgYIirYz6IQyZJt7Xb30BBtXV_AO2wwB4e3nwS5auucFlEdjKCUNR10b7wFgDsg3MeDd=
+jnkEIOwesFzonDGAnA/4u2/6-9JS_n7T9S_pJHlQ-jd9g/t20/h001.cRLJYo9knT7ncKEuMzBD=
+1_7mpGyYmLu8k6WE8Tlr1WM
+Unsubscribe
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeYtAkB7JDJCqnYSzseXLuw6jPiCj8AEwcPci=
+3bFCpZ7ORRyiZHhd32GEzKlDOXcXsI9i08i9aouy5g_5inN_GIodNZip8fe70Gesj0l3vakeK_f=
+KcULcXp1x5XFMiBoZUoatg09GA8IHBLNE7N5KQ9bSOXdovL8LlhI8luPiuMIQX8o-ONENT5SFbH=
+fIZ873kYAzYr7pi7hQbSR0LeYPQwg/4u2/6-9JS_n7T9S_pJHlQ-jd9g/t21/h001.M--G1R9Lq=
+4cIyO9g8oVBxb4ne5RrjWYmfUddF3DmfgY
+Trouble viewing?
+
+You are receiving this email because you are a subscriber to TechScape. Gua=
+rdian News & Media Limited - a member of Guardian Media Group PLC. Register=
+ed Office: Kings Place, 90 York Way, London, N1 9GU. Registered in England =
+No. 908396
+--c41c758f94d581ac24af9eded2c12edcb1220bb4f10f9e16f0af1ab422a5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd">
+<html><body><img src=3D"https://ablink.editorial.theguardian.com/ss/o/u001.=
+OMpll5AjohZ3LgbA8XhVqA/4u2/6-9JS_n7T9S_pJHlQ-jd9g/ho.gif" alt=3D"" width=3D=
+"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !imp=
+ortant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !i=
+mportant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !=
+important;padding-bottom:0 !important;padding-right:0 !important;padding-le=
+ft:0 !important;"/>
+<div style=3D"display:none !important;visibility:hidden;mso-hide:all;font-s=
+ize:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:=
+0;overflow:hidden;">The fear was already there. This time, the warning brok=
+e through.</div>
+<div style=3D"display:none !important;visibility:hidden;mso-hide:all;font-s=
+ize:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:=
+0;overflow:hidden;">=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF </div>
+<p>
+
+
+
+
+
+
+
+
+
+
+</p>
+<title>Why this AI doomsday warning from former Anthropic researcher broke =
+through | The Guardian</title>
+<!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedg=
+e">
+<!--<![endif]--><meta http-equiv=3D"Content-Type" content=3D"text/html; cha=
+rset=3DUTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1">
+<style type=3D"text/css">#outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }</style>
+<!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><style type=3D"text/css">@media only screen and (min-width:=
+480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-70 { width:70% !important; max-width: 70%; }
+.mj-column-per-30 { width:30% !important; max-width: 30%; }
+      }</style>
+<style media=3D"screen and (min-width:480px)">.moz-text-html .mj-column-per=
+-100 { width:100% !important; max-width: 100%; }
+.moz-text-html .mj-column-per-70 { width:70% !important; max-width: 70%; }
+.moz-text-html .mj-column-per-30 { width:30% !important; max-width: 30%; }<=
+/style>
+<style type=3D"text/css">@media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }</style>
+<meta name=3D"format-detection" content=3D"telephone=3Dno, date=3Dno, addre=
+ss=3Dno, email=3Dno, url=3Dno">
+<div aria-label=3D"Why this AI doomsday warning from former Anthropic resea=
+rcher broke through | The Guardian" aria-roledescription=3D"email" style=3D=
+"background-color:#FFFFFF;" role=3D"article" lang=3D"en" dir=3D"auto">
+<!--{% comment %} Required Campaign-level variables {% endcomment %} {% ass=
+ign
+				identity_newsletter_id =3D "tech-scape" %} {% assign utm_campaign =3D
+				"TechScape" %} {% assign CMP =3D "techscape_email" %} {% capture
+				unsub_url %}{{content_blocks.${Editorial_UnsubscribeLogic}}}{% endcaptu=
+re %}
+				{% assign dispatch_id =3D {{campaign.${dispatch_id}}} %} {% assign
+				url_parameters_unstripped =3D "utm_term=3D" | append: dispatch_id | app=
+end:
+				"&utm_campaign=3D" | append: utm_campaign | append:
+				"&utm_source=3Desp&utm_medium=3DEmail&CMP=3D" | append: CMP %}--><!--[i=
+f mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"=
+600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]--><div style=3D"margin:0px auto;max-width:600px;"><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;f=
+ont-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;dire=
+ction:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td>
+<!-- Support Bar v2 -->
+
+<table width=3D"100%" bgcolor=3D"#041F4A">
+  <tbody>
+								<tr><td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0" role=3D"presentation" bgcolor=3D"#041F4A">
+									<tr>
+										<td class=3D"p-15" style=3D"padding: 15px;">
+											<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" role=3D"presentation">
+												<tr>
+													<td class=3D"title-24 c-yellow" style=3D"font-size: 24px; line=
+-height: 28px; font-family: 'GH Guardian Headline', Georgia, serif; font-we=
+ight: normal; color: #FFE500;" align=3D"left">
+														<p class=3D"title-24 c-yellow reset" style=3D"font-size: 24px=
+; line-height: 28px; font-family: 'GH Guardian Headline', Georgia, serif; f=
+ont-weight: normal; color: #FFE500; margin: 0; padding: 0;" align=3D"left">
+															<strong>Support the Guardian</strong>
+														</p>
+													</td>
+												</tr>
+												<tr>
+													<td class=3D"text-14 c-white ff-gts pt-5" style=3D"font-size: =
+14px; line-height: 18px; font-weight: normal; color: #fffffe; font-family: =
+'Guardian Text Sans', Arial, sans-serif; padding-top: 5px;" align=3D"left">
+														<p class=3D"text-14 c-white ff-gts reset" style=3D"font-size:=
+ 14px; line-height: 18px; font-weight: normal; color: #fffffe; font-family:=
+ 'Guardian Text Sans', Arial, sans-serif; margin: 0; padding: 0;" align=3D"=
+left">
+															Thank you for signing up to Techscape. The Guardian is able =
+to fairly report on the tech industry =E2=80=93 for better or for worse =E2=
+=80=93 thanks to readers who choose to support our work. If that=E2=80=99s =
+something you think is worth preserving, please back our journalism today.=20
+														</p>
+													</td>
+												</tr>
+												<tr>
+													<td align=3D"left" class=3D"bg-fix pt-15" style=3D"padding-top=
+: 15px;">
+														<!-- Button -->
+														<div>
+															<!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsoft-c=
+om:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"https://s=
+upport.theguardian.com/contribute?lid=3D756iotzalwga&utm_source=3Deml&utm_m=
+edium=3Demedt&utm_campaign=3Dtechscape&utm_content=3DEditorial_CNLifecycleN=
+ewReaderTechScapeAcq&CMP_TU=3Dmawns&CMP_BUNIT=3Dedtrl&utm_term=3D6aa92811ab=
+c54e044a3f5f7e80b421d1" style=3D"height:40px;v-text-anchor:middle;width:140=
+px;" arcsize=3D"50%" strokecolor=3D"#866d4f" fillcolor=3D"#866d4f"><w:ancho=
+rlock></w:anchorlock><center class=3D"ff-text-sans" style=3D"color:#052962;=
+ font-family: Arial, sans-serif; font-size:15px; line-height:19px; font-wei=
+ght:bold;"><span class=3D"keep-blue">Support&nbsp;us&nbsp;&nbsp;&rarr;</spa=
+n></center></v:roundrect><![endif]--><a href=3D"https://ablink.editorial.th=
+eguardian.com/ss/c/u001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx3IF5rKLrpZ=
+7i5OYjw2FpxFpRM7PGH7hQQPSOAGLH8wXt7drTJQDlmel-1MP5m-gkoqnJKFokPgErqKb_kEdGC=
+_skgtlk_iSQGTvstNfpeiRORLIM3FVe12DGm32AkQ_vijpuKZ9V-hL4rNr1UM5_sIDfeQXxr1tM=
+phoGRIxnLH7aSACALBeNE0wzbR-NyTXEcVhqlb-3OmBpzC7CYivF_Wz3gh56Smf76lGy0HWMm5r=
+P4mBqt8QaqcxDYhP0eW7991VeprKtJfEgIURWlfQ1LO8b6t--qOziZaFy0PBPVR6uA/4u2/6-9J=
+S_n7T9S_pJHlQ-jd9g/h22/h001.5B-I_fRGr8nZvhwqF2TlIsghJhUmXzWrbig4taEOAdA" ta=
+rget=3D"_blank" style=3D"background-color: #FFE500; border-radius: 40px; co=
+lor: #052962; display: inline-block; font-family: 'Guardian Text Sans Regul=
+ar', Arial, sans-serif; font-size: 15px; line-height: 19px; text-align: cen=
+ter; text-decoration: none; min-width: auto; -webkit-text-size-adjust: none=
+; white-space: nowrap; mso-hide: all; padding: 6px 15px;"><strong>Support&n=
+bsp;us&nbsp;&nbsp;<img valign=3D"middle" class=3D"text-14" src=3D"https://c=
+dn.braze.eu/appboy/communication/assets/image_assets/images/64ccbfe3feaa422=
+ca99be922/original.png?1691140067" width=3D"16" height=3D"16" border=3D"0" =
+alt=3D"" style=3D"font-size: 14px; line-height: 18px; color: #000001; font-=
+family: 'GH Guardian Headline', Georgia, serif; text-align: left; font-weig=
+ht: normal;"></strong></a>
+														</div>
+														<!-- END Button -->
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table></td></tr>
+								<!-- END Support Bar v2 -->
+<img src=3D"https://email.mvt.theguardian.com/1.gif?identity_id=3D&amp;vari=
+ant=3DEditorial_CNLifecycleNewReaderTechScapeAcq&amp;send_id=3D6aa92811abc5=
+4e044a3f5f7e80b421d1&amp;position=3Dfooter&amp;" alt=3D"" width=3D"1" heigh=
+t=3D"1" border=3D"0" style=3D"display: block !important; height: 1px !impor=
+tant; width: 1px !important; margin: 0; padding: 0; border-width: 0;">
+  </tbody>
+</table>
+</td></tr>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;word-break:break-=
+word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr=
+><td style=3D"width:598px;"><img alt=3D"TechScape - The Guardian" src=3D"ht=
+tps://i.guim.co.uk/img/uploads/2024/10/08/Techscape_banner_(1).jpg?quality=
+=3D85&amp;dpr=3D2&amp;width=3D650&amp;s=3D03d6c459312bed88a81546e80ec2ef23"=
+ style=3D"border:0;display:block;outline:none;text-decoration:none;height:a=
+uto;width:100%;font-size:13px;" width=3D"598" height=3D"auto"></td></tr></t=
+body></table></td></tr>
+<tr><td><!-- Braze Placeholder - header --></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 0px 0px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:598px;"><img alt=3D"laptop s=
+creen with AI and Claude stickers" src=3D"https://i.guim.co.uk/img/media/3d=
+6259c7c4a22f7ecae82e1aef45d9bc1fff8bd3/26_0_3134_2509/master/3134.jpg?quali=
+ty=3D85&amp;dpr=3D2&amp;width=3D650&amp;s=3Dd38916467705822ccdbde67e043f132=
+d" style=3D"border:0;display:block;outline:none;text-decoration:none;height=
+:auto;width:100%;font-size:13px;" width=3D"598" height=3D"auto"></td></tr><=
+/tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text headline-text" style=3D"background:#FF=
+FFFF;font-size:0px;padding:16px;word-break:break-word;"><div style=3D"font-=
+family:Georgia, serif;font-size:13px;line-height:1;text-align:left;color:#0=
+00000;">
+<h1 style=3D"font-size: 24px; line-height: 29px; font-weight: 700; color: #=
+000000; margin: 0 0 16px 0;">Why this AI doomsday warning from former Anthr=
+opic researcher broke through</h1>
+<div style=3D"font-weight:400;font-size:20px;line-height:24px;margin:0;colo=
+r:#121212"><p style=3D"margin: 0 0 16px 0;">Last week, researcher Jacob Cox=
+on announced his resignation from Anthropic, stating that AI =E2=80=98could=
+ kill us all by the end of the decade=E2=80=99</p></div>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <table role=3D"p=
+resentation"><tbody><tr><td><div style=3D"height:20px;line-height:20px">=E2=
+=80=8A</div></td></tr></tbody></table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;direction:ltr;font-si=
+ze:0px;padding:0;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" style=3D"background:#FFFFFF;font-size:0px;padding:16=
+px 16px 0;word-break:break-word;"><table cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" border=3D"0" style=3D"color:#000000;font-family:Georgia, s=
+erif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:no=
+ne;"><tr>
+<td valign=3D"top"><span style=3D"font-size:24px;font-style:italic;font-fam=
+ily:Georgia, serif;font-weight:400;line-height:140%;color:#052962">Blake Mo=
+ntgomery</span></td>
+<td width=3D"110" height=3D"90" style=3D"line-height:0;font-size:0"><img sr=
+c=3D"https://i.guim.co.uk/img/uploads/2025/03/25/Blake_Montgomery.png?quali=
+ty=3D85&amp;dpr=3D2&amp;width=3D120&amp;s=3D2393e77fb21ea912e76ceb2682617c7=
+7" alt=3D"Blake Montgomery" width=3D"110" height=3D"90"></td>
+</tr></table></td></tr>
+<tr><td style=3D"border-top:2px dashed;border-top-color:#999999;background-=
+color:#FFFFFF;padding-bottom:8px">=C2=A0</td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Hello, and welcome to TechS=
+cape. I=E2=80=99m Blake Montgomery, US tech editor at the Guardian. Today i=
+n tech, we=E2=80=99re discussing the past week=E2=80=99s all-consuming apop=
+lexy over AI safety.</p></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 2 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">Why did this warning about the AI apocalypse break through when so many =
+others didn=E2=80=99t?</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">Less than a week ago, a young Anthropic re=
+searcher announced his resignation from the AI giant on X, in a post that h=
+as shaken Silicon Valley, Washington DC, and even Beijing.</p>
+<p style=3D"margin: 0 0 16px 0;">=E2=80=9CThe people building AI earnestly =
+believe that it could kill us all by the end of the decade,=E2=80=9D wrote =
+Jacob Coxon.</p>
+<p style=3D"margin: 0 0 16px 0;">Since then, the post has been viewed 171m =
+times, per X=E2=80=99s metrics. Why did it travel so far?</p>
+<p style=3D"margin: 0 0 16px 0;">It=E2=80=99s not the first time AI insider=
+s have issued dire warnings. Every few months for the past several years, a=
+n AI researcher has resigned in a moment of crisis, proclaiming the impendi=
+ng apocalypse. His proclamation comes at a unique political confluence, a m=
+oment of high-strung public fear and rage.</p>
+<p style=3D"margin: 0 0 16px 0;">Loudly declaring that your peers in Silico=
+n Valley are failing at AI safety is as old as the companies themselves. Op=
+enAI=E2=80=99s board fired Sam Altman over safety concerns in 2023. Dario A=
+modei split from OpenAI five years ago with the aim of founding a =E2=80=9C=
+safety-first=E2=80=9D lab. In 2015, Altman and Elon Musk founded OpenAI as =
+a counterweight to Google=E2=80=99s approach to AI. Musk sued Altman for fa=
+iling to keep a fundamental safety promise and lost.</p>
+<p style=3D"margin: 0 0 16px 0;">Major AI researchers have made second care=
+ers of predicting doom. Geoffrey Hinton, a Nobel laureate known as =E2=80=
+=9Cthe godfather of AI=E2=80=9D, said as far back as 2023 that the technolo=
+gy could cause human extinction within three decades. He=E2=80=99s since sh=
+ortened his timeline. He resigned from Google for reasons similar to those =
+of Coxon. Hinton has been on the speaking circuit ever since, prophesying d=
+oom.</p>
+<p style=3D"margin: 0 0 16px 0;">Hinton=E2=80=99s resignation even inspired=
+ a significant response from lawmakers. In the US, Joe Biden issued an exec=
+utive order mandating safety testing by AI companies. Congress summoned AI =
+CEOs for a grilling, though that resulted in little legislative action. In =
+the European Union, the EU Artifical Intelligence Act passed in part due to=
+ a strong reaction to Hinton=E2=80=99s warnings.</p>
+<p style=3D"margin: 0 0 16px 0;">And yet, here we are again, burdened with =
+the feeling that little meaningful regulation is preventing harm by AI.</p>
+<p style=3D"margin: 0 0 16px 0;">So why is Coxon=E2=80=99s apocalyptic proc=
+lamation percolating deeper?</p>
+<p style=3D"margin: 0 0 16px 0;">First, there=E2=80=99s the messenger: Coxo=
+n=E2=80=99s call for greater safety is credible by several metrics: He had =
+insider access to both Anthropic and OpenAI, where he worked for five years=
+. He resigned before he would have received equity in Anthropic, demonstrat=
+ing the personal cost of speaking out. And his colleagues, still on Anthrop=
+ic=E2=80=99s payroll, corroborated his assertion that many AI researchers b=
+elieve there=E2=80=99s a possibility that AI will bring about human extinct=
+ion, with one co-worker gauging that outcome as more than 10% likely.</p>
+<p style=3D"margin: 0 0 16px 0;">Recent incidents in the AI field have made=
+ apocalyptic claims more credible. A swarm of AI agents operated by OpenAI =
+went rogue, broke containment and hacked into multiple sites and organizati=
+ons during safety testing with startling coordination earlier this year. On=
+ Thursday, Anthropic detailed how criminals and rogue scientists had attemp=
+ted to use Claude to make bioweapons.</p>
+<p style=3D"margin: 0 0 16px 0;">=E2=80=9CThe reason this time is different=
+ is that out-of-control AI is not in the future, but in the past. People ha=
+ve seen evidence of it happening,=E2=80=9D argued Max Tegmark, co-founder o=
+f the Future of Life Institute, which has been funded with hundreds of mill=
+ions of dollars from the billionaire founder of the cryptocurrency Ethereum=
+. (Tegmark=E2=80=99s organization already in 2023 called for a slowdown of =
+AI development, which at the time provoked a rejection from Amodei.)</p>
+<p style=3D"margin: 0 0 16px 0;">=E2=80=9CIf you had tried to get people wo=
+rried about nuclear winter in 1942, good luck. People would ask whether a n=
+uclear weapon was even possible,=E2=80=9D said Tegmark. =E2=80=9CIt was obv=
+ious to physicists then, but you couldn=E2=80=99t have freaked out normal p=
+eople. It was all theoretical. With AI, it was all theoretical until this h=
+appened. Now the debate over whether you can lose control is over.=E2=80=9D=
+</p>
+<p style=3D"margin: 0 0 16px 0;">Then there=E2=80=99s the context. The gene=
+ral feeling towards technology in the US is kindling-sensitive, and claims =
+of impending doom are fiery. The country is in the throes of a multifaceted=
+ backlash to technology. People outside major tech hubs feel imposed upon p=
+hysically by data centers and figuratively by AI=E2=80=99s takeover of the =
+workplace.</p>
+<p style=3D"margin: 0 0 16px 0;">Looming over the country are tech billiona=
+ires =E2=80=93 in control of vast wealth, global communication channels =E2=
+=80=93 throwing their weight around in US politics with <a href=3D"https://=
+ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEM=
+gszcCSneHECyyyKiIcsbT_mvO_CmKOtXDE_L1t4qd1r97XYLDni9pXwA0B4EJ0jrNa7Wc7A5TBf=
+efkuomHtCDFbH0YcOFQXFMwncMV4dn-ea2Oa6QkOqhy9s1uY71tymIAYZHbITqRBLdfp8hR87V6=
+g3VpmRJmmJJg0dCr41qubvvC8nHDS47exb-pDBWFHddURlFCYjZs_00NPM8V2HPfgDFWwsyQNd0=
+Us6rlQcK3sK-z_aFxybF2a9_Ya6HIkQE00qgMEXu8Q/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h23/h=
+001.3Dtxtdz6mILQNmHuR1VQQnFrXSDwHONJSNo9rAAbLAs" style=3D"color: #0077B6;">=
+unmatchable campaign contributions</a>.</p>
+<p style=3D"margin: 0 0 16px 0;">=E2=80=9CIt=E2=80=99s been at least over a=
+ year of steadily increasing data center pushback that has made being pro-A=
+I regulation the new common sense, and it certainly has made being pro-AI i=
+ndustry a very toxic brand,=E2=80=9D said Amba Kak, co-executive director o=
+f the AI Now Institute and a former senior adviser on AI for the US Federal=
+ Trade Commission.</p>
+<p style=3D"margin: 0 0 16px 0;">There=E2=80=99s the fact that the companie=
+s involved have responded vigorously to Coxon. Their pledged commitments ha=
+ve details and heft.</p>
+<p style=3D"margin: 0 0 16px 0;">=E2=80=9CIt allowed for companies like Ant=
+hropic and others to position themselves immediately as the primary experts=
+ in how to deal with these fears. How to solve problems that, by every acco=
+unt, they have created or are best positioned to prevent,=E2=80=9D Kak said=
+.</p>
+<p style=3D"margin: 0 0 16px 0;">Two closing thoughts. In a sign of how bro=
+ad the crisis of confidence in AI has become: Strange bedfellows have partn=
+ered up in response. The Future of Life Institute is hosting a rally today =
+in Washington promoting AI safety with headliners Bernie Sanders, the progr=
+essive senator from Vermont, and Steve Bannon, former chief of staff to Don=
+ald Trump, who have been sworn enemies on other issues.</p>
+<p style=3D"margin: 0 0 16px 0;">And finally: Why is the AI industry so ful=
+l of men =E2=80=93 only men in AI have expressed these fears of human extin=
+ction =E2=80=93 in the throes of a crisis over the extinctive potential of =
+their work?</p>
+<p style=3D"margin: 0 0 16px 0;">=E2=80=9CThese people certainly believe wh=
+at they=E2=80=99re saying. It=E2=80=99s not a fringe view,=E2=80=9D said Sh=
+akeel Hashim, writer of the <a href=3D"https://ablink.editorial.theguardian=
+.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR7cwAooA4JOElAqvSi0ie47J2QsVypBYpdAaAXDp=
+vhXEFIC-RmhHEb5F9gIEwxWMn5oTnZi1v4xNoSf71xMiEYWeSv1ysWb9RecCP_kNcLsZjTfjbxs=
+_pPmVlpKSpCNI4UCo7o5jL_XpzlupNAVySrkK7wtjOE_YElhkSNKDYvg4-t5Y6ufes4h-Ib53YV=
+rKwQ/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h24/h001.o0DI_2mRHdAI2wv8eK4Qzc1TmxYrDLMbeY=
+mQdx3FoUQ" style=3D"color: #0077B6;">Transformer newsletter</a> on AI. =E2=
+=80=9CThe best way I=E2=80=99ve had it explained to me is that we=E2=80=99r=
+e trying to build something that=E2=80=99s smarter than us in the way we=E2=
+=80=99re smarter than monkeys. Our existence hasn=E2=80=99t gone great for =
+monkeys; AGI=E2=80=99s existence probably won=E2=80=99t go great for us.=E2=
+=80=9D</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 3 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">Read more about the great AI freakout</h2></div></td></tr>
+<tr><td><table style=3D"border-collapse:collapse;font-size:20px;line-height=
+:22px;table-layout:fixed;width:100%;border:none" class=3D"LINK">
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeT=
+TB66oSS_9sY7BA05IZiMdLLaQzOVbzQq8BSNjJGAhAdbG4bFQszzhobDdc_iA5LjOBWzGmRH4Tk=
+Fv-QZouGT2zCkgsCLkAKtC5PxwUFVXJD4tym05G_n18qDC1N_-_hE7QYza7eA_-2flRsDpY77As=
+5zBJVJHiQqUw5ctYo-RpqisbwgtNcvzShvTF5XbUGEoTujLs_aFDWRM5OHsJjJA/4u2/6-9JS_n=
+7T9S_pJHlQ-jd9g/h25/h001.ggTgYXh4eDJrMbw5-9LaKKSpPjx-gsLCcdwp1yD_Zm4" style=
+=3D"text-decoration: none; color: #0077B6;">AI CEOs say they need to slow t=
+he pace of development. But will they?</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEA13-uHzzNLsl3ZqJFCJlFeTTB66oSS_9sY7BA05IZiMdLLaQzOVbzQq8BSNjJGAhAdbG4bFQs=
+zzhobDdc_iA5LjOBWzGmRH4TkFv-QZouGT2zCkgsCLkAKtC5PxwUFVXJD4tym05G_n18qDC1N_-=
+_hE7QYza7eA_-2flRsDpY77As5zBJVJHiQqUw5ctYo-RpqisbwgtNcvzShvTF5XbUGEoTujLs_a=
+FDWRM5OHsJjJA/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h26/h001.bvW04UfAsz7XgXjLtL7dkgUPg=
+wCovN3O0ZtCgAt5oXA" style=3D"text-decoration: none; color: #0077B6;"><img w=
+idth=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/bb=
+84259074a2c64ebed9b2c958f9985eb618beca/482_0_5532_4425/500.jpg?quality=3D85=
+&amp;dpr=3D2&amp;width=3D160&amp;s=3D610e1d48cc5994cb58d4005ecc226a3f" alt=
+=3D"AI CEOs say they need to slow the pace of development. But will they?">=
+</a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeo=
+bh1FONj-XmDOmctzaChtMee23kUZXHel8jL7IlSvzbxQT0UQlTcglmwY9foTHag4Et5vrUk4iHF=
+bA1VCpIKsFCdhJw2UUkFqlxdMu5aKsj5ZSnZ78vZL2ZkSWVSXFyEYY_g24pkm2yGNFIt5p1QQM5=
+QdYlEKM1y8i4KD1FoBdMbSsfeT55h5DFkT3PLLNXYNLhpGDaQg10wo8nLr0J9GokVCZW6FD9wbw=
+aqlwfJTMjunP9uLXw2hjcPhywQ6I4d/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h27/h001.69yI87nL=
+Y10cp-uR8TJP2asR4P1wxqQUVOJbfXlxijk" style=3D"text-decoration: none; color:=
+ #0077B6;">OpenAI urges UK lawmakers to rein in technology amid growing saf=
+ety fears</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEA13-uHzzNLsl3ZqJFCJlFeobh1FONj-XmDOmctzaChtMee23kUZXHel8jL7IlSvzbxQT0UQlT=
+cglmwY9foTHag4Et5vrUk4iHFbA1VCpIKsFCdhJw2UUkFqlxdMu5aKsj5ZSnZ78vZL2ZkSWVSXF=
+yEYY_g24pkm2yGNFIt5p1QQM5QdYlEKM1y8i4KD1FoBdMbSsfeT55h5DFkT3PLLNXYNLhpGDaQg=
+10wo8nLr0J9GokVCZW6FD9wbwaqlwfJTMjunP9uLXw2hjcPhywQ6I4d/4u2/6-9JS_n7T9S_pJH=
+lQ-jd9g/h28/h001.nQz4E7zfWnH9BJchGWZWuD5NdTmsTHuE0hJcrocCmnc" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/0fa1e24c8026a54f3f1dcbcd747f7ee270d=
+b7c77/1527_365_5799_4642/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&a=
+mp;s=3D2343318681597a5fbfe437c6a9db4223" alt=3D"OpenAI urges UK lawmakers t=
+o rein in technology amid growing safety fears"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFe-=
+o_ummR44Z-wXEcg_-49VCp5S9LZOsaqvxApRgTWuDU3f9r8x5YpBkBEQx3w5OMJZ8pe40qfl8Gl=
+OaMPRXpeF_G4f3Ss5LUt6hnNykwx_OtpWHmGFsqvDNLoP-vSfJ7mXGZpjpWjsZBE4Qwbm3UxyFd=
+L0hdhjlyf9oOnYQkIwAI7eQAfZ_J-e3tAwYKZaefDCiivbUHn6bNnQ5ksmLHR_KGHmwZBvutHbB=
+kv98asyycGY6nbWZSzrL5N4t5e2fhF/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h29/h001.vpwvfVgn=
+sk8NJsv1XK0eFvx0dWsSNEb8UZVpsg4AxHQ" style=3D"text-decoration: none; color:=
+ #0077B6;">Europe must build own AI or risk getting cut off by US or China,=
+ says ECB=E2=80=99s Lagarde</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEA13-uHzzNLsl3ZqJFCJlFe-o_ummR44Z-wXEcg_-49VCp5S9LZOsaqvxApRgTWuDU3f9r8x5Y=
+pBkBEQx3w5OMJZ8pe40qfl8GlOaMPRXpeF_G4f3Ss5LUt6hnNykwx_OtpWHmGFsqvDNLoP-vSfJ=
+7mXGZpjpWjsZBE4Qwbm3UxyFdL0hdhjlyf9oOnYQkIwAI7eQAfZ_J-e3tAwYKZaefDCiivbUHn6=
+bNnQ5ksmLHR_KGHmwZBvutHbBkv98asyycGY6nbWZSzrL5N4t5e2fhF/4u2/6-9JS_n7T9S_pJH=
+lQ-jd9g/h30/h001.OYUatOc7QzFyUP_6ZDrZ84rzBfRxc7lvbaLba3VBcHU" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/221847ebaf0cc8dedc211ee121968b599ff=
+59096/102_0_6066_4853/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;=
+s=3Da6afbb5dbe06bc045a689f02f19f111a" alt=3D"Europe must build own AI or ri=
+sk getting cut off by US or China, says ECB=E2=80=99s Lagarde"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP30=
+O-dbBsIq4ecQE-6_mn1iy8cRndyY63nYNpK-4B66PB50sqpvyAOM8WM7WpxJUcLrTQmfLiE1eAP=
+gQLjNbvNT5laifmSLtF25fGL5unXe-HMwVWu8VuXxBtlF-tZHYu7oqOMtcRMUB4TabshLqQTwOM=
+vWNceOHpt5t5Xed5VeK5HAvRwiemZqxNlVWQrZgC21ZUihdQL5Pq2Xh3hAQfsfXGs_aRfiFJFSU=
+XaJxSKD9_obUnvEaUar6pQ0oVk7Tcw/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h31/h001.XF5_ciUs=
+juIi0EIAPhthSWw-qBGaERRfxCbEcWwvzfI" style=3D"text-decoration: none; color:=
+ #0077B6;">Trump attacks =E2=80=98sick conspiracy=E2=80=99 against AI as te=
+ch stocks slide</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP30O-dbBsIq4ecQE-6_mn1iy8cRndyY63nYNpK-4B66PB50sqpvyA=
+OM8WM7WpxJUcLrTQmfLiE1eAPgQLjNbvNT5laifmSLtF25fGL5unXe-HMwVWu8VuXxBtlF-tZHY=
+u7oqOMtcRMUB4TabshLqQTwOMvWNceOHpt5t5Xed5VeK5HAvRwiemZqxNlVWQrZgC21ZUihdQL5=
+Pq2Xh3hAQfsfXGs_aRfiFJFSUXaJxSKD9_obUnvEaUar6pQ0oVk7Tcw/4u2/6-9JS_n7T9S_pJH=
+lQ-jd9g/h32/h001.Yx9F8O0kDdspQGS5p-uAfxV260xY_g2L-GV9zD_elrk" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/9bbe355703cc6582b5706d62aed9afb01a1=
+e0061/89_0_4604_3681/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=
+=3Dfc61fd8fb9423943e4c73809f25d7dd5" alt=3D"Trump attacks =E2=80=98sick con=
+spiracy=E2=80=99 against AI as tech stocks slide"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFew=
+JZ8xA9KKH7kuKDdocO43tk77uifiq3HaX_YWONjWVGl7aQ-_Yu0GkCrYoo0tj6_BjMxnAJAGt0U=
+Vt-BlBM2eYcQxBh6B4Nwon1m7nKTI-HFnU-UDv8i3X_FquFxJ09xWN9viNYW_afwTp-snno4Gmk=
+9qtnTrvo0NF_KR50RlAFbBpw7EJJBfjqONjLr-npHg_2npIMUICsx01_-3IFr1A/4u2/6-9JS_n=
+7T9S_pJHlQ-jd9g/h33/h001.gV8I5c-MxKa5Htgqq_hAouqiDqLyn3oft7lsdgf9cQo" style=
+=3D"text-decoration: none; color: #0077B6;">Microsoft proposes limits on it=
+s AI with code of conduct amid safety debate</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEA13-uHzzNLsl3ZqJFCJlFewJZ8xA9KKH7kuKDdocO43tk77uifiq3HaX_YWONjWVGl7aQ-_Yu=
+0GkCrYoo0tj6_BjMxnAJAGt0UVt-BlBM2eYcQxBh6B4Nwon1m7nKTI-HFnU-UDv8i3X_FquFxJ0=
+9xWN9viNYW_afwTp-snno4Gmk9qtnTrvo0NF_KR50RlAFbBpw7EJJBfjqONjLr-npHg_2npIMUI=
+Csx01_-3IFr1A/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h34/h001.zKr7IKqjgkws6rXySgnWzXAjP=
+HKUEiizg6n8hKZJuhc" style=3D"text-decoration: none; color: #0077B6;"><img w=
+idth=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/8f=
+f2395b10e84f4c4b4b70ae9451952885748598/254_0_4001_3200/500.jpg?quality=3D85=
+&amp;dpr=3D2&amp;width=3D160&amp;s=3D969310cfbfd341d8824a904a37223ce6" alt=
+=3D"Microsoft proposes limits on its AI with code of conduct amid safety de=
+bate"></a></td>
+</tr>
+</table></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- START - DO =
+NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+
+<!-- RETENTION START -->
+
+
+
+
+
+<table width=3D"100%">
+  <tbody>
+			<tr>
+				<td>
+					<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+ role=3D"presentation" align=3D"center">
+						<!-- Padding -->
+						<tr>
+							<td class=3D"img pb-20" style=3D"font-size: 0pt; line-height: 0pt; p=
+adding-bottom: 20px;" align=3D"left">&nbsp;</td>
+						</tr>
+						<tr>
+							<td style=3D"border-right-width: 5px; border-right-color: #FFE500; b=
+order-right-style: solid; border-bottom-width: 5px; border-bottom-color: #F=
+FE500; border-bottom-style: solid;" align=3D"center">
+								<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"center">
+									<tr>
+										<td style=3D"border: 5px solid #052962;" bgcolor=3D"#f1f8fc">
+											<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" role=3D"presentation">
+												<tr>
+													<!-- Body copy -->
+													<td width=3D"100%" colspan=3D"3" valign=3D"top" style=3D"paddi=
+ng: 10px;" bgcolor=3D"#f1f8fc">
+														<table style=3D"width: 100%;">
+															<tr>
+																<td align=3D"left">
+																	<p style=3D"font-family: 'GuardianTextEgyptian', Georgia, =
+serif; color: #000000; font-size: 16px; line-height: 22px; margin: 0;" alig=
+n=3D"left">
+																		The Guardian is a reader-funded news organization that an=
+swers to no one other than the public. You can <a href=3D"https://ablink.ed=
+itorial.theguardian.com/ss/c/u001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx=
+3IF5rKLrpZ7i5OYjw2FpxFpAFCGJ3RrPpxurKDXdpA_BnpoSfplZoe4FK6KFCtcVQD2KO161MnL=
+UiHDlviIeRM0t0JJLh2C6UDWdwz1KMR62fNQqM9zbfXimaR8FJDVW-DccoYY8arx7fJlSdPbLz-=
+ExJSho4NS_XUgjt1m2MY68msKK91RFA_WHh7FAdRozYbdrWCwN8L7PwaePUyVaRUNp8LwGoZ3CG=
+uEpdjk0i_QXexTowU77z5lhgCuhnKpBeQ/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h35/h001._FcHE=
+EgtDAAs2LdIqc7caiTtVh4GK67maO15nW5ARRA" style=3D"font-color: #000000; color=
+: #000000; text-decoration: underline;">support us here</a> =E2=80=93 it=E2=
+=80=99s quick, and any amount helps. Thank you.
+                                  </p>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<!-- CTA -->
+													<td valign=3D"middle" colspan=3D"2" style=3D"padding: 10px 0px=
+ 20px 10px;" bgcolor=3D"#f1f8fc">
+														<table align=3D"left" role=3D"presentation" width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width: 100%;">
+															<tr>
+																<td valign=3D"middle" align=3D"left">
+																	<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" ro=
+le=3D"none" align=3D"left" style=3D"border-collapse: separate !important;">
+																		<tr>
+																			<div>
+																				<a href=3D"https://ablink.editorial.theguardian.com/ss/=
+c/u001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx3IF5rKLrpZ7i5OYjw2FpxFpAFCG=
+J3RrPpxurKDXdpA_BnpoSfplZoe4FK6KFCtcVQD2KO161MnLUiHDlviIeRM0t0JJLh2C6UDWdwz=
+1KMR62fNQqM9zbfXimaR8FJDVW-DccoYY8arx7fJlSdPbLz-ExJSho4NS_XUgjt1m2MY68msKK9=
+1RFA_WHh7FAdRozYbdrWCwN8L7PwaePUyVaRUNp8LwGoZ3CGuEpdjk0i_QXexTowU77z5lhgCuh=
+nKpBeQ/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h36/h001.nR0W-cZDYKCPRcgoMVemzAt31P14D3fO=
+KEnNwrH5MN4" target=3D"_blank" style=3D"background-color: #000000; border-r=
+adius: 40px; color: #ffffff; font-family: 'Guardian Text Sans Regular', Ari=
+al, sans-serif; font-size: 16px; line-height: 24px; text-align: center; tex=
+t-decoration: none; min-width: auto; -webkit-text-size-adjust: none; white-=
+space: nowrap; mso-hide: all; padding: 10px 15px;">
+																				<strong>Support&nbsp;us&nbsp;<img valign=3D"middle" cla=
+ss=3D"text-14" src=3D"https://cdn.braze.eu/appboy/communication/assets/imag=
+e_assets/images/65ef28410d2aa8005eed83c5/original.png?1710172224" width=3D"=
+16" height=3D"16" border=3D"0"></strong></a>
+																			</div>
+																		</tr>
+																	</table>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- Padding -->
+						<tr>
+							<td class=3D"img pb-20" style=3D"font-size: 0pt; line-height: 0pt; p=
+adding-bottom: 10px;" align=3D"left">&nbsp;</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		<img src=3D"https://email.mvt.theguardian.com/1.gif?identity_id=3D1357914=
+5&amp;variant=3DEditorial_CNApr25ShortMiddleAcqUS&amp;send_id=3D6aa92811abc=
+54e044a3f5f7e80b421d1&amp;position=3Dfooter&amp;" alt=3D"" width=3D"1" heig=
+ht=3D"1" border=3D"0" style=3D"display: block !important; height: 1px !impo=
+rtant; width: 1px !important; margin: 0; padding: 0; border-width: 0;">
+  </tbody>
+</table>
+
+<!-- ACQUISITION END --><table role=3D"presentation"><tbody><tr><td><div st=
+yle=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody></tab=
+le>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">Make sense of the crisis</h2></div></td></tr>
+<tr><td><table style=3D"border-collapse:collapse;font-size:20px;line-height=
+:22px;table-layout:fixed;width:100%;border:none" class=3D"LINK">
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeF=
+fG4LhHl7eN0BrN7kz39dORpBoYKxnBAa30cZC80VQyOBT5cREirRgbFxHciKRMfsDbG54EPp9Yq=
+bTofDHlnK_cxyPcX3dzuExCKVmLdXFeB5HlQU19nmISJOIHXC-nn4jwULMtIeuUwUbRP1rIBDX9=
+AE1xMHYPYOab7D1-LbgSKRW2EFEPLo8HiY2xPdVU1BcapJhZFQMrov-m8nWuXdQ/4u2/6-9JS_n=
+7T9S_pJHlQ-jd9g/h37/h001.P_o1xOIhKR80va22nGuiAd5NTSWvuFXNlloVq70z78w" style=
+=3D"text-decoration: none; color: #0077B6;">I worked at Google DeepMind. Yo=
+u should listen to the warnings about AI</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEA13-uHzzNLsl3ZqJFCJlFeFfG4LhHl7eN0BrN7kz39dORpBoYKxnBAa30cZC80VQyOBT5cREi=
+rRgbFxHciKRMfsDbG54EPp9YqbTofDHlnK_cxyPcX3dzuExCKVmLdXFeB5HlQU19nmISJOIHXC-=
+nn4jwULMtIeuUwUbRP1rIBDX9AE1xMHYPYOab7D1-LbgSKRW2EFEPLo8HiY2xPdVU1BcapJhZFQ=
+Mrov-m8nWuXdQ/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h38/h001.8MZJqH0Hao0Zn_b6dx50gRhDN=
+dLeLtowjKWGu8bR2v8" style=3D"text-decoration: none; color: #0077B6;"><img w=
+idth=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/f8=
+0f7c0faa77addae41acd9052268a4cf4515372/597_0_4822_3859/500.jpg?quality=3D85=
+&amp;dpr=3D2&amp;width=3D160&amp;s=3Ddb6c91f7f1f761518e5565739c2ebe9a" alt=
+=3D"I worked at Google DeepMind. You should listen to the warnings about AI=
+"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHECpQ6xbu-H9ziF5vbtAkWOC1=
+J6DmBNkILyRNv2UddQkamHwT_crNvkwClllswJKaQXM04tjnQ0kwb7pQogPFAejT79Ht0ZuP0HS=
+as14QRXYwaMIGkIUyQkbwv2rYbZ1hgpGUGRqW_FJ5XdaGsq-qqBK02SvnUrZ5nEjPdOdugjjk64=
+wjOtzqcDJN9kUaMTu9NGcUFG70zMnaJEuBetM5-Dd97OwGANAzGzJiVXhSESdE9-GouItCstJv4=
+YowT8xmKNt24dyZRRTpR8O3b2ctf20pygtB6mclSrgIU6MLVauTCSldhj1NDCZQvx_yA-X0CWiU=
+KL8CkgpAsk86UoVMwtf/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h39/h001.O_O-j-iZdzeBeXrLzJm=
+9IzN2GSpxJh3D0JUefvQ6Zek" style=3D"text-decoration: none; color: #0077B6;">=
+We greet the news that AI could extinguish us with a glazed indifference. W=
+hat is the way out of this nihilism?</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HECpQ6xbu-H9ziF5vbtAkWOC1J6DmBNkILyRNv2UddQkamHwT_crNvkwClllswJKaQXM04tjnQ0=
+kwb7pQogPFAejT79Ht0ZuP0HSas14QRXYwaMIGkIUyQkbwv2rYbZ1hgpGUGRqW_FJ5XdaGsq-qq=
+BK02SvnUrZ5nEjPdOdugjjk64wjOtzqcDJN9kUaMTu9NGcUFG70zMnaJEuBetM5-Dd97OwGANAz=
+GzJiVXhSESdE9-GouItCstJv4YowT8xmKNt24dyZRRTpR8O3b2ctf20pygtB6mclSrgIU6MLVau=
+TCSldhj1NDCZQvx_yA-X0CWiUKL8CkgpAsk86UoVMwtf/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h40=
+/h001.iNpV2RAByLYnsogzl8mesuRAfdtFckAQtxOPCQpOymY" style=3D"text-decoration=
+: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px" src=3D"ht=
+tps://i.guim.co.uk/img/media/7cb2bde3334d9c2264c64e61ac975fbad68e5ed7/1441_=
+484_4395_3516/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3D3581=
+f8410e327632f2c3c4ec1492b879" alt=3D"We greet the news that AI could exting=
+uish us with a glazed indifference. What is the way out of this nihilism?">=
+</a></td>
+</tr>
+</table></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--><table role=3D"pr=
+esentation"><tbody><tr><td><div style=3D"height:20px;line-height:20px">=E2=
+=80=8A</div></td></tr></tbody></table>
+<table width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"padding=
+:0"><div style=3D"margin:0px auto;max-width:600px">
+<!-- Support Free Independent Journalism -->
+<table width=3D"100%">
+  <tbody>
+			<tr><td><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" role=3D"presentation" align=3D"center">
+											<tr>
+							  <td class=3D"img pb-20" style=3D"font-size: 0pt; line-height: 0pt;=
+ padding-bottom: 20px;" align=3D"left">&nbsp;</td>
+							</tr>
+												<tr>
+													<td style=3D"border-right-width: 5px; border-right-color: #FFE=
+500; border-right-style: solid; border-bottom-width: 5px; border-bottom-col=
+or: #FFE500; border-bottom-style: solid;" align=3D"center">
+														<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" align=3D"center">
+															<tr>
+																<td style=3D"border: 5px solid #052962;" bgcolor=3D"#f1f8fc=
+">
+																	<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" role=3D"presentation">
+																	=09
+																	=09
+																		<tr>
+																			<td class=3D"px-15 py-10" style=3D"padding: 10px 15px;">
+																				<table width=3D"100%" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0" role=3D"presentation">
+																					<tr>
+																						<td class=3D"text-16 pb-15" style=3D"font-size: 16px;=
+ line-height: 20px; color: #000001; font-family: 'GH Guardian Headline', Ge=
+orgia, serif; font-weight: normal; padding-bottom: 15px;" align=3D"left">
+																							<p class=3D"text-16 reset" style=3D"font-size: 16px;=
+ line-height: 20px; color: #000001; font-family: 'GH Guardian Headline', Ge=
+orgia, serif; font-weight: normal; margin: 0; padding: 0;" align=3D"left">
+Thank you for signing up to Techscape. The Guardian is able to fairly repor=
+t on the tech industry =E2=80=93 for better or for worse =E2=80=93 thanks t=
+o the 2.4% of our regular readers who choose to support our work financiall=
+y. With no billionaire owner with other business interests to consider, we =
+can say what we want without fear of interference. <br><br>
+For more than 200 years, we=E2=80=99ve been publishing fearless, independen=
+t journalism. Now, with a daily readership in the millions, we can bring vi=
+tal reporting to people all around the world, including newsletters like th=
+is, direct to your inbox.
+<br><br>
+If that=E2=80=99s something you think is worth preserving, <b><span style=
+=3D"background-color: #ffe500;"> <a href=3D"https://ablink.editorial.thegua=
+rdian.com/ss/c/u001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx3IF5rKLrpZ7i5O=
+Yjw2FpxFp8lWfIyCi-btnroj7bmm2SvSe3jMyQz-JFeKklkL9LeDu77FKG9ZPwI5rOb0FnCTRQG=
+cO8jRqLg3iU8THT3d_jnpzp1UX89qpAVJOwROI_NN9nlHNwaVwfnikoLaUFq1YcQAZ05pU0kP7g=
+fkRfsBD4q9AmPi0HC2SGLzZHJekh2j28u0vXweWhwZxlzK051gxqgrXiHS1nQDGublSaz6pQzDP=
+xKsNvnSo6U-62zWPDwjoBF0q2EETVmVeeBmXPzSb9dwuzUjAV-tvpO49VXHZVw/4u2/6-9JS_n7=
+T9S_pJHlQ-jd9g/h41/h001.mzbkoAvXPzCcdzlOrLarUc0b4va_JsUTrdBIu9staNk" conver=
+sion=3D"false" title=3D"" style=3D"text-decoration: none; color: #000000;">=
+<u>please back our journalism today. </u></a></span></b>																			=
+		=09
+																							</p>
+																						</td>
+																					</tr>
+																				=09
+																					<tr>
+																						<td align=3D"left" class=3D"bg-fix pt-10" style=3D"pa=
+dding-bottom: 10px;">
+																							<!-- Button -->
+																							<div>
+																								<!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-mi=
+crosoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"=
+https://support.theguardian.com/contribute?lid=3D9hi1eyvwvmji&utm_source=3D=
+eml&utm_medium=3Demedt&utm_campaign=3Dtechscape&utm_content=3DEditorial_CNA=
+cqFooterNewReaderTechScapeAcq
+&CMP_TU=3Dmawns&CMP_BUNIT=3Dedtrl&utm_term=3D6aa92811abc54e044a3f5f7e80b421=
+d1" style=3D"height:40px;v-text-anchor:middle;width:140px;" arcsize=3D"50%"=
+ strokecolor=3D"#866d4f" fillcolor=3D"#866d4f"><w:anchorlock></w:anchorlock=
+><center class=3D"ff-text-sans" style=3D"color:#052962; font-family: Arial,=
+ sans-serif; font-size:15px; line-height:19px; font-weight:bold;"><span cla=
+ss=3D"keep-blue">Support&nbsp;us&nbsp;&nbsp;&rarr;</span></center></v:round=
+rect><![endif]--><a href=3D"https://ablink.editorial.theguardian.com/ss/c/u=
+001.zFrJr-OAD6MUXPGxMNJG7JWM3rcrR0R48aTRSRaOx3IF5rKLrpZ7i5OYjw2FpxFp7yq6dpY=
+gTkMs8QK4XsH-Ke4tcm2qNn9ZsF7-QwygDtQQD24L_4Vx6pjQTkYKStpWDsON1bPMGnqA5PwTwj=
+rwUKZTaenzwKy0NamcdRXj-ctRcz2d9Hgdw2sQUw2SxwV7sYCekkftcnR3wjBfW73PC_Gn41cw2=
+Un6AaRpkKYjBGgNvIWbn9cDoCQ4s4yhFgrkYzOKp4cqMOkzo11sAAznB8Qx5IqSojNrGk-IspMr=
+NtURT5rWi6CzcqQbiTJee9sC_EvuuAfRqFGbyvRIdSbR3A/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h=
+42/h001.aSXK9eDkeSswh2zeUluI5DDwWgQa8UoDI6JOHa8IhGU" target=3D"_blank" styl=
+e=3D"background-color: #FFE500; border-radius: 40px; color: #052962; displa=
+y: inline-block; font-family: 'Guardian Text Sans Regular', Arial, sans-ser=
+if; font-size: 16px; line-height: 19px; text-align: center; text-decoration=
+: none; min-width: auto; -webkit-text-size-adjust: none; white-space: nowra=
+p; mso-hide: all; padding: 6px 15px;"><strong>Support&nbsp;us&nbsp;&nbsp;<i=
+mg valign=3D"middle" class=3D"text-14" src=3D"https://cdn.braze.eu/appboy/c=
+ommunication/assets/image_assets/images/64ccbfe3feaa422ca99be922/original.p=
+ng?1691140067" width=3D"16" height=3D"16" border=3D"0" alt=3D"" style=3D"fo=
+nt-size: 14px; line-height: 18px; color: #000001; font-family: 'GH Guardian=
+ Headline', Georgia, serif; text-align: left; font-weight: normal;"></stron=
+g></a>
+																							</div>
+																							<!-- END Button -->
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																	</table>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+												<tr>
+													<td class=3D"img pb-20" style=3D"font-size: 0pt; line-height: =
+0pt; padding-bottom: 10px;" align=3D"left">&nbsp;</td>
+												</tr>
+											</table></td></tr>
+										=09
+<img src=3D"https://email.mvt.theguardian.com/1.gif?identity_id=3D13579145&=
+amp;variant=3DEditorial_CNAcqFooterNewReaderTechScapeAcq&amp;send_id=3D6aa9=
+2811abc54e044a3f5f7e80b421d1&amp;position=3Dfooter&amp;" alt=3D"" width=3D"=
+1" height=3D"1" border=3D"0" style=3D"display: block !important; height: 1p=
+x !important; width: 1px !important; margin: 0; padding: 0; border-width: 0=
+;">
+  </tbody>
+</table>
+<!-- END Support Free Independent Journalism -->
+</div></td></tr></tbody></table>
+<!--[if mso | IE]></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]--><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td=
+>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" wid=
+th=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:=
+0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margin:0px aut=
+o;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"width:100%;"><tbody><tr><t=
+d style=3D"border:1px solid #DCDCDC;border-top:5px solid #999999;direction:=
+ltr;font-size:0px;padding:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:566px;" width=3D"566" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:566px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;text-al=
+ign:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:3=
+96.2px;" ><![endif]--><div class=3D"mj-column-per-70 mj-outlook-group-fix" =
+style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;v=
+ertical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ve=
+rtical-align:top;padding:0;padding-right:16px;"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Georgia, serif;font-size:20px;line-height:20px;text-align:left;colo=
+r:#000000;">Get in touch</div></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Guardian Text Sans, Arial, sans-serif;font-size:13px;line-height:20=
+px;text-align:left;color:#000000;">If you have any questions or comments ab=
+out any of our newsletters please email <a href=3D"mailto:newsletters@thegu=
+ardian.com" style=3D"text-decoration: underline; color: #0077B6;">newslette=
+rs@theguardian.com</a>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td><td class=3D"" style=3D"vertical-align:top;width:169=
+.8px;" ><![endif]--><div class=3D"mj-column-per-30 mj-outlook-group-fix" st=
+yle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ver=
+tical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vert=
+ical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left" =
+style=3D"font-size:0px;padding:0;padding-bottom:16px;word-break:break-word;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr><td =
+style=3D"width:169px;"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBlRXChRrlHyDctO_P2Zbh9N=
+_kI7TMnNPWcbnAqCdtOzHWQCIuDik8Rz5Pfr1CVnvtSHDIYqkJl-Ee6lgRWcGz8Ey2nAbL15oKV=
+STVPz350nq0jSkN1sYp7NH_YCtw0Ck4StZYEe8StiaAfmMsxArGviggH972M9qeaMu__D_zQSA/=
+4u2/6-9JS_n7T9S_pJHlQ-jd9g/h43/h001.9ascsEer5T31Fmr1OsoAWB5Uv9f9BYApGTQ66Qp=
+oChw" target=3D"_blank" style=3D"color: #0077B6;"><img alt=3D"https://www.t=
+heguardian.com/uk" src=3D"https://cdn.braze.eu/appboy/communication/assets/=
+image_assets/images/614211d0ff8fcb5f969e0ccd/original.png?1631719888" style=
+=3D"border:0;display:block;outline:none;text-decoration:none;height:auto;wi=
+dth:100%;font-size:13px;" width=3D"169" height=3D"auto"></a></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;padding-bottom:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left"=
+ class=3D"text text-with-border" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><div style=3D"font-family:Guardian Text Sans, Arial, sans-se=
+rif;font-size:13px;line-height:20px;text-align:left;color:#000000;">
+<a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71=
+YMHfBFwuXBK43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmRUlU5PQoe94qclsjLS95kHijG=
+uAxcNpC0M_1d86nTk-IqwXjBJCAqrVTp9B_nPSaTT71ak00BTx2V_peiuUgA9_BIft0h2EYy37B=
+M75QlgvBSKiEbXzwIIvrH4MFZwTLcgkNMqEfj3I_4mGDDcxC-5ZWnWgESy0Wtbz8yT2jaXyY/4u=
+2/6-9JS_n7T9S_pJHlQ-jd9g/h44/h001.C2JLKOUneKCohs6vHV0LHPfGOhVXRnKjuaDlXVpGZ=
+zk" style=3D"font-family: Guardian Text Sans, Arial, sans-serif; text-decor=
+ation: none; color: #0077B6;">Manage your emails</a> | <a href=3D"https://a=
+blink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK43AaH4pdD=
+evU7uuHt6K_5zaO_ntyE7Unu01Eppyv5G3U6IivQCPQTveUdjQ2LiEuF4HjpFdhSR-amVQ6rCkg=
+YIirYz6IQyZJt7Xb30BBtXV_AO2wwB4e3nwS5auucFlEdjKCUNR10b7wFgDsg3MeDdjnkEIOwes=
+FzonDGAnA/4u2/6-9JS_n7T9S_pJHlQ-jd9g/h45/h001._zVTPmQyCnPkrXtFo_D_4RHtj4xwK=
+QTdBP43tW-E_Xc" style=3D"font-family: Guardian Text Sans, Arial, sans-serif=
+; text-decoration: none; color: #0077B6;">Unsubscribe</a>
+</div></td></tr></tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;padding-bottom:16=
+px;word-break:break-word;">
+<p style=3D"border-top: solid 1px #DCDCDC; font-size: 1px; margin: 0px auto=
+; width: 100%;"></p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #DCDCDC;font-size:1px;margin:=
+0px auto;width:566px;" role=3D"presentation" width=3D"566px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;word-break:break-word;"><div style=3D"font-family:Guardian Tex=
+t Sans, Arial, sans-serif;font-size:13px;line-height:20px;text-align:left;c=
+olor:#999999;">You are receiving this email because you are a subscriber to=
+ TechScape. Guardian News &amp; Media Limited - a member of Guardian Media =
+Group PLC. Registered Office: Kings Place, 90 York Way, London, N1 9GU. Reg=
+istered in England No. 908396</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table>
+</div>  </body></html>
+
+--c41c758f94d581ac24af9eded2c12edcb1220bb4f10f9e16f0af1ab422a5--
