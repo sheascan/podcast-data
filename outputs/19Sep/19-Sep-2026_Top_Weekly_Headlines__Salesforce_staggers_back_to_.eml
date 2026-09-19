@@ -1,0 +1,1251 @@
+Delivered-To: mike.mcconigley@gmail.com
+Received: by 2002:a05:6802:34da:20b0:64d:970d:4142 with SMTP id e26-n2csp8703328oce;
+        Fri, 18 Sep 2026 03:49:18 -0700 (PDT)
+X-Received: by 2002:a05:6000:4809:b0:487:1aa1:f54f with SMTP id ffacd0b85a97d-4871e36efe6mr2679735f8f.46.1789728557866;
+        Fri, 18 Sep 2026 03:49:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1789728557; cv=none;
+        d=google.com; s=arc-20260327;
+        b=B0NDy8sUUU4jGWlLiq83E7WLj069Dd1+cx+LPdOguqALSNsecVTdLJVWie0hvo3krF
+         NdQZPL7gDgLYyeqEuDnmnmMY3QtaT10MTjzsXH6PkkNJ08sMpaKARCqrKMUOCnufbOgp
+         sxCbgJ0GuExwej+UKi1LkCFYC3IyEFxzmPlm8S5FWE3MtG0R8NAcEDH+2vzkVmdlySCd
+         MZIxoYDHYPnoyN51jOMZS2Q4qP/vzVtrDB7hF7g+Y11x8D9hKGjl3cPWpp1anGZMKJpU
+         bO9ueeL/rpCItdwKK15kjmukRE5psx5CJ+PYneX6BvXGBASvjRjlF8QafKQYNcVfOjm1
+         gMSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=message-id:subject:to:from:content-transfer-encoding:mime-version
+         :date:dkim-signature;
+        bh=dJGOXLWHbb2t0cnpfwXGAUaTrNuidu/zy+tlhua1Ezo=;
+        fh=K20vM8fnz+pgStsoMsqzy3kIBCCg4x5xgWHpy+Y7x+w=;
+        b=CEwpFf/4vPA3NF7r446qtkzk2hFm4fvbFEnLRiheeWmZnQa1sX1BAwh420Ew2i6CW2
+         5JpcrlgOMTAo76cisstG09Mm/QgzLlNf9NZsOwowiwZo6vCG/eAZGLU3zmLSPsx0gjGE
+         uROAXcZ12pxVr1OgnV8np3AtV5MCaXlSGbLYnLEzHnivcRIHhnVSx2eQ6LYSj2u0nI2H
+         N7aBSJejB77JzzGwStgLx77mK1mhoEErhneuGnYxF5WibwGaVIu9eWhMMKTCEB97FylB
+         YwpzqNyEQ1djfZDV05u/yqceELSMPmYXqMSolxlrT4h0nyz2AMNONCR9DKgrbmR7qreo
+         GlwA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@news.theregister.com header.s=dkim header.b=o5WexiPp;
+       spf=pass (google.com: domain of update-284109-2b76750f@news.theregister.com designates 35.234.131.51 as permitted sender) smtp.mailfrom=update-284109-2b76750f@news.theregister.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=theregister.com
+Return-Path: <update-284109-2b76750f@news.theregister.com>
+Received: from smtp.sitpub.com (smtp.sitpub.com. [35.234.131.51])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-487201238c4si2107079f8f.492.2026.09.18.03.49.17
+        for <mike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Sep 2026 03:49:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of update-284109-2b76750f@news.theregister.com designates 35.234.131.51 as permitted sender) client-ip=35.234.131.51;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@news.theregister.com header.s=dkim header.b=o5WexiPp;
+       spf=pass (google.com: domain of update-284109-2b76750f@news.theregister.com designates 35.234.131.51 as permitted sender) smtp.mailfrom=update-284109-2b76750f@news.theregister.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=theregister.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=news.theregister.com; s=dkim; h=Message-Id:Subject:To:From:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Sender:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	 bh=dJGOXLWHbb2t0cnpfwXGAUaTrNuidu/zy+tlhua1Ezo=; b=o5WexiPpd93JVziNpWJgScXh3
+	QMUyo3UBXeSOFw6LQgpFJgHrD9MJEXmu81hJ7hiK976bSyi0L7DE6JZqX9Gy9U7DBN+jTKAvthBVz
+	c9rxz+ren6WlrS2ilNly0Cu2ESCd2gWj9N3X1aRYbUvQSjFxId3N17DvtxhJ0532Hr8LEfxu7Y3un
+	WSl31I3Lh3mWXxzBw9j00/woWW4bj2w/x90EWl0ZmpEd8zUEKPa/DN0qHcldKkP1f6WC6EwUbzdxW
+	6SshT6UOYZNa6AtbPzSV8/a+6JsTGO0M4jd+AHdelboWGY0Ay3+eShZ40suhJ5Neg2NtOVfntqXtB
+	/DVZVYHAw==;
+Received: from [10.0.0.37] (helo=ops03gb.sitpub.com)
+	by smtp.sitpub.com with esmtp (Exim 4.92)
+	(envelope-from <update-284109-2b76750f@news.theregister.com>)
+	id 1x7W9d-00080K-Hg
+	for mike.mcconigley@gmail.com; Fri, 18 Sep 2026 11:49:17 +0100
+Received: from [127.0.0.1] (helo=localhost.localdomain)
+	by ops03gb.sitpub.com with esmtp (Exim 4.92)
+	(envelope-from <update-284109-2b76750f@news.theregister.com>)
+	id 1x7VSN-0004BR-De
+	for mike.mcconigley@gmail.com; Fri, 18 Sep 2026 10:04:35 +0000
+Date: Fri, 18 Sep 2026 10:04:35 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="178972587520.6d8a9.14861"
+Content-Transfer-Encoding: 7bit
+From: "The Register" <update-284109-2b76750f@news.theregister.com>
+To: "Mike McConigley" <mike.mcconigley@gmail.com>
+Subject: Top Weekly Headlines: Salesforce staggers back to feet after global
+ outage
+Message-Id: <E1x7VSN-0004BR-De@ops03gb.sitpub.com>
+
+
+--178972587520.6d8a9.14861
+Date: Fri, 18 Sep 2026 10:04:35 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+# Top Weekly Headlines
+Friday, 18 September 2026
+
+###
+## Salesforce staggers back to feet after global outage
+ As thousands attend annual conference in San Francisco, customers get
+'severe delays, intermittent errors, and inability to access services'=20
+https://go.reg.cx/twdml/4pqP?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Dtop-article
+###
+
+## Oracle celebrates banner quarter with another round of layoffs
+ Congratulations on helping Larry Ellison's AI cloud boom. Now please
+pack your bags and go=20
+https://go.reg.cx/twdml/4ppq?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Ukrainian lawyer's second career as a Conti coder earns him 4 years
+## behind bars
+ Swapping legal work for malware development ended in extradition and a
+guilty plea=20
+https://go.reg.cx/twdml/4pn1?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Revolut falls for fake government requests, hands over customer data
+ Passports, selfies, transaction histories exposed as self-proclaimed
+culprits demand 10,000 Bitcoin=20
+https://go.reg.cx/twdml/4pnP?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Ex-FTC boss Khan urges Uncle Sam to break out the handcuffs for AI
+## CEOs, citing 1934 precedent
+ There are plenty of laws on the books to hold companies, and
+potentially their execs, accountable=20
+https://go.reg.cx/twdml/4pph?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Fedora 45 beta drags the Linux console into the 21st century
+ Kmscon brings smooth scaling, richer colors, and better Unicode
+support beneath GNOME 51=20
+https://go.reg.cx/twdml/4pr3?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Microsoft patches Windows and Excel =E2=80=93 breaks audio, remote acces=
+s,
+## and paste
+ Redmond's quality drive takes another detour through the known issues
+list=20
+https://go.reg.cx/twdml/4pnX?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Security through obscurity is dead, and AI delivered the fatal blow
+ RIP, you won't be mourned=20
+https://go.reg.cx/twdml/4pns?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Google Pixel phones pwned in zero-click attacks
+ CISA gives federal agencies just 3 days to patch=20
+https://go.reg.cx/twdml/4pr9?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## EU's Cyber Resilience Act starts the 24-hour vulnerability clock
+ Manufacturers must now disclose actively exploited flaws and severe
+security incidents through ENISA's new reporting platform=20
+https://go.reg.cx/twdml/4pmZ?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Dell's 52-inch enormo-monitor is a tsunami of impractical fun
+ You probably don't need it, but as an example of the possible it
+impresses=20
+https://go.reg.cx/twdml/4pnk?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## UK.gov begins killing off passwords for 23 million users
+ Passkeys promise fewer phishing headaches =E2=80=93 and =C2=A3600 a day off
+Whitehall's SMS bill=20
+https://go.reg.cx/twdml/4pnF?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## CPython eases Rust requirements as assimilation continues
+ By making Rust opt-in, the Python builders hope to enjoy Rust bennies
+without the backlash that roiled the Linux kernel keepers=20
+https://go.reg.cx/twdml/4pnK?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Nine-year-old runs up $118,000 bill on dad's corporate credit card
+## advertising his Roblox YouTube channel
+ He'll need to earn around $13K a year to pay pops back between now and
+when he turns 18, so at least there's that free labor to look forward
+to=20
+https://go.reg.cx/twdml/4pr5?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Judge orders Microsoft to spill internal docs and scour execs' comms
+## in secondhand licensing case
+ Yes, the 'Secondhand Software Presentation' does sound like it might
+be an adverse document...=20
+https://go.reg.cx/twdml/4prv?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## AWS says wartime damage means some Middle East cloud resources are
+## gone for good
+ Iranian strikes overwhelmed regional redundancy in Bahrain and left
+one UAE Availability Zone inaccessible=20
+https://go.reg.cx/twdml/4pqZ?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+
+## TypeSafe AI debuts model for machines that plays Doom
+ 'Jev' doesn't chat. It produces typed probabilistic decisions=20
+https://go.reg.cx/twdml/4pqB?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Swiss court sentences 52-year-old Ukrainian ransomware dev to nearly
+## 13 years in the cooler
+ The man allegedly wrote the code that powered the Lockergoga,
+MegaCortex, and Nefilim operations=20
+https://go.reg.cx/twdml/4pq3?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Ofcom discovers issuing Online Safety Act fines is easier than
+## collecting them
+ Platforms comply just enough to avoid being blocked, leaving the
+regulator chasing debt=20
+https://go.reg.cx/twdml/4prz?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Mars astronauts could live in houses made of yeast and jello, say
+## scientists
+ Low-energy 3D printing could turn Martian dirt into sturdy structures=20
+https://go.reg.cx/twdml/4pnb?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Microsoft account refuseniks have another way of installing Windows
+ Has the good bork fairy paid a visit to Redmond?=20
+https://go.reg.cx/twdml/4ppZ?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Test environment let anyone access live customer data
+ Even a temporary staging server needs to be locked down.=20
+https://go.reg.cx/twdml/4prD?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Disembodied fruit fly brain joins the crypto speculation swarm
+ Coinbase engineer gives simulated insect $100 and lets its neurons
+make the trades=20
+https://go.reg.cx/twdml/4pn9?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Cisco drops another exploited zero-day, this time a perfect 10
+ ISE authentication bypass under active attack just days after another
+Cisco zero-day sent admins scrambling to patch=20
+https://go.reg.cx/twdml/4prH?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Most people who quit M365 for Google do it out of spite, but there=E2=80=
+=99s
+## no ROI in that
+ Nor are you likely to save much by making the move, says Gartner=20
+https://go.reg.cx/twdml/4ppF?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Iranian spies hit Windows machines with Chosen Brick data-stealing
+## malware
+ 'Enemies of the regime' on notice=20
+https://go.reg.cx/twdml/4pqq?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## AI more likely to kill animals if it saves fuel or money
+ Machine learning models still have a lot to learn about the value of
+life=20
+https://go.reg.cx/twdml/4pnf?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## CISA decides weekly vulnerability bulletin isn't necessary anymore
+ Agency's shift from static CVSS scores to risk-based prioritization
+sends the old format packing September 28=20
+https://go.reg.cx/twdml/4prd?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## Java 27 grows up, makes better choices
+ Improvements in JDK garbage collection, header sizes, data security
+and quantum key support all should minimize developer friction=20
+https://go.reg.cx/twdml/4pqD?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+## COBOL dev won .Net hackathon with help from AI =E2=80=93 and their CIO l=
+oves
+## it
+ Australia Taxation Office sees footling with Copilot as a way to
+develop =E2=80=98muscles=E2=80=99 for real AI work=20
+https://go.reg.cx/twdml/4ppx?utm_source=3Ddigest&utm_medium=3Dnewsletter&ut=
+m_content=3Darticle
+
+
+This email was sent to mike.mcconigley@gmail.com
+
+You can update your preferences here:
+
+    https://account.theregister.com/edit/newsletter
+
+or unsubscribe from this list:
+
+    https://account.theregister.com/unsubscribe/284109/2b76750f/thereg_week=
+ly_digest
+
+Situation Publishing Ltd, 315 Montgomery Street, 9th & 10th Floors, San Fra=
+ncisco, CA 94104, USA
+
+The Register and its contents are Copyright =C2=A9 2026 Situation Publishin=
+g. All rights reserved.
+
+Find our Privacy Policy here:
+
+    https://www.theregister.com/Profile/privacy/=
+
+--178972587520.6d8a9.14861
+Date: Fri, 18 Sep 2026 10:04:35 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd"><html lang=3D"en" xml:lang=3D"en" xmlns=
+=3D"http://www.w3.org/1999/xhtml"><head><meta content=3D"text/html; charset=
+=3Dutf-8" http-equiv=3D"Content-Type"><meta content=3D"width=3Ddevice-width=
+" name=3D"viewport"><title></title></head><body style=3D"box-sizing: border=
+-box; color: #0a0a0a; font-family: Arial,Helvetica,sans-serif; font-size: 1=
+6px; font-weight: normal; line-height: 1.3; margin: 0; min-width: 100%; pad=
+ding: 0; text-align: left; width: 100% !important;"><style type=3D"text/css=
+">.wrapper{width:100%;}#outlook a{padding:0;}body{width:100% !important;min=
+-width:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin:=
+0;Margin:0;padding:0;-moz-box-sizing:border-box;-webkit-box-sizing:border-b=
+ox;box-sizing:border-box;}.ExternalClass{width:100%;}.ExternalClass,.Extern=
+alClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.Extern=
+alClass div{line-height:100%;}#backgroundTable{margin:0;Margin:0;padding:0;=
+width:100% !important;line-height:100% !important;}img{outline:none;text-de=
+coration:none;-ms-interpolation-mode:bicubic;width:auto;max-width:100%;clea=
+r:both;display:block;}center{width:100%;min-width:580px;}a img{border:none;=
+}p{margin:0 0 0 10px;Margin:0 0 0 10px;}table{border-spacing:0;border-colla=
+pse:collapse;}td{word-wrap:break-word;-webkit-hyphens:auto;-moz-hyphens:aut=
+o;hyphens:auto;border-collapse:collapse !important;}table,tr,td{padding:0;v=
+ertical-align:top;text-align:left;}@media only screen{html{min-height:100%;=
+background:#fefefe;}}table.body{background:#fefefe;height:100%;width:100%;}=
+table.container{background:#fefefe;width:580px;margin:0 auto;Margin:0 auto;=
+text-align:inherit;}table.row{padding:0;width:100%;position:relative;}table=
+.spacer{width:100%;}table.spacer td{mso-line-height-rule:exactly;}table.con=
+tainer table.row{display:table;}td.columns,td.column,th.columns,th.column{m=
+argin:0 auto;Margin:0 auto;padding-left:16px;padding-bottom:0;}td.columns .=
+column,td.columns .columns,td.column .column,td.column .columns,th.columns =
+.column,th.columns .columns,th.column .column,th.column .columns{padding-le=
+ft:0 !important;padding-right:0 !important;}td.columns .column center,td.co=
+lumns .columns center,td.column .column center,td.column .columns center,th=
+.columns .column center,th.columns .columns center,th.column .column center=
+,th.column .columns center{min-width:none !important;}td.columns.last,td.co=
+lumn.last,th.columns.last,th.column.last{padding-right:16px;}td.columns tab=
+le:not(.button),td.column table:not(.button),th.columns table:not(.button),=
+th.column table:not(.button){width:100%;}td.large-1,th.large-1{width:32.333=
+3333333px;padding-left:8px;padding-right:8px;}td.large-1.first,th.large-1.f=
+irst{padding-left:16px;}td.large-1.last,th.large-1.last{padding-right:16px;=
+}.collapse&gt;tbody&gt;tr&gt;td.large-1,.collapse&gt;tbody&gt;tr&gt;th.larg=
+e-1{padding-right:0;padding-left:0;width:48.3333333333px;}.collapse td.larg=
+e-1.first,.collapse th.large-1.first,.collapse td.large-1.last,.collapse th=
+.large-1.last{width:56.3333333333px;}td.large-1 center,th.large-1 center{mi=
+n-width:.3333333333px;}.body .columns td.large-1,.body .column td.large-1,.=
+body .columns th.large-1,.body .column th.large-1{width:8.333333%;}td.large=
+-2,th.large-2{width:80.6666666667px;padding-left:8px;padding-right:8px;}td.=
+large-2.first,th.large-2.first{padding-left:16px;}td.large-2.last,th.large-=
+2.last{padding-right:16px;}.collapse&gt;tbody&gt;tr&gt;td.large-2,.collapse=
+&gt;tbody&gt;tr&gt;th.large-2{padding-right:0;padding-left:0;width:96.66666=
+66667px;}.collapse td.large-2.first,.collapse th.large-2.first,.collapse td=
+.large-2.last,.collapse th.large-2.last{width:104.6666666667px;}td.large-2 =
+center,th.large-2 center{min-width:48.6666666667px;}.body .columns td.large=
+-2,.body .column td.large-2,.body .columns th.large-2,.body .column th.larg=
+e-2{width:16.666666%;}td.large-3,th.large-3{width:129px;padding-left:8px;pa=
+dding-right:8px;}td.large-3.first,th.large-3.first{padding-left:16px;}td.la=
+rge-3.last,th.large-3.last{padding-right:16px;}.collapse&gt;tbody&gt;tr&gt;=
+td.large-3,.collapse&gt;tbody&gt;tr&gt;th.large-3{padding-right:0;padding-l=
+eft:0;width:145px;}.collapse td.large-3.first,.collapse th.large-3.first,.c=
+ollapse td.large-3.last,.collapse th.large-3.last{width:153px;}td.large-3 c=
+enter,th.large-3 center{min-width:97px;}.body .columns td.large-3,.body .co=
+lumn td.large-3,.body .columns th.large-3,.body .column th.large-3{width:25=
+%;}td.large-4,th.large-4{width:177.3333333333px;padding-left:8px;padding-ri=
+ght:8px;}td.large-4.first,th.large-4.first{padding-left:16px;}td.large-4.la=
+st,th.large-4.last{padding-right:16px;}.collapse&gt;tbody&gt;tr&gt;td.large=
+-4,.collapse&gt;tbody&gt;tr&gt;th.large-4{padding-right:0;padding-left:0;wi=
+dth:193.3333333333px;}.collapse td.large-4.first,.collapse th.large-4.first=
+,.collapse td.large-4.last,.collapse th.large-4.last{width:201.3333333333px=
+;}td.large-4 center,th.large-4 center{min-width:145.3333333333px;}.body .co=
+lumns td.large-4,.body .column td.large-4,.body .columns th.large-4,.body .=
+column th.large-4{width:33.333333%;}td.large-5,th.large-5{width:225.6666666=
+667px;padding-left:8px;padding-right:8px;}td.large-5.first,th.large-5.first=
+{padding-left:16px;}td.large-5.last,th.large-5.last{padding-right:16px;}.co=
+llapse&gt;tbody&gt;tr&gt;td.large-5,.collapse&gt;tbody&gt;tr&gt;th.large-5{=
+padding-right:0;padding-left:0;width:241.6666666667px;}.collapse td.large-5=
+.first,.collapse th.large-5.first,.collapse td.large-5.last,.collapse th.la=
+rge-5.last{width:249.6666666667px;}td.large-5 center,th.large-5 center{min-=
+width:193.6666666667px;}.body .columns td.large-5,.body .column td.large-5,=
+.body .columns th.large-5,.body .column th.large-5{width:41.666666%;}td.lar=
+ge-6,th.large-6{width:274px;padding-left:8px;padding-right:8px;}td.large-6.=
+first,th.large-6.first{padding-left:16px;}td.large-6.last,th.large-6.last{p=
+adding-right:16px;}.collapse&gt;tbody&gt;tr&gt;td.large-6,.collapse&gt;tbod=
+y&gt;tr&gt;th.large-6{padding-right:0;padding-left:0;width:290px;}.collapse=
+ td.large-6.first,.collapse th.large-6.first,.collapse td.large-6.last,.col=
+lapse th.large-6.last{width:298px;}td.large-6 center,th.large-6 center{min-=
+width:242px;}.body .columns td.large-6,.body .column td.large-6,.body .colu=
+mns th.large-6,.body .column th.large-6{width:50%;}td.large-7,th.large-7{wi=
+dth:322.3333333333px;padding-left:8px;padding-right:8px;}td.large-7.first,t=
+h.large-7.first{padding-left:16px;}td.large-7.last,th.large-7.last{padding-=
+right:16px;}.collapse&gt;tbody&gt;tr&gt;td.large-7,.collapse&gt;tbody&gt;tr=
+&gt;th.large-7{padding-right:0;padding-left:0;width:338.3333333333px;}.coll=
+apse td.large-7.first,.collapse th.large-7.first,.collapse td.large-7.last,=
+.collapse th.large-7.last{width:346.3333333333px;}td.large-7 center,th.larg=
+e-7 center{min-width:290.3333333333px;}.body .columns td.large-7,.body .col=
+umn td.large-7,.body .columns th.large-7,.body .column th.large-7{width:58.=
+333333%;}td.large-8,th.large-8{width:370.6666666667px;padding-left:8px;padd=
+ing-right:8px;}td.large-8.first,th.large-8.first{padding-left:16px;}td.larg=
+e-8.last,th.large-8.last{padding-right:16px;}.collapse&gt;tbody&gt;tr&gt;td=
+.large-8,.collapse&gt;tbody&gt;tr&gt;th.large-8{padding-right:0;padding-lef=
+t:0;width:386.6666666667px;}.collapse td.large-8.first,.collapse th.large-8=
+.first,.collapse td.large-8.last,.collapse th.large-8.last{width:394.666666=
+6667px;}td.large-8 center,th.large-8 center{min-width:338.6666666667px;}.bo=
+dy .columns td.large-8,.body .column td.large-8,.body .columns th.large-8,.=
+body .column th.large-8{width:66.666666%;}td.large-9,th.large-9{width:419px=
+;padding-left:8px;padding-right:8px;}td.large-9.first,th.large-9.first{padd=
+ing-left:16px;}td.large-9.last,th.large-9.last{padding-right:16px;}.collaps=
+e&gt;tbody&gt;tr&gt;td.large-9,.collapse&gt;tbody&gt;tr&gt;th.large-9{paddi=
+ng-right:0;padding-left:0;width:435px;}.collapse td.large-9.first,.collapse=
+ th.large-9.first,.collapse td.large-9.last,.collapse th.large-9.last{width=
+:443px;}td.large-9 center,th.large-9 center{min-width:387px;}.body .columns=
+ td.large-9,.body .column td.large-9,.body .columns th.large-9,.body .colum=
+n th.large-9{width:75%;}td.large-10,th.large-10{width:467.3333333333px;padd=
+ing-left:8px;padding-right:8px;}td.large-10.first,th.large-10.first{padding=
+-left:16px;}td.large-10.last,th.large-10.last{padding-right:16px;}.collapse=
+&gt;tbody&gt;tr&gt;td.large-10,.collapse&gt;tbody&gt;tr&gt;th.large-10{padd=
+ing-right:0;padding-left:0;width:483.3333333333px;}.collapse td.large-10.fi=
+rst,.collapse th.large-10.first,.collapse td.large-10.last,.collapse th.lar=
+ge-10.last{width:491.3333333333px;}td.large-10 center,th.large-10 center{mi=
+n-width:435.3333333333px;}.body .columns td.large-10,.body .column td.large=
+-10,.body .columns th.large-10,.body .column th.large-10{width:83.333333%;}=
+td.large-11,th.large-11{width:515.6666666667px;padding-left:8px;padding-rig=
+ht:8px;}td.large-11.first,th.large-11.first{padding-left:16px;}td.large-11.=
+last,th.large-11.last{padding-right:16px;}.collapse&gt;tbody&gt;tr&gt;td.la=
+rge-11,.collapse&gt;tbody&gt;tr&gt;th.large-11{padding-right:0;padding-left=
+:0;width:531.6666666667px;}.collapse td.large-11.first,.collapse th.large-1=
+1.first,.collapse td.large-11.last,.collapse th.large-11.last{width:539.666=
+6666667px;}td.large-11 center,th.large-11 center{min-width:483.6666666667px=
+;}.body .columns td.large-11,.body .column td.large-11,.body .columns th.la=
+rge-11,.body .column th.large-11{width:91.666666%;}td.large-12,th.large-12{=
+width:564px;padding-left:8px;padding-right:8px;}td.large-12.first,th.large-=
+12.first{padding-left:16px;}td.large-12.last,th.large-12.last{padding-right=
+:16px;}.collapse&gt;tbody&gt;tr&gt;td.large-12,.collapse&gt;tbody&gt;tr&gt;=
+th.large-12{padding-right:0;padding-left:0;width:580px;}.collapse td.large-=
+12.first,.collapse th.large-12.first,.collapse td.large-12.last,.collapse t=
+h.large-12.last{width:588px;}td.large-12 center,th.large-12 center{min-widt=
+h:532px;}.body .columns td.large-12,.body .column td.large-12,.body .column=
+s th.large-12,.body .column th.large-12{width:100%;}td.large-offset-1,td.la=
+rge-offset-1.first,td.large-offset-1.last,th.large-offset-1,th.large-offset=
+-1.first,th.large-offset-1.last{padding-left:64.3333333333px;}td.large-offs=
+et-2,td.large-offset-2.first,td.large-offset-2.last,th.large-offset-2,th.la=
+rge-offset-2.first,th.large-offset-2.last{padding-left:112.6666666667px;}td=
+.large-offset-3,td.large-offset-3.first,td.large-offset-3.last,th.large-off=
+set-3,th.large-offset-3.first,th.large-offset-3.last{padding-left:161px;}td=
+.large-offset-4,td.large-offset-4.first,td.large-offset-4.last,th.large-off=
+set-4,th.large-offset-4.first,th.large-offset-4.last{padding-left:209.33333=
+33333px;}td.large-offset-5,td.large-offset-5.first,td.large-offset-5.last,t=
+h.large-offset-5,th.large-offset-5.first,th.large-offset-5.last{padding-lef=
+t:257.6666666667px;}td.large-offset-6,td.large-offset-6.first,td.large-offs=
+et-6.last,th.large-offset-6,th.large-offset-6.first,th.large-offset-6.last{=
+padding-left:306px;}td.large-offset-7,td.large-offset-7.first,td.large-offs=
+et-7.last,th.large-offset-7,th.large-offset-7.first,th.large-offset-7.last{=
+padding-left:354.3333333333px;}td.large-offset-8,td.large-offset-8.first,td=
+.large-offset-8.last,th.large-offset-8,th.large-offset-8.first,th.large-off=
+set-8.last{padding-left:402.6666666667px;}td.large-offset-9,td.large-offset=
+-9.first,td.large-offset-9.last,th.large-offset-9,th.large-offset-9.first,t=
+h.large-offset-9.last{padding-left:451px;}td.large-offset-10,td.large-offse=
+t-10.first,td.large-offset-10.last,th.large-offset-10,th.large-offset-10.fi=
+rst,th.large-offset-10.last{padding-left:499.3333333333px;}td.large-offset-=
+11,td.large-offset-11.first,td.large-offset-11.last,th.large-offset-11,th.l=
+arge-offset-11.first,th.large-offset-11.last{padding-left:547.6666666667px;=
+}td.expander,th.expander{visibility:hidden;width:0;padding:0 !important;}ta=
+ble.container.radius{border-radius:0;border-collapse:separate;}table.text-c=
+enter,th.text-center,td.text-center,h1.text-center,h2.text-center,h3.text-c=
+enter,h4.text-center,h5.text-center,h6.text-center,p.text-center,span.text-=
+center{text-align:center;}table.text-left,th.text-left,td.text-left,h1.text=
+-left,h2.text-left,h3.text-left,h4.text-left,h5.text-left,h6.text-left,p.te=
+xt-left,span.text-left{text-align:left;}table.text-right,th.text-right,td.t=
+ext-right,h1.text-right,h2.text-right,h3.text-right,h4.text-right,h5.text-r=
+ight,h6.text-right,p.text-right,span.text-right{text-align:right;}span.text=
+-center{display:block;width:100%;text-align:center;}@media only screen and =
+(max-width: 596px){.small-float-center{margin:0 auto !important;float:none =
+!important;text-align:center !important;}.small-text-center{text-align:cent=
+er !important;}.small-text-left{text-align:left !important;}.small-text-rig=
+ht{text-align:right !important;}}img.float-left{float:left;text-align:left;=
+}img.float-right{float:right;text-align:right;}img.float-center,img.text-ce=
+nter{margin:0 auto;Margin:0 auto;float:none;text-align:center;}table.float-=
+center,td.float-center,th.float-center{margin:0 auto;Margin:0 auto;float:no=
+ne;text-align:center;}.hide-for-large{display:none;mso-hide:all;overflow:hi=
+dden;max-height:0;font-size:0;width:0;line-height:0;}@media only screen and=
+ (max-width: 596px){.hide-for-large{display:block !important;width:auto !im=
+portant;overflow:visible !important;max-height:none !important;font-size:in=
+herit !important;line-height:inherit !important;}}table.body table.containe=
+r .hide-for-large *{mso-hide:all;}@media only screen and (max-width: 596px)=
+{table.body table.container .hide-for-large,table.body table.container .row=
+.hide-for-large{display:table !important;width:100% !important;}}@media onl=
+y screen and (max-width: 596px){table.body table.container .callout-inner.h=
+ide-for-large{display:table-cell !important;width:100% !important;}}@media =
+only screen and (max-width: 596px){table.body table.container .show-for-lar=
+ge{display:none !important;width:0;mso-hide:all;overflow:hidden;}}body,tabl=
+e.body,h1,h2,h3,h4,h5,h6,p,td,th,a{color:#0a0a0a;font-family:Arial,Helvetic=
+a,sans-serif;font-weight:normal;padding:0;margin:0;Margin:0;text-align:left=
+;line-height:1.3;}h1,h2,h3,h4,h5,h6{word-break:auto-phrase;color:inherit;wo=
+rd-wrap:normal;font-family:Arial,Helvetica,sans-serif;font-weight:normal;ma=
+rgin-bottom:10px;Margin-bottom:10px;}h1{font-size:36px;}h2{font-size:30px;}=
+h3{font-size:24px;}h4{font-size:21px;}h5{font-size:18px;}h6{font-size:16px;=
+}body,table.body,p,td,th{font-size:16px;line-height:1.3;}p{margin-bottom:10=
+px;Margin-bottom:10px;}p.lead{font-size:20px;line-height:1.6;}p.subheader{m=
+argin-top:4px;margin-bottom:8px;Margin-top:4px;Margin-bottom:8px;font-weigh=
+t:normal;line-height:1.4;color:#8a8a8a;}small{font-size:80%;color:#cacaca;}=
+a{color:#2199e8;text-decoration:none;}a:hover{color:#147dc2;}a:active{color=
+:#147dc2;}a:visited{color:#2199e8;}h1 a,h1 a:visited,h2 a,h2 a:visited,h3 a=
+,h3 a:visited,h4 a,h4 a:visited,h5 a,h5 a:visited,h6 a,h6 a:visited{color:#=
+2199e8;}@media only screen and (max-width: 596px){table.body img{width:auto=
+;height:auto;}table.body center{min-width:0 !important;}table.body .contain=
+er{width:95% !important;}table.body .columns,table.body .column{height:auto=
+ !important;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-si=
+zing:border-box;padding-left:16px !important;padding-right:16px !important;=
+}table.body .columns .column,table.body .columns .columns,table.body .colum=
+n .column,table.body .column .columns{padding-left:0 !important;padding-rig=
+ht:0 !important;}table.body .collapse .columns,table.body .collapse .column=
+{padding-left:0 !important;padding-right:0 !important;}td.small-1,th.small-=
+1{display:inline-block !important;width:8.333333% !important;}td.small-2,th=
+.small-2{display:inline-block !important;width:16.666666% !important;}td.sm=
+all-3,th.small-3{display:inline-block !important;width:25% !important;}td.s=
+mall-4,th.small-4{display:inline-block !important;width:33.333333% !importa=
+nt;}td.small-5,th.small-5{display:inline-block !important;width:41.666666% =
+!important;}td.small-6,th.small-6{display:inline-block !important;width:50%=
+ !important;}td.small-7,th.small-7{display:inline-block !important;width:58=
+.333333% !important;}td.small-8,th.small-8{display:inline-block !important;=
+width:66.666666% !important;}td.small-9,th.small-9{display:inline-block !im=
+portant;width:75% !important;}td.small-10,th.small-10{display:inline-block =
+!important;width:83.333333% !important;}td.small-11,th.small-11{display:inl=
+ine-block !important;width:91.666666% !important;}td.small-12,th.small-12{d=
+isplay:inline-block !important;width:100% !important;}.columns td.small-12,=
+.column td.small-12,.columns th.small-12,.column th.small-12{display:block =
+!important;width:100% !important;}table.body td.small-offset-1,table.body t=
+h.small-offset-1{margin-left:8.333333% !important;Margin-left:8.333333% !im=
+portant;}table.body td.small-offset-2,table.body th.small-offset-2{margin-l=
+eft:16.666666% !important;Margin-left:16.666666% !important;}table.body td.=
+small-offset-3,table.body th.small-offset-3{margin-left:25% !important;Marg=
+in-left:25% !important;}table.body td.small-offset-4,table.body th.small-of=
+fset-4{margin-left:33.333333% !important;Margin-left:33.333333% !important;=
+}table.body td.small-offset-5,table.body th.small-offset-5{margin-left:41.6=
+66666% !important;Margin-left:41.666666% !important;}table.body td.small-of=
+fset-6,table.body th.small-offset-6{margin-left:50% !important;Margin-left:=
+50% !important;}table.body td.small-offset-7,table.body th.small-offset-7{m=
+argin-left:58.333333% !important;Margin-left:58.333333% !important;}table.b=
+ody td.small-offset-8,table.body th.small-offset-8{margin-left:66.666666% !=
+important;Margin-left:66.666666% !important;}table.body td.small-offset-9,t=
+able.body th.small-offset-9{margin-left:75% !important;Margin-left:75% !imp=
+ortant;}table.body td.small-offset-10,table.body th.small-offset-10{margin-=
+left:83.333333% !important;Margin-left:83.333333% !important;}table.body td=
+.small-offset-11,table.body th.small-offset-11{margin-left:91.666666% !impo=
+rtant;Margin-left:91.666666% !important;}table.body table.columns td.expand=
+er,table.body table.columns th.expander{display:none !important;}table.body=
+ .right-text-pad,table.body .text-pad-right{padding-left:10px !important;}t=
+able.body .left-text-pad,table.body .text-pad-left{padding-right:10px !impo=
+rtant;}}body center.reg-center-fix{min-width:0 !important;}h3,p{-webkit-hyp=
+hens:none;-moz-hyphens:none;hyphens:none;}@media(max-width: 596px){.one_row=
+_img_ad img{max-width:83% !important;min-width:300px;}}</style><table class=
+=3D"body" style=3D"background: #fefefe; border-collapse: collapse; border-s=
+pacing: 0; color: #0a0a0a; font-family: Arial,Helvetica,sans-serif; font-si=
+ze: 16px; font-weight: normal; height: 100%; line-height: 1.3; margin: 0; p=
+adding: 0; text-align: left; vertical-align: top; width: 100%;"><tr style=
+=3D"padding: 0; text-align: left; vertical-align: top;"><td align=3D"center=
+" class=3D"center" style=3D"border-collapse: collapse !important; color: #0=
+a0a0a; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weigh=
+t: normal; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-ali=
+gn: left; vertical-align: top; word-wrap: break-word;" valign=3D"top"><cent=
+er data-parsed=3D"" style=3D"min-width: 580px; width: 100%;"><table align=
+=3D"center" class=3D"container float-center" style=3D"background: #fefefe; =
+border-collapse: collapse; border-spacing: 0; float: none; margin: 0 auto; =
+padding: 0; text-align: center; vertical-align: top; width: 580px;"><tbody>=
+<tr style=3D"padding: 0; text-align: left; vertical-align: top;"><td style=
+=3D"border-collapse: collapse !important; color: #0a0a0a; font-family: Aria=
+l,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: auto=
+; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align=
+: top; word-wrap: break-word;"><p class=3D"text-right" style=3D"color: #0a0=
+a0a; font-family: Arial,Helvetica,sans-serif; font-size: 14px; font-weight:=
+ normal; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 10px; m=
+argin-right: 15px; margin-top: 10px; padding: 0; text-align: right;"> Hi Mi=
+ke McConigley <span style=3D"margin-left: 3px; margin-right: 3px;">|</span>=
+ <a href=3D"https://account.theregister.com/login" style=3D"color: black; f=
+ont-family: Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1=
+.3; margin: 0; padding: 0; text-align: right; text-decoration: underline;" =
+target=3D"_blank">Log in</a></p><a href=3D"https://www.theregister.com/" st=
+yle=3D"color: #2199e8; font-family: Arial,Helvetica,sans-serif; font-weight=
+: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-d=
+ecoration: none;"><center data-parsed=3D"" style=3D"background: #ff0000; mi=
+n-width: 580px; width: 100%;"><img align=3D"center" alt=3D"The Register" cl=
+ass=3D"float-center" src=3D"https://www.theregister.com/design_picker/ed59a=
+7a01043201cc146ff4b0df120d8aa0b8ee5/graphics/Reg_default/newsletter/reg_log=
+o.png" style=3D"border: none; clear: both; color: white; display: block; fl=
+oat: none; font-size: 30px; margin: 0 auto; max-width: 75%; outline: none; =
+text-align: center; text-decoration: none; width: auto;"></center></a><h1 c=
+lass=3D"text-center" style=3D"color: inherit; font-family: Arial,Helvetica,=
+sans-serif; font-size: 36px; font-weight: normal; line-height: 1.3; margin:=
+ 0; margin-bottom: 10px; margin-top: 40px; padding: 0; text-align: center; =
+word-break: auto-phrase; word-wrap: normal;">Top Weekly Headlines </h1><p c=
+lass=3D"text-center" style=3D"color: #0a0a0a; font-family: Arial,Helvetica,=
+sans-serif; font-size: 16px; font-weight: normal; hyphens: none; line-heigh=
+t: 1.3; margin: 0; margin-bottom: 40px; padding: 0; text-align: center;"> F=
+riday, 18 September 2026 </p><table style=3D"border-collapse: collapse; bor=
+der-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 1=
+00%;"><tbody><tr style=3D"padding: 0; text-align: left; vertical-align: top=
+;"><td style=3D"border-collapse: collapse !important; color: #0a0a0a; font-=
+family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; h=
+eight: 1px; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-al=
+ign: left; vertical-align: top; width: 1px; word-wrap: break-word;"></td><t=
+d style=3D"border-bottom: 1px solid #dddddd; border-collapse: collapse !imp=
+ortant; color: #0a0a0a; font-family: Arial,Helvetica,sans-serif; font-size:=
+ 16px; font-weight: normal; height: 1px; hyphens: auto; line-height: 1.3; m=
+argin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap: bre=
+ak-word;"></td><td style=3D"border-collapse: collapse !important; color: #0=
+a0a0a; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weigh=
+t: normal; height: 1px; hyphens: auto; line-height: 1.3; margin: 0; padding=
+: 0; text-align: left; vertical-align: top; width: 1px; word-wrap: break-wo=
+rd;"></td></tr><tr style=3D"padding: 0; text-align: left; vertical-align: t=
+op;"></tr></tbody></table><table style=3D"border-collapse: collapse; border=
+-spacing: 0; padding: 0; text-align: left; vertical-align: top;"><tr style=
+=3D"padding: 0; text-align: left; vertical-align: top;"><td style=3D"border=
+-collapse: collapse !important; color: #0a0a0a; font-family: Arial,Helvetic=
+a,sans-serif; font-size: 16px; font-weight: normal; hyphens: auto; line-hei=
+ght: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; wid=
+th: 12px; word-wrap: break-word;"></td><td style=3D"border-collapse: collap=
+se !important; color: #0a0a0a; font-family: Arial,Helvetica,sans-serif; fon=
+t-size: 16px; font-weight: normal; hyphens: auto; line-height: 1.3; margin:=
+ 0; max-width: 556px; padding: 0; text-align: center; vertical-align: top; =
+width: 556px; word-wrap: break-word;"><a href=3D"https://go.reg.cx/twdml/4p=
+qP?utm_source=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_content=3Dtop-ar=
+ticle" style=3D"color: #2199e8; font-family: Arial,Helvetica,sans-serif; fo=
+nt-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: lef=
+t; text-decoration: none;" target=3D"_blank"><h2 style=3D"color: black; fon=
+t-family: Arial,Helvetica,sans-serif; font-size: 30px; font-weight: bold; l=
+ine-height: 1.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0;=
+ text-align: center; word-break: auto-phrase; word-wrap: normal;">Salesforc=
+e staggers back to feet after global outage</h2><p style=3D"color: black; f=
+ont-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: norma=
+l; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0=
+; text-align: center;"> As thousands attend annual conference in San Franci=
+sco, customers get &#39;severe delays, intermittent errors, and inability t=
+o access services&#39; </p><span style=3D"color: #31798b; font-size: 12px; =
+text-align: center;">Wed 16 Sep 2026</span> </a></td><td style=3D"border-co=
+llapse: collapse !important; color: #0a0a0a; font-family: Arial,Helvetica,s=
+ans-serif; font-size: 16px; font-weight: normal; hyphens: auto; line-height=
+: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; width:=
+ 12px; word-wrap: break-word;"></td></tr></table><table class=3D"spacer" st=
+yle=3D"border-collapse: collapse; border-spacing: 0; padding: 0; text-align=
+: left; vertical-align: top; width: 100%;"><tbody><tr style=3D"padding: 0; =
+text-align: left; vertical-align: top;"><td height=3D"10px" style=3D"border=
+-collapse: collapse !important; color: #0a0a0a; font-family: Arial,Helvetic=
+a,sans-serif; font-size: 10px; font-weight: normal; hyphens: auto; line-hei=
+ght: 10px; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align=
+: left; vertical-align: top; word-wrap: break-word;">=C2=A0</td></tr></tbod=
+y></table><table style=3D"border-collapse: collapse; border-spacing: 0; pad=
+ding: 0; text-align: left; vertical-align: top; width: 100%;"><tbody><tr st=
+yle=3D"padding: 0; text-align: left; vertical-align: top;"><td style=3D"bor=
+der-collapse: collapse !important; color: #0a0a0a; font-family: Arial,Helve=
+tica,sans-serif; font-size: 16px; font-weight: normal; height: 1px; hyphens=
+: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical=
+-align: top; width: 1px; word-wrap: break-word;"></td><td style=3D"border-b=
+ottom: 1px solid #dddddd; border-collapse: collapse !important; color: #0a0=
+a0a; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight:=
+ normal; height: 1px; hyphens: auto; line-height: 1.3; margin: 0; padding: =
+0; text-align: left; vertical-align: top; word-wrap: break-word;"></td><td =
+style=3D"border-collapse: collapse !important; color: #0a0a0a; font-family:=
+ Arial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; height: =
+1px; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-align: le=
+ft; vertical-align: top; width: 1px; word-wrap: break-word;"></td></tr><tr =
+style=3D"padding: 0; text-align: left; vertical-align: top;"></tr></tbody><=
+/table><table class=3D"spacer" style=3D"border-collapse: collapse; border-s=
+pacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;"=
+><tbody><tr style=3D"padding: 0; text-align: left; vertical-align: top;"><t=
+d height=3D"20px" style=3D"border-collapse: collapse !important; color: #0a=
+0a0a; font-family: Arial,Helvetica,sans-serif; font-size: 20px; font-weight=
+: normal; hyphens: auto; line-height: 20px; margin: 0; mso-line-height-rule=
+: exactly; padding: 0; text-align: left; vertical-align: top; word-wrap: br=
+eak-word;">=C2=A0</td></tr></tbody></table> <a class=3Done_row_img_ad href=
+=3D"https://securepubads.g.doubleclick.net/gampad/jump?iu=3D%2F6978%2Freg_m=
+isc%2FNewsletter%2Freg_digest&amp;sz=3D468x60:300x250&amp;clkk=3D455cd_reg_=
+digest_20260918&amp;ptt=3D21&amp;clkp=3D1&amp;url=3Dhttps://www.theregister=
+.com&amp;t=3Dnltrid%3D20260918" target=3D"_blank">
+  <center>
+    <img src=3D"https://securepubads.g.doubleclick.net/gampad/ad?iu=3D%2F69=
+78%2Freg_misc%2FNewsletter%2Freg_digest&amp;sz=3D468x60|300x250&amp;clkk=3D=
+455cd_reg_digest_20260918&amp;ptt=3D21&amp;clkp=3D1&amp;url=3Dhttps://www.t=
+heregister.com&amp;t=3Dnltrid%3D20260918" alt=3D"" title=3D"">
+  </center>
+</a> <table style=3D"border-collapse: collapse; border-spacing: 0; padding:=
+ 0; text-align: left; vertical-align: top;"><tr style=3D"padding: 0; text-a=
+lign: left; vertical-align: top;"><td style=3D"border-collapse: collapse !i=
+mportant; color: #0a0a0a; font-family: Arial,Helvetica,sans-serif; font-siz=
+e: 16px; font-weight: normal; hyphens: auto; line-height: 1.3; margin: 0; p=
+adding: 0; text-align: left; vertical-align: top; width: 48px; word-wrap: b=
+reak-word;"></td><td style=3D"border-collapse: collapse !important; color: =
+#0a0a0a; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-wei=
+ght: normal; hyphens: auto; line-height: 1.3; margin: 0; max-width: 484px; =
+padding: 0; text-align: left; vertical-align: top; width: 484px; word-wrap:=
+ break-word;"><a href=3D"https://go.reg.cx/twdml/4ppq?utm_source=3Ddigest&a=
+mp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199=
+e8; font-family: Arial,Helvetica,sans-serif; font-weight: normal; line-heig=
+ht: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none;" t=
+arget=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,sa=
+ns-serif; font-size: 24px; font-weight: bold; hyphens: none; line-height: 1=
+.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: =
+left; word-break: auto-phrase; word-wrap: normal;">Oracle celebrates banner=
+ quarter with another round of layoffs</h3><p style=3D"color: black; font-f=
+amily: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hy=
+phens: none; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; tex=
+t-align: left;"> Congratulations on helping Larry Ellison&#39;s AI cloud bo=
+om. Now please pack your bags and go </p><span style=3D"color: #31798b; dis=
+play: block; font-size: 12px; margin-bottom: 10px;">Mon 14 Sep 2026</span> =
+</a> <a href=3D"https://go.reg.cx/twdml/4pn1?utm_source=3Ddigest&amp;utm_me=
+dium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-=
+family: Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; =
+margin: 0; padding: 0; text-align: left; text-decoration: none;" target=3D"=
+_blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,sans-serif;=
+ font-size: 24px; font-weight: bold; hyphens: none; line-height: 1.3; margi=
+n: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: left; wor=
+d-break: auto-phrase; word-wrap: normal;">Ukrainian lawyer&#39;s second car=
+eer as a Conti coder earns him 4 years behind bars</h3><p style=3D"color: b=
+lack; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight=
+: normal; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; pad=
+ding: 0; text-align: left;"> Swapping legal work for malware development en=
+ded in extradition and a guilty plea </p><span style=3D"color: #31798b; dis=
+play: block; font-size: 12px; margin-bottom: 10px;">Fri 11 Sep 2026</span> =
+</a> <a href=3D"https://go.reg.cx/twdml/4pnP?utm_source=3Ddigest&amp;utm_me=
+dium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-=
+family: Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; =
+margin: 0; padding: 0; text-align: left; text-decoration: none;" target=3D"=
+_blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,sans-serif;=
+ font-size: 24px; font-weight: bold; hyphens: none; line-height: 1.3; margi=
+n: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: left; wor=
+d-break: auto-phrase; word-wrap: normal;">Revolut falls for fake government=
+ requests, hands over customer data</h3><p style=3D"color: black; font-fami=
+ly: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphe=
+ns: none; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-a=
+lign: left;"> Passports, selfies, transaction histories exposed as self-pro=
+claimed culprits demand 10,000 Bitcoin </p><span style=3D"color: #31798b; d=
+isplay: block; font-size: 12px; margin-bottom: 10px;">Mon 14 Sep 2026</span=
+> </a> <a href=3D"https://go.reg.cx/twdml/4pph?utm_source=3Ddigest&amp;utm_=
+medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8; fon=
+t-family: Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3=
+; margin: 0; padding: 0; text-align: left; text-decoration: none;" target=
+=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,sans-se=
+rif; font-size: 24px; font-weight: bold; hyphens: none; line-height: 1.3; m=
+argin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: left;=
+ word-break: auto-phrase; word-wrap: normal;">Ex-FTC boss Khan urges Uncle =
+Sam to break out the handcuffs for AI CEOs, citing 1934 precedent</h3><p st=
+yle=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-size: 16=
+px; font-weight: normal; hyphens: none; line-height: 1.3; margin: 0; margin=
+-bottom: 0; padding: 0; text-align: left;"> There are plenty of laws on the=
+ books to hold companies, and potentially their execs, accountable </p><spa=
+n style=3D"color: #31798b; display: block; font-size: 12px; margin-bottom: =
+10px;">Mon 14 Sep 2026</span> </a> <a href=3D"https://go.reg.cx/twdml/4pr3?=
+utm_source=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" =
+style=3D"color: #2199e8; font-family: Arial,Helvetica,sans-serif; font-weig=
+ht: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text=
+-decoration: none;" target=3D"_blank"><h3 style=3D"color: black; font-famil=
+y: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold; hyphens:=
+ none; line-height: 1.3; margin: 0; margin-bottom: 0; margin-top: 20px; pad=
+ding: 0; text-align: left; word-break: auto-phrase; word-wrap: normal;">Fed=
+ora 45 beta drags the Linux console into the 21st century</h3><p style=3D"c=
+olor: black; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font=
+-weight: normal; hyphens: none; line-height: 1.3; margin: 0; margin-bottom:=
+ 0; padding: 0; text-align: left;"> Kmscon brings smooth scaling, richer co=
+lors, and better Unicode support beneath GNOME 51 </p><span style=3D"color:=
+ #31798b; display: block; font-size: 12px; margin-bottom: 10px;">Wed 16 Sep=
+ 2026</span> </a> <a href=3D"https://go.reg.cx/twdml/4pnX?utm_source=3Ddige=
+st&amp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #=
+2199e8; font-family: Arial,Helvetica,sans-serif; font-weight: normal; line-=
+height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none=
+;" target=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helvetic=
+a,sans-serif; font-size: 24px; font-weight: bold; hyphens: none; line-heigh=
+t: 1.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-ali=
+gn: left; word-break: auto-phrase; word-wrap: normal;">Microsoft patches Wi=
+ndows and Excel =E2=80=93 breaks audio, remote access, and paste</h3><p sty=
+le=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-size: 16p=
+x; font-weight: normal; hyphens: none; line-height: 1.3; margin: 0; margin-=
+bottom: 0; padding: 0; text-align: left;"> Redmond&#39;s quality drive take=
+s another detour through the known issues list </p><span style=3D"color: #3=
+1798b; display: block; font-size: 12px; margin-bottom: 10px;">Mon 14 Sep 20=
+26</span> </a> <a href=3D"https://go.reg.cx/twdml/4pns?utm_source=3Ddigest&=
+amp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #219=
+9e8; font-family: Arial,Helvetica,sans-serif; font-weight: normal; line-hei=
+ght: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none;" =
+target=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,s=
+ans-serif; font-size: 24px; font-weight: bold; hyphens: none; line-height: =
+1.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align:=
+ left; word-break: auto-phrase; word-wrap: normal;">Security through obscur=
+ity is dead, and AI delivered the fatal blow</h3><p style=3D"color: black; =
+font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: norm=
+al; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; padding: =
+0; text-align: left;"> RIP, you won&#39;t be mourned </p><span style=3D"col=
+or: #31798b; display: block; font-size: 12px; margin-bottom: 10px;">Sun 13 =
+Sep 2026</span> </a> <a href=3D"https://go.reg.cx/twdml/4pr9?utm_source=3Dd=
+igest&amp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color=
+: #2199e8; font-family: Arial,Helvetica,sans-serif; font-weight: normal; li=
+ne-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: n=
+one;" target=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helve=
+tica,sans-serif; font-size: 24px; font-weight: bold; hyphens: none; line-he=
+ight: 1.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-=
+align: left; word-break: auto-phrase; word-wrap: normal;">Google Pixel phon=
+es pwned in zero-click attacks</h3><p style=3D"color: black; font-family: A=
+rial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: n=
+one; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-align:=
+ left;"> CISA gives federal agencies just 3 days to patch </p><span style=
+=3D"color: #31798b; display: block; font-size: 12px; margin-bottom: 10px;">=
+Wed 16 Sep 2026</span> </a> <a href=3D"https://go.reg.cx/twdml/4pmZ?utm_sou=
+rce=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=
+=3D"color: #2199e8; font-family: Arial,Helvetica,sans-serif; font-weight: n=
+ormal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-deco=
+ration: none;" target=3D"_blank"><h3 style=3D"color: black; font-family: Ar=
+ial,Helvetica,sans-serif; font-size: 24px; font-weight: bold; hyphens: none=
+; line-height: 1.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding:=
+ 0; text-align: left; word-break: auto-phrase; word-wrap: normal;">EU&#39;s=
+ Cyber Resilience Act starts the 24-hour vulnerability clock</h3><p style=
+=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-size: 16px;=
+ font-weight: normal; hyphens: none; line-height: 1.3; margin: 0; margin-bo=
+ttom: 0; padding: 0; text-align: left;"> Manufacturers must now disclose ac=
+tively exploited flaws and severe security incidents through ENISA&#39;s ne=
+w reporting platform </p><span style=3D"color: #31798b; display: block; fon=
+t-size: 12px; margin-bottom: 10px;">Fri 11 Sep 2026</span> </a> <a href=3D"=
+https://go.reg.cx/twdml/4pnk?utm_source=3Ddigest&amp;utm_medium=3Dnewslette=
+r&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-family: Arial,He=
+lvetica,sans-serif; font-weight: normal; line-height: 1.3; margin: 0; paddi=
+ng: 0; text-align: left; text-decoration: none;" target=3D"_blank"><h3 styl=
+e=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-size: 24px=
+; font-weight: bold; hyphens: none; line-height: 1.3; margin: 0; margin-bot=
+tom: 0; margin-top: 20px; padding: 0; text-align: left; word-break: auto-ph=
+rase; word-wrap: normal;">Dell&#39;s 52-inch enormo-monitor is a tsunami of=
+ impractical fun</h3><p style=3D"color: black; font-family: Arial,Helvetica=
+,sans-serif; font-size: 16px; font-weight: normal; hyphens: none; line-heig=
+ht: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-align: left;"> You p=
+robably don&#39;t need it, but as an example of the possible it impresses <=
+/p><span style=3D"color: #31798b; display: block; font-size: 12px; margin-b=
+ottom: 10px;">Sat 12 Sep 2026</span> </a> <a href=3D"https://go.reg.cx/twdm=
+l/4pnF?utm_source=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_content=3Dar=
+ticle" style=3D"color: #2199e8; font-family: Arial,Helvetica,sans-serif; fo=
+nt-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: lef=
+t; text-decoration: none;" target=3D"_blank"><h3 style=3D"color: black; fon=
+t-family: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold; h=
+yphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; margin-top: 20=
+px; padding: 0; text-align: left; word-break: auto-phrase; word-wrap: norma=
+l;">UK.gov begins killing off passwords for 23 million users</h3><p style=
+=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-size: 16px;=
+ font-weight: normal; hyphens: none; line-height: 1.3; margin: 0; margin-bo=
+ttom: 0; padding: 0; text-align: left;"> Passkeys promise fewer phishing he=
+adaches =E2=80=93 and =C2=A3600 a day off Whitehall&#39;s SMS bill </p><spa=
+n style=3D"color: #31798b; display: block; font-size: 12px; margin-bottom: =
+10px;">Mon 14 Sep 2026</span> </a> <a href=3D"https://go.reg.cx/twdml/4pnK?=
+utm_source=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" =
+style=3D"color: #2199e8; font-family: Arial,Helvetica,sans-serif; font-weig=
+ht: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text=
+-decoration: none;" target=3D"_blank"><h3 style=3D"color: black; font-famil=
+y: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold; hyphens:=
+ none; line-height: 1.3; margin: 0; margin-bottom: 0; margin-top: 20px; pad=
+ding: 0; text-align: left; word-break: auto-phrase; word-wrap: normal;">CPy=
+thon eases Rust requirements as assimilation continues</h3><p style=3D"colo=
+r: black; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-we=
+ight: normal; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0;=
+ padding: 0; text-align: left;"> By making Rust opt-in, the Python builders=
+ hope to enjoy Rust bennies without the backlash that roiled the Linux kern=
+el keepers </p><span style=3D"color: #31798b; display: block; font-size: 12=
+px; margin-bottom: 10px;">Mon 14 Sep 2026</span> </a> <a href=3D"https://go=
+.reg.cx/twdml/4pr5?utm_source=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_=
+content=3Darticle" style=3D"color: #2199e8; font-family: Arial,Helvetica,sa=
+ns-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; tex=
+t-align: left; text-decoration: none;" target=3D"_blank"><h3 style=3D"color=
+: black; font-family: Arial,Helvetica,sans-serif; font-size: 24px; font-wei=
+ght: bold; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; ma=
+rgin-top: 20px; padding: 0; text-align: left; word-break: auto-phrase; word=
+-wrap: normal;">Nine-year-old runs up $118,000 bill on dad&#39;s corporate =
+credit card advertising his Roblox YouTube channel</h3><p style=3D"color: b=
+lack; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight=
+: normal; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; pad=
+ding: 0; text-align: left;"> He&#39;ll need to earn around $13K a year to p=
+ay pops back between now and when he turns 18, so at least there&#39;s that=
+ free labor to look forward to </p><span style=3D"color: #31798b; display: =
+block; font-size: 12px; margin-bottom: 10px;">Wed 16 Sep 2026</span> </a> <=
+a href=3D"https://go.reg.cx/twdml/4prv?utm_source=3Ddigest&amp;utm_medium=
+=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-fami=
+ly: Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; marg=
+in: 0; padding: 0; text-align: left; text-decoration: none;" target=3D"_bla=
+nk"><h3 style=3D"color: black; font-family: Arial,Helvetica,sans-serif; fon=
+t-size: 24px; font-weight: bold; hyphens: none; line-height: 1.3; margin: 0=
+; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: left; word-br=
+eak: auto-phrase; word-wrap: normal;">Judge orders Microsoft to spill inter=
+nal docs and scour execs&#39; comms in secondhand licensing case</h3><p sty=
+le=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-size: 16p=
+x; font-weight: normal; hyphens: none; line-height: 1.3; margin: 0; margin-=
+bottom: 0; padding: 0; text-align: left;"> Yes, the &#39;Secondhand Softwar=
+e Presentation&#39; does sound like it might be an adverse document... </p>=
+<span style=3D"color: #31798b; display: block; font-size: 12px; margin-bott=
+om: 10px;">Thu 17 Sep 2026</span> </a> <a href=3D"https://go.reg.cx/twdml/4=
+pqZ?utm_source=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_content=3Dartic=
+le" style=3D"color: #2199e8; font-family: Arial,Helvetica,sans-serif; font-=
+weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; =
+text-decoration: none;" target=3D"_blank"><h3 style=3D"color: black; font-f=
+amily: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold; hyph=
+ens: none; line-height: 1.3; margin: 0; margin-bottom: 0; margin-top: 20px;=
+ padding: 0; text-align: left; word-break: auto-phrase; word-wrap: normal;"=
+>AWS says wartime damage means some Middle East cloud resources are gone fo=
+r good</h3><p style=3D"color: black; font-family: Arial,Helvetica,sans-seri=
+f; font-size: 16px; font-weight: normal; hyphens: none; line-height: 1.3; m=
+argin: 0; margin-bottom: 0; padding: 0; text-align: left;"> Iranian strikes=
+ overwhelmed regional redundancy in Bahrain and left one UAE Availability Z=
+one inaccessible </p><span style=3D"color: #31798b; display: block; font-si=
+ze: 12px; margin-bottom: 10px;">Wed 16 Sep 2026</span> </a></td><td style=
+=3D"border-collapse: collapse !important; color: #0a0a0a; font-family: Aria=
+l,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: auto=
+; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align=
+: top; width: 48px; word-wrap: break-word;"></td></tr></table> <a class=3Do=
+ne_row_img_ad href=3D"https://securepubads.g.doubleclick.net/gampad/jump?iu=
+=3D%2F6978%2Freg_misc%2FNewsletter%2Freg_digest&amp;sz=3D468x60:300x250&amp=
+;clkk=3D455cd_reg_digest_20260918&amp;ptt=3D21&amp;clkp=3D1&amp;url=3Dhttps=
+://www.theregister.com&amp;t=3Dnltrid%3D20260918" target=3D"_blank">
+  <center>
+    <img src=3D"https://securepubads.g.doubleclick.net/gampad/ad?iu=3D%2F69=
+78%2Freg_misc%2FNewsletter%2Freg_digest&amp;sz=3D468x60|300x250&amp;clkk=3D=
+455cd_reg_digest_20260918&amp;ptt=3D21&amp;clkp=3D1&amp;url=3Dhttps://www.t=
+heregister.com&amp;t=3Dnltrid%3D20260918" alt=3D"" title=3D"">
+  </center>
+</a> <table style=3D"border-collapse: collapse; border-spacing: 0; padding:=
+ 0; text-align: left; vertical-align: top;"><tr style=3D"padding: 0; text-a=
+lign: left; vertical-align: top;"><td style=3D"border-collapse: collapse !i=
+mportant; color: #0a0a0a; font-family: Arial,Helvetica,sans-serif; font-siz=
+e: 16px; font-weight: normal; hyphens: auto; line-height: 1.3; margin: 0; p=
+adding: 0; text-align: left; vertical-align: top; width: 48px; word-wrap: b=
+reak-word;"></td><td style=3D"border-collapse: collapse !important; color: =
+#0a0a0a; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-wei=
+ght: normal; hyphens: auto; line-height: 1.3; margin: 0; max-width: 484px; =
+padding: 0; text-align: left; vertical-align: top; width: 484px; word-wrap:=
+ break-word;"><a href=3D"https://go.reg.cx/twdml/4pqB?utm_source=3Ddigest&a=
+mp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199=
+e8; font-family: Arial,Helvetica,sans-serif; font-weight: normal; line-heig=
+ht: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none;" t=
+arget=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,sa=
+ns-serif; font-size: 24px; font-weight: bold; hyphens: none; line-height: 1=
+.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: =
+left; word-break: auto-phrase; word-wrap: normal;">TypeSafe AI debuts model=
+ for machines that plays Doom</h3><p style=3D"color: black; font-family: Ar=
+ial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: no=
+ne; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-align: =
+left;"> &#39;Jev&#39; doesn&#39;t chat. It produces typed probabilistic dec=
+isions </p><span style=3D"color: #31798b; display: block; font-size: 12px; =
+margin-bottom: 10px;">Wed 16 Sep 2026</span> </a> <a href=3D"https://go.reg=
+.cx/twdml/4pq3?utm_source=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_cont=
+ent=3Darticle" style=3D"color: #2199e8; font-family: Arial,Helvetica,sans-s=
+erif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-al=
+ign: left; text-decoration: none;" target=3D"_blank"><h3 style=3D"color: bl=
+ack; font-family: Arial,Helvetica,sans-serif; font-size: 24px; font-weight:=
+ bold; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; margin=
+-top: 20px; padding: 0; text-align: left; word-break: auto-phrase; word-wra=
+p: normal;">Swiss court sentences 52-year-old Ukrainian ransomware dev to n=
+early 13 years in the cooler</h3><p style=3D"color: black; font-family: Ari=
+al,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: non=
+e; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-align: l=
+eft;"> The man allegedly wrote the code that powered the Lockergoga, MegaCo=
+rtex, and Nefilim operations </p><span style=3D"color: #31798b; display: bl=
+ock; font-size: 12px; margin-bottom: 10px;">Tue 15 Sep 2026</span> </a> <a =
+href=3D"https://go.reg.cx/twdml/4prz?utm_source=3Ddigest&amp;utm_medium=3Dn=
+ewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-family: =
+Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; margin: =
+0; padding: 0; text-align: left; text-decoration: none;" target=3D"_blank">=
+<h3 style=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-si=
+ze: 24px; font-weight: bold; hyphens: none; line-height: 1.3; margin: 0; ma=
+rgin-bottom: 0; margin-top: 20px; padding: 0; text-align: left; word-break:=
+ auto-phrase; word-wrap: normal;">Ofcom discovers issuing Online Safety Act=
+ fines is easier than collecting them</h3><p style=3D"color: black; font-fa=
+mily: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyp=
+hens: none; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; text=
+-align: left;"> Platforms comply just enough to avoid being blocked, leavin=
+g the regulator chasing debt </p><span style=3D"color: #31798b; display: bl=
+ock; font-size: 12px; margin-bottom: 10px;">Thu 17 Sep 2026</span> </a> <a =
+href=3D"https://go.reg.cx/twdml/4pnb?utm_source=3Ddigest&amp;utm_medium=3Dn=
+ewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-family: =
+Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; margin: =
+0; padding: 0; text-align: left; text-decoration: none;" target=3D"_blank">=
+<h3 style=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-si=
+ze: 24px; font-weight: bold; hyphens: none; line-height: 1.3; margin: 0; ma=
+rgin-bottom: 0; margin-top: 20px; padding: 0; text-align: left; word-break:=
+ auto-phrase; word-wrap: normal;">Mars astronauts could live in houses made=
+ of yeast and jello, say scientists</h3><p style=3D"color: black; font-fami=
+ly: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphe=
+ns: none; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-a=
+lign: left;"> Low-energy 3D printing could turn Martian dirt into sturdy st=
+ructures </p><span style=3D"color: #31798b; display: block; font-size: 12px=
+; margin-bottom: 10px;">Fri 11 Sep 2026</span> </a> <a href=3D"https://go.r=
+eg.cx/twdml/4ppZ?utm_source=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_co=
+ntent=3Darticle" style=3D"color: #2199e8; font-family: Arial,Helvetica,sans=
+-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-=
+align: left; text-decoration: none;" target=3D"_blank"><h3 style=3D"color: =
+black; font-family: Arial,Helvetica,sans-serif; font-size: 24px; font-weigh=
+t: bold; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; marg=
+in-top: 20px; padding: 0; text-align: left; word-break: auto-phrase; word-w=
+rap: normal;">Microsoft account refuseniks have another way of installing W=
+indows</h3><p style=3D"color: black; font-family: Arial,Helvetica,sans-seri=
+f; font-size: 16px; font-weight: normal; hyphens: none; line-height: 1.3; m=
+argin: 0; margin-bottom: 0; padding: 0; text-align: left;"> Has the good bo=
+rk fairy paid a visit to Redmond? </p><span style=3D"color: #31798b; displa=
+y: block; font-size: 12px; margin-bottom: 10px;">Tue 15 Sep 2026</span> </a=
+> <a href=3D"https://go.reg.cx/twdml/4prD?utm_source=3Ddigest&amp;utm_mediu=
+m=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-fam=
+ily: Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; mar=
+gin: 0; padding: 0; text-align: left; text-decoration: none;" target=3D"_bl=
+ank"><h3 style=3D"color: black; font-family: Arial,Helvetica,sans-serif; fo=
+nt-size: 24px; font-weight: bold; hyphens: none; line-height: 1.3; margin: =
+0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: left; word-b=
+reak: auto-phrase; word-wrap: normal;">Test environment let anyone access l=
+ive customer data</h3><p style=3D"color: black; font-family: Arial,Helvetic=
+a,sans-serif; font-size: 16px; font-weight: normal; hyphens: none; line-hei=
+ght: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-align: left;"> Even=
+ a temporary staging server needs to be locked down. </p><span style=3D"col=
+or: #31798b; display: block; font-size: 12px; margin-bottom: 10px;">Thu 17 =
+Sep 2026</span> </a> <a href=3D"https://go.reg.cx/twdml/4pn9?utm_source=3Dd=
+igest&amp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color=
+: #2199e8; font-family: Arial,Helvetica,sans-serif; font-weight: normal; li=
+ne-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: n=
+one;" target=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helve=
+tica,sans-serif; font-size: 24px; font-weight: bold; hyphens: none; line-he=
+ight: 1.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-=
+align: left; word-break: auto-phrase; word-wrap: normal;">Disembodied fruit=
+ fly brain joins the crypto speculation swarm</h3><p style=3D"color: black;=
+ font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: nor=
+mal; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; padding:=
+ 0; text-align: left;"> Coinbase engineer gives simulated insect $100 and l=
+ets its neurons make the trades </p><span style=3D"color: #31798b; display:=
+ block; font-size: 12px; margin-bottom: 10px;">Fri 11 Sep 2026</span> </a> =
+<a href=3D"https://go.reg.cx/twdml/4prH?utm_source=3Ddigest&amp;utm_medium=
+=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-fami=
+ly: Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; marg=
+in: 0; padding: 0; text-align: left; text-decoration: none;" target=3D"_bla=
+nk"><h3 style=3D"color: black; font-family: Arial,Helvetica,sans-serif; fon=
+t-size: 24px; font-weight: bold; hyphens: none; line-height: 1.3; margin: 0=
+; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: left; word-br=
+eak: auto-phrase; word-wrap: normal;">Cisco drops another exploited zero-da=
+y, this time a perfect 10</h3><p style=3D"color: black; font-family: Arial,=
+Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: none; =
+line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-align: left=
+;"> ISE authentication bypass under active attack just days after another C=
+isco zero-day sent admins scrambling to patch </p><span style=3D"color: #31=
+798b; display: block; font-size: 12px; margin-bottom: 10px;">Thu 17 Sep 202=
+6</span> </a> <a href=3D"https://go.reg.cx/twdml/4ppF?utm_source=3Ddigest&a=
+mp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199=
+e8; font-family: Arial,Helvetica,sans-serif; font-weight: normal; line-heig=
+ht: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none;" t=
+arget=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,sa=
+ns-serif; font-size: 24px; font-weight: bold; hyphens: none; line-height: 1=
+.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: =
+left; word-break: auto-phrase; word-wrap: normal;">Most people who quit M36=
+5 for Google do it out of spite, but there=E2=80=99s no ROI in that</h3><p =
+style=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-size: =
+16px; font-weight: normal; hyphens: none; line-height: 1.3; margin: 0; marg=
+in-bottom: 0; padding: 0; text-align: left;"> Nor are you likely to save mu=
+ch by making the move, says Gartner </p><span style=3D"color: #31798b; disp=
+lay: block; font-size: 12px; margin-bottom: 10px;">Tue 15 Sep 2026</span> <=
+/a> <a href=3D"https://go.reg.cx/twdml/4pqq?utm_source=3Ddigest&amp;utm_med=
+ium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-f=
+amily: Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; m=
+argin: 0; padding: 0; text-align: left; text-decoration: none;" target=3D"_=
+blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,sans-serif; =
+font-size: 24px; font-weight: bold; hyphens: none; line-height: 1.3; margin=
+: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: left; word=
+-break: auto-phrase; word-wrap: normal;">Iranian spies hit Windows machines=
+ with Chosen Brick data-stealing malware</h3><p style=3D"color: black; font=
+-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; =
+hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; t=
+ext-align: left;"> &#39;Enemies of the regime&#39; on notice </p><span styl=
+e=3D"color: #31798b; display: block; font-size: 12px; margin-bottom: 10px;"=
+>Tue 15 Sep 2026</span> </a> <a href=3D"https://go.reg.cx/twdml/4pnf?utm_so=
+urce=3Ddigest&amp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=
+=3D"color: #2199e8; font-family: Arial,Helvetica,sans-serif; font-weight: n=
+ormal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-deco=
+ration: none;" target=3D"_blank"><h3 style=3D"color: black; font-family: Ar=
+ial,Helvetica,sans-serif; font-size: 24px; font-weight: bold; hyphens: none=
+; line-height: 1.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding:=
+ 0; text-align: left; word-break: auto-phrase; word-wrap: normal;">AI more =
+likely to kill animals if it saves fuel or money</h3><p style=3D"color: bla=
+ck; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: =
+normal; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: 0; paddi=
+ng: 0; text-align: left;"> Machine learning models still have a lot to lear=
+n about the value of life </p><span style=3D"color: #31798b; display: block=
+; font-size: 12px; margin-bottom: 10px;">Fri 11 Sep 2026</span> </a> <a hre=
+f=3D"https://go.reg.cx/twdml/4prd?utm_source=3Ddigest&amp;utm_medium=3Dnews=
+letter&amp;utm_content=3Darticle" style=3D"color: #2199e8; font-family: Ari=
+al,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; margin: 0; =
+padding: 0; text-align: left; text-decoration: none;" target=3D"_blank"><h3=
+ style=3D"color: black; font-family: Arial,Helvetica,sans-serif; font-size:=
+ 24px; font-weight: bold; hyphens: none; line-height: 1.3; margin: 0; margi=
+n-bottom: 0; margin-top: 20px; padding: 0; text-align: left; word-break: au=
+to-phrase; word-wrap: normal;">CISA decides weekly vulnerability bulletin i=
+sn&#39;t necessary anymore</h3><p style=3D"color: black; font-family: Arial=
+,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: none;=
+ line-height: 1.3; margin: 0; margin-bottom: 0; padding: 0; text-align: lef=
+t;"> Agency&#39;s shift from static CVSS scores to risk-based prioritizatio=
+n sends the old format packing September 28 </p><span style=3D"color: #3179=
+8b; display: block; font-size: 12px; margin-bottom: 10px;">Wed 16 Sep 2026<=
+/span> </a> <a href=3D"https://go.reg.cx/twdml/4pqD?utm_source=3Ddigest&amp=
+;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #2199e8=
+; font-family: Arial,Helvetica,sans-serif; font-weight: normal; line-height=
+: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none;" tar=
+get=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,sans=
+-serif; font-size: 24px; font-weight: bold; hyphens: none; line-height: 1.3=
+; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align: le=
+ft; word-break: auto-phrase; word-wrap: normal;">Java 27 grows up, makes be=
+tter choices</h3><p style=3D"color: black; font-family: Arial,Helvetica,san=
+s-serif; font-size: 16px; font-weight: normal; hyphens: none; line-height: =
+1.3; margin: 0; margin-bottom: 0; padding: 0; text-align: left;"> Improveme=
+nts in JDK garbage collection, header sizes, data security and quantum key =
+support all should minimize developer friction </p><span style=3D"color: #3=
+1798b; display: block; font-size: 12px; margin-bottom: 10px;">Wed 16 Sep 20=
+26</span> </a> <a href=3D"https://go.reg.cx/twdml/4ppx?utm_source=3Ddigest&=
+amp;utm_medium=3Dnewsletter&amp;utm_content=3Darticle" style=3D"color: #219=
+9e8; font-family: Arial,Helvetica,sans-serif; font-weight: normal; line-hei=
+ght: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none;" =
+target=3D"_blank"><h3 style=3D"color: black; font-family: Arial,Helvetica,s=
+ans-serif; font-size: 24px; font-weight: bold; hyphens: none; line-height: =
+1.3; margin: 0; margin-bottom: 0; margin-top: 20px; padding: 0; text-align:=
+ left; word-break: auto-phrase; word-wrap: normal;">COBOL dev won .Net hack=
+athon with help from AI =E2=80=93 and their CIO loves it</h3><p style=3D"co=
+lor: black; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-=
+weight: normal; hyphens: none; line-height: 1.3; margin: 0; margin-bottom: =
+0; padding: 0; text-align: left;"> Australia Taxation Office sees footling =
+with Copilot as a way to develop =E2=80=98muscles=E2=80=99 for real AI work=
+ </p><span style=3D"color: #31798b; display: block; font-size: 12px; margin=
+-bottom: 10px;">Tue 15 Sep 2026</span> </a></td><td style=3D"border-collaps=
+e: collapse !important; color: #0a0a0a; font-family: Arial,Helvetica,sans-s=
+erif; font-size: 16px; font-weight: normal; hyphens: auto; line-height: 1.3=
+; margin: 0; padding: 0; text-align: left; vertical-align: top; width: 48px=
+; word-wrap: break-word;"></td></tr></table> <a class=3Done_row_img_ad href=
+=3D"https://securepubads.g.doubleclick.net/gampad/jump?iu=3D%2F6978%2Freg_m=
+isc%2FNewsletter%2Freg_digest&amp;sz=3D468x60:300x250&amp;clkk=3D455cd_reg_=
+digest_20260918&amp;ptt=3D21&amp;clkp=3D1&amp;url=3Dhttps://www.theregister=
+.com&amp;t=3Dnltrid%3D20260918" target=3D"_blank">
+  <center>
+    <img src=3D"https://securepubads.g.doubleclick.net/gampad/ad?iu=3D%2F69=
+78%2Freg_misc%2FNewsletter%2Freg_digest&amp;sz=3D468x60|300x250&amp;clkk=3D=
+455cd_reg_digest_20260918&amp;ptt=3D21&amp;clkp=3D1&amp;url=3Dhttps://www.t=
+heregister.com&amp;t=3Dnltrid%3D20260918" alt=3D"" title=3D"">
+  </center>
+</a> </td></tr></tbody></table><table align=3D"center" class=3D"float-cente=
+r" style=3D"border-collapse: collapse; border-spacing: 0; float: none; heig=
+ht: 80px; margin: 0 auto; padding: 0; text-align: center; vertical-align: t=
+op; width: 100%;"><tbody><tr style=3D"padding: 0; text-align: left; vertica=
+l-align: top;"><td style=3D"border-collapse: collapse !important; color: #0=
+a0a0a; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weigh=
+t: normal; height: 40px; hyphens: auto; line-height: 1.3; margin: 0; paddin=
+g: 0; text-align: left; vertical-align: top; width: 1px; word-wrap: break-w=
+ord;">=C2=A0</td><td style=3D"border-bottom: 1px solid #dddddd; border-coll=
+apse: collapse !important; color: #0a0a0a; font-family: Arial,Helvetica,san=
+s-serif; font-size: 16px; font-weight: normal; hyphens: auto; line-height: =
+1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wra=
+p: break-word;">=C2=A0</td><td rowspan=3D"2" style=3D"border-collapse: coll=
+apse !important; color: #0a0a0a; font-family: Arial,Helvetica,sans-serif; f=
+ont-size: 16px; font-weight: normal; hyphens: auto; line-height: 1.3; margi=
+n: 0; padding: 0; text-align: left; vertical-align: middle; width: 82px; wo=
+rd-wrap: break-word;" valign=3D"middle"><a href=3D"https://twitter.com/inte=
+nt/user?screen_name=3Dtheregister" style=3D"color: #2199e8; font-family: Ar=
+ial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; margin: 0;=
+ padding: 0; text-align: left; text-decoration: none;"><center class=3D"reg=
+-center-fix" data-parsed=3D"" style=3D"min-width: 0 !important; width: 100%=
+;"><img align=3D"center" alt=3D"Twitter" class=3D"float-center" src=3D"http=
+s://www.theregister.com/design_picker/d2e337b97204af4aa34dda04c4e5d56d954b2=
+16f/graphics/icons/newsletter_resources/twitter.png" style=3D"border: none;=
+ clear: both; color: #31798b; display: block; float: none; margin: 0 auto; =
+max-width: 40px; outline: none; text-align: center; text-decoration: none; =
+width: auto;" width=3D"40"></center></a></td><td rowspan=3D"2" style=3D"bor=
+der-collapse: collapse !important; color: #0a0a0a; font-family: Arial,Helve=
+tica,sans-serif; font-size: 16px; font-weight: normal; hyphens: auto; line-=
+height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: middl=
+e; width: 82px; word-wrap: break-word;" valign=3D"middle"><a href=3D"https:=
+//www.facebook.com/VultureCentral" style=3D"color: #2199e8; font-family: Ar=
+ial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; margin: 0;=
+ padding: 0; text-align: left; text-decoration: none;"><center class=3D"reg=
+-center-fix" data-parsed=3D"" style=3D"min-width: 0 !important; width: 100%=
+;"><img align=3D"center" alt=3D"Facebook" class=3D"float-center" src=3D"htt=
+ps://www.theregister.com/design_picker/d2e337b97204af4aa34dda04c4e5d56d954b=
+216f/graphics/icons/newsletter_resources/facebook.png" style=3D"border: non=
+e; clear: both; color: #31798b; display: block; float: none; margin: 0 auto=
+; max-width: 40px; outline: none; text-align: center; text-decoration: none=
+; width: auto;" width=3D"40"></center></a></td><td rowspan=3D"2" style=3D"b=
+order-collapse: collapse !important; color: #0a0a0a; font-family: Arial,Hel=
+vetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: auto; lin=
+e-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: mid=
+dle; width: 82px; word-wrap: break-word;" valign=3D"middle"><a href=3D"http=
+s://www.linkedin.com/company/the-register" style=3D"color: #2199e8; font-fa=
+mily: Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; ma=
+rgin: 0; padding: 0; text-align: left; text-decoration: none;"><center clas=
+s=3D"reg-center-fix" data-parsed=3D"" style=3D"min-width: 0 !important; wid=
+th: 100%;"><img align=3D"center" alt=3D"LinkedIn" class=3D"float-center" sr=
+c=3D"https://www.theregister.com/design_picker/d2e337b97204af4aa34dda04c4e5=
+d56d954b216f/graphics/icons/newsletter_resources/linkedin.png" style=3D"bor=
+der: none; clear: both; color: #31798b; display: block; float: none; margin=
+: 0 auto; max-width: 40px; outline: none; text-align: center; text-decorati=
+on: none; width: auto;" width=3D"40"></center></a></td><td style=3D"border-=
+bottom: 1px solid #dddddd; border-collapse: collapse !important; color: #0a=
+0a0a; font-family: Arial,Helvetica,sans-serif; font-size: 16px; font-weight=
+: normal; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-alig=
+n: left; vertical-align: top; word-wrap: break-word;">=C2=A0</td><td style=
+=3D"border-collapse: collapse !important; color: #0a0a0a; font-family: Aria=
+l,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: auto=
+; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align=
+: top; width: 1px; word-wrap: break-word;">=C2=A0</td></tr><tr style=3D"pad=
+ding: 0; text-align: left; vertical-align: top;"><td style=3D"border-collap=
+se: collapse !important; color: #0a0a0a; font-family: Arial,Helvetica,sans-=
+serif; font-size: 16px; font-weight: normal; hyphens: auto; line-height: 1.=
+3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap:=
+ break-word;">=C2=A0</td><td style=3D"border-collapse: collapse !important;=
+ color: #0a0a0a; font-family: Arial,Helvetica,sans-serif; font-size: 16px; =
+font-weight: normal; hyphens: auto; line-height: 1.3; margin: 0; padding: 0=
+; text-align: left; vertical-align: top; word-wrap: break-word;">=C2=A0</td=
+><td style=3D"border-collapse: collapse !important; color: #0a0a0a; font-fa=
+mily: Arial,Helvetica,sans-serif; font-size: 16px; font-weight: normal; hyp=
+hens: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vert=
+ical-align: top; word-wrap: break-word;">=C2=A0</td><td style=3D"border-col=
+lapse: collapse !important; color: #0a0a0a; font-family: Arial,Helvetica,sa=
+ns-serif; font-size: 16px; font-weight: normal; hyphens: auto; line-height:=
+ 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wr=
+ap: break-word;">=C2=A0</td></tr></tbody></table><p align=3D"center" class=
+=3D"text-center float-center" style=3D"color: #3e3e3e; font-family: Arial,H=
+elvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: none; l=
+ine-height: 1.3; margin: 0; margin-bottom: 10px; margin-top: 20px; padding:=
+ 0; text-align: center;"><small style=3D"color: #3e3e3e; font-size: 80%;"> =
+This email was sent to <span style=3D"text-decoration: underline;">mike.mcc=
+onigley@gmail.com</span> </small></p><p align=3D"center" class=3D"text-cent=
+er float-center" style=3D"color: #3e3e3e; font-family: Arial,Helvetica,sans=
+-serif; font-size: 16px; font-weight: normal; hyphens: none; line-height: 1=
+.3; margin: 0; margin-bottom: 10px; padding: 0; text-align: center;"><small=
+ style=3D"color: #3e3e3e; font-size: 80%;"> You can <a href=3D"https://acco=
+unt.theregister.com/edit/newsletter" style=3D"color: #3e3e3e; font-family: =
+Arial,Helvetica,sans-serif; font-weight: normal; line-height: 1.3; margin: =
+0; padding: 0; text-align: left; text-decoration: underline;" target=3D"_bl=
+ank">update your preferences</a> or <a href=3D"https://account.theregister.=
+com/unsubscribe/284109/2b76750f/thereg_weekly_digest" style=3D"color: #3e3e=
+3e; font-family: Arial,Helvetica,sans-serif; font-weight: normal; line-heig=
+ht: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: underlin=
+e;" target=3D"_blank">unsubscribe</a> </small></p><p align=3D"center" class=
+=3D"text-center float-center" style=3D"color: #3e3e3e; font-family: Arial,H=
+elvetica,sans-serif; font-size: 16px; font-weight: normal; hyphens: none; l=
+ine-height: 1.3; margin: 0; margin-bottom: 10px; padding: 0; text-align: ce=
+nter;"><small style=3D"color: #3e3e3e; font-size: 80%;"> Situation Publishi=
+ng Ltd, 315 Montgomery Street, 9th &amp; 10th Floors, San=C2=A0Francisco,=
+=C2=A0CA=C2=A094104,=C2=A0USA </small></p><p align=3D"center" class=3D"text=
+-center float-center" style=3D"color: #3e3e3e; font-family: Arial,Helvetica=
+,sans-serif; font-size: 16px; font-weight: normal; hyphens: none; line-heig=
+ht: 1.3; margin: 0; margin-bottom: 10px; padding: 0; text-align: center;"><=
+small style=3D"color: #3e3e3e; font-size: 80%;"> The Register and its conte=
+nts are Copyright=C2=A0=C2=A9=C2=A02026 Situation=C2=A0Publishing. All=C2=
+=A0rights=C2=A0reserved. </small></p><p align=3D"center" class=3D"text-cent=
+er float-center" style=3D"color: #3e3e3e; font-family: Arial,Helvetica,sans=
+-serif; font-size: 16px; font-weight: normal; hyphens: none; line-height: 1=
+.3; margin: 0; margin-bottom: 10px; padding: 0; text-align: center;"><small=
+ style=3D"color: #3e3e3e; font-size: 80%;"> <a href=3D"https://www.theregis=
+ter.com/Profile/privacy/" style=3D"color: #3e3e3e; font-family: Arial,Helve=
+tica,sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding:=
+ 0; text-align: left; text-decoration: underline;" target=3D"_blank">Privac=
+y Policy</a> </small></p></center></td></tr></table><div style=3D"display: =
+none; font: 15px courier; line-height: 0; white-space: nowrap;"> </div></bo=
+dy></html>=
+
+--178972587520.6d8a9.14861--
