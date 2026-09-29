@@ -1,0 +1,1033 @@
+Delivered-To: m.ike.mcconigley@gmail.com
+Received: by 2002:a05:7031:a506:10b0:109:a1d8:4eb9 with SMTP id a6-n1csp3686113lab;
+        Mon, 28 Sep 2026 10:00:56 -0700 (PDT)
+X-Received: by 2002:a05:620a:700c:b0:93c:75bd:8810 with SMTP id af79cd13be357-93c75bd891amr827829385a.29.1790614854624;
+        Mon, 28 Sep 2026 10:00:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1790614854; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rAt3gXMjzrkYyM052WHU7ja/WlMRrIWl5mcXORjOZytxWzuk7kMwep+Yl8eqiCW9Gq
+         qaL++5yIPVqYRJV4rtv1xr1caGg6DqH3lWUiWnP17zJxQbxdcf672tb2WMeMPg0s1CR6
+         4K+kxXln3Ye6T7ab9DVxNqxY+zttPmEf7ODnPdGn+8I8ykjmQN+qX1DwvawTZUXDsRKQ
+         NgQ17acE+FT/7NU7Frh/ghVB8xN9RX4qrQdrvGDH7qqYSUUux6ur9hVV10df3ijueNmw
+         luDTPPRY1kqyJy8AcV8nEmC4BUKkQkWz9QZNA8wkUwXfxl5w0RjbNNXJ6kaGl1QrKzcm
+         t/Aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=list-unsubscribe:list-unsubscribe-post:precedence:mime-version
+         :subject:message-id:to:reply-to:from:date:dkim-signature
+         :dkim-signature;
+        bh=kfYsJNgQMlubnNE9yyz5DFzhDfXPzXiE0vk6nIIfz+A=;
+        fh=mzqY7NEmODHKJczJs8+j4iO37HCGFqhFcn02BBJl2YM=;
+        b=YskTdzPiwPIeo1510Lxz8DgH4F84Dp5+xFrB9ExOCD8cfVEDx32iNXjhvWh8HhW8ur
+         sL42k8lhKBnj/L8n+xQY0POMwAN7Gzn/qrJgoUkP2Ht+FTHuTDpRXk+vxmbILz1GKrX5
+         t4W8aXFEg3JXNYdrrRRRJYMKyAu18GdVLMFt5KN3Z9cLzy7r5LGu/Am2/oAKiCc12RFM
+         abfZb+biHXi1EV7pyv3NbYCQ3P2ELK7yzdkRlowwNOor75RZiughyZwlhr+mFyWeXDVC
+         zHporngbrdQX8yPZrA1+Bsjhe5JIZcupo4dt32nIGCftHqXmUSzxCbUENhzch01Q5e2C
+         mnHQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@newsletter.thetimes.com header.s=sailthru header.b=JGMaDHnS;
+       dkim=pass header.i=@pmta.sailthru.com header.s=mt header.b=APnhSY7d;
+       spf=pass (google.com: domain of delivery_20260928130053.47682410.74494@bounce.newsletter.thetimes.com designates 192.64.237.90 as permitted sender) smtp.mailfrom=delivery_20260928130053.47682410.74494@bounce.newsletter.thetimes.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=thetimes.com
+Return-Path: <delivery_20260928130053.47682410.74494@bounce.newsletter.thetimes.com>
+Received: from mta237-90.sailthru.com (mta237-90.sailthru.com. [192.64.237.90])
+        by mx.google.com with ESMTPS id af79cd13be357-93c816b84c8si161473885a.261.2026.09.28.10.00.54
+        for <m.ike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Sep 2026 10:00:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of delivery_20260928130053.47682410.74494@bounce.newsletter.thetimes.com designates 192.64.237.90 as permitted sender) client-ip=192.64.237.90;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@newsletter.thetimes.com header.s=sailthru header.b=JGMaDHnS;
+       dkim=pass header.i=@pmta.sailthru.com header.s=mt header.b=APnhSY7d;
+       spf=pass (google.com: domain of delivery_20260928130053.47682410.74494@bounce.newsletter.thetimes.com designates 192.64.237.90 as permitted sender) smtp.mailfrom=delivery_20260928130053.47682410.74494@bounce.newsletter.thetimes.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=thetimes.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=sailthru; d=newsletter.thetimes.com;
+ h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:
+ List-Unsubscribe-Post:List-Unsubscribe; i=noreply@newsletter.thetimes.com;
+ bh=kfYsJNgQMlubnNE9yyz5DFzhDfXPzXiE0vk6nIIfz+A=;
+ b=JGMaDHnS1D20QFvwZn0b8gHqAQhPN2/QVVrgfSJoRmDqSpPUx3Hb8JAkcQbrZ/gu4ispe9GZi1At
+   Mxpb8m6R9AfwT7yaXB4qxm4S3J2vPk9EQK3q39OpjMatP311QdNBTDzP9i+zQgougU3ypYux4n2t
+   oTDt+vFveZJHd4p055LmuDC+PkunBoHMbK7EIWYbhJmMEZS126r2F+rp85bUPYNPV5DDyfr3OMZ9
+   oB40ToB21sISdklR5jSfpQiOgUphiyHHxyHl5TSHKFVK4D54WhNliT/ISyDLDSXHkefK8efyVJVC
+   +3aSIOERR1/NCSuyor+Zj9pc7ur9rozWGj7iqQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mt; d=pmta.sailthru.com;
+ h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:
+ List-Unsubscribe-Post:List-Unsubscribe;
+ bh=kfYsJNgQMlubnNE9yyz5DFzhDfXPzXiE0vk6nIIfz+A=;
+ b=APnhSY7dU7Ayy0ujl4v++r+is08b95VhcUyoWH2l4GZXOWd3DrE4Z5whqTIeQVZoJ3XVHnENCzYX
+   TZxLGBZpNoZ2pSisVI780e0D343od77R94H1s+XlUSG9PyQm7h0oZeua6dypQ02fAP5+NZfwUC+d
+   VHfpiOWDOigmxwxGRUs=
+Received: from pmta-prod-relay6.sailthru.cloud (10.55.63.220) by pmta237-67.sailthru.com id hnaekc3791sa for <m.ike.mcconigley@gmail.com>; Mon, 28 Sep 2026 12:00:53 -0500 (envelope-from <delivery_20260928130053.47682410.74494@bounce.newsletter.thetimes.com>)
+Date: Mon, 28 Sep 2026 13:00:53 -0400 (EDT)
+From: Times Money <noreply@newsletter.thetimes.com>
+Reply-To: noreply@newsletter.thetimes.co.uk
+To: m.ike.mcconigley@gmail.com
+Message-ID: <20260928130053.47682410.74494@sailthru.com>
+Subject: Is buying a home really so important?
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_15809111_1343019680.1790614853554"
+Precedence: bulk
+x-job: 9245-47682410-20260928
+X-Feedback-ID: 9245:47682410:campaign:sailthru
+X-TM-ID: 20260928130053.47682410.74494
+X-Info: Message sent by sailthru.com customer The Times UK
+X-Info: We do not permit unsolicited commercial email
+X-Info: Please report abuse by forwarding complete headers to
+X-Info: abuse@sailthru.com
+X-Mailer: sailthru.com
+X-JMailer: aws-campaign-mailer-22.sailthru.cloud
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Unsubscribe-Web: https://link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9csdzze.1lha/8a429b24
+List-Unsubscribe: <https://link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9csdzze.1lha/8a429b24>,<mailto:unsubscribe_20260928130053.47682410.74494@mx.sailthru.com>
+X-rpcampaign: stnrp47682410
+X-steri: 47682410.74494.0
+
+------=_Part_15809111_1343019680.1790614853554
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"u=
+rn:schemas-microsoft-com:office:office" lang=3D"en"><head><title></title><m=
+eta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><met=
+a name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"><!--=
+[if mso]>
+<xml><w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word"><w:D=
+ontUseAdvancedTypographyReadingMail/></w:WordDocument>
+<o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/=
+></o:OfficeDocumentSettings></xml>
+<![endif]--><!--[if !mso]><!--><!--<![endif]--><style>
+*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{c=
+olor:inherit!important;text-decoration:inherit!important}#MessageViewBody a=
+{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.de=
+sktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}.im=
+age_block img+div{display:none}sub,sup{font-size:75%;line-height:0} @media =
+(max-width:660px){.desktop_hide table.icons-outer{display:inline-table!impo=
+rtant}.image_block div.fullWidth{max-width:100%!important}.row-content{widt=
+h:100%!important}.stack .column{width:100%!important;display:block}.mobile_=
+hide{min-height:0;max-height:0;max-width:0;display:none;overflow:hidden;fon=
+t-size:0}.desktop_hide,.desktop_hide table{display:table!important;max-heig=
+ht:none!important}.social_block .social-table{display:inline-block!importan=
+t}}
+</style><!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup {=
+ mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]--></hea=
+d><body class=3D"body" style=3D"margin:0;padding:0;-webkit-text-size-adjust=
+:none;text-size-adjust:none;background-color:#fff"><div class=3D"sailthru-e=
+mco-preheader" style=3D"display: none; max-height: 0px; overflow: hidden;">=
+PLUS: Middle-aged men out of work | Money |</div><div style=3D"display:none=
+"><a href=3D""><img src=3D"https://link.thetimes.com/img/6a464fcf7d55e1fcfb=
+02eb9csdzze.1lha/700f7dcc.gif" alt=3D"" border=3D"0" /></a></div><table cla=
+ss=3D"nl-container" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace=
+:0;background-color:#fff"><tbody><tr><td><table class=3D"row row-1" align=
+=3D"center"=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:=
+#fff"><tbody><tr><td><table class=3D"row-content" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#fff;border-radius:0;=
+color:#000;width:640px;margin:0 auto" width=3D"640"><tbody><tr><td class=3D=
+"column column-1" width=3D"50%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:50%"><table width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0"><tr><td class=3D"col-pad" style=3D"padding-bottom:=
+5px;padding-top:5px"><table class=3D"text_block block-1" width=3D"100%" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td=20
+class=3D"pad" style=3D"padding-top:5px;padding-left:5px;padding-right:5px">=
+<div style=3D"font-family:Arial,sans-serif"><div class style=3D"font-size:1=
+4px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-height=
+-alt:16.8px;color:#696969;line-height:1.2"><p style=3D"margin:0;font-size:1=
+4px;text-align:left;mso-line-height-alt:16.8px"><span style=3D"word-break: =
+break-word; color: #555555; font-size: 11px;"><span style=3D""><a href=3D"h=
+ttps://link.thetimes.com/view/6a464fcf7d55e1fcfb02eb9csdzze.1lha/b3ff25eb" =
+target=3D"_blank" rel=3D"noopener" style=3D"text-decoration: underline; col=
+or: #696969;">View in browser</a>=C2=A0</span></span></p></div></div></td><=
+/tr></table></td></tr>
+</table></td><td class=3D"column column-2" width=3D"50%" style=3D"mso-table=
+-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-align=
+:top;width:50%"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rsp=
+ace:0"><tr><td class=3D"col-pad" style=3D"padding-bottom:5px;padding-top:5p=
+x"><table class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-top:5px;padding-left:5px;padding-right:5p=
+x"><div style=3D"font-family:Arial,sans-serif"><div class style=3D"font-siz=
+e:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-hei=
+ght-alt:16.8px;color:#696969;line-height:1.2"><p style=3D"margin:0;font-siz=
+e:14px;text-align:right;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; font-size: 11px;"><a href=3D"https:/=
+/link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9csdzze.1lha/8a429b24" target=
+=3D"_blank" style=3D"text-decoration: underline; color: #696969;" rel=3D"no=
+opener">Unsubscribe</a></span></p></div></div></td></tr></table></td></tr><=
+/table></td></tr></tbody></table></td></tr></tbody></table><table class=3D"=
+row row-2" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbod=
+y><tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000;width:640px;=
+margin:0 auto" width=3D"640"><tbody><tr><td class=3D"column column-1" width=
+=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;te=
+xt-align:left;vertical-align:top;width:100%"><table=20
+class=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"5"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0"><tr><td class=3D"pad" style=3D"width:100%" align=3D"center"><=
+div style=3D"max-width:160px"><a href=3D"https://link.thetimes.com/click/47=
+682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tLw/6a464fcf7d55e1fcfb02eb9cBdf=
+09d4b5" target=3D"_blank"><img src=3D"https://media.sailthru.com/composer/i=
+mages/bazh/so1qeqwa/5jw/es9/m4c/Dual%20masthead.png" style=3D"display:block=
+;height:auto;border:0;width:100%" width=3D"160" alt=3D"" title=3D""=20
+height=3D"auto"></a></div></td></tr></table><table class=3D"divider_block b=
+lock-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td =
+class=3D"pad" style=3D"padding-left:5px;padding-right:5px" align=3D"center"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td =
+class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:4px solid #000"><span sty=
+le=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr></=
+table><table class=3D"image_block mobile_hide block-3" width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"width=
+:100%;padding-bottom:5px;padding-left:5px;padding-right:5px" align=3D"cente=
+r"><div class=3D"fullWidth" style=3D"max-width:627.2px">
+<a href=3D"https://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly93d3cud=
+GhldGltZXMuY29tL2J1c2luZXNzLW1vbmV5L21vbmV5/6a464fcf7d55e1fcfb02eb9cB7f62ed=
+d2" target=3D"_blank"><img src=3D"https://media.sailthru.com/composer/image=
+s/sailthru-prod-74t/editor_images/money_banner_desktop.png" style=3D"displa=
+y:block;height:auto;border:0;width:100%" width=3D"627.2" alt=3D"" title=3D"=
+" height=3D"auto"></a></div></td></tr></table><table class=3D"image_block d=
+esktop_hide block-4" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;ma=
+x-height:0;overflow:hidden"><tr><td class=3D"pad" style=3D"width:100%;paddi=
+ng-bottom:5px;padding-left:5px;padding-right:5px" align=3D"center"><div cla=
+ss=3D"fullWidth" style=3D"max-width:627.2px"><a href=3D"https://link.thetim=
+es.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2J1c2luZXNzLW1=
+vbmV5L21vbmV5/6a464fcf7d55e1fcfb02eb9cC7f62edd2" target=3D"_blank"><img src=
+=3D"https://media.sailthru.com/composer/images/sailthru-prod-74t/editor_ima=
+ges/40dd93e6-a744-4f8e-8a97-9051eae7db07.png"=20
+style=3D"display:block;height:auto;border:0;width:100%" width=3D"627.2" alt=
+=3D"" title=3D"" height=3D"auto"></a></div></td></tr></table><table class=
+=3D"html_block block-5" width=3D"100%" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rs=
+pace:0"><tr><td class=3D"pad"><div style=3D"font-family:Georgia,Times,Times=
+ New Roman,serif;text-align:center" align=3D"center"><table align=3D"center=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" data-lt-version=3D"3.0.0=
+" style=3D"width: 100%; max-width: 300px; margin: 0 auto; table-layout: fix=
+ed;">
+<tr>
+<td align=3D"center" style=3D"line-height: 1px; width: 300px; max-width: 30=
+0px;">
+<a href=3D"https://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly9zbGkud=
+GhldGltZXMuY29tL2NsaWNrP3M9ODY3ODg3JmU9bS5pa2UubWNjb25pZ2xleUBnbWFpbC5jb20m=
+cD00NzY4MjQxMCZsY3RnPTZhNDY0ZmNmN2Q1NWUxZmNmYjAyZWI5YyZzdHBlPWRlZmF1bHQ/6a4=
+64fcf7d55e1fcfb02eb9cB6afc4f85" rel=3D"nofollow" target=3D"_blank" style=3D=
+"display: block; width: 100%; max-width: 300px;">
+<img src=3D"https://sli.thetimes.com/imp?s=3D867887&e=3Dm.ike.mcconigley@gm=
+ail.com&p=3D47682410&lctg=3D6a464fcf7d55e1fcfb02eb9c&stpe=3Ddefault&li_coor=
+d=3Ddesktop&collapse_width=3D300" border=3D"0" width=3D"300" style=3D"displ=
+ay: block; width: 100%; max-width: 300px; height: auto;" />
+</a>
+</td>
+</tr>
+</table></div></td></tr></table><table class=3D"image_block block-6" width=
+=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"width:100%;pa=
+dding-top:5px;padding-left:5px;padding-right:5px" align=3D"center"><div cla=
+ss=3D"fullWidth" style=3D"max-width:627.2px"><img src=3D"https://media.sail=
+thru.com/fss/fvbdit/69ade2f5-d0fe-4112-857d-f5ad7be8e9e3/218082b9-a392-452c=
+-8979-b12955be3d51_bmqs.webp" style=3D"display:block;height:auto;border:0;w=
+idth:100%" width=3D"627.2" alt=3D"" title=3D"" height=3D"auto"></div></td><=
+/tr>
+</table><table class=3D"text_block block-7" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" sty=
+le=3D"padding-top:12px;padding-bottom:23px;padding-left:5px;padding-right:5=
+px"><div style=3D"font-family:Arial,sans-serif"><div class style=3D"font-si=
+ze:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-he=
+ight-alt:16.8px;color:#000;line-height:1.2"><p=20
+style=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word; color: #006a74;"><strong>Your Money Matters </strong></=
+span></span><span style=3D"word-break: break-word; color: #000000;">=E2=80=
+=98I saved =C2=A360,000 for my grandchildren, but St James=E2=80=99s Place =
+<a href=3D"https://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly93d3cud=
+GhldGltZXMuY29tL21vbmV5L2Fzay10aW1lcy1tb25leS9hcnRpY2xlL3NqcC1zYXZpbmdzLWdy=
+YW5kY2hpbGRyZW4tYWR2aWNlLXlvdS1tb25leS1tYXR0ZXJzLThsZHNndnBsag/6a464fcf7d55=
+e1fcfb02eb9cB5c4f9927" target=3D"_blank" style=3D"text-decoration: underlin=
+e; color: #006699;" rel=3D"noopener">won=E2=80=99t hand it over</a></span><=
+span style=3D"word-break: break-word; color: #000000;">=E2=80=99 </span><sp=
+an style=3D"word-break: break-word; color: #000000; font-size: 11px;"><span=
+ style=3D"word-break: break-word; color: #6a6a6a;"><span style=3D"word-brea=
+k: break-word;">NINA KRAUSE</span></span></span>
+</p></div></div></td></tr></table></td></tr></tbody></table></td></tr></tbo=
+dy></table><table class=3D"row row-3" align=3D"center" width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+mso-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbody><tr><td=
+><table class=3D"row-content" align=3D"center" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0;background-color:#fff;color:#000;width:640px;margin:0 auto"=
+=20
+width=3D"640"><tbody><tr><td class=3D"column column-1" width=3D"16.66666666=
+6666668%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;te=
+xt-align:left;vertical-align:top;width:16.666666666666668%"><table class=3D=
+"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspa=
+ce:0"><tr><td class=3D"pad" style=3D"width:100%;padding-top:5px;padding-lef=
+t:5px" align=3D"left"><div style=3D"max-width:101.667px"><img=20
+src=3D"https://media.sailthru.com/fss/fvbdit/4c4fbe7e-f8f8-43f7-aa3c-471281=
+5bbefc/db5a81ec-5c29-4f2d-9dde-93a0ca1c26fd-modified_5hnr.png" style=3D"dis=
+play:block;height:auto;border:0;width:100%" width=3D"101.667" alt=3D"" titl=
+e=3D"" height=3D"auto"></div></td></tr></table></td><td class=3D"column col=
+umn-2" width=3D"83.33333333333333%" style=3D"mso-table-lspace:0;mso-table-r=
+space:0;font-weight:400;text-align:left;vertical-align:top;width:83.3333333=
+3333333%"><table class=3D"text_block block-1" width=3D"100%" border=3D"0"=
+=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-top:5px;padding-bottom:2px;padding-left:5px;padding-right:=
+5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div class =
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:16.8px;color:#000;line-height:1.2"><p style=3D"margin:0;=
+font-size:14px;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong><span styl=
+e=3D"word-break: break-word; color: #000000;">Ben Wilkinson</span></strong>=
+</span></p></div></div></td></tr></table><table class=3D"text_block block-2=
+" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:brea=
+k-word"><tr><td class=3D"pad" style=3D"padding-top:5px;padding-bottom:2px;p=
+adding-left:5px;padding-right:5px"><div=20
+style=3D"font-family:Arial,sans-serif"><div class style=3D"font-size:14px;f=
+ont-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-height-alt:=
+16.8px;color:#696969;line-height:1.2"><p style=3D"margin:0;font-size:14px;m=
+so-line-height-alt:16.8px"><span style=3D"word-break: break-word; color: #6=
+96969;">Head of Money</span></p></div></div></td></tr></table></td></tr></t=
+body></table></td></tr></tbody></table><table class=3D"row row-4" align=3D"=
+center" width=3D"100%" border=3D"0" cellpadding=3D"0"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;background-color:#fff"><tbody><tr><td><table class=3D"row-conte=
+nt stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;backg=
+round-color:#fff;color:#000;width:640px;margin:0 auto" width=3D"640"><tbody=
+><tr><td class=3D"column column-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0"><tr><td class=3D"col-pad" style=3D"padding-top:5p=
+x"><table class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace=
+:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad"=20
+style=3D"padding-top:20px;padding-bottom:10px;padding-left:5px;padding-righ=
+t:5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div clas=
+s style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif=
+;mso-line-height-alt:21px;color:#000;line-height:1.5"><p dir=3D"ltr" style=
+=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">It=E2=80=99s the L=
+abour Party conference this week and Andy Burnham and his adoring followers=
+ are hailing the promise of a new scheme to help priced-out buyers onto the=
+ housing ladder.</span></p><p dir=3D"ltr" style=3D"margin:0;mso-line-height=
+-alt:21px">&nbsp;</p><p dir=3D"ltr" style=3D"margin:0;font-size:18px;mso-li=
+ne-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">The <a href=3D"htt=
+ps://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29=
+tL3VrL3BvbGl0aWNzL2FydGljbGUvYW5keS1idXJuaGFtLWZpcnN0LXRpbWUtYnV5ZXItc2NoZW=
+1lLWhvdXNpbmctbGFkZGVyLXJ6bHNzbDAyag/6a464fcf7d55e1fcfb02eb9cBd0c3dc71" tar=
+get=3D"_blank" style=3D"text-decoration: underline; color: #006699;" rel=3D=
+"noopener">Your First Home</a> scheme will allow first-time buyers to get t=
+he keys to a new-build property with a 2.5 per cent deposit and with the he=
+lp of a 20 per cent government loan.</span></p><p dir=3D"ltr" style=3D"marg=
+in:0;mso-line-height-alt:21px">&nbsp;</p><p dir=3D"ltr"=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">Buyers will be hop=
+ing that this new idea is different from the old Help to Buy scheme, which =
+critics say simply inflated house prices and boosted the profits of develop=
+ers (whose <a href=3D"https://link.thetimes.com/click/47682410.74494/aHR0cH=
+M6Ly93d3cudGhldGltZXMuY29tL2J1c2luZXNzL2NvbXBhbmllcy1tYXJrZXRzL2FydGljbGUvc=
+2hhcmVzLWhvdXNlYnVpbGRlcnMtcmFsbHktYW5keS1idXJuaGFtLXJldml2ZXMtaGVscC10by1i=
+dXktamI1ZGJmdnNq/6a464fcf7d55e1fcfb02eb9cBd4464cac" target=3D"_blank" style=
+=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">share pri=
+ces</a> have soared today in response to the latest announcement).</span></=
+p><p dir=3D"ltr"=20
+style=3D"margin:0;mso-line-height-alt:21px">&nbsp;</p><p dir=3D"ltr" style=
+=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"word-b=
+reak: break-word; font-size: 18px;">Meanwhile, if you are hoping to buy you=
+r first home you can read our guide to <a href=3D"https://link.thetimes.com=
+/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L21vcnRnYWdlc=
+y9hcnRpY2xlL2hvdy10by1zYXZlLWZvci1hLWhvdXNlLWluLWEteWVhci16NXd3NXdndDM/6a46=
+4fcf7d55e1fcfb02eb9cB28d8edd4" target=3D"_blank" style=3D"text-decoration: =
+underline; color: #006699;" rel=3D"noopener">saving up for a house in a yea=
+r</a>.</span></p><p dir=3D"ltr"=20
+style=3D"margin:0;mso-line-height-alt:21px">&nbsp;</p><p dir=3D"ltr" style=
+=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"word-b=
+reak: break-word; font-size: 18px;">But is buying a home really the be-all-=
+and-end-all now? We spoke to young workers who are <a href=3D"https://link.=
+thetimes.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L=
+21vcnRnYWdlcy9hcnRpY2xlL3dlcmUtaGFwcHktcmVudGluZy1iZWNhdXNlLXdlLWxlZnQtdGhl=
+LXVrLWowazlyY2w2eA/6a464fcf7d55e1fcfb02eb9cB92404862" target=3D"_blank" sty=
+le=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">more th=
+an happy to stay renting</a> =E2=80=93 because they=E2=80=99ve left the UK.=
+</span></p><p=20
+dir=3D"ltr" style=3D"margin:0;mso-line-height-alt:21px">&nbsp;</p><p dir=3D=
+"ltr" style=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">It comes as the bu=
+y-to-let mortgage is now three decades old. We=E2=80=99ve spoken to those w=
+ho have profited handsomely and those who are <a href=3D"https://link.theti=
+mes.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L21vcn=
+RnYWdlcy9hcnRpY2xlL2J1eS10by1sZXQtcmVudGFsLWNoYW5nZXMtZXhwZXJpZW5jZS1ob21lb=
+3duZXJzLWp0Y3hxaDN3cQ/6a464fcf7d55e1fcfb02eb9cBbf588624" target=3D"_blank" =
+style=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">now =
+struggling to make any money at all</a>.</span></p><p dir=3D"ltr" style=3D"=
+margin:0;mso-line-height-alt:21px">&nbsp;</p><p dir=3D"ltr"=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"w=
+ord-break: break-word; font-size: 18px;">You can also read the story of the=
+ couple who let refugees use their home but who now, eight years later, <a =
+href=3D"https://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhl=
+dGltZXMuY29tL21vbmV5L21vcnRnYWdlcy9hcnRpY2xlL3JlZnVnZWUtc2NoZW1lLXJlbnRlcnM=
+tcmlnaHRzLWFjdC1zMnhkM2JjOXE/6a464fcf7d55e1fcfb02eb9cBb60b8f6d" target=3D"_=
+blank" style=3D"text-decoration: underline; color: #006699;" rel=3D"noopene=
+r">cannot get it back</a>.</span></p><p dir=3D"ltr" style=3D"margin:0;mso-l=
+ine-height-alt:21px">&nbsp;</p><p dir=3D"ltr"=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"w=
+ord-break: break-word; font-size: 18px; color: #000000;">Until next time,</=
+span></p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:21px">&nbs=
+p;</p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span s=
+tyle=3D"word-break: break-word; font-size: 18px; color: #000000;">Ben</span=
+></p></div></div></td></tr></table><table class=3D"button_block block-2" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><=
+td class=3D"pad" style=3D"padding-top:5px;padding-bottom:10px;padding-left:=
+5px;padding-right:5px" align=3D"left"><a href=3D"mailto:moneyteam@thetimes.=
+co.uk?subject=3DTimes%20Money%20newsletter:%20question" target=3D"_blank" s=
+tyle=3D"color:#ffffff;text-decoration:none;"><!--[if mso]>
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word"  href=3D"mailto:moneyteam@thetimes.co.uk?subj=
+ect=3DTimes%20Money%20newsletter:%20question"  style=3D"height:42px;width:1=
+01px;v-text-anchor:middle;" arcsize=3D"0%" fillcolor=3D"#006a74">
+<v:stroke dashstyle=3D"Solid" weight=3D"0px" color=3D"#006a74"/>
+<w:anchorlock/>
+<v:textbox inset=3D"0px,0px,0px,0px">
+<center dir=3D"false" style=3D"color:#ffffff;font-family:Arial, sans-serif;=
+font-size:16px">
+<![endif]-->
+<span class=3D"button" style=3D"background-color: #006a74; border-bottom: 0=
+px solid transparent; border-left: 0px solid transparent; border-radius: 0p=
+x; border-right: 0px solid transparent; border-top: 0px solid transparent; =
+color: #ffffff; display: inline-block; font-family: 'Helvetica Neue', Helve=
+tica, Arial, sans-serif; font-size: 16px; font-weight: 400; mso-border-alt:=
+ none; text-align: center; width: auto; word-break: keep-all; letter-spacin=
+g: normal;"><span class=3D"btn-pad" style=3D"word-break: break-word; paddin=
+g-left: 20px; padding-right: 20px; padding-top: 5px; padding-bottom: 5px; d=
+isplay: block;"><span style=3D"word-break: break-word; line-height: 32px;">=
+Email us</span></span></span>
+<!--[if mso]></center></v:textbox></v:roundrect><![endif]--></a></td></tr><=
+/table><table class=3D"html_block block-3" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0"><tr><td class=3D"pad"><div style=3D"font-family:=
+Georgia,Times,Times New Roman,serif;text-align:center" align=3D"center"><di=
+v style=3D"text-align: center; width: 100%;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" da=
+ta-lt-version=3D"3.0.0" style=3D"border-collapse: collapse; margin: 0 auto;=
+ max-width: 600px; width: 100%; table-layout: fixed;">
+<tr>
+<td align=3D"center" style=3D"line-height: 1px; padding: 0;">
+<a href=3D"https://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly9zbGkud=
+GhldGltZXMuY29tL2NsaWNrP3M9ODY3ODkyJmU9bS5pa2UubWNjb25pZ2xleUBnbWFpbC5jb20m=
+cD00NzY4MjQxMCZsY3RnPTZhNDY0ZmNmN2Q1NWUxZmNmYjAyZWI5YyZzdHBlPWRlZmF1bHQ/6a4=
+64fcf7d55e1fcfb02eb9cCa4b7cc83" rel=3D"nofollow" target=3D"_blank" style=3D=
+"display: block;">
+<img src=3D"https://sli.thetimes.com/imp?s=3D867892&e=3Dm.ike.mcconigley@gm=
+ail.com&p=3D47682410&lctg=3D6a464fcf7d55e1fcfb02eb9c&stpe=3Ddefault&li_coor=
+d=3Ddesktop&collapse_width=3D600"=20
+border=3D"0"=20
+width=3D"600"=20
+style=3D"border: 0; display: block; height: auto; max-width: 600px; width: =
+100%;" />
+</a>
+</td>
+</tr>
+</table>
+</div></div></td></tr></table></td></tr></table></td></tr></tbody></table><=
+/td></tr></tbody></table><table class=3D"row row-5"=20
+align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+;background-color:#fff"><tbody><tr><td><table class=3D"row-content" align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#ff=
+f;color:#000;width:640px;margin:0 auto" width=3D"640"><tbody><tr><td class=
+=3D"column column-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table class=3D"divider_block block-1" w=
+idth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"=
+pad" style=3D"padding-top:15px;padding-bottom:5px;padding-left:5px;padding-=
+right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_in=
+ner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #006a74"><=
+span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td=
+></tr></table><table class=3D"text_block block-2" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-t=
+able-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pa=
+d" style=3D"padding-left:5px;padding-right:5px"><div=20
+style=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"f=
+ont-size:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-he=
+ight-alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;font-size:=
+14px;mso-line-height-alt:39.6px"><span style=3D"word-break: break-word; fon=
+t-size: 22px; color: #000000;"><strong>News&nbsp;</strong></span></p></div>=
+</div></td></tr></table><table class=3D"text_block block-3" width=3D"100%" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-b=
+reak:break-word"><tr><td class=3D"pad" style=3D"padding-left:5px;padding-ri=
+ght:5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div cl=
+ass style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',ser=
+if;mso-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:=
+0;font-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px; color: #000000;"><s=
+pan style=3D"word-break: break-word; color: #006a74;"><strong>1.</strong>&n=
+bsp;</span>Lowering the </span><span style=3D"word-break: break-word; font-=
+size: 18px; color: #000000;">incoming </span><span style=3D"word-break: bre=
+ak-word; font-size: 18px; color: #000000;">mansion tax threshold</span><spa=
+n style=3D"word-break: break-word; font-size: 18px; color: #000000;"> to&nb=
+sp;</span><span style=3D"word-break: break-word; font-size: 18px; color: #0=
+00000;">=C2=A31.5 million</span><span style=3D"word-break: break-word; font=
+-size: 18px; color: #000000;"> would <a href=3D"https://link.thetimes.com/c=
+lick/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L3RheC9hcnRpY2x=
+lL2hvbWVvd25lcnMtbGFib3VyLWFyZWFzLW1hbnNpb24tdGF4LWxvbmRvbi13bGJjZHdmM3Y/6a=
+464fcf7d55e1fcfb02eb9cBa75ecabc" target=3D"_blank" style=3D"text-decoration=
+: underline; color: #006699;" rel=3D"noopener">hit the government=E2=80=99s=
+ own voters</a> and Labour constituencies hardest, figures show</span>
+</p></div></div></td></tr></table><table class=3D"divider_block block-4" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"p=
+ad" style=3D"padding-top:16px;padding-bottom:16px;padding-left:5px;padding-=
+right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;m=
+so-table-rspace:0"><tr><td class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e4e4"><span =
+style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr=
+></table><table class=3D"text_block block-5" width=3D"100%" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-=
+lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" st=
+yle=3D"padding-left:5px;padding-right:5px"><div style=3D"font-family:Georgi=
+a,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px; color: #000000;"><s=
+pan style=3D"word-break: break-word; color: #006a74;"><strong>2.&nbsp;</str=
+ong></span>Millions of households face a fresh financial shock in the new y=
+ear when the average annual energy bill is expected to rise by =C2=A3427 =
+=E2=80=93 <a href=3D"https://link.thetimes.com/click/47682410.74494/aHR0cHM=
+6Ly93d3cudGhldGltZXMuY29tL21vbmV5L2ZhbWlseS1maW5hbmNlcy9hcnRpY2xlL2hpZ2gtZW=
+5lcmd5LWJpbGxzLXByaWNlLWNhcC1yaXNlLXY5Y3g1ZHN6eA/6a464fcf7d55e1fcfb02eb9cB6=
+faf87c9" target=3D"_blank" style=3D"text-decoration: underline; color: #006=
+699;" rel=3D"noopener">here=E2=80=99s what to do</a></span></p></div></div>=
+</td></tr></table>
+<table class=3D"divider_block block-6" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace=
+:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:16px;padd=
+ing-bottom:16px;padding-left:5px;padding-right:5px" align=3D"center"><table=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" wid=
+th=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=
+=3D"divider_inner" style=3D"font-size:1px;line-height:1px;border-top:1px so=
+lid #e4e4e4">
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-7" width=3D"100%" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-=
+table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"p=
+ad" style=3D"padding-left:5px;padding-right:5px"><div style=3D"font-family:=
+Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px; color: #000000;"><s=
+trong><span style=3D"word-break: break-word; color: #006a74;">3.</span>&nbs=
+p;</strong>Budget tax rumours <a href=3D"https://link.thetimes.com/click/47=
+682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L3BlbnNpb25zL2FydGljbG=
+UvYnVkZ2V0LXRheC1ydW1vdXJzLXBlbnNpb24tcGFuaWMtOGRocWxsdnZi/6a464fcf7d55e1fc=
+fb02eb9cB49353437" target=3D"_blank" style=3D"text-decoration: underline; c=
+olor: #006699;" rel=3D"noopener">triggered a multibillion-pound pension pan=
+ic</a> last year, with savers rushing to withdraw funds amid fears over the=
+ir tax-free cash&nbsp;</span></p></div></div></td></tr>
+</table></td></tr></tbody></table></td></tr></tbody></table><table class=3D=
+"row row-6" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;background-color:#fff"><tbody><tr><td><table class=3D"row-conte=
+nt stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;backg=
+round-color:#fff;color:#000;width:640px;margin:0 auto" width=3D"640"><tbody=
+><tr>
+<td class=3D"column column-1" width=3D"100%" style=3D"mso-table-lspace:0;ms=
+o-table-rspace:0;font-weight:400;text-align:left;vertical-align:top;width:1=
+00%"><table class=3D"divider_block block-1" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:30px=
+;padding-bottom:5px;padding-left:5px;padding-right:5px" align=3D"center"><t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+=20
+width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td clas=
+s=3D"divider_inner" style=3D"font-size:1px;line-height:1px;border-top:4px s=
+olid #006a74"><span style=3D"word-break: break-word;">&#8202;</span></td></=
+tr></table></td></tr></table><table class=3D"text_block block-2" width=3D"1=
+00%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+ style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr>=
+<td class=3D"pad"=20
+style=3D"padding-bottom:5px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-s=
+ize:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-=
+alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;mso-line-height=
+-alt:39.6px"><span style=3D"word-break: break-word; font-size: 22px; color:=
+ #000000;"><strong>Features</strong></span></p></div></div></td></tr></tabl=
+e></td></tr></tbody></table></td></tr></tbody></table><table=20
+class=3D"row row-7" align=3D"center" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0"><tbody><tr><td><table class=3D"row-content stack" alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#f=
+ff;border-radius:0;color:#000;width:640px;margin:0 auto" width=3D"640"><tbo=
+dy><tr><td class=3D"column column-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table class=3D"image_block block-1" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pa=
+d" style=3D"width:100%;padding-left:5px;padding-right:5px" align=3D"center"=
+><div style=3D"max-width:630px"><img=20
+src=3D"https://media.sailthru.com/fss/fvbdit/f2da3c42-f6c9-4452-b1d4-d30abc=
+78a464/184ddf62-393a-4489-97d6-49c85dc40d21_7jk3.webp" style=3D"display:blo=
+ck;height:auto;border:0;width:100%" width=3D"630" alt=3D"" title=3D"" heigh=
+t=3D"auto"></div></td></tr></table><table class=3D"text_block block-2" widt=
+h=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word=
+"><tr><td class=3D"pad"=20
+style=3D"padding-top:15px;padding-bottom:5px;padding-left:5px;padding-right=
+:5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div class=
+ style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;=
+mso-line-height-alt:16.8px;color:#000;line-height:1.2"><p style=3D"margin:0=
+;font-size:14px;mso-line-height-alt:16.8px"><span style=3D"word-break: brea=
+k-word; font-size: 18px; color: #000000;"><strong>=E2=80=98It=E2=80=99s mor=
+e brutal than ever=E2=80=99: the middle-aged men who can=E2=80=99t find wor=
+k</strong></span>
+</p></div></div></td></tr></table><table class=3D"text_block block-3" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"=
+><tr><td class=3D"pad" style=3D"padding-top:5px;padding-bottom:20px;padding=
+-left:5px;padding-right:5px"><div style=3D"font-family:Georgia,'Times New R=
+oman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word; font-size: 18px;">Experienced <a href=3D"https://link.t=
+hetimes.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L2=
+ZhbWlseS1maW5hbmNlcy9hcnRpY2xlL21pZGRsZS1hZ2VkLW1lbi1vdXQtb2Ytd29yay1uMm1xb=
+nd2a2o/6a464fcf7d55e1fcfb02eb9cBa479514a" target=3D"_blank" style=3D"text-d=
+ecoration: underline; color: #006699;" rel=3D"noopener">professionals are b=
+eing left on the shelf</a> as a tough labour market prioritises youth and c=
+heaper talent</span></span></p></div></div></td></tr></table></td></tr></tb=
+ody></table></td></tr></tbody></table><table class=3D"row row-8"=20
+align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+"><tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#fff;border-radius:0;=
+color:#000;width:640px;margin:0 auto" width=3D"640"><tbody><tr><td class=3D=
+"column column-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table class=3D"image_block block-1" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pa=
+d" style=3D"width:100%;padding-left:5px;padding-right:5px" align=3D"center"=
+><div style=3D"max-width:630px"><img=20
+src=3D"https://media.sailthru.com/fss/fvbdit/14aaa9d0-ea64-4323-9f72-56a259=
+37249e/MONEY_BYLINES_VickyReynal_16x9+%281%29_c1sd.jpg" style=3D"display:bl=
+ock;height:auto;border:0;width:100%" width=3D"630" alt=3D"" title=3D"" heig=
+ht=3D"auto"></div></td></tr></table><table class=3D"text_block block-2" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-wor=
+d"><tr><td class=3D"pad"=20
+style=3D"padding-top:15px;padding-bottom:5px;padding-left:5px;padding-right=
+:5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div class=
+ style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;=
+mso-line-height-alt:16.8px;color:#000;line-height:1.2"><p style=3D"margin:0=
+;font-size:14px;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; font-size: 18px; color: #000000;"><s=
+trong>I gave my daughter up for adoption. What should I leave her in my wil=
+l?</strong></span></p></div></div></td></tr></table><table class=3D"text_bl=
+ock block-3" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word=
+-break:break-word"><tr><td class=3D"pad" style=3D"padding-top:5px;padding-b=
+ottom:20px;padding-left:5px;padding-right:5px"><div=20
+style=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"f=
+ont-size:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-he=
+ight-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:14=
+px;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word; font-size: 18px;">Our financial therapist <a href=3D"ht=
+tps://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY2=
+9tL21vbmV5L2Fzay10aW1lcy1tb25leS9hcnRpY2xlL2ktZ2F2ZS11cC1teS1kYXVnaHRlci1mb=
+3ItYWRvcHRpb24tc2hvdWxkLWktbGVhdmUtaGVyLWFueXRoaW5nLWluLW15LXdpbGwteHBzZjM1=
+aHJx/6a464fcf7d55e1fcfb02eb9cBed1807e6" target=3D"_blank" style=3D"text-dec=
+oration: underline; color: #006699;" rel=3D"noopener">helps a mother in a d=
+ilemma</a> over how to split her inheritance between four children</span></=
+span></p></div></div></td></tr></table></td></tr></tbody></table></td></tr>=
+</tbody></table><table class=3D"row row-9"=20
+align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+"><tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#fff;border-radius:0;=
+color:#000;width:640px;margin:0 auto" width=3D"640"><tbody><tr><td class=3D=
+"column column-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table class=3D"image_block block-1" wid=
+th=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pa=
+d" style=3D"width:100%;padding-left:5px;padding-right:5px" align=3D"center"=
+><div style=3D"max-width:630px"><img=20
+src=3D"https://media.sailthru.com/fss/fvbdit/2c72ec4a-4bb1-4676-a10a-101e5b=
+d576e2/62db04b6-b257-45a6-881e-866fc5a3589c_b2b7.webp" style=3D"display:blo=
+ck;height:auto;border:0;width:100%" width=3D"630" alt=3D"" title=3D"" heigh=
+t=3D"auto"></div></td></tr></table><table class=3D"text_block block-2" widt=
+h=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word=
+"><tr><td class=3D"pad"=20
+style=3D"padding-top:15px;padding-bottom:5px;padding-left:5px;padding-right=
+:5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div class=
+ style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;=
+mso-line-height-alt:16.8px;color:#000;line-height:1.2"><p style=3D"margin:0=
+;font-size:14px;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; color: #000000;"><strong><span style=
+=3D"word-break: break-word; font-size: 18px;">My insurer rejected my breast=
+ cancer claim after I followed NHS advice</span></strong></span></p></div><=
+/div></td></tr></table><table class=3D"text_block block-3" width=3D"100%" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td cl=
+ass=3D"pad"=20
+style=3D"padding-top:5px;padding-bottom:10px;padding-left:5px;padding-right=
+:5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div class=
+ style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;=
+mso-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;f=
+ont-size:14px;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word; font-size: 18px;">WPA told Laura Hannan that <a href=3D=
+"https://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXM=
+uY29tL21vbmV5L2ZhbWlseS1maW5hbmNlcy9hcnRpY2xlL215LWluc3VyZXItcmVqZWN0ZWQtbX=
+ktYnJlYXN0LWNhbmNlci1jbGFpbS1hZnRlci1pLWZvbGxvd2VkLW5ocy1hZHZpY2UtN2prajhia=
+nA3/6a464fcf7d55e1fcfb02eb9cB2baae925" target=3D"_blank" style=3D"text-deco=
+ration: underline; color: #006699;" rel=3D"noopener">preventive mammograms =
+and medication</a> constituted treatment for a pre-existing condition</span=
+></span></p></div></div></td></tr></table><table class=3D"html_block block-=
+4" width=3D"100%" border=3D"0" cellpadding=3D"0"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0"><tr><td class=3D"pad"><div style=3D"font-family:Georgia,Times,=
+Times New Roman,serif;text-align:center" align=3D"center"><div style=3D"tex=
+t-align: center; width: 100%;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" da=
+ta-lt-version=3D"3.0.0" style=3D"border-collapse: collapse; margin: 0 auto;=
+ max-width: 600px; width: 100%; table-layout: fixed;">
+<tr>
+<td align=3D"center" style=3D"line-height: 1px; padding: 0;">
+<a href=3D"https://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly9zbGkud=
+GhldGltZXMuY29tL2NsaWNrP3M9ODY3ODk3JmU9bS5pa2UubWNjb25pZ2xleUBnbWFpbC5jb20m=
+cD00NzY4MjQxMCZsY3RnPTZhNDY0ZmNmN2Q1NWUxZmNmYjAyZWI5YyZzdHBlPWRlZmF1bHQ/6a4=
+64fcf7d55e1fcfb02eb9cD77b6e1f1" rel=3D"nofollow" target=3D"_blank" style=3D=
+"display: block;">
+<img src=3D"https://sli.thetimes.com/imp?s=3D867897&e=3Dm.ike.mcconigley@gm=
+ail.com&p=3D47682410&lctg=3D6a464fcf7d55e1fcfb02eb9c&stpe=3Ddefault&li_coor=
+d=3Ddesktop&collapse_width=3D600"=20
+border=3D"0"=20
+width=3D"600"=20
+style=3D"border: 0; display: block; height: auto; max-width: 600px; width: =
+100%;" />
+</a>
+</td>
+</tr>
+</table>
+</div></div></td></tr></table></td></tr></tbody></table></td></tr></tbody><=
+/table><table class=3D"row row-10" align=3D"center" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbody><tr><td>=
+<table=20
+class=3D"row-content stack" align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;background-color:#fff;color:#000;width:640px;margin:0 auto" wi=
+dth=3D"640"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;v=
+ertical-align:top;width:100%"><table class=3D"divider_block block-1" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"padding-top:15px;padding-bottom:5px;padding-left:5px;padding-right:5px"=
+ align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-r=
+space:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-height=
+:1px;border-top:4px solid #006a74"><span style=3D"word-break: break-word;">=
+&#8202;</span></td></tr></table></td></tr></table><table=20
+class=3D"text_block block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-t=
+op:5px;padding-bottom:10px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-s=
+ize:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-=
+alt:16.8px;color:#000;line-height:1.2"><p=20
+style=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px"><span style=3D=
+"word-break: break-word; color: #000000; font-size: 22px;"><span style=3D"w=
+ord-break: break-word;"><strong><span style=3D"word-break: break-word; colo=
+r: #000000;">Chart of the week</span></strong></span></span></p></div></div=
+></td></tr></table><table class=3D"image_block mobile_hide block-3" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad"=
+=20
+style=3D"width:100%;padding-left:5px;padding-right:5px" align=3D"center"><d=
+iv style=3D"max-width:630px"><img src=3D"https://media.sailthru.com/fss/fvb=
+dit/68fc01e5-d659-49ab-be87-77e158cebe80/950e5d48-c174-4046-8f3e-38d330ee1e=
+6a_by64.png" style=3D"display:block;height:auto;border:0;width:100%" width=
+=3D"630" alt=3D"" title=3D"" height=3D"auto"></div></td></tr></table><table=
+ class=3D"image_block desktop_hide block-4" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;ma=
+x-height:0;overflow:hidden"><tr><td class=3D"pad" style=3D"width:100%;paddi=
+ng-left:5px;padding-right:5px" align=3D"center"><div style=3D"max-width:630=
+px"><img src=3D"https://media.sailthru.com/fss/fvbdit/f06cba14-96ab-4c1b-ba=
+e8-dc0e35d20166/2b8c0705-f31f-44e4-854a-db803a1b7b3b_cgs4.png" style=3D"dis=
+play:block;height:auto;border:0;width:100%" width=3D"630" alt=3D"" title=3D=
+"" height=3D"auto"></div></td></tr></table></td></tr></tbody></table>
+</td></tr></tbody></table><table class=3D"row row-11" align=3D"center" widt=
+h=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff=
+"><tbody><tr><td><table class=3D"row-content stack" align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000;width=
+:640px;margin:0 auto" width=3D"640"><tbody><tr><td class=3D"column column-1=
+"=20
+width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:4=
+00;text-align:left;vertical-align:top;width:100%"><table class=3D"divider_b=
+lock block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><t=
+r><td class=3D"pad" style=3D"padding-top:30px;padding-bottom:5px;padding-le=
+ft:5px;padding-right:5px" align=3D"center"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_in=
+ner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #006a74"><=
+span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td=
+></tr></table><table class=3D"text_block block-2" width=3D"100%" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-t=
+able-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pa=
+d"=20
+style=3D"padding-top:5px;padding-bottom:10px;padding-left:5px;padding-right=
+:5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div class=
+ style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;=
+mso-line-height-alt:16.8px;color:#000;line-height:1.2"><p style=3D"margin:0=
+;font-size:14px;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; color: #000000; font-size: 22px;"><s=
+pan style=3D"word-break: break-word;"><strong><span style=3D"word-break: br=
+eak-word; color: #000000;">Ask Times Money</span></strong></span></span></p=
+></div></div></td></tr></table><table class=3D"text_block block-3" width=3D=
+"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><t=
+r><td class=3D"pad"=20
+style=3D"padding-top:15px;padding-left:5px;padding-right:5px"><div style=3D=
+"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-size=
+:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-alt=
+:21px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:18px;mso-l=
+ine-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000;"><strong><span style=
+=3D"word-break: break-word;"><span style=3D"word-break: break-word; font-si=
+ze: 18px;">I </span></span></strong></span><span style=3D"word-break: break=
+-word; font-size: 18px;"><strong>live on a residential road with on-street =
+parking and when my mum came to visit overnight I paid for a parking permit=
+ to cover her stay. </strong></span><span style=3D"word-break: break-word; =
+font-size: 18px;"><strong>The next day there was a ticket on the car, with =
+the reason given that she was parked outside the bay. H</strong></span><spa=
+n style=3D"word-break: break-word; font-size: 18px;"><strong>er front wheel=
+ (less than half of it) was slightly over the white line, but it was very f=
+aded.&nbsp;</strong></span>
+</p><p style=3D"margin:0;mso-line-height-alt:21px">&nbsp;</p><p style=3D"ma=
+rgin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"word-break: =
+break-word; color: #000000;"><strong><span style=3D"word-break: break-word;=
+"><span style=3D"word-break: break-word; font-size: 18px;">We appealed the =
+fine on these grounds and made it clear that we had paid for the necessary =
+parking permit, but our appeal was turned down by the council. Is that righ=
+t? It doesn=E2=80=99t seem fair.&nbsp;</span></span></strong></span>
+</p><p style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span sty=
+le=3D"word-break: break-word; font-size: 18px;"><em><strong>Lucy, address s=
+upplied</strong></em></span></p><p style=3D"margin:0;mso-line-height-alt:21=
+px">&nbsp;</p><p style=3D"margin:0;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word;"><span style=3D"word-break: break-word; font-size: 18px=
+;">When you park in a marked council parking bay your vehicle must fit enti=
+rely within the markings and boundaries =E2=80=93 but councils are equally =
+responsible for ensuring any restrictions are clearly signposted to drivers=
+. </span></span></span></p><p style=3D"margin:0;mso-line-height-alt:21px">&=
+nbsp;</p><p style=3D"margin:0;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word;"><span style=3D"word-break: break-word; font-size: 18px=
+;">Our expert Scott Dixon, founder of The Complaints Resolver website, help=
+s a reader with an unexpected ticket. You can <a href=3D"https://link.theti=
+mes.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL21vbmV5L2Fzay=
+10aW1lcy1tb25leS9hcnRpY2xlL3BhcmtpbmctZmluZS1maWdodC1jb21wbGFpbnRzLXJlc29sd=
+mVyLWFzay10aW1lcy1tb25leS1zZmc5NjJnZHg/6a464fcf7d55e1fcfb02eb9cB4de7a599" t=
+arget=3D"_blank" style=3D"text-decoration: underline; color: #006699;" rel=
+=3D"noopener">read his full answer here</a>.&nbsp;</span></span></span></p>=
+</div></div></td></tr>
+</table></td></tr></tbody></table></td></tr></tbody></table><table class=3D=
+"row row-12" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;background-color:#fff"><tbody><tr><td><table class=3D"row-cont=
+ent stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;back=
+ground-color:#fff;color:#000;width:640px;margin:0 auto" width=3D"640"><tbod=
+y><tr>
+<td class=3D"column column-1" width=3D"100%" style=3D"mso-table-lspace:0;ms=
+o-table-rspace:0;font-weight:400;text-align:left;vertical-align:top;width:1=
+00%"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr>=
+<td class=3D"col-pad" style=3D"padding-top:20px"><table class=3D"html_block=
+ block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><t=
+d=20
+class=3D"pad"><div style=3D"font-family:Georgia,Times,Times New Roman,serif=
+;text-align:center" align=3D"center"><table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" data-lt-version=3D"3.0.0" style=3D"width=
+: 100%; max-width: 300px; margin: 0 auto; table-layout: fixed;">
+<tr>
+<td align=3D"center" style=3D"line-height: 1px; width: 300px; max-width: 30=
+0px;">
+<a href=3D"https://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly9zbGkud=
+GhldGltZXMuY29tL2NsaWNrP3M9ODY3OTAyJmU9bS5pa2UubWNjb25pZ2xleUBnbWFpbC5jb20m=
+cD00NzY4MjQxMCZsY3RnPTZhNDY0ZmNmN2Q1NWUxZmNmYjAyZWI5YyZzdHBlPWRlZmF1bHQ/6a4=
+64fcf7d55e1fcfb02eb9cE09f7b697" rel=3D"nofollow" target=3D"_blank" style=3D=
+"display: block; width: 100%; max-width: 300px;">
+<img src=3D"https://sli.thetimes.com/imp?s=3D867902&e=3Dm.ike.mcconigley@gm=
+ail.com&p=3D47682410&lctg=3D6a464fcf7d55e1fcfb02eb9c&stpe=3Ddefault&li_coor=
+d=3Ddesktop&collapse_width=3D300" border=3D"0" width=3D"300" style=3D"displ=
+ay: block; width: 100%; max-width: 300px; height: auto;" />
+</a>
+</td>
+</tr>
+</table></div></td></tr></table><table class=3D"icons_block block-2" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0;text-align:center;line=
+-height:0"><tr><td class=3D"pad" style=3D"vertical-align:middle;color:#659d=
+85;font-family:inherit;font-size:14px;padding-left:5px;padding-right:5px" a=
+lign=3D"center"><table=20
+class=3D"icons-outer" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"mso-table-lspace:0;mso-table-rspace:0;display:inline-table"><=
+tr><td style=3D"vertical-align:middle;text-align:center;padding-top:20px;pa=
+dding-bottom:15px;padding-left:5px;padding-right:5px"><img class=3D"icon" s=
+rc=3D"https://media.sailthru.com/composer/images/sailthru-prod-74t/Check.pn=
+g" alt=3D"" height=3D"auto" width=3D"32" align=3D"center" style=3D"display:=
+block;height:auto;margin:0 auto;border:0"></td></tr></table></td></tr>
+</table><table class=3D"text_block block-3" width=3D"100%" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-l=
+space:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" sty=
+le=3D"padding-bottom:11px;padding-left:5px;padding-right:5px"><div style=3D=
+"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-size=
+:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-alt=
+:25.2px;color:#000;line-height:1.8"><p=20
+style=3D"margin:0;font-size:14px;text-align:center;mso-line-height-alt:25.2=
+px"><strong><span style=3D"word-break: break-word; font-size: 22px; color: =
+#000000;">... that=E2=80=99s all for now</span></strong></p></div></div></t=
+d></tr></table><table class=3D"text_block block-4" width=3D"100%" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-=
+table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"p=
+ad" style=3D"padding-left:5px;padding-right:5px"><div=20
+style=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"f=
+ont-size:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-he=
+ight-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:18=
+px;text-align:center;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000;">What did you think =
+of today=E2=80=99s newsletter? Tell us what you=E2=80=99d like to see more =
+of by emailing</span> <a href=3D"mailto:newsletters@thetimes.co.uk?subject=
+=3DTimes%20Money%20newsletter:%20question" target=3D"_blank" title=3D"newsl=
+etters@thetimes.co.uk" rel=3D"noopener" style=3D"text-decoration: underline=
+; color: #006699;">newsletters@thetimes.co.uk</a></p></div></div></td></tr>=
+</table><table class=3D"social_block block-5" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><=
+td class=3D"pad" style=3D"padding-top:20px;padding-bottom:10px;padding-left=
+:10px;padding-right:10px" align=3D"center"><table class=3D"social-table" wi=
+dth=3D"126px" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td style=3D"=
+padding:0"><a href=3D"https://link.thetimes.com/external/47682410.74494/aHR=
+0cHM6Ly93d3cuZmFjZWJvb2suY29tL3RpbWVzYW5kc3VuZGF5dGltZXMvP2xvY2FsZT1lbl9HQg=
+/6a464fcf7d55e1fcfb02eb9cB10d0a1b0" target=3D"_blank"><img=20
+src=3D"https://app-rsrc.getbee.io/public/resources/social-networks-icon-set=
+s/circle-color/facebook@2x.png" width=3D"32" height=3D"auto" alt=3D"Faceboo=
+k" title=3D"Facebook" style=3D"display:block;height:auto;border:0"></a></td=
+><td style=3D"padding:0 0 0 15px"><a href=3D"https://link.thetimes.com/exte=
+rnal/47682410.74494/aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS90aGV0aW1lcy8_aGw9ZW4=
+/6a464fcf7d55e1fcfb02eb9cB92588618" target=3D"_blank"><img src=3D"https://a=
+pp-rsrc.getbee.io/public/resources/social-networks-icon-sets/circle-color/i=
+nstagram@2x.png" width=3D"32" height=3D"auto" alt=3D"Instagram" title=3D"In=
+stagram"=20
+style=3D"display:block;height:auto;border:0"></a></td><td style=3D"padding:=
+0 0 0 15px"><a href=3D"https://link.thetimes.com/external/47682410.74494/aH=
+R0cHM6Ly91ay5saW5rZWRpbi5jb20vY29tcGFueS90aGUtdGltZXM/6a464fcf7d55e1fcfb02e=
+b9cBcad86f48" target=3D"_blank"><img src=3D"https://app-rsrc.getbee.io/publ=
+ic/resources/social-networks-icon-sets/circle-color/linkedin@2x.png" width=
+=3D"32" height=3D"auto" alt=3D"LinkedIn" title=3D"LinkedIn" style=3D"displa=
+y:block;height:auto;border:0"></a></td></tr></table></td></tr></table><tabl=
+e class=3D"text_block block-6" width=3D"100%" border=3D"0" cellpadding=3D"0=
+"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-t=
+op:5px;padding-bottom:10px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Arial,sans-serif"><div class style=3D"font-size:14px;font-f=
+amily:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-height-alt:21px;=
+color:#696969;line-height:1.5"><p style=3D"margin:0;font-size:18px;text-ali=
+gn:center;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; font-size: 14px;">Download our app f=
+or <a href=3D"https://link.thetimes.com/external/47682410.74494/aHR0cHM6Ly9=
+wbGF5Lmdvb2dsZS5jb20vc3RvcmUvYXBwcy9kZXRhaWxzP2lkPXVrLmNvLnRoZXRpbWVz/6a464=
+fcf7d55e1fcfb02eb9cBde4cb3e5" target=3D"_blank" style=3D"text-decoration: u=
+nderline; color: #1d1d1b;" rel=3D"noopener">Android</a> and <a href=3D"http=
+s://link.thetimes.com/external/47682410.74494/aHR0cHM6Ly9hcHBzLmFwcGxlLmNvb=
+S9nYi9hcHAvdGhlLXRpbWVzLXVrLXdvcmxkLW5ld3MvaWQ0MzY3OTIzMjE/6a464fcf7d55e1fc=
+fb02eb9cBda374232" target=3D"_blank" style=3D"text-decoration: underline; c=
+olor: #1d1d1b;" rel=3D"noopener">IOS</a></span></p></div></div></td></tr></=
+table><table class=3D"text_block block-7" width=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-top:5px;padding-bottom:10px;padding-left:5px;padding-right=
+:5px"><div style=3D"font-family:Arial,sans-serif"><div class style=3D"font-=
+size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-=
+height-alt:21px;color:#1d1d1b;line-height:1.5"><p style=3D"margin:0;font-si=
+ze:18px;text-align:center;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; font-size: 14px;"><a href=3D"https:/=
+/link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9csdzze.1lha/8a429b24" target=
+=3D"_blank" style=3D"text-decoration: underline; color: #1d1d1b;" rel=3D"no=
+opener">See more of our newsletters</a> <span style=3D"word-break: break-wo=
+rd; color: #e4e4e4;">|</span> <a href=3D"https://link.thetimes.com/click/47=
+682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3N0YXRpYy9uZXdzLXVrLXByaXZhY3=
+ktY29va2llLXBvbGljeS8jaW50cm9kdWN0aW9uMQ/6a464fcf7d55e1fcfb02eb9cB8003793f"=
+ target=3D"_blank" style=3D"text-decoration: underline; color: #1d1d1b;" re=
+l=3D"noopener">Privacy Policy</a> <span style=3D"word-break: break-word; co=
+lor: #e4e4e4;">| <a href=3D"https://link.thetimes.com/oc/6a464fcf7d55e1fcfb=
+02eb9csdzze.1lha/8a429b24" target=3D"_blank" style=3D"text-decoration: unde=
+rline; color: #1d1d1b;" rel=3D"noopener">Unsubscribe</a> | <a href=3D"https=
+://link.thetimes.com/click/47682410.74494/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL=
+3N0YXRpYy90ZXJtcy1hbmQtY29uZGl0aW9ucy8/6a464fcf7d55e1fcfb02eb9cB3f73ebce" t=
+arget=3D"_blank" style=3D"text-decoration: underline; color: #1d1d1b;" rel=
+=3D"noopener">Terms of service</a></span></span>
+</p></div></div></td></tr></table><table class=3D"text_block block-8" width=
+=3D"100%" border=3D"0" cellpadding=3D"5" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"=
+><tr><td class=3D"pad"><div style=3D"font-family:Arial,sans-serif"><div cla=
+ss style=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,san=
+s-serif;mso-line-height-alt:21px;color:#696969;line-height:1.5"><p style=3D=
+"margin:0;font-size:14px;text-align:left;mso-line-height-alt:18px">
+<span style=3D"word-break: break-word; font-size: 12px;">You have received =
+this because you subscribed to the Money newsletter. This email is from a m=
+ember of the News UK group. News Corp UK & Ireland Limited, with its regist=
+ered office at 1 London Bridge Street, London, SE1 9GF, UK, is the holding =
+company for the News UK Group and is registered in England, no. 81701. VAT =
+number GB 243 8054 69.</span></p></div></div></td></tr></table></td></tr></=
+table></td></tr></tbody></table></td></tr></tbody>
+</table></td></tr></tbody></table><!-- End --></body></html>
+------=_Part_15809111_1343019680.1790614853554--
