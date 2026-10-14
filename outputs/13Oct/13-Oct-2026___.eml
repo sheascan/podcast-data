@@ -1,0 +1,1852 @@
+Delivered-To: mike.mcconigley@gmail.com
+Received: by 2002:a05:6802:6186:10b0:651:970e:7f90 with SMTP id y6-n1csp6274202oca;
+        Mon, 12 Oct 2026 09:50:09 -0700 (PDT)
+X-Received: by 2002:a05:6808:10c7:b0:4f1:6c9c:78c8 with SMTP id 5614622812f47-50c5acb2e81mr8281934b6e.59.1791823809099;
+        Mon, 12 Oct 2026 09:50:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1791823809; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Hj0a4jIJiaD1jkR7lVR3zLTkQtxI2UUko0yp/ZlY5BMe3mYXBxQ0O3tDcVtCHdQP+m
+         B5o2hbLJp3D4E+Xqjhbe8yP+di08cMOfsnQRn7VHNJArXnzRe37CJbD459fizqXQobtH
+         kvHnDB1MbVAylcJ1vabk86lchBgbWCCStaKjwXmaQ0Yhn0xoFclgKOKpY3JZkWs3rg24
+         5YwbTJZK21x3fJUCAlWuUdRwE7it0q37BixzfIjzckmolGYSrH8Hpdv/9pGhig9wgmKW
+         LfBxEfWt6Xs66TGHA7wjgqKM7lVajsNxBziizCQdK91fRMpWF/Uu7VooPxghk1gnCSHi
+         9wuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:sid:list-unsubscribe-post:list-unsubscribe:feedback-id:reply-to
+         :subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=Dbm/OjAqEOdyU88bkkmcyygIFVAc4yizFvOP8lWwvT4=;
+        fh=jrx+lUhO3s8RUxG4dyw+/qFPQymPln0RKxjtVH+hfbQ=;
+        b=CHqjqa9xTe2Q77cCgQ5mruL7lvKqiJx9ztLS7Zvx306K1Q5UuazRwpzk0Hr4hs1OPG
+         pqPHmGJ4doqMd7ENVydyNuFMP3RNN2qi08QBXbiyPIgqSoVel0UEKKWofATbGyrEvIwU
+         HLcJMlczGD3i8eYkmihnR1UioFaUbUX49XgQrcilBXkkRF6qV7uxllSphulvmApF36q/
+         XQDcjSIXdFOcqZUWjaf+mc6B+nX94S35QkcoZeAzKr4pbpcRY7r6wbPTKUTwlhh5R5JG
+         FTXvtGJcqlAu+JWJ1BihOxRZ8TXk1BbtqfZf/F0VrsPdXi6W43niuVMGgDwMJ/V4cUAw
+         6sbg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@dupple.com header.s=c12 header.b=cElifNDV;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=dbPIN70S;
+       spf=pass (google.com: domain of bounces+33663590-464d-mike.mcconigley=gmail.com@em5168.dupple.com designates 159.183.14.9 as permitted sender) smtp.mailfrom="bounces+33663590-464d-mike.mcconigley=gmail.com@em5168.dupple.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=dupple.com
+Return-Path: <bounces+33663590-464d-mike.mcconigley=gmail.com@em5168.dupple.com>
+Received: from o173.ptr3349.dupple.com (o173.ptr3349.dupple.com. [159.183.14.9])
+        by mx.google.com with ESMTPS id 5614622812f47-50c20c8a81csi13793991b6e.117.2026.10.12.09.50.08
+        for <mike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Oct 2026 09:50:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+33663590-464d-mike.mcconigley=gmail.com@em5168.dupple.com designates 159.183.14.9 as permitted sender) client-ip=159.183.14.9;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@dupple.com header.s=c12 header.b=cElifNDV;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=dbPIN70S;
+       spf=pass (google.com: domain of bounces+33663590-464d-mike.mcconigley=gmail.com@em5168.dupple.com designates 159.183.14.9 as permitted sender) smtp.mailfrom="bounces+33663590-464d-mike.mcconigley=gmail.com@em5168.dupple.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=dupple.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dupple.com;
+	h=content-type:date:from:mime-version:subject:reply-to:feedback-id:
+	list-unsubscribe:list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:
+	subject:to;
+	s=c12; t=1791823757;
+	bh=Dbm/OjAqEOdyU88bkkmcyygIFVAc4yizFvOP8lWwvT4=;
+	b=cElifNDVPI8A4AVnS83wp3ao4X/C3JlSSV55NLmDLlvHC/Lp6QHm2FwfA1SsyEr+VEC9
+	0TskO9QkIModowZNxfCTRuGNAJeU17z7XwYY14Qkl7m2PuqTnEQ8LnIXdcpu0UnwNZ62TJ
+	C/a5qrqjHbJbt1zl4Av2XyehiNo7hpZRDp0YyxKRo7DK/JeNVpawtq1zI8xTMBUIEN4S7H
+	baNLzF9BSeRgVj3y5xM+GA1dNnSWUzJuMTUxerX8+xGDIGg2/9REvmAqQzdecuTCmQ2CiS
+	CCcHoDuwzjNlR4giYvADmx3zQNkqsxOSopw21fHA38uxcSf1AgJMbj/+y2nbaRBw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:reply-to:feedback-id:
+	list-unsubscribe:list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:
+	subject:to;
+	s=smtpapi; t=1791823757;
+	bh=Dbm/OjAqEOdyU88bkkmcyygIFVAc4yizFvOP8lWwvT4=;
+	b=dbPIN70S0IDgmtQt8TIhpP1qTnx5Cdinqnym2Ya3I7EAKJU0kGsVl0wY1UynQBmBe7cE
+	IgehMnHypZwBzBa4Jvd7dt3Zom/wtRKK04OLkmDX5a0yqwADHyK4L/KKGZCmBPx83cLiqG
+	InJsm/Qq9o+ZqMq0WUh02hCdcS258hHrY=
+Received: by recvd-5789798844-jm7d2 with SMTP id recvd-5789798844-jm7d2-1-6ACD0F85-D
+	2026-10-12 16:49:09.065011584 +0000 UTC m=+1122493.490420264
+Received: from MzM2NjM1OTA (unknown)
+	by geopod-ismtpd-83 (SG) with HTTP
+	id Lw2h7Em_QsS7jVhI2vIAYA
+	Mon, 12 Oct 2026 16:49:09.042 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=47b7bbd6821fd3b36e154e137e7be67cfbe77e87e61170e822441ac59f99
+Date: Mon, 12 Oct 2026 16:49:17 +0000 (UTC)
+From: Techpresso <techpresso@dupple.com>
+Mime-Version: 1.0
+Message-ID: <Lw2h7Em_QsS7jVhI2vIAYA@geopod-ismtpd-83>
+Subject: =?UTF-8?B?4piV77iP?= Microsoft CEO wants a human brake on AI
+Reply-To: Techpresso <techpresso@dupple.com>
+Feedback-ID: 
+ =?us-ascii?Q?66b66a0b-5612-4fb9-8728-3144e005ef7d=3Anewsletter=3Ab6a4c1fc-1841-?=
+ =?us-ascii?Q?4a3f-940b-517d28802c88=3A4e135834b6572b1?=
+List-Unsubscribe:
+ <mailto:b6a4c1fc-1841-4a3f-940b-517d28802c88+7f1e699b-f828-4e39-b237-1956acec541c+66b66a0b-5612-4fb9-8728-3144e005ef7d@unsub.beehiiv.com>,
+ <https://archive.techpresso.co/unsubscribe/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWJzY3JpYmVyX2lkIjoiN2YxZTY5OWItZjgyOC00ZTM5LWIyMzctMTk1NmFjZWM1NDFjIiwicG9zdF9pZCI6IjY2YjY2YTBiLTU2MTItNGZiOS04NzI4LTMxNDRlMDA1ZWY3ZCIsImxhc3RfcmVzb3VyY2VfZ3VpZCI6IlBvc3Q6NjZiNjZhMGItNTYxMi00ZmI5LTg3MjgtMzE0NGUwMDVlZjdkIn0.AbD37qaKFovj48gJh5kLzm4d0XzBaoF_WVUOGOmSlsM>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+sId: b6a4c1fc-1841-4a3f-940b-517d28802c88
+x-beehiiv-ids: 
+ =?us-ascii?Q?{=22account=5Fname=22=3A=22https=3A=2F=2Farchive=2Etechpresso=2Eco=2F=22=2C=22campaign=5Fid=22?=
+ =?us-ascii?Q?=3A=2266b66a0b-5612-4fb9-8728-3144e005ef7d=22?=
+ =?us-ascii?Q?=2C=22category=22=3A=22newsletter=22=2C=22email=5Fgenerat?=
+ =?us-ascii?Q?ed=5Fat=22=3A1791823748=2C=22user=5Fid=22=3A=22b6a4c1fc-1?=
+ =?us-ascii?Q?841-4a3f-940b-517d28802c88=22}?=
+x-beehiiv-type: newsletter
+x-list-id: b6a4c1fc-1841-4a3f-940b-517d28802c88
+x-list-owner: <mailto:techpresso@dupple.com>
+x-newsletter: 
+ =?us-ascii?Q?https=3A=2F=2Farchive=2Etechpresso=2Eco=2Fp=2Fmicrosoft-makes-biggest-bet-ye?=
+ =?us-ascii?Q?t-on-own-silicon?=
+x-newsletter-id: https://archive.techpresso.co/
+x-newsletter-signup: https://archive.techpresso.co/subscribe
+X-SG-EID: 
+ =?us-ascii?Q?u001=2ENpDAl9abzC4gkP=2Fwdc9sdMX7F7Sf0gsOJFAPB+ShOHY2Na645FkSqc7s0?=
+ =?us-ascii?Q?6vmMrllPpdt1pwhF+JYpDE6qNivlIggt+11g9A4?=
+ =?us-ascii?Q?Hnr0GAIB1uGWSn65kX38IzX0U2T=2FTUQFMIlH=2FYh?=
+ =?us-ascii?Q?6yTitWJ0U321K5pwvhQ=2F4CNhLoMjmGRXp3uxK5Q?=
+ =?us-ascii?Q?erYwNP16Mdx5xgqNWuHF9p=2FWBU1zw7=2Fege17Kg=2F?=
+ =?us-ascii?Q?p5IVaFYFQTpNO9TccP2SEyciiB2lcraNlcQxijx?= =?us-ascii?Q?gk5T?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprD1ZcmFObA4po1bG?=
+ =?us-ascii?Q?aUE6gycFEDRSMl8IKGiEeWnjXxoKIxR0adwO8+n?=
+ =?us-ascii?Q?96JKysxjaaTDh9MC8GVxb7NFahsSNrM4SIGQ2b5?=
+ =?us-ascii?Q?qj78EYXut0qVbv46jtEiQWfbPKNMRFCx4mBZTpQ?=
+ =?us-ascii?Q?o=2F6tZt4pLYvxCeJXRA6xo76UXxgSlzoDaNDEQu2?=
+ =?us-ascii?Q?NU50IDkP4t7nur8V2J2wWrPrD2ytsh0ewlE+wXB?=
+ =?us-ascii?Q?zUlnc7BoCTc1KOLqrcWfWQp+ITt634LiT+YLBXN?=
+ =?us-ascii?Q?tpEzNBJ9ISRryr6bFt3nyfJIL50jgQlY2HCkEpV?=
+ =?us-ascii?Q?LYfvDX6gCPWzPA9EnC1ZMSalbUJXyMP4n6Y7CE5?=
+ =?us-ascii?Q?rPOqwcgf0QcbUD+=2FD5B7aFAReD9mC0iriKF7kJE?=
+ =?us-ascii?Q?s0Tn3kuagn134Ir2jIyPbhsPYGqdKdS4X=2FeTMTw?=
+ =?us-ascii?Q?=2FEzBCQdO9xMGv53gE1zhFceYoBS71+iQSz=2FznjP?=
+ =?us-ascii?Q?5Lsao=3D?=
+To: "mike.mcconigley@gmail.com" <mike.mcconigley@gmail.com>
+X-Entity-ID: u001.pDaU04KXtP4jR7IszE/fPA==
+
+--47b7bbd6821fd3b36e154e137e7be67cfbe77e87e61170e822441ac59f99
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+=E2=80=94=E2=80=94=E2=80=94
+
+You are reading a plain text version of this post. For the best experience,=
+ copy and paste this link in your browser to view the post online:
+https://archive.techpresso.co/p/microsoft-makes-biggest-bet-yet-on-own-sili=
+con
+
+--47b7bbd6821fd3b36e154e137e7be67cfbe77e87e61170e822441ac59f99
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office" style=3D"font-size:16px;"><head></head><head><meta charset=
+=3D"utf-8"/><!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=
+=3D"IE=3Dedge"/><!--<![endif]--><meta name=3D"viewport" content=3D"width=3D=
+device-width,initial-scale=3D1"/><meta name=3D"x-apple-disable-message-refo=
+rmatting"/><meta name=3D"format-detection" content=3D"telephone=3Dno,addres=
+s=3Dno,email=3Dno,date=3Dno,url=3Dno"/><meta name=3D"color-scheme" content=
+=3D"light"/><meta name=3D"supported-color-schemes" content=3D"light"/><titl=
+e>=E2=98=95=EF=B8=8F Microsoft makes =E2=80=98biggest bet yet=E2=80=99 on o=
+wn silicon</title><!--[if mso]><xml><o:OfficeDocumentSettings><o:AllowPNG/>=
+<o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![en=
+dif]--><style>
+  :root { color-scheme: light; supported-color-schemes: light; }
+  body { margin: 0; padding: 0; min-width: 100%!important; -ms-text-size-ad=
+just: 100% !important; -webkit-transform: scale(1) !important; -webkit-text=
+-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !importa=
+nt; }
+  .body { word-wrap: normal; word-spacing:normal; }
+  table.mso { width: 100%; border-collapse: collapse; padding: 0; table-lay=
+out: fixed; }
+  img { border: 0; outline: none; }
+  table {  mso-table-lspace: 0px; mso-table-rspace: 0px; }
+  td, a, span {  mso-line-height-rule: exactly; }
+  #root [x-apple-data-detectors=3Dtrue],
+  a[x-apple-data-detectors=3Dtrue],
+  #MessageViewBody a { color: inherit !important; text-decoration: inherit =
+!important; font-size: inherit !important; font-family: inherit !important;=
+ font-weight: inherit !important; line-height: inherit !important; }
+  span.MsoHyperlink { color: inherit !important; mso-style-priority: 99 !im=
+portant; }
+  span.MsoHyperlinkFollowed { color: inherit !important; mso-style-priority=
+: 99 !important; }
+  .a { background-color:#f4f7fa; }
+  .b { background-color:#ffffff; }
+  .c  { background-color:#ffffff; }
+  .d { background-color:#FFFCDD; }
+  .d2 { background-color:#FFFFFF; }
+  .d3 { background-color:#FFFFFF; }
+  h1 a { text-decoration:underline;color:#3A2CFD !important; }
+  h2 a { text-decoration:underline;color:#3A2CFD !important; }
+  h3 a { text-decoration:underline;color:#3A2CFD !important; }
+  h4 a { text-decoration:underline;color:#3A2CFD !important; }
+  h5 a { text-decoration:underline;color:#3A2CFD !important; }
+  h6 a { text-decoration:underline;color:#3A2CFD !important; }
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, ul, li, ol, p=
+, p a { margin: 0;padding: 0; }
+  h1 { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-ser=
+if;font-weight:400;font-size:28px;color:#000000;line-height:1.75;padding-bo=
+ttom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-margin-bottom-alt:0px }
+  h2 { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-ser=
+if;font-weight:400;font-size:24px;color:#000000;line-height:1.5;padding-bot=
+tom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-margin-bottom-alt:0px }
+  h3 { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-ser=
+if;font-weight:400;font-size:20px;color:#000000;line-height:1.25;padding-bo=
+ttom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-margin-bottom-alt:0px }
+  h4 { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-ser=
+if;font-weight:400;font-size:18px;color:#000000;line-height:1.125;padding-b=
+ottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-margin-bottom-alt:0px =
+}
+  h5 { font-family:'Trebuchet MS','Lucida Grande',Tahoma,sans-serif;font-we=
+ight:400;font-size:16px;color:#000000;line-height:1;padding-bottom:0px;padd=
+ing-top:0px;mso-margin-top-alt:0px;mso-margin-bottom-alt:0px }
+  h6 { font-family:'Trebuchet MS','Lucida Grande',Tahoma,sans-serif;font-we=
+ight:400;font-size:14px;color:#000000;line-height:0.875;padding-bottom:0px;=
+padding-top:0px;mso-margin-top-alt:0px;mso-margin-bottom-alt:0px }
+  p { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-seri=
+f;font-weight:400;color:#000000;font-size:16px;line-height:1.5;padding-bott=
+om:0px;padding-top:0px;mso-margin-top-alt:0px;mso-margin-bottom-alt:0px; }
+  p a, .e a, ul a, li a, .h a, .h2 a, .h3 a { word-break:break-word;color:#=
+3A2CFD !important;text-decoration:underline;text-decoration-color:#3A2CFD; =
+}
+  p a span, .e a span, ul a span, li a span { color: inherit }
+  p .bold { font-weight:bold;color:#000000; }
+  p span[style*=3D"font-size"] { line-height: 1.6; }
+  .f p { font-size:12px;line-height:15px;color:#000000;padding:0; }
+  .f p a { color:#000000 !important; }
+  .g p { font-family:'Helvetica',Arial,sans-serif;font-size:14px;line-heigh=
+t:20px;font-weight:400;margin:0; }
+  .g p a  { text-decoration: underline; }
+  .i p { font-family:'Helvetica',Arial,sans-serif;line-height:1.5;font-size=
+:15px;color:#000000; }
+  .i p a { color:#000000 !important; }
+  .i2 p { font-family:'Helvetica',Arial,sans-serif;line-height:1.5;font-siz=
+e:15px;color:#000000; }
+  .i2 p a { color:#000000 !important; }
+  .i3 p { font-family:'Helvetica',Arial,sans-serif;line-height:1.8;font-siz=
+e:24px;color:#000000; }
+  .i3 p a { color:#000000 !important; }
+  .h p a { color:#595959 !important; }
+  .h2 p a { color:#595959 !important; }
+  .h3 p a { color:#595959 !important; }
+  .f p a, .i p a, .i2 p a, .i3 p a, .h p a, .h2 p a, .h3 p a { text-decorat=
+ion:underline; }
+  .j { border-top:3px solid #DFD150; }
+  .k p { padding-left:15px;padding-bottom:0px;padding-top:6px;mso-margin-to=
+p-alt:6px;mso-margin-bottom-alt:0px;mso-margin-left-alt:15px; }
+  .o { background-color:#FFFFFF;border:1px solid #3A2CFD;border-radius:5px;=
+ }
+  .o p { font-family:'Helvetica',Arial,sans-serif;padding:0px;margin:0px; }
+  .l p,
+  .l p a, .l a { font-size:14px;line-height:20px;font-weight: bold;color:#2=
+D2D2D;padding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .m p,
+  .m p a { font-size:13px;line-height:18px;font-weight:400;color:#2D2D2D;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .n p,
+  .n p a { font-size:12px;line-height:17px;font-weight:400;color:#3A2CFD;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .p { background-color:#FFFFFF;max-width:520px;border:1px solid #E1E8ED;bo=
+rder:1px solid rgba(80, 80, 80, 0.3);border-radius:5px; }
+  .q { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !impo=
+rtant;border:1px solid #e1e8ed;border:1px solid rgba(80, 80, 80, 0.3);borde=
+r-radius:10px;background-color:#FFFFFF; }
+  .q p { font-size:16px;font-family:system-ui,Helvetica,Roboto,Calibri,sans=
+-serif !important;color:#222222;padding:4px 0; }
+  .r { border:1px solid #E1E8ED !important;border-radius:5px; }
+  .s p { font-size: 14px; line-height: 17px; font-weight: 400; color: #6978=
+82; text-decoration: none; }
+  .t p { font-family:'Helvetica',Arial,sans-serif;font-size:12px;line-heigh=
+t:1.5;font-weight:400;color:#000000;font-style:italic;padding:0px; }
+  .v { border-radius:10px;border:solid 0px #DFD150;background-color:#2C81E5=
+;font-family:'Verdana',Geneva,sans-serif;color:#000000; }
+  .v a { text-decoration:none;display:block;color:#000000; }
+  .w p { font-size:12px;line-height:15px;font-weight:400;color:#979797; }
+  .w p a { text-decoration: underline !important;color:#979797 !important; =
+}
+  ul { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-ser=
+if;margin:0px 0px 0px 25px !important;padding:0px !important;color:#000000;=
+line-height:24px;list-style-type:disc !important;font-size:16px; }
+  ul ul { list-style-type:circle !important; }
+  ul ul ul { list-style-type:square !important; }
+  ul ul ul ul { list-style-type:disc !important; }
+  ul ul ul ul ul { list-style-type:circle !important; }
+  ul ul ul ul ul ul { list-style-type:square !important; }
+  ul ul ul ul ul ul ul { list-style-type:disc !important; }
+  ul ul ul ul ul ul ul ul { list-style-type:circle !important; }
+  ul ul ul ul ul ul ul ul ul { list-style-type:square !important; }
+  ul > li { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,san=
+s-serif;margin:10px 0px 0px 0px !important;padding: 0px 0px 0px 0px !import=
+ant; color: #000000; }
+  .poll-choices > li { margin: 4px 0px 0px 0px !important; }
+  ol { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-ser=
+if;margin: 0px 0px 0px 25px !important;padding:0px !important;color:#000000=
+;line-height:24px;list-style:decimal;font-size:16px; }
+  ol > li { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,san=
+s-serif;margin:10px 0px 0px 0px !important;padding: 0px 0px 0px 0px !import=
+ant; color: #000000; }
+  li > p, li p { font-family:'Inter',-apple-system,BlinkMacSystemFont,Robot=
+o,sans-serif;font-size:16px;font-weight:normal;line-height:24px;padding:0px=
+; }
+  .e h3,
+  .e p,
+  .e span { padding-bottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-m=
+argin-bottom-alt:0px; }
+  .e span,
+  .e li { font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-=
+serif;font-size:16px;color:#000000;line-height:24px; }
+  .rec { font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSys=
+temFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-ser=
+if, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color E=
+moji" !important; }
+  .rec__button:hover { background-color: #f9fafb !important; }
+  .copyright a {color: inherit !important; text-decoration: none !important=
+; font-size: inherit !important; font-family: inherit !important; font-weig=
+ht: inherit !important; line-height: inherit !important;}
+  .txt_social p { padding: 0; word-break: break-all; }
+  .table, .table-c, .table-h { border: 1px solid #C0C0C0; }
+  .table-c { padding:2px; background-color:#FFFFFF; }
+  .table-c p { color: #000000; font-family:'Helvetica',Arial,sans-serif !im=
+portant;overflow-wrap: break-word; }
+  .table-h { padding:2px; background-color:#F1F1F1; }
+  .table-h p { color: #000000; font-family:'Trebuchet MS','Lucida Grande',T=
+ahoma,sans-serif !important;overflow-wrap: break-word; }
+  @media only screen and (max-width:667px) {
+    .aa, .w100pc { width: 100% !important; }
+    .bb, .bb td { max-width: 100% !important; }
+    .bb img { max-width: 100% !important; height: auto !important; }
+    .dd { overflow-wrap: break-word !important; }
+    .cc { padding: 0px 8px !important; }
+    .ee { padding-top:10px !important;padding-bottom:10px !important; }
+    .ff ul, .ff ol { margin: 0px 0px 0px 10px !important;padding: 0px !impo=
+rtant; }
+    .ff li { margin:10px 0px 0px 10px !important; }
+    .r {height:140px !important;}
+    .s p { font-size:13px !important;line-height:15px !important; }
+    .mob-hide {display:none !important;}
+    .mob-show {display: block !important; width: auto !important; overflow:=
+ visible !important; float: none !important; max-height: inherit !important=
+; line-height: inherit !important;}
+    .mob-stack {width:100% !important;display:block !important;}
+    .mob-w-full {width:100% !important;}
+    .mob-block {display:block !important;}
+    .embed-img {padding:0px 0px 12px 0px !important;}
+    .socialShare {padding-top:15px !important;}
+    .rec { padding-left:15px!important;padding-right:15px!important; }
+    .bodyWrapper { padding:10px 4px 10px 4px !important; }
+    .social-mobile {float:left !important;margin-top:10px !important;}
+  }
+  @media screen and (max-width: 480px) {
+    u + .a .gg { width: 100% !important; width: 100vw !important; }
+    .tok-heart { padding-top:75% !important; }
+    .tok-play { padding-top: 250px !important; }
+  }
+  @media screen and (max-width: 320px) {
+    .tok-heart { padding-top:65% !important; }
+  }
+   =20
+
+/* =3D=3D=3D R=C3=88GLES UNSCOPED =3D=3D=3D */
+
+#header td {
+    padding: 0 !important;
+}
+
+.bodyWrapper .f {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+html,
+body,
+.document {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+   =20
+    text-rendering: optimizeLegibility;
+}
+
+li {
+    margin-top: 7.5px;
+    margin-bottom: 5px;
+}
+
+ul,
+ol {
+    margin-left: 5px;
+    padding-left: 0;
+}
+
+img {
+    border: 0;
+    outline: none;
+    text-decoration: none;
+    -ms-interpolation-mode: bicubic;
+}
+
+table,
+td {
+   =20
+   =20
+}
+
+body,
+table,
+td,
+a {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+}
+
+/* =3D=3D=3D Padding sur les ad blocks (.dd) =E2=80=94 minimal pour rester =
+sous seuil Gmail =3D=3D=3D */
+td.dd {
+    padding: 16px 40px !important;
+}
+
+/* =3D=3D=3D Espace au-dessus du H3 ad title =E2=80=94 margin sur le h3 ele=
+ment =3D=3D=3D */
+td.dd h3 {
+    margin-top: 32px !important;
+   =20
+}
+
+/* iOS BLUE LINKS */
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+
+/* ANDROID CENTER FIX */
+div[style*=3D"margin: 16px 0;"] {
+    margin: 0 !important;
+}
+
+/* =3D=3D=3D MEDIA QUERIES =3D=3D=3D */
+
+@media screen {
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    #pad-mobile {
+        display: block !important;
+    }
+
+    #pad-desktop {
+        display: none !important;
+    }
+}
+
+@media all and (max-width: 639px) {
+    .wrapper {
+        width: 100% !important;
+        border: none !important;
+    }
+
+    .container {
+        width: 100% !important;
+        min-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .row {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .col-mobile {
+        width: 20px !important;
+    }
+
+    .col {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .mobile-center {
+        text-align: center !important;
+        float: none !important;
+    }
+
+    .mobile-mx-auto {
+        margin: 0 auto !important;
+        float: none !important;
+    }
+
+    .mobile-left {
+        text-align: center !important;
+        float: left !important;
+    }
+
+    .img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .ml-btn {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    *[class=3D"mobileOff"] {
+        width: 0px !important;
+        display: none !important;
+    }
+
+    *[class*=3D"mobileOn"] {
+        display: block !important;
+        max-height: none !important;
+    }
+
+    .mlContentTable {
+        width: 100% !important;
+        min-width: 10% !important;
+        margin: 0 !important;
+        float: none !important;
+    }
+
+    .mlContentButton a {
+        display: block !important;
+        width: auto !important;
+    }
+
+    .mlContentOuter {
+        padding-bottom: 0px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        padding-top: 0px !important;
+    }
+
+    .mlContentSurvey {
+        float: none !important;
+        margin-bottom: 10px !important;
+        width: 100% !important;
+    }
+
+    .multiple-choice-item-table {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+        min-width: 10% !important;
+        float: none !important;
+    }
+
+    td.dd {
+        padding: 8px 16px !important;
+    }
+    td.dd h3 {
+        margin-top: 16px !important;
+       =20
+    }
+}
+  .u { border: 1px solid #CACACA !important; border-radius: 2px !important;=
+ background-color: #ffffff !important; padding: 0px 13px 0px 13px !importan=
+t; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Se=
+goe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;fon=
+t-size: 12px !important; color: #767676 !important; }
+  .u a { text-decoration: none; display: block !important; color: #767676 !=
+important; margin: 0px !important; }
+  .u span, .u img { color: #767676 !important;margin:0px !important; max-he=
+ight:32px !important;background-color:#ffffff !important; }
+</style><!--[if mso]><style type=3D"text/css">
+    h1, h2, h3, h4, h5, h6 {font-family: Arial, sans-serif !important;}
+    body, table, td, p, a, span {font-family: Arial, sans-serif !important;=
+}
+    sup { font-size: 100% !important;vertical-align: .5em !important;mso-te=
+xt-raise: -1.5% !important;line-height: 0 !important; }
+    ul { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ul li { margin-left: 0px !important; mso-special-format: decimal; }
+    ol { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ol li { margin-left: 0px !important; mso-special-format: decimal; }
+    li.listItem { margin-left:15px !important; margin-top:0px !important; }
+    .paddingDesktop { padding: 10px 0 !important; }
+    .edm_outlooklist { margin-left: -20px !important; }
+    .embedImage { display:none !important; }
+</style><![endif]--><!-- __merge_tags_in_links__ --><style>
+      @font-face{font-family:'Inter';font-style:normal;font-weight:100;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTe=
+HuS_fjbvMwCp504jEa1ZL7W0Q5nw.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:italic;font-weight:100;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcCM3FwrK3iLTc=
+vneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc2dpRipWFsevceSGM.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:200;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTe=
+HuS_fjbvMwCp50YjAa1ZL7W0Q5nw.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:italic;font-weight:200;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcCM3FwrK3iLTc=
+vneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcWdtRipWFsevceSGM.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:300;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTe=
+HuS_fjbvMwCp50vDAa1ZL7W0Q5nw.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:italic;font-weight:300;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcCM3FwrK3iLTc=
+vneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcmdxRipWFsevceSGM.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTe=
+HuS_fjbvMwCp504jAa1ZL7W0Q5nw.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:italic;font-weight:400;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcCM3FwrK3iLTc=
+vneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc2dxRipWFsevceSGM.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:500;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTe=
+HuS_fjbvMwCp500DAa1ZL7W0Q5nw.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:italic;font-weight:500;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcCM3FwrK3iLTc=
+vneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc2d1RipWFsevceSGM.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:600;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTe=
+HuS_fjbvMwCp50PDca1ZL7W0Q5nw.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:italic;font-weight:600;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcCM3FwrK3iLTc=
+vneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc2d5RipWFsevceSGM.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:700;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTe=
+HuS_fjbvMwCp50BTca1ZL7W0Q5nw.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:italic;font-weight:700;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcCM3FwrK3iLTc=
+vneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTc2d9RipWFsevceSGM.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:800;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTe=
+HuS_fjbvMwCp50Yjca1ZL7W0Q5nw.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:italic;font-weight:800;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcCM3FwrK3iLTc=
+vneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcWd9RipWFsevceSGM.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:900;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTe=
+HuS_fjbvMwCp50Szca1ZL7W0Q5nw.woff2') format('woff2')}
+      @font-face{font-family:'Inter';font-style:italic;font-weight:900;font=
+-display:swap;src:url('https://fonts.gstatic.com/s/inter/v18/UcCM3FwrK3iLTc=
+vneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcWdBRipWFsevceSGM.woff2') format('woff2')}
+</style></head><body class=3D"a" style=3D"margin:0px auto;padding:0px;word-=
+wrap:normal;word-spacing:normal;background-color:#f4f7fa;"><div role=3D"art=
+icle" aria-roledescription=3D"email" aria-label=3D"email_name" lang=3D"en" =
+style=3D"font-size:1rem"><div style=3D"display:none;max-height:0px;overflow=
+:hidden;"> Microsoft&#39;s silicon bet, AI drives global growth, and more. =
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204; </div><table role=3D"non=
+e" width=3D"100%" border=3D"0" cellspacing=3D"0" align=3D"center" cellpaddi=
+ng=3D"0" class=3D"gg"><tr><td align=3D"center" valign=3D"top"><table role=
+=3D"none" width=3D"670" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" cl=
+ass=3D"aa" style=3D"width:670px;table-layout:fixed;"><tr><td class=3D"bodyW=
+rapper" align=3D"center" valign=3D"top" style=3D"padding:10px 10px 10px 10p=
+x;"><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" align=3D"center"><tr><td align=3D"center" valign=3D"top" styl=
+e=3D"border-width:1px 1px 0px 1px;border-style: solid; border-color: #e2e2e=
+2;border-radius:10px 10px 0px 0px;background-color:#ffffff;" class=3D"c"><t=
+able role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" align=3D"center"><tr id=3D"header"><td style=3D"padding:5px 5px 0px=
+ 5px;"><div style=3D"padding-top:0px;padding-right:0px;padding-bottom:0px;p=
+adding-left:0px;"><table role=3D"none" width=3D"100%" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td class=3D"f" align=3D"r=
+ight" valign=3D"top"><p> &nbsp; <a data-read-online-tooltip=3D"true" href=
+=3D"https://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx5WJcaM96W2Xn=
+4SqdyL9PaFZ7xjctpnoFqItAAKb6D-cjeWTnZ-YZDm4BIPbNhmTJj-aXAgvTc7UGakfQaT9KPiI=
+_SJbb_auAQ35EDcZ6qunGjAGLMgdKUghp8XSMEjh3laWk0mwzJ5LIwGN6GbptoQ7HR327a_inaM=
+cBIEj4Yps/4ut/wz9uBVyZS6yd7ENL1e8ttA/h0/h001.5k2WQOD5pjLPEl31d_kaB7J_qdUKjZ=
+jmHnE1P8m1TIY">Read online</a></p></td></tr><tr><td style=3D"line-height:0;=
+"><div data-open-tracking=3D"true"> <img src=3D"https://elink640.dupple.com=
+/ss/o/u001.kx4FDdYgvRFCigX2_M8XKA/4ut/wz9uBVyZS6yd7ENL1e8ttA/ho.gif" alt=3D=
+"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important;wid=
+th:1px !important;border-width:0 !important;margin-top:0 !important;margin-=
+bottom:0 !important;margin-right:0 !important;margin-left:0 !important;padd=
+ing-top:0 !important;padding-bottom:0 !important;padding-right:0 !important=
+;padding-left:0 !important;"/> </div></td></tr></table></div></td></tr><tr =
+id=3D"content-blocks"><td class=3D"email-card-body" align=3D"center" valign=
+=3D"top" style=3D"padding-bottom:5px;"><table role=3D"none" width=3D"100%" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td s=
+tyle=3D"padding:4px 5px"><table class=3D"ml-default" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"font-siz=
+e:0;line-height:0;height:0;padding:0;"></td></tr></tbody></table><table ali=
+gn=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D"ml-default ciseau-debut" width=3D"100%"><tbody><tr><td><table ali=
+gn=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" class=3D"container ml-6 ml-default-border" style=3D"color: #000000;=
+ width: 100%; max-width: 640px;" width=3D"640"><tbody><tr><td class=3D"ml-d=
+efault-border container" style=3D"line-height: 10px; "></td></tr><tr><td cl=
+ass=3D"row" style=3D"padding: 30px 50px 0px 50px;"><div style=3D"font-famil=
+y: 'Inter', Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 400=
+; line-height: 150%; color: #646464; text-transform: none; font-style: norm=
+al; text-decoration: none; text-align: center; margin-bottom: 29px"><span s=
+tyle=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 13px=
+;">Monday 12 October 2026</span> | <a href=3D"https://elink640.dupple.com/s=
+s/c/u001.eA4BJlw1jawIyadcQA4lRO4BJUtcbechAVmIC8kOOYFCvHcKSMiLJSPB4tWuIrON-q=
+rpZy02yllgLXNUk4ykeL4tX-CNGgQDBJk4DUJM_LKJXp82Yyzd58CU910AMj2xqeufgCmYwNW30=
+9xEzddJxXOxpvktC3QCP__vXgNrabT1zDsIaPcgpnXb0B9S-yI_/4ut/wz9uBVyZS6yd7ENL1e8=
+ttA/h1/h001.4erkrjCdZl6vIeBdAUT_sY6EssJPWmIVt4i0RKN3TpI" style=3D"color: #6=
+46464; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 13px;=
+">Join Free</a> | <a href=3D"https://elink640.dupple.com/ss/c/u001.eA4BJlw1=
+jawIyadcQA4lRLiLWCcbmZjCHFvRGFLDFos_yyiybyi_2wYx-j7h1X60EHNYhHECFsgoHbjXBqh=
+Ze6teIGYlvzCkxKEQKRjA2ddeGftRfxjoX724t5KYf87D/4ut/wz9uBVyZS6yd7ENL1e8ttA/h2=
+/h001.IxF20dxyGuxtCH3xoTHwcb0Z3c0U3VueekY4cd7qyaQ" style=3D"color: #646464;=
+ font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 13px;">Upgr=
+ade</a></div><h2 style=3D"text-align: center;"><img alt=3D"Techpresso Logo"=
+ border=3D"0" class=3D"logo" src=3D"https://uploads-ssl.webflow.com/628535a=
+b8900e721d61b7f8a/660c1485c780e48edef33a35_Frame%2015-min.png" style=3D"max=
+-width: 250px; display: inline-block; vertical-align: middle; margin-right:=
+ 10px" width=3D"250"></h2><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tbody><tr><td align=3D"center" style=3D"padding-top:=
+ 20px;font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: medium=
+;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tbody><tr><td a=
+lign=3D"center" style=3D"padding-bottom: 15px;"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0"><tbody><tr><td style=3D"font-family: 'Inter', =
+Arial, Helvetica, sans-serif; font-weight: bold; font-size: 15px; text-alig=
+n: center; line-height: 150%; margin: 15px 0; padding-right: 15px; color: b=
+lack !important; "><span style=3D"color: black !important;font-family: 'Int=
+er', Arial, Helvetica, sans-serif; font-size: 15px;">Together with</span></=
+td><td><a data-ad-link=3D"main" href=3D"https://elink640.dupple.com/ss/c/u0=
+01.Sll-WiRclj5nwkRHzETs8It5t1xv2ozDShmWO2VVbaZfthsaAjnnTTOsq4i5gIm7gyK6AhaY=
+frNbf_205aK44aCeb9Pwq-drTwkii8rYWYPyWnmFX4-AQgaBWqBe1YM2FQjn44O9MRl4qG5yx82=
+GuA_hs2RJWH9JGeg6rDIeeJrdS_qOdkFZXF5SbR8jUqCAmpaw-3lGI8MC5nK3o_5GLNVs8-Mg8b=
+SWW-taxXR3VDn_3qV6lOZqHCWVDbq5MLQrvmAddNaksRhJX_YWtEsQ4w/4ut/wz9uBVyZS6yd7E=
+NL1e8ttA/h3/h001.Pe3byXdvq5ww2sk-sr3HH4jwSP8LfE8iTUie6y58DCI" id=3D"header-=
+sponsor-link" style=3D"text-decoration: none;"><img alt=3D"Sponsor" border=
+=3D"0" data-ad-role=3D"header-logo" id=3D"header-sponsor-logo" src=3D"https=
+://static.dupplemedia.com/uploads/5da53023-30f2-4f6e-9b48-34f13296a61d.png"=
+ style=3D"display: block; max-width: 80px; margin: 0; padding: 4px; border-=
+radius: 5px; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; background-color:=
+ #ffffff;" width=3D"80"></a></td></tr></tbody></table></td></tr></tbody></t=
+able></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody>=
+</table><table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"ml-default" width=3D"100%"><tbody><tr><td><tabl=
+e align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" class=3D"container ml-8 ml-default-border" style=3D"color: #00=
+0000; width: 100%; max-width: 640px; line-height:150%;" width=3D"640"><tbod=
+y><tr><td class=3D"ml-default-border container" style=3D"line-height: 20px;=
+ "></td></tr><tr><td class=3D"row" style=3D"padding: 20px 50px 0 50px;"><p =
+style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; color: #000000=
+; font-size: 16px; line-height: 165%; margin:0;">Hi there, this is your dai=
+ly =E2=98=95=EF=B8=8F <b style=3D"font-family: 'Inter', Arial, Helvetica, s=
+ans-serif; font-size: 16px;">Techpresso</b>.</p></td></tr></tbody></table><=
+/td></tr></tbody></table><table align=3D"center" bgcolor=3D"" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" class=3D"ml-default" width=3D"100%"><tb=
+ody><tr><td><table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" class=3D"container ml-8 ml-default-border" st=
+yle=3D"color: #000000; width: 100%; max-width: 640px;" width=3D"640"><tbody=
+><tr><td class=3D"ml-default-border container" style=3D"line-height: 0; fon=
+t-size: 0;"></td></tr><tr><td class=3D"row" style=3D"padding: 0 50px;"><p s=
+tyle=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px=
+; color: #000000; line-height: 150%; margin: 15px 0 0 0;"><b style=3D"font-=
+family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">In today's=
+ newsletter:</b></p><p style=3D"font-family: 'Inter', Arial, Helvetica, san=
+s-serif; font-size: 16px; color: #000000; line-height: 150%; margin: 6px 0 =
+0 0;">=F0=9F=92=BB Microsoft makes =E2=80=98biggest bet yet=E2=80=99 on its=
+ own silicon</p><p style=3D"font-family: 'Inter', Arial, Helvetica, sans-se=
+rif; font-size: 16px; color: #000000; line-height: 150%; margin: 6px 0 0 0;=
+">=F0=9F=9B=A9=EF=B8=8F Russian bot traffic collapses after drone strikes</=
+p><p style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size=
+: 16px; color: #000000; line-height: 150%; margin: 6px 0 0 0;">=F0=9F=9B=91=
+ Microsoft CEO wants a human brake on AI</p><p style=3D"font-family: 'Inter=
+', Arial, Helvetica, sans-serif; font-size: 16px; color: #000000; line-heig=
+ht: 150%; margin: 6px 0 0 0;">=F0=9F=93=88 IMF credits AI spending for near=
+-3% growth</p><p style=3D"font-family: 'Inter', Arial, Helvetica, sans-seri=
+f; font-size: 16px; color: #000000; line-height: 150%; margin: 6px 0 0 0;">=
+=F0=9F=93=9A Publishers quietly use AI for book covers</p><p style=3D"font-=
+family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px; color: #000=
+000; line-height: 150%; margin: 6px 0 0 0;">=F0=9F=A7=8A Cyberattack disabl=
+es supermarket fridges across Europe</p><p style=3D"font-family: 'Inter', A=
+rial, Helvetica, sans-serif; color: #000000; font-size: 16px; margin-top:20=
+px !important; margin-bottom: 10px !important; line-height: 150%"><b style=
+=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">P=
+lus:</b> =F0=9F=8E=81 12 more stories you might like, =F0=9F=A7=B0 6 tools,=
+ and =F0=9F=93=9A 5 papers.</p></td></tr></tbody></table></td></tr></tbody>=
+</table><table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"ml-default" id=3D"main-ad-wrapper" width=3D"100=
+%"><tbody><tr><td><table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" class=3D"container ml-8 ml-default-bord=
+er" style=3D"color: #000000; width: 100%; max-width: 640px;" width=3D"640">=
+<tbody><tr><td class=3D"row" style=3D"padding: 30px 50px 30px 50px; line-he=
+ight:150%"><p id=3D"main-ad-partner-label" style=3D"font-family: 'Inter', A=
+rial, Helvetica, sans-serif; font-weight: bold; line-height: 150%; font-siz=
+e: 17px; margin: 0 0 15px 0; color: #000000;"><b style=3D"font-family: 'Int=
+er', Arial, Helvetica, sans-serif; font-size: 17px;">FROM OUR PARTNER</b></=
+p><div id=3D"main-ad-headline"><a data-ad-link=3D"main" href=3D"https://eli=
+nk640.dupple.com/ss/c/u001.Sll-WiRclj5nwkRHzETs8It5t1xv2ozDShmWO2VVbaZfthsa=
+AjnnTTOsq4i5gIm7gyK6AhaYfrNbf_205aK44aCeb9Pwq-drTwkii8rYWYPyWnmFX4-AQgaBWqB=
+e1YM2FQjn44O9MRl4qG5yx82GuA_hs2RJWH9JGeg6rDIeeJrdS_qOdkFZXF5SbR8jUqCA4Ze0MO=
+w7BFr78Sc6WAg1YswG5xdHCEhfUai6DzwGgvhqVn8Plt0cWb-c_OAg0gd8CHqYz_r0TOys4nbwt=
+8OBjQ/4ut/wz9uBVyZS6yd7ENL1e8ttA/h4/h001.CblR5DltH7Vf4VANQ6JFTZ_tloIp6teqqs=
+KoLrUpZLI"><strong style=3D"font-family: 'Inter', Arial, Helvetica, sans-se=
+rif;">94% adopted AI. 6% are actually ready for it.</strong></a></div><div =
+style=3D"margin-top: 15px;"><a data-ad-link=3D"main" href=3D"https://elink6=
+40.dupple.com/ss/c/u001.Sll-WiRclj5nwkRHzETs8It5t1xv2ozDShmWO2VVbaZfthsaAjn=
+nTTOsq4i5gIm7gyK6AhaYfrNbf_205aK44aCeb9Pwq-drTwkii8rYWYPyWnmFX4-AQgaBWqBe1Y=
+M2FQjn44O9MRl4qG5yx82GuA_hs2RJWH9JGeg6rDIeeJrdS_qOdkFZXF5SbR8jUqCAniRS51z4v=
+c4yNA7fcGG1igxdYThXwlh2HZdiBQNR7h5--Dd69SzWfv3mY9b1_1eAzRuNg7qMXmCJNrhSnHXQ=
+QQ/4ut/wz9uBVyZS6yd7ENL1e8ttA/h5/h001.nPoRe312ca-jHsa9dAivGyRANHla697fnPlb9=
+oYvwV4" id=3D"main-ad-image-link" style=3D"font-family: 'Inter', Arial, Hel=
+vetica, sans-serif; color: #6257FF; font-size: 17px; line-height:150%;"><im=
+g alt=3D"Sponsor" border=3D"0" data-ad-role=3D"main-image" id=3D"main-ad-im=
+age" src=3D"https://static.dupplemedia.com/uploads/b965033b-9937-4ec6-aa79-=
+7c115f29f5e8.png" style=3D"display:block; width:100%; max-width:540px; heig=
+ht:auto; border:0; border-radius:5px !important;" width=3D"540"></a></div><=
+div id=3D"main-ad-copy"><p style=3D"font-family: 'Inter', -apple-system, Bl=
+inkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-he=
+ight: 150%; margin-top: 15px; font-size: 16px; color: #000000;">AI adoption=
+ in engineering is universal. Readiness isn't.</p><p style=3D"font-family: =
+'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, =
+Arial, sans-serif; line-height: 150%; margin-top: 15px; font-size: 16px; co=
+lor: #000000;">94% of engineering organizations have adopted AI =E2=80=94 b=
+ut only 6% have the systems to run a truly AI-native software development l=
+ifecycle. The gap between using AI and operating on it is where most teams =
+are stuck.</p><p style=3D"font-family: 'Inter', -apple-system, BlinkMacSyst=
+emFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 150%=
+; margin-top: 15px; font-size: 16px; color: #000000;">At the <a data-ad-lin=
+k=3D"main" href=3D"https://elink640.dupple.com/ss/c/u001.Sll-WiRclj5nwkRHzE=
+Ts8It5t1xv2ozDShmWO2VVbaZfthsaAjnnTTOsq4i5gIm7gyK6AhaYfrNbf_205aK44aCeb9Pwq=
+-drTwkii8rYWYPyWnmFX4-AQgaBWqBe1YM2FQjn44O9MRl4qG5yx82GuA_hs2RJWH9JGeg6rDIe=
+eJrdS_qOdkFZXF5SbR8jUqCAGcDEnVP6nEMFXicofjR3Z1A2liFBcSKWRH3RMyM777k42MliuDn=
+3B7z2D2wpFl1YTEl2XOE4b9AY1tlp-3knnw/4ut/wz9uBVyZS6yd7ENL1e8ttA/h6/h001.iU-c=
+B8LjD_5aLqT9MA0JUkaSMprsbHxopipEvVm8nNE" style=3D"color: #1d5ade !important=
+; text-decoration-color: #1d5ade !important; font-family: 'Inter', -apple-s=
+ystem, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif=
+;font-size: 16px;">State of AI SDLC digital summit</a>, leaders from Atlass=
+ian, Vercel, Dropbox, Lovable, and DX shared how they're closing that gap =
+=E2=80=94 rethinking four things across the SDLC: context, orchestration, g=
+overnance, and measurement.</p><p style=3D"font-family: 'Inter', -apple-sys=
+tem, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; =
+line-height: 150%; margin-top: 15px; font-size: 16px; color: #000000;">If y=
+ou're trying to turn AI from a tool your team uses into a system your organ=
+ization runs on, this is the playbook.</p><a data-ad-link=3D"main" href=3D"=
+https://elink640.dupple.com/ss/c/u001.Sll-WiRclj5nwkRHzETs8It5t1xv2ozDShmWO=
+2VVbaZfthsaAjnnTTOsq4i5gIm7gyK6AhaYfrNbf_205aK44aCeb9Pwq-drTwkii8rYWYPyWnmF=
+X4-AQgaBWqBe1YM2FQjn44O9MRl4qG5yx82GuA_hs2RJWH9JGeg6rDIeeJrdS_qOdkFZXF5SbR8=
+jUqCAkMOzp3NpIeXtIFvnYQEXbd0lk1wcF0tHlpNJn0R5zN3Pg3QBBh1Xmk8hagZIReEdpCAD7t=
+Keo-m87ywty7ISgA/4ut/wz9uBVyZS6yd7ENL1e8ttA/h7/h001.53NVusKqum4f42HLGquovzU=
+afCBZQ-_c1epqaBgJOfs" style=3D"font-family: 'Inter', -apple-system, BlinkMa=
+cSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin-top: =
+15px; padding-bottom: 15px; font-weight: 500; font-size: 16px; color: #6257=
+FF !important; text-decoration-color: #6257FF !important; display: inline-b=
+lock; line-height: 150%;"><b style=3D"font-family: 'Inter', -apple-system, =
+BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-=
+size: 16px;">Watch the full summit on demand =E2=86=92</b></a></div></td></=
+tr></tbody></table></td></tr></tbody></table><div id=3D"beehiiv-ad-slot" st=
+yle=3D"display:none;font-size:0;line-height:0;height:0;overflow:hidden;"></=
+div><table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" class=3D"ml-default" width=3D"100%"><tbody><tr><td><table al=
+ign=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" class=3D"container ml-8 ml-default-border" style=3D"color: #000000=
+; width: 100%; max-width: 640px;" width=3D"640"><tbody><tr><td class=3D"row=
+" style=3D"padding: 0 50px 50px 50px; line-height:150%"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D=
+"padding-top: 30px; font-family: 'Inter', Arial, Helvetica, sans-serif; fon=
+t-weight: bold; font-size: 17px; line-height: 150%;"> =F0=9F=92=BB Microsof=
+t makes =E2=80=98biggest bet yet=E2=80=99 on its own silicon <a href=3D"htt=
+ps://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhVJyp39lHwg2mvTDNLFN=
+kwRsLyX-AemBESC87WV6eKfHFNXuT67Kv5EJRkpuPd-xQSQunxWngchMpRgaTA3E0D0PjOsjMns=
+cUJLPFIBn42C5JFW0aqYa3bmRghdL9MnzMert7WMRwedqBwVsvFoXAdJMGtASdV5NI_aXasKJNa=
+WPYbBQv03kMgUMloEqoMRDkPA8msT6dRAFdJ0ldNwgZq4OPkvFu9vEuioRaW6gPr1m/4ut/wz9u=
+BVyZS6yd7ENL1e8ttA/h8/h001.ECGnUNKDG-03cFxSN8ojRweuc7U4rYwf59UW3ZBPwHo" sty=
+le=3D"font-weight: 500; font-size: 15px; color: #919090; text-decoration: u=
+nderline; text-decoration-color: #919090; margin-left: 5px;"><span style=3D=
+"color: #919090;font-family: 'Inter', Arial, Helvetica, sans-serif; font-si=
+ze: 15px;">LINK</span></a></td></tr></tbody></table><ul style=3D"font-famil=
+y: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px; line-height: 150=
+%; margin-left: 5px !important; padding-left: 0;"><li style=3D"font-family:=
+ 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">Microsoft has unv=
+eiled Maia 300, the third version of its own AI chip, and plans large-scale=
+ rollouts in 2027 as it aims to run most of its AI services on homegrown si=
+licon rather than Nvidia hardware.</li><li style=3D"font-family: 'Inter', A=
+rial, Helvetica, sans-serif; font-size: 16px;">The company says Maia 300 pr=
+oduces 40% more AI output for the same power as leading Nvidia GPU systems,=
+ and a full rack delivers up to seven times the output of the current gener=
+ation on tasks like AI agents and long documents.</li><li style=3D"font-fam=
+ily: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">Microsoft des=
+igns the chips and has TSMC make them, calling Maia its "primary AI inferen=
+ce system," though unlike Google and Amazon it won't rent them to outside c=
+ustomers, and analysts expect Maia to cover only about 10% of its AI chip s=
+pending by early 2027.</li></ul><table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding-top: 30px; font=
+-family: 'Inter', Arial, Helvetica, sans-serif; font-weight: bold; font-siz=
+e: 17px; line-height: 150%;"> =F0=9F=9B=A9=EF=B8=8F Russian bot traffic col=
+lapses after drone strikes <a href=3D"https://elink640.dupple.com/ss/c/u001=
+.QT9-cN0mZn-HYCKnMP3yhfGsZLR8-7sDN9NB01TjCfqngHK4dP4JmvvuZcQ5M3mRRG0CtWwatw=
+iyDYQ6hSqDdnoZVEecxcPZZXzupMxGvpaWAytzJ6GEKvh9pvPTGYAO29lejYPk3nz3MslSiZDZH=
+xcZpiKo-I6nbjnIlVG_iaqJPjIOprKi4JDliTKT9KViFItMLqRmMSl5Q0OVuqu2ngAuipBIZRT4=
+cAk4mPnYnD3a7DPqCmGXvBO3lglmBtuq6vCqneGcflw3stMUoJMDUjx7gNARwPPqff924clvBBY=
+g4sTRYs1rhuPf1m6RqcMg4mfCw1Ck7jt-Q1rhf-9xb-KTLOJBPgH4dUmJKeWbpcpyNceYaCV8QH=
+Igft8mlUJGr0dRvWnB95OTJ5d72UzmkIbc5KYLKTCVd_Rhihan7_2hFX1PmeIpixm_1e1zD0-qr=
+QpmBwG1Wlq8ZRXjwYaqId-l4SvkiEJIvaPQKN2swW4/4ut/wz9uBVyZS6yd7ENL1e8ttA/h9/h0=
+01.794tcb51zuZpl5bSNG2ZGfsV65KXXAfQ62rfGG9PzyE" style=3D"font-weight: 500; =
+font-size: 15px; color: #919090; text-decoration: underline; text-decoratio=
+n-color: #919090; margin-left: 5px;"><span style=3D"color: #919090;font-fam=
+ily: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LINK</span></=
+a></td></tr></tbody></table><ul style=3D"font-family: 'Inter', Arial, Helve=
+tica, sans-serif; font-size: 16px; line-height: 150%; margin-left: 5px !imp=
+ortant; padding-left: 0;"><li style=3D"font-family: 'Inter', Arial, Helveti=
+ca, sans-serif; font-size: 16px;">Russian bot traffic has fallen sharply in=
+ recent days after Ukraine destroyed Yandex's two largest data centers, acc=
+ording to Cloudflare, which tracked bot requests from the Yandex network dr=
+opping to just 0.4% of the recent peak.</li><li style=3D"font-family: 'Inte=
+r', Arial, Helvetica, sans-serif; font-size: 16px;">The decline began on Oc=
+tober 8 when Ukraine struck a Yandex site in Sasovo holding two supercomput=
+ers, falling to around 57%, before a bigger campus in Kaluga was knocked of=
+fline yesterday, leaving at least 84 Yandex Cloud services down.</li><li st=
+yle=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;=
+">NetBlocks found Yandex network traffic dropped to 30% for Yandex Cloud an=
+d 63% for Yandex LLC, likely slowing or cutting internet service for ordina=
+ry Russians, who cannot fall back on Starlink since it does not work in Rus=
+sia.</li></ul><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%"><tbody><tr><td style=3D"padding-top: 30px; font-family: 'Inter', =
+Arial, Helvetica, sans-serif; font-weight: bold; font-size: 17px; line-heig=
+ht: 150%;"> =F0=9F=9B=91 Microsoft CEO wants a human brake on AI <a href=3D=
+"https://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yha3nS6D6qvz7WW9L=
+WUdy09SNbj_FQkywG6-pPvUpV0PYMe8fW_SonrMscsdmOf1SGy31mr7trZf3A3CWvbLJkhaa9WP=
+Kmk9G0vSIf4dTM-SkGL0aOFRYZogqqJpWfvYnesbGzCI2kfLiDPi4CxUyd9Q/4ut/wz9uBVyZS6=
+yd7ENL1e8ttA/h10/h001.gYvvvDLYeUl_bhWUQyub_bxwFMm9FQVOPZYNi3UDCfA" style=3D=
+"font-weight: 500; font-size: 15px; color: #919090; text-decoration: underl=
+ine; text-decoration-color: #919090; margin-left: 5px;"><span style=3D"colo=
+r: #919090;font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 1=
+5px;">LINK</span></a></td></tr></tbody></table><ul style=3D"font-family: 'I=
+nter', Arial, Helvetica, sans-serif; font-size: 16px; line-height: 150%; ma=
+rgin-left: 5px !important; padding-left: 0;"><li style=3D"font-family: 'Int=
+er', Arial, Helvetica, sans-serif; font-size: 16px;">Microsoft CEO Satya Na=
+della argued in an essay published on Saturday that AI models should run un=
+der outside controls, including an emergency brake that an authorized perso=
+n could pull to pause or shut down a model mid-task.</li><li style=3D"font-=
+family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">Nadella's =
+proposed design separates the model from the software coordinating its work=
+ and the actions it can take, so an organization sets permissions independe=
+ntly and keeps tamper-proof records, though he gave no rollout timetable.</=
+li><li style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-si=
+ze: 16px;">His essay follows Microsoft's October 7 release of Microsoft Exe=
+cution Containers, software that limits an agent's file, network, and inter=
+face access from outside, so the model or its code cannot grant itself more=
+ access.</li></ul><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%"><tbody><tr><td style=3D"padding-top: 30px; font-family: 'Inte=
+r', Arial, Helvetica, sans-serif; font-weight: bold; font-size: 17px; line-=
+height: 150%;"> =F0=9F=93=88 IMF credits AI spending for near-3% growth <a =
+href=3D"https://elink640.dupple.com/ss/c/u001.i8ligEAMODugkGN-qAs51U7LnZ46H=
+WNWz0NtbIJBiLVXZbfcm9Zm5G5_M-FpN8DSuqHD4ifsZIDlF5deAmT1oL15Spf65vwKxF5pcGLk=
+kjDyRXZBpA4UMFmoNuR-Tap9jnEsCIlZGVhsCStTwIojI8-uuoqax6qyp2at7Q9_3bE/4ut/wz9=
+uBVyZS6yd7ENL1e8ttA/h11/h001.c0j6FbvxRoG0oz2cwiuxonDsWfdNh2Gr4K4SeEy2v6o" s=
+tyle=3D"font-weight: 500; font-size: 15px; color: #919090; text-decoration:=
+ underline; text-decoration-color: #919090; margin-left: 5px;"><span style=
+=3D"color: #919090;font-family: 'Inter', Arial, Helvetica, sans-serif; font=
+-size: 15px;">LINK</span></a></td></tr></tbody></table><ul style=3D"font-fa=
+mily: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px; line-height: =
+150%; margin-left: 5px !important; padding-left: 0;"><li style=3D"font-fami=
+ly: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">IMF chief Kris=
+talina Georgieva said that spending on AI infrastructure is pushing the wor=
+ld economy to grow about 3% a year, even with high energy prices weighing o=
+n many countries.</li><li style=3D"font-family: 'Inter', Arial, Helvetica, =
+sans-serif; font-size: 16px;">She said Asian makers of AI hardware gain the=
+ most: advanced economies could add 0.5 to 1 percentage point of growth, wh=
+ile emerging ones might pick up 0.2 to 0.8 points, with Thailand among the =
+winners.</li><li style=3D"font-family: 'Inter', Arial, Helvetica, sans-seri=
+f; font-size: 16px;">Major tech companies plan to spend between $660 billio=
+n and $690 billion on AI this year, and such hardware and related products =
+now make up more than a tenth of global trade in goods, Georgieva said.</li=
+></ul><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+"><tbody><tr><td style=3D"padding-top: 30px; font-family: 'Inter', Arial, H=
+elvetica, sans-serif; font-weight: bold; font-size: 17px; line-height: 150%=
+;"> =F0=9F=93=9A Publishers quietly use AI for book covers <a href=3D"https=
+://elink640.dupple.com/ss/c/u001.ATAItRJv4OHzc1muxCgos7kHd86JTkP9RzA2KliYt7=
+J2XqlhvPLjZVToU8lkyKHHFoZvxkGjr9pB5YHTJrXcx_Koa-JWDKRGgdREQ12VxGrTLZImEgDjH=
+WTHPidsCVVlq6giKGlS3U7yRIE2PzPt8HTCoZH_PJ8O6JR30gRI5z7ZMXhgx_ZogxUGvH6GjCU5=
+zJFOsV34s8JBA507yYc0kLp_hW3cs2R73XxUwkPzwds/4ut/wz9uBVyZS6yd7ENL1e8ttA/h12/=
+h001.ISMgDzn_FMCJcm3Nu8IT5dg5gA9luEYPhtKLRR74y0c" style=3D"font-weight: 500=
+; font-size: 15px; color: #919090; text-decoration: underline; text-decorat=
+ion-color: #919090; margin-left: 5px;"><span style=3D"color: #919090;font-f=
+amily: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LINK</span>=
+</a></td></tr></tbody></table><ul style=3D"font-family: 'Inter', Arial, Hel=
+vetica, sans-serif; font-size: 16px; line-height: 150%; margin-left: 5px !i=
+mportant; padding-left: 0;"><li style=3D"font-family: 'Inter', Arial, Helve=
+tica, sans-serif; font-size: 16px;">A new Wired report, based on more than =
+two dozen anonymous staff, says three of the big five publishers are quietl=
+y using AI for cover art and publicity copy without telling authors or the =
+public.</li><li style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif=
+; font-size: 16px;">Publishers are reportedly generating PR material and co=
+ver copy with ChatGPT and Claude, while image generators produce book cover=
+s, and executives are exploring AI for translation, internal documents, and=
+ tracking employee productivity.</li><li style=3D"font-family: 'Inter', Ari=
+al, Helvetica, sans-serif; font-size: 16px;">One agent said they now make p=
+ublishers agree not to feed entire unpublished manuscripts into language mo=
+dels for promotional text, a safeguard meant to shield authors from both te=
+ch firms and their own publishers.</li></ul><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding-top=
+: 30px; font-family: 'Inter', Arial, Helvetica, sans-serif; font-weight: bo=
+ld; font-size: 17px; line-height: 150%;"> =F0=9F=A7=8A Cyberattack disables=
+ supermarket fridges across Europe <a href=3D"https://elink640.dupple.com/s=
+s/c/u001.QT9-cN0mZn-HYCKnMP3yhfGsZLR8-7sDN9NB01TjCfqngHK4dP4JmvvuZcQ5M3mRod=
+hiqq9iD3l7W7bFPuNI3pV2wuyiWI_-fT_4JC5OQFqW9IkrHETg1IK2z_VABLL4BcFm_P-7NAHs4=
+qm8Xhu8z4S8TpAr2YnQBUY0xBWqxP4CdnzwYVUVouED-OMbID32cjgxbo4JlErmTeb-3MkpSzeR=
+fjUavwXZVZpKoYFwT5vWMnbPu4sTJ0KR0IJKPuNSgzGBQS1CY1qqJHWSrQcJUnN_K7ligdrJ5rK=
+NIWJLLtNma3NcQsrFeecL14zG5-QUfyaTGU3ZuZ65_AXYMBWDPARYqZJTZlXZtupnIoAieAWswn=
+9gE3qXm3XkP2tm8k6q/4ut/wz9uBVyZS6yd7ENL1e8ttA/h13/h001.4KHKX7YLOV9JUVUV9ciJ=
+nQTyNyLgzUgVn5XwYek0l6k" style=3D"font-weight: 500; font-size: 15px; color:=
+ #919090; text-decoration: underline; text-decoration-color: #919090; margi=
+n-left: 5px;"><span style=3D"color: #919090;font-family: 'Inter', Arial, He=
+lvetica, sans-serif; font-size: 15px;">LINK</span></a></td></tr></tbody></t=
+able><ul style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-=
+size: 16px; line-height: 150%; margin-left: 5px !important; padding-left: 0=
+;"><li style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-si=
+ze: 16px;">A cyberattack has hit major European supermarket chains, breakin=
+g refrigeration controls by forcing fridges and freezers into a nonstop def=
+rost cycle set to a sweltering 50 degrees Celsius, La D=C3=A9p=C3=AAche rep=
+orts.</li><li style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; =
+font-size: 16px;">The attack targeted Danfoss-made refrigeration systems at=
+ French chains Intermarch=C3=A9, Leclerc, and Coop=C3=A9rative U, whose pre=
+sident called it "extremely serious," with early losses nearing 300,000 eur=
+os and possibly reaching several million nationwide.</li><li style=3D"font-=
+family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">A separate=
+ incident on Sunday hit Dutch chains Albert Heijn, Etos, and Gall & Gall, t=
+aking down websites, disrupting deliveries, and tampering with electronic s=
+helf labels and prices; it is unclear whether the two attacks are linked.</=
+li></ul></td></tr></tbody></table></td></tr></tbody></table><table align=3D=
+"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"ml-default" width=3D"100%"><tbody><tr><td><table align=3D"center" bgco=
+lor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"c=
+ontainer ml-10 ml-default-border" style=3D" width: 100%; max-width: 640px; =
+" width=3D"640"><tbody><tr><td><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" width=3D"100%"><tbody><tr><td align=3D"center" class=3D"" style=
+=3D"padding: 0 0px;"><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"border-top: 1px s=
+olid #EAECED; line-height: 1px;"></td></tr></tbody></table></td></tr></tbod=
+y></table></td></tr></tbody></table></td></tr></tbody></table><table align=
+=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"ml-default" id=3D"spotlight-ad-wrapper" width=3D"100%"><tbody><tr><=
+td><table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"container ml-10 ml-default-border" style=3D" =
+width: 100%; max-width: 640px; " width=3D"640"><tbody><tr><td><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td al=
+ign=3D"center" class=3D"" style=3D"padding: 0 0px;"><table align=3D"center"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr=
+><td class=3D"row" id=3D"spotlight-ad-block" style=3D"padding: 50px; line-h=
+eight:150%"><p id=3D"spotlight-ad-partner-label" style=3D"font-family: 'Int=
+er', Arial, Helvetica, sans-serif; font-weight: bold; line-height: 150%; fo=
+nt-size: 17px; margin: 0; color: #000000;"><b style=3D"font-family: 'Inter'=
+, Arial, Helvetica, sans-serif; font-size: 17px;">FROM OUR PARTNER</b></p><=
+div style=3D"margin-top: 15px;"><a data-ad-link=3D"spotlight" href=3D"https=
+://elink640.dupple.com/ss/c/u001.yrpcv-6znE4A9OOUDCb3GRcGKNA1UTC_4bMZVd2-B8=
+rO8BQ1Qw8MOT9ospt4-K7_8ROs4D2IwmCTZ-6TLwVQ9rOeU52XVeb1QB7a1Wfgd2Dob5b_zCw4Z=
+Eu3MQPnLtwkgzR11Ku0iZgCik4PJKgsKQDTNkG5GRKlqO8oJjIGEcKAkyRpaHU0ZcAu-ieXkHf0=
+irC-PqbJoWjWV6jaobMHW0i0fIc3BVpEZhrgXNuM50m7DVDmjQpLmq7dr5c0ypUR/4ut/wz9uBV=
+yZS6yd7ENL1e8ttA/h14/h001.od2rlbl_D2gBeyjFLcwmauwEJ8LvG21HBZCd-S7zjGk" id=
+=3D"spotlight-ad-image-link"><img alt=3D"Sponsor" border=3D"0" data-ad-role=
+=3D"spotlight-image" id=3D"spotlight-ad-image" src=3D"https://static.dupple=
+media.com/uploads/dc5b6f43-7664-4595-bfc3-1fd173602967.png" style=3D"displa=
+y:block; width:100%; max-width:540px; height:auto; border:0; border-radius:=
+5px !important;" width=3D"540"></a></div><div id=3D"spotlight-ad-copy"><p s=
+tyle=3D"font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI'=
+, Roboto, Helvetica, Arial, sans-serif; line-height: 150%; margin-top: 15px=
+; font-size: 16px; color: #000000;"><b style=3D"font-family: 'Inter', -appl=
+e-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-se=
+rif; font-size: 16px;">AI is speeding up customer support. Crisp found a su=
+rprising catch!</b></p><p style=3D"font-family: 'Inter', -apple-system, Bli=
+nkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-hei=
+ght: 150%; margin-top: 15px; font-size: 16px; color: #000000;">Crisp analyz=
+ed 484.8 million conversations and found human first-response times rose fr=
+om 13</p><p style=3D"font-family: 'Inter', -apple-system, BlinkMacSystemFon=
+t, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 150%; mar=
+gin-top: 15px; font-size: 16px; color: #000000;">to 32 minutes in teams usi=
+ng AI agents.</p><p style=3D"font-family: 'Inter', -apple-system, BlinkMacS=
+ystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1=
+50%; margin-top: 15px; font-size: 16px; color: #000000;">Why? Discover what=
+ the data reveals about automation, response times, and costs in the <a dat=
+a-ad-link=3D"spotlight" href=3D"https://elink640.dupple.com/ss/c/u001.yrpcv=
+-6znE4A9OOUDCb3GRcGKNA1UTC_4bMZVd2-B8rO8BQ1Qw8MOT9ospt4-K7_8ROs4D2IwmCTZ-6T=
+LwVQ9rOeU52XVeb1QB7a1Wfgd2Dob5b_zCw4ZEu3MQPnLtwkgzR11Ku0iZgCik4PJKgsKQDTNkG=
+5GRKlqO8oJjIGEcKAkyRpaHU0ZcAu-ieXkHf01SjkyuQPYuiYG_lvpscImy1Ncsg6HbiwgnfRsp=
+asKv2JlTICjW_SheIQQVltbQk7/4ut/wz9uBVyZS6yd7ENL1e8ttA/h15/h001.hwrVxH2lx31M=
+BHc17XxA3xatcZIp5uOxswkdPxByueo" style=3D"color: #1d5ade !important; text-d=
+ecoration-color: #1d5ade !important; font-family: 'Inter', -apple-system, B=
+linkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;font-si=
+ze: 16px;">State of AI Customer Support 2026 report</a>.</p><p style=3D"fon=
+t-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, H=
+elvetica, Arial, sans-serif; line-height: 150%; margin-top: 15px; font-size=
+: 16px; color: #000000;">By Crisp, the AI-first customer support platform t=
+rusted by 10,000+ companies worldwide.</p><a data-ad-link=3D"spotlight" hre=
+f=3D"https://elink640.dupple.com/ss/c/u001.yrpcv-6znE4A9OOUDCb3GRcGKNA1UTC_=
+4bMZVd2-B8rO8BQ1Qw8MOT9ospt4-K7_8ROs4D2IwmCTZ-6TLwVQ9rOeU52XVeb1QB7a1Wfgd2D=
+ob5b_zCw4ZEu3MQPnLtwkgzR11Ku0iZgCik4PJKgsKQDTNkG5GRKlqO8oJjIGEcKAkyRpaHU0Zc=
+Au-ieXkHf0Jhu1B6g_yvRa4o52XIieEDjkNkX7DZqssyagusoWlNu6AOS2PPFla3cTy5rLWxl8/=
+4ut/wz9uBVyZS6yd7ENL1e8ttA/h16/h001.EdH_GR2leDuam6hADI9jiQCFH--jYy-5Uwjg37V=
+NRkE" style=3D"font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Se=
+goe UI', Roboto, Helvetica, Arial, sans-serif; margin-top: 15px; padding-bo=
+ttom: 15px; font-weight: 500; font-size: 16px; color: #6257FF !important; t=
+ext-decoration-color: #6257FF !important; display: inline-block; line-heigh=
+t: 150%;"><b style=3D"font-family: 'Inter', -apple-system, BlinkMacSystemFo=
+nt, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px;">Dow=
+nload The State of AI Customer Support Benchmark 2026 for free.</b></a></di=
+v></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></t=
+able></td></tr></tbody></table><div id=3D"beehiiv-ad-slot-spotlight" style=
+=3D"display:none;font-size:0;line-height:0;height:0;overflow:hidden;"></div=
+><table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" class=3D"ml-default" width=3D"100%"><tbody><tr><td><table align=
+=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"container ml-10 ml-default-border" style=3D" width: 100%; m=
+ax-width: 640px; " width=3D"640"><tbody><tr><td><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td align=3D"center"=
+ class=3D"" style=3D"padding: 0 0px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"=
+border-top: 1px solid #EAECED; line-height: 1px;"></td></tr></tbody></table=
+></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></ta=
+ble><table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" class=3D"ml-default" width=3D"100%"><tbody><tr><td><table al=
+ign=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" class=3D"container ml-8 ml-default-border" style=3D"color: #000000=
+; width: 100%; max-width: 640px;" width=3D"640"><tbody><tr><td class=3D"row=
+" style=3D"padding: 30px 50px;"><h3 style=3D"font-family: 'Inter', Arial, H=
+elvetica, sans-serif; color: #000000; font-size: 18px; line-height: 125%; f=
+ont-weight: bold; margin-top:0; font-size: 18px; margin-bottom: 30px"> Othe=
+r news & articles you might like</h3><ul style=3D"font-family: 'Inter', Ari=
+al, Helvetica, sans-serif; font-size: 16px; line-height: 150%; margin-left:=
+ 5px !important; padding-left: 0; margin-top: 15px !important; margin-botto=
+m: 15px !important;"><li style=3D"font-family: 'Inter', Arial, Helvetica, s=
+ans-serif; font-size: 16px;"> Console market craters as Xbox sales crash 33=
+% to the lowest since launch 25 years ago, PS5 sales drop 25% <a href=3D"ht=
+tps://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhfGsZLR8-7sDN9NB01T=
+jCfqi57OJ6tU54T-mGb1ll3yC-6hHWChF4pa6db8r2gdMzgZRIXvqfca-WxsUR2C3viTz_g-2F4=
+KN0VyT4bDHetmoNeSMyrGqvKiZKXi4TiPRUqIXpPuu0wB9Z0zEHmEfC1Ph23VZmzP878ZlTZPEM=
+wuMJo6PtdXOQmXT9OS7HW2k6KboR0nk-CaZZknSZhneTX3O9RBggn60YMxIsLk8h0Vhb-41PJZj=
+Q_rgNgtfWNUJzAvCKasdOv0so9uSKmYRXCeEO9SIgmbLCYZkEFjzlXbRLjchC9Mr_pPYM8di9OF=
+3Nue0_5zCddpMBL3HQvnOkVzvsogcKEZWa6nRJBMlFy5pBhEnspnSolSJaanaZVBaJQ/4ut/wz9=
+uBVyZS6yd7ENL1e8ttA/h17/h001.Qv_nDqeO-Nyjy638h9GQJauX-zt5UsYNg4umOiFZs6s" s=
+tyle=3D"font-weight: 500; font-size: 15px; color: #919090; text-decoration:=
+ underline; text-decoration-color: #919090; margin-left: 5px;"><span style=
+=3D"color: #919090;font-family: 'Inter', Arial, Helvetica, sans-serif; font=
+-size: 15px;">LINK</span></a></li></ul><ul style=3D"font-family: 'Inter', A=
+rial, Helvetica, sans-serif; font-size: 16px; line-height: 150%; margin-lef=
+t: 5px !important; padding-left: 0; margin-top: 15px !important; margin-bot=
+tom: 15px !important;"><li style=3D"font-family: 'Inter', Arial, Helvetica,=
+ sans-serif; font-size: 16px;"> Mt. Gox=E2=80=99s disgraced ex-CEO finds re=
+demption exposing =E2=80=98spy implants=E2=80=99 in Ledger devices <a href=
+=3D"https://elink640.dupple.com/ss/c/u001.ATAItRJv4OHzc1muxCgoswNshVDljQ0Go=
+aSK9mXkXpSm1UYHv4zpVXrVBxSHVAZOkNik6yS_umwcoMvCydOrIhvtpgBLQ0h0GLQNapLsEShg=
+9Th2plqsPIZioq9yThGhuvkZtGc5a6xPgmDj9a7BXaJTBII0a100JWgs64RSkmD_DwSqEEuqGft=
+Jz2pS-qVwn4K58CPZwnTB461LmC2PDUwhRtx6W6AApIJLA1dEAzM/4ut/wz9uBVyZS6yd7ENL1e=
+8ttA/h18/h001.Rpt4esYRJLKBtWMIN6YbdFhfcSNzfo68asrUwHRgc5A" style=3D"font-we=
+ight: 500; font-size: 15px; color: #919090; text-decoration: underline; tex=
+t-decoration-color: #919090; margin-left: 5px;"><span style=3D"color: #9190=
+90;font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LI=
+NK</span></a></li></ul><ul style=3D"font-family: 'Inter', Arial, Helvetica,=
+ sans-serif; font-size: 16px; line-height: 150%; margin-left: 5px !importan=
+t; padding-left: 0; margin-top: 15px !important; margin-bottom: 15px !impor=
+tant;"><li style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; fon=
+t-size: 16px;"> IKEA turns to driverless semis with nobody in the cab <a hr=
+ef=3D"https://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhTHlfYfFh2q=
+O6C8CZAsC-oQH7YseixP7FqpaHAwLZGRki5TYa6tASz7ooSVigOUt8i6y0-1Up9I0lP3kj3kbOl=
+amoIxi6vLcF129TKm1pd8WjxFhz8EjJJVwI_2nnBT_EmJwquua5-Y7uNq-KiWe9io/4ut/wz9uB=
+VyZS6yd7ENL1e8ttA/h19/h001.Ffcd4lk8v_ECq_0kxrswjc6vBfO1zsH0Fw_r1NCSNPY" sty=
+le=3D"font-weight: 500; font-size: 15px; color: #919090; text-decoration: u=
+nderline; text-decoration-color: #919090; margin-left: 5px;"><span style=3D=
+"color: #919090;font-family: 'Inter', Arial, Helvetica, sans-serif; font-si=
+ze: 15px;">LINK</span></a></li></ul><ul style=3D"font-family: 'Inter', Aria=
+l, Helvetica, sans-serif; font-size: 16px; line-height: 150%; margin-left: =
+5px !important; padding-left: 0; margin-top: 15px !important; margin-bottom=
+: 15px !important;"><li style=3D"font-family: 'Inter', Arial, Helvetica, sa=
+ns-serif; font-size: 16px;"> Fingerprints are the new cookies <a href=3D"ht=
+tps://elink640.dupple.com/ss/c/u001.UZf1YaB_Fud4biKWl5SNdXQKMkqwPy-I1RmItK4=
+sq6Y6-W7b8wt6o12yRwtxB78JPc87Rn2aAHqbQkN0hFCvjVzU2F98gtJ0IxnzpGJE-GKAk4_TFZ=
+rAmpL6GC9jHkerj3YApeUfFRGJzFWXM7oLvA/4ut/wz9uBVyZS6yd7ENL1e8ttA/h20/h001.6C=
+jBwKuzr2ZqHv8Df1Etbl43QzbzP1K9Ntz_EPuNub8" style=3D"font-weight: 500; font-=
+size: 15px; color: #919090; text-decoration: underline; text-decoration-col=
+or: #919090; margin-left: 5px;"><span style=3D"color: #919090;font-family: =
+'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LINK</span></a></l=
+i></ul><ul style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; fon=
+t-size: 16px; line-height: 150%; margin-left: 5px !important; padding-left:=
+ 0; margin-top: 15px !important; margin-bottom: 15px !important;"><li style=
+=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;"> =
+if your team is too busy doing their 'normal job' to experiment with AI, yo=
+u're preparing them to be replaced <a href=3D"https://elink640.dupple.com/s=
+s/c/u001.ATAItRJv4OHzc1muxCgos_X2I2Uvi8FDuI5iBwrNbKUXARZhw06po1qvW-8jileZEu=
+c0j1m3KFj6vejF34eJciMUpxzt1k1x7Kz5HqfFdOuHotZ-2OSCWYfw9lt360eM/4ut/wz9uBVyZ=
+S6yd7ENL1e8ttA/h21/h001.jAh9U7InYGxZ3L5w2FeaaWJtAGEw45I6FDDzJHyG_OU" style=
+=3D"font-weight: 500; font-size: 15px; color: #919090; text-decoration: und=
+erline; text-decoration-color: #919090; margin-left: 5px;"><span style=3D"c=
+olor: #919090;font-family: 'Inter', Arial, Helvetica, sans-serif; font-size=
+: 15px;">LINK</span></a></li></ul><ul style=3D"font-family: 'Inter', Arial,=
+ Helvetica, sans-serif; font-size: 16px; line-height: 150%; margin-left: 5p=
+x !important; padding-left: 0; margin-top: 15px !important; margin-bottom: =
+15px !important;"><li style=3D"font-family: 'Inter', Arial, Helvetica, sans=
+-serif; font-size: 16px;"> Batteries are now cheaper than natural gas turbi=
+nes used at many data centers <a href=3D"https://elink640.dupple.com/ss/c/u=
+001.i8ligEAMODugkGN-qAs51SbZzRJ8tGH9gL0xIzVsPuADrHxj4cmvtz7Cuwv9NxXuu2fdUDV=
+KGQjxS0WWteThd1rG3Mr0ZKWJWJKP-YMsFZy6z-JtJps-EpamlfwC0DbCGY9eLCw8r74gRn99OR=
+P8PAJEPX4GYH6I-f2OXhFYv4HDaiYNtXIbmUJS_eLnsHNVfIL8PieNf4bRUgxUuQS4M-DVMmoKW=
+_WWVsxX8o4OPq8/4ut/wz9uBVyZS6yd7ENL1e8ttA/h22/h001.Gv3XH7bLUiu81JpATbF_m8yc=
+AcwkhbnH9bLAg852jCQ" style=3D"font-weight: 500; font-size: 15px; color: #91=
+9090; text-decoration: underline; text-decoration-color: #919090; margin-le=
+ft: 5px;"><span style=3D"color: #919090;font-family: 'Inter', Arial, Helvet=
+ica, sans-serif; font-size: 15px;">LINK</span></a></li></ul><ul style=3D"fo=
+nt-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px; line-hei=
+ght: 150%; margin-left: 5px !important; padding-left: 0; margin-top: 15px !=
+important; margin-bottom: 15px !important;"><li style=3D"font-family: 'Inte=
+r', Arial, Helvetica, sans-serif; font-size: 16px;"> Japan declares cyber =
+=E2=80=98emergency=E2=80=99 after millions affected in hacks <a href=3D"htt=
+ps://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhRN2FObWFHKgESjahWuY=
+58iMAoauRzMpCLZKgv3ZPFxuVwduzx50dsPaNO7bZ1zTMrCtFruNM_VajHW_LqV92CI12x1khJe=
+pG6D542L8mOKH_ANwPfRAAgDmh7Sax2BjhrftwCW9MRg_uzDwZQMk2Wa-EuZOuLdtTrmh27FcUl=
+h-Wdc80cC7MPKe8js8S_QmYQ/4ut/wz9uBVyZS6yd7ENL1e8ttA/h23/h001.sY_-eV2p8WepuN=
+ppQqNJezuSKHc74HfHFNeH6g1Cw6s" style=3D"font-weight: 500; font-size: 15px; =
+color: #919090; text-decoration: underline; text-decoration-color: #919090;=
+ margin-left: 5px;"><span style=3D"color: #919090;font-family: 'Inter', Ari=
+al, Helvetica, sans-serif; font-size: 15px;">LINK</span></a></li></ul><ul s=
+tyle=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px=
+; line-height: 150%; margin-left: 5px !important; padding-left: 0; margin-t=
+op: 15px !important; margin-bottom: 15px !important;"><li style=3D"font-fam=
+ily: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;"> Google annou=
+nces the Fitbit Edge, a middle ground between Pixel Watch 5 and Fitbit Air =
+<a href=3D"https://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMxwnLns=
+dI8x_Lx5jYZK1cspElISuR4UIN1pli96TWFrqWsuSFYN-03L65df-P4FMa5aSg3MUL3YJ0If7qT=
+FvS5tOR7WNrTj974spCfusXRCnD_OL5e01875vzRu8FPqUA-_j6xm97ItvSrrVmQhN-i4rIoGKV=
+GQ-uKWglgibve-Uvl9y2BOsVn-RqI_f2HU5-3nSJ5clHutRYnhqxgKORcCBxnD6P6wnpuqMPjG-=
+06S2v/4ut/wz9uBVyZS6yd7ENL1e8ttA/h24/h001.mYym_gU7vNALut8jDysjiAEPQn3lDa3ug=
+y3BCmD-jkY" style=3D"font-weight: 500; font-size: 15px; color: #919090; tex=
+t-decoration: underline; text-decoration-color: #919090; margin-left: 5px;"=
+><span style=3D"color: #919090;font-family: 'Inter', Arial, Helvetica, sans=
+-serif; font-size: 15px;">LINK</span></a></li></ul><ul style=3D"font-family=
+: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px; line-height: 150%=
+; margin-left: 5px !important; padding-left: 0; margin-top: 15px !important=
+; margin-bottom: 15px !important;"><li style=3D"font-family: 'Inter', Arial=
+, Helvetica, sans-serif; font-size: 16px;"> The U.K. won back access to pre=
+-release OpenAI and Anthropic models <a href=3D"https://elink640.dupple.com=
+/ss/c/u001.K9WHwzoeQYIM7-wIWMrp7ezHKnqdlIa3wfk1SpLa3C_tiH6dfLp2BEdO_6Rc3jR7=
+AkkvJzatn11J4cXbgVxaRO5kxijyNSD5FLu0AhWDYrfHVod6QTIStuFrXczgeJVGWH4EYe8diRy=
+pghYunwL-niA_es7yWtaIGyWtBPzzSAY/4ut/wz9uBVyZS6yd7ENL1e8ttA/h25/h001.r-rmqT=
+u-5fs7TC7ghAO4UKzsIPf1HqagEFD5ZSiwz3A" style=3D"font-weight: 500; font-size=
+: 15px; color: #919090; text-decoration: underline; text-decoration-color: =
+#919090; margin-left: 5px;"><span style=3D"color: #919090;font-family: 'Int=
+er', Arial, Helvetica, sans-serif; font-size: 15px;">LINK</span></a></li></=
+ul><ul style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-si=
+ze: 16px; line-height: 150%; margin-left: 5px !important; padding-left: 0; =
+margin-top: 15px !important; margin-bottom: 15px !important;"><li style=3D"=
+font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;"> Crea=
+tor of free Adobe clones unveils open-source Microsoft Office Excel, PowerP=
+oint, and Word replications <a href=3D"https://elink640.dupple.com/ss/c/u00=
+1.QT9-cN0mZn-HYCKnMP3yhfGsZLR8-7sDN9NB01TjCfprvgTCxRgXtR_NhW6SOLp_Nb3mjFzOc=
+AAf0mHbBKE4xgCSKH_l6uBopNqrwaktxTKfM-N2XFEo585p31ky0BMJCr2YCOIfOcJmLA75AYVf=
+K5cX9OYTFAfzrCkJzBp-BFK5GmV_sKlwOld_2OU9YmwbCcSKJIA1rq9t4-FWGIR_XKWMSCyQJn9=
+kjF93ZZe30qmO4cbs3ckeW1pcEdvCA-WjRyNhbXRJurWka3VbD-L9_X3flmEN2t1Nk49FlO_EX6=
+wSkbbRug6UypxKcZ05NrSeb1YaWrijVidjqfRIy5xJeVrLTU6th4yC9qLOcG1Gssum42btGULNC=
+-vVlJ-g8JeL/4ut/wz9uBVyZS6yd7ENL1e8ttA/h26/h001.I6txk91dBluHgDqNwQosNbUGJy_=
+AAa-Gn8N7HRqIt90" style=3D"font-weight: 500; font-size: 15px; color: #91909=
+0; text-decoration: underline; text-decoration-color: #919090; margin-left:=
+ 5px;"><span style=3D"color: #919090;font-family: 'Inter', Arial, Helvetica=
+, sans-serif; font-size: 15px;">LINK</span></a></li></ul><ul style=3D"font-=
+family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px; line-height=
+: 150%; margin-left: 5px !important; padding-left: 0; margin-top: 15px !imp=
+ortant; margin-bottom: 15px !important;"><li style=3D"font-family: 'Inter',=
+ Arial, Helvetica, sans-serif; font-size: 16px;"> Report: Amazon in talks w=
+ith AI startup Decart over possible $7B acquisition <a href=3D"https://elin=
+k640.dupple.com/ss/c/u001.Sll-WiRclj5nwkRHzETs8Hej_1o8aG0T0RMqSTn20iinTiJg8=
+8xD6JZ6ZckUW-rQXN0XXKrmetLhem1WHZRE29dou3WAjWbX9z3C5gcZCotCwMASHvWl16Cv8-UB=
+9YVb6knP7nsDomS-DquwT4qPhHOuFxGU_Ta6AschXEQj2dXmm5dcq5-zHdGpso76Gg4XiADKE7E=
+WWwPGWCIMEzNP3XfBWrUIZf9f-jIsYbsf-ng/4ut/wz9uBVyZS6yd7ENL1e8ttA/h27/h001.QN=
+S84M3_ydqEdOInqESJZ0uYtVs1k82BbxN_wYNu2oY" style=3D"font-weight: 500; font-=
+size: 15px; color: #919090; text-decoration: underline; text-decoration-col=
+or: #919090; margin-left: 5px;"><span style=3D"color: #919090;font-family: =
+'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LINK</span></a></l=
+i></ul><ul style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; fon=
+t-size: 16px; line-height: 150%; margin-left: 5px !important; padding-left:=
+ 0; margin-top: 15px !important; margin-bottom: 15px !important;"><li style=
+=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;"> =
+Decade-old RAM is making a comeback <a href=3D"https://elink640.dupple.com/=
+ss/c/u001.QT9-cN0mZn-HYCKnMP3yhfUtBRKBbsdKBeh5RxGv6dXF8e2rHDjp_gc-zGMsvUFyi=
+GfZMngnTGSZ3HVFU619ixqG9dpTyyVQP4Ddzz2aIeOez2llK2F0DbYE2w4bjfGtHF7s6Eupe4K7=
+TYAae9ClrSctsK17AG9lsgmfxQ2SN8Fxe2P47sror9-UxwIV_DS1/4ut/wz9uBVyZS6yd7ENL1e=
+8ttA/h28/h001.pMguRoStUwEdDwqFaG4xSTQGvgfVR72UDjIh5Mer4J4" style=3D"font-we=
+ight: 500; font-size: 15px; color: #919090; text-decoration: underline; tex=
+t-decoration-color: #919090; margin-left: 5px;"><span style=3D"color: #9190=
+90;font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LI=
+NK</span></a></li></ul></td></tr></tbody></table></td></tr></tbody></table>=
+<table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" class=3D"ml-default" width=3D"100%"><tbody><tr><td><table align=
+=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"container ml-10 ml-default-border" style=3D" width: 100%; m=
+ax-width: 640px; " width=3D"640"><tbody><tr><td><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td align=3D"center"=
+ class=3D"" style=3D"padding: 0 0px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"=
+border-top: 1px solid #EAECED; line-height: 1px;"></td></tr></tbody></table=
+></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></ta=
+ble><table align=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" class=3D"ml-default" width=3D"100%"><tbody><tr><td><table al=
+ign=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" class=3D"container ml-8 ml-default-border" style=3D"color: #000000=
+; width: 100%; max-width: 640px;" width=3D"640"><tbody><tr><td class=3D"row=
+" style=3D"padding: 30px 50px;font-family: 'Inter', Arial, Helvetica, sans-=
+serif; font-size: medium;"><h3 style=3D"font-family: 'Inter', Arial, Helvet=
+ica, sans-serif; color: #000000; font-size: 18px; line-height: 125%; font-w=
+eight: bold; margin-top:0; font-size: 18px; margin-bottom: 30px"> =F0=9F=A7=
+=B0 Trending tools</h3><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" id=3D"tool-ad-block" width=3D"100%"><tbody><tr><td style=3D"padding-top=
+: 10px; padding-bottom: 10px; font-family: 'Inter', -apple-system, BlinkMac=
+SystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16=
+px; line-height: 150%; color: #000000;"><b style=3D"font-family: 'Inter', -=
+apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, san=
+s-serif; font-size: 16px;">Symphony:</b> gives your small business a team o=
+f AI agents, led by a Maestro that learns how you work. You give one brief =
+each morning, work moves overnight. <a href=3D"https://elink640.dupple.com/=
+ss/c/u001.Sll-WiRclj5nwkRHzETs8G4gaBAagZhm4T7NK7SmVQ3Pqn6-dVOB8I24XkzrC--mb=
+Qb4f6aaUg6VPadCMTq4AfTomsXxYmZCHIASR8sHsijirJEZNQ1vnfNP2VwO2nJ7fXKL_iqlxBOc=
+T_Cl1RtBsuFMZ3ai0Xs78p3S5fFytEj8fYS22g2OZ-S_81827SozGobaiJapy5MuJATM_Fc2chf=
+RMDj7dSryw_3BX-tqlovzsTakdO2Ntq36MZmMilkyk_Hg92sAidKftF3hwC2j5g/4ut/wz9uBVy=
+ZS6yd7ENL1e8ttA/h29/h001.GHu8QBcChrhgFAPIxnskVS43YGPS6ZXuv_vbuXDMN3k" style=
+=3D"font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Ro=
+boto, Helvetica, Arial, sans-serif; font-weight: 500; font-size: 16px; colo=
+r: #6257FF !important; text-decoration-color: #6257FF !important;"><b style=
+=3D"font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Ro=
+boto, Helvetica, Arial, sans-serif; font-size: 16px;">Meet your AI team</b>=
+</a></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%"><tbody><tr><td align=3D"center"><table border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=
+=3D"padding-top: 10px; padding-bottom: 10px; font-family: 'Inter', Arial, H=
+elvetica, sans-serif; font-size: 16px; line-height: 150%;"><b style=3D"font=
+-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">ExcaliCla=
+w:</b> a collaborative workspace for hand-drawn diagrams with real-time edi=
+ting, instant search, version history, and MCP integration so Claude, Curso=
+r, or VS Code can draw for you. <a href=3D"https://elink640.dupple.com/ss/c=
+/u001.dfQDrb0ik5EtdoOrlW1N2oYk1ZxXko5ax_m9owCr6ggsM7mFBMDR1xUPLB0HKwuJyv3IU=
+alnJHsthCUjChrpk77DdcmgKH8Ma5TYroEMdok/4ut/wz9uBVyZS6yd7ENL1e8ttA/h30/h001.=
+SraxIoVZGfThO-M3YY_jKcH5RlflEZxi6I3dVepMr2g" style=3D"font-weight: 500; fon=
+t-size: 15px; color: #919090; text-decoration: underline; text-decoration-c=
+olor: #919090; display: inline-block; margin-left: 5px"><span style=3D"colo=
+r: #919090;font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 1=
+5px;">LINK</span></a></td></tr></tbody></table><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding-=
+top: 10px; padding-bottom: 10px; font-family: 'Inter', Arial, Helvetica, sa=
+ns-serif; font-size: 16px; line-height: 150%;"><b style=3D"font-family: 'In=
+ter', Arial, Helvetica, sans-serif; font-size: 16px;">NewMinecraftServers:<=
+/b> browse Java and Bedrock server listings with player stats and trends, w=
+hile owners promote servers and track uptime, peak activity, and audience a=
+nalytics. <a href=3D"https://elink640.dupple.com/ss/c/u001.XGyucGaZXoGCX9sM=
+MuMKgif9K4NvSoRHa2hA4ECv45VBhposKEmD8AkKWefi2DbwNxejfIgW2bNhKAr-w58DAehdq38=
+uY_jV4L_axcuuf1QZeMzYK7MxJsCyhw6CM53d/4ut/wz9uBVyZS6yd7ENL1e8ttA/h31/h001.8=
+paYXPjxX40OF_H1Ps-AtpfMtRAuLWUSyjAg8qTxPT0" style=3D"font-weight: 500; font=
+-size: 15px; color: #919090; text-decoration: underline; text-decoration-co=
+lor: #919090; display: inline-block; margin-left: 5px"><span style=3D"color=
+: #919090;font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15=
+px;">LINK</span></a></td></tr></tbody></table><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding-t=
+op: 10px; padding-bottom: 10px; font-family: 'Inter', Arial, Helvetica, san=
+s-serif; font-size: 16px; line-height: 150%;"><b style=3D"font-family: 'Int=
+er', Arial, Helvetica, sans-serif; font-size: 16px;">Kooler:</b> helps remo=
+te teams build culture by sharing company values, sparking organic discussi=
+ons, tracking engagement, and rewarding employees who embody them. <a href=
+=3D"https://elink640.dupple.com/ss/c/u001.q5zEPFD4tMLOnZNXq3JW6ynjq65VIwD6d=
+GPCM6b7dxktlkNsXcd_HB5s8YHIPCmCC1k7OceKv9sL7Me0ACHPw8xenyjKzT3Lcwm-FuXCJBw/=
+4ut/wz9uBVyZS6yd7ENL1e8ttA/h32/h001.RFF_Qy3zncqIAy3s6_ehNry9BvulmheZPtQMUvW=
+-x8w" style=3D"font-weight: 500; font-size: 15px; color: #919090; text-deco=
+ration: underline; text-decoration-color: #919090; display: inline-block; m=
+argin-left: 5px"><span style=3D"color: #919090;font-family: 'Inter', Arial,=
+ Helvetica, sans-serif; font-size: 15px;">LINK</span></a></td></tr></tbody>=
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%"><tbody><tr><td style=3D"padding-top: 10px; padding-bottom: 10px; font-f=
+amily: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px; line-height:=
+ 150%;"><b style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; fon=
+t-size: 16px;">Cube Forms:</b> lets AI agents create and fill forms over MC=
+P or HTTP without a browser, while people can review or edit the same link =
+anytime. <a href=3D"https://elink640.dupple.com/ss/c/u001.IMUHS8kbvB8FyodiZ=
+atlS4OutsTZLOY6H6jVJOV6CQO2oFZDk7QLv0VIWUB-7IE-y9V4TvUmZCTRdov5QpN-ggdbLV8l=
+_jeO781UaXuGtw4/4ut/wz9uBVyZS6yd7ENL1e8ttA/h33/h001.vzHnmWJ2zUilaXZY_XaXNDt=
+UgOiqrc9EU7hZTuj1KfY" style=3D"font-weight: 500; font-size: 15px; color: #9=
+19090; text-decoration: underline; text-decoration-color: #919090; display:=
+ inline-block; margin-left: 5px"><span style=3D"color: #919090;font-family:=
+ 'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LINK</span></a></=
+td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding-top: 10px; padding-bo=
+ttom: 10px; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: =
+16px; line-height: 150%;"><b style=3D"font-family: 'Inter', Arial, Helvetic=
+a, sans-serif; font-size: 16px;">Strawberry:</b> an AI companion that works=
+ inside your existing accounts, handling tasks like replying to leads and l=
+ogging them to your CRM automatically. <a href=3D"https://elink640.dupple.c=
+om/ss/c/u001.Sll-WiRclj5nwkRHzETs8Ip0EAUiMo2owNutFng3zmUf3plOLPwCIuHfh4XPpT=
+yoQSpF-8SAFM9FbmbMcL2Y1W1oZxmdI5-u1-mDjSgVf1fgrrxheyEQ2Wxz35iWlIAY/4ut/wz9u=
+BVyZS6yd7ENL1e8ttA/h34/h001.TLRTf-aqf_dR1UDEddRWc_KJkmVEIPHXEcQwtLDkLsc" st=
+yle=3D"font-weight: 500; font-size: 15px; color: #919090; text-decoration: =
+underline; text-decoration-color: #919090; display: inline-block; margin-le=
+ft: 5px"><span style=3D"color: #919090;font-family: 'Inter', Arial, Helveti=
+ca, sans-serif; font-size: 15px;">LINK</span></a></td></tr></tbody></table>=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbo=
+dy><tr><td style=3D"padding-top: 10px; padding-bottom: 10px; font-family: '=
+Inter', Arial, Helvetica, sans-serif; font-size: 16px; line-height: 150%;">=
+<b style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: =
+16px;">SalesRep:</b> a virtual sales rep that pulls live pricing and stock =
+from your store, answers across WhatsApp, Instagram, email and SMS, and fol=
+lows up until deals close. <a href=3D"https://elink640.dupple.com/ss/c/u001=
+.Sll-WiRclj5nwkRHzETs8KSA3srtIiJubHApi2-0rcRDe_n-MnLfnVCd17Px8yfSA51TIzRf_h=
+uNeFexoxC3OQN4Kvom0H95C2JS0jky8f8/4ut/wz9uBVyZS6yd7ENL1e8ttA/h35/h001.UDT76=
+Zouvv7X2ZL54W55DlnW8qPN3TROYSj8r_cJbMI" style=3D"font-weight: 500; font-siz=
+e: 15px; color: #919090; text-decoration: underline; text-decoration-color:=
+ #919090; display: inline-block; margin-left: 5px"><span style=3D"color: #9=
+19090;font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px;"=
+>LINK</span></a></td></tr></tbody></table></td></tr></tbody></table><p styl=
+e=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 14px; c=
+olor: #666666; margin-top: 20px; margin-bottom: 0; font-style: italic;"> Yo=
+u can check the previous tools <a href=3D"https://elink640.dupple.com/ss/c/=
+u001.i8ligEAMODugkGN-qAs51VeNO-WNpbAEfBK9wYzl-VT2IXVXjF9va0-9dwKmb-Pxi-enT5=
+aZPHFXPraof1rs4EYpJ-UJT4WHzLel8_LgFH4XRScApMVoX-YeM2lQLcKr3UDZTFXRh2QvuI0kD=
+JzYsgk2FMpixWQ9RRjQDq8ekgIb9f_M-DjB1xdovckGw9TL/4ut/wz9uBVyZS6yd7ENL1e8ttA/=
+h36/h001.9isF5HiTNujQ2M52Soc-nCVtOgIwCtMAP_KC-KAclBQ" style=3D"color: #6666=
+66 !important; text-decoration: underline;font-family: 'Inter', Arial, Helv=
+etica, sans-serif; font-size: 14px;">here</a>, or add your tool <a href=3D"=
+https://elink640.dupple.com/ss/c/u001.i8ligEAMODugkGN-qAs51aABkxJS14k1XPeqy=
+KosrJZ4Adj_eYmqYooK1xlj3uyqYj9728WvDjB8kwy1UnL2VOH_LLavjJeAnqLeUTTMb-XDHRZo=
+It1WSPcXjAlBfgMoE7HjwHXjl8FLICKzMc9m7nrXIAc93IlgVelTwi3g5FLHd1A2jyYffy0BVH6=
+2wBAd/4ut/wz9uBVyZS6yd7ENL1e8ttA/h37/h001.iiEP4Mycl6qJwK-Xta-C_7YpVTEx795pO=
+DJ4mnEFjbg" style=3D"color: #666666 !important; text-decoration: underline;=
+font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 14px;">here<=
+/a></p></td></tr></tbody></table></td></tr></tbody></table><table align=3D"=
+center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"ml-default" width=3D"100%"><tbody><tr><td><table align=3D"center" bgcol=
+or=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"co=
+ntainer ml-10 ml-default-border" style=3D" width: 100%; max-width: 640px; "=
+ width=3D"640"><tbody><tr><td><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%"><tbody><tr><td align=3D"center" class=3D"" style=
+=3D"padding: 0 0px;"><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"border-top: 1px s=
+olid #EAECED; line-height: 1px;"></td></tr></tbody></table></td></tr></tbod=
+y></table></td></tr></tbody></table></td></tr></tbody></table><table align=
+=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"ml-default" width=3D"100%"><tbody><tr><td><table align=3D"center" b=
+gcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"container ml-8 ml-default-border" style=3D"color: #000000; width: 100%;=
+ max-width: 640px;" width=3D"640"><tbody><tr><td class=3D"row" style=3D"pad=
+ding: 30px 50px;font-family: 'Inter', Arial, Helvetica, sans-serif; font-si=
+ze: medium;"><h3 style=3D"font-family: 'Inter', Arial, Helvetica, sans-seri=
+f; color: #000000; font-size: 18px; line-height: 125%; font-weight: bold; m=
+argin-top:0; font-size: 18px; margin-bottom: 30px"> =F0=9F=93=9A Trending p=
+apers & reports</h3><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ id=3D"paper-ad-block" width=3D"100%"><tbody><tr><td style=3D"padding-top: =
+10px; padding-bottom: 10px; font-family: 'Inter', -apple-system, BlinkMacSy=
+stemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px=
+; line-height: 150%; color: #000000;"><span style=3D"color: #e0a87c; font-w=
+eight: bold; font-size: 18px;font-family: 'Inter', -apple-system, BlinkMacS=
+ystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">&gt;</span>&n=
+bsp;<b style=3D"font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'S=
+egoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px;">HR Softwa=
+re Pricing Guide:</b> see what BambooHR, Gusto, Justworks and other HR tool=
+s actually cost before you book a single demo. Their 2026 guide compares re=
+al pricing by tier. <a href=3D"https://elink640.dupple.com/ss/c/u001.ATAItR=
+Jv4OHzc1muxCgos0_mHz6rcVWszByhv4CyBVB9EiHiEVTfo97jnmeOU1MSA_-m66J9vmIq69p_L=
+5pzlyXx9ai1ueFYkveMzOEnTiPuIOVDSJLb3A2VG8Q9Q_7xWFAOAsqmyNdwaTN9JtL4v6hG6XF7=
+tCIv7SK7erAk1FA/4ut/wz9uBVyZS6yd7ENL1e8ttA/h38/h001.-P1UEZ4kaRm6P2BJOb0stue=
+adWX3DFLAZoxo1FxDB_c" style=3D"font-family: 'Inter', -apple-system, BlinkMa=
+cSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:=
+ 500; font-size: 16px; color: #6257FF !important; text-decoration-color: #6=
+257FF !important;"><b style=3D"font-family: 'Inter', -apple-system, BlinkMa=
+cSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 1=
+6px;">Download the free guide</b></a></td></tr></tbody></table><table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td a=
+lign=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%"><tbody><tr><td style=3D"padding-top: 10px; padding-bottom: 10px=
+; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px; line=
+-height: 150%;"><span style=3D"color: #e0a87c; font-weight: bold; font-size=
+: 18px;font-family: 'Inter', Arial, Helvetica, sans-serif;">&gt;</span>&nbs=
+p;<b style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size=
+: 16px;">Feature cleanup for recommenders</b> gives companies a reliable wa=
+y to spot and safely remove unused data signals from recommendation systems=
+ without hurting performance, validated on two large systems and flagging u=
+p to 59 removable features in one case. <a href=3D"https://elink640.dupple.=
+com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx02SV3aXJ1doHxPPmQ8GXRIUvoL4ahOO1TnkcjVpc=
+ppKDxUTZ8KYLcvaLdcYltP8FIQQq3xbPp3SnAOBaFfLBYV2CH_-HHJmedBGkzoW9qQZ/4ut/wz9=
+uBVyZS6yd7ENL1e8ttA/h39/h001.Rzjd3k_t6vlMN_A6ghYv5eB7OWR8Vzu7iWEXac5Oiig" s=
+tyle=3D"font-weight: 500; font-size: 15px; color: #919090; text-decoration:=
+ underline; text-decoration-color: #919090; display: inline-block; margin-l=
+eft: 5px"><span style=3D"color: #919090;font-family: 'Inter', Arial, Helvet=
+ica, sans-serif; font-size: 15px;">LINK</span></a></td></tr></tbody></table=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tb=
+ody><tr><td style=3D"padding-top: 10px; padding-bottom: 10px; font-family: =
+'Inter', Arial, Helvetica, sans-serif; font-size: 16px; line-height: 150%;"=
+><span style=3D"color: #e0a87c; font-weight: bold; font-size: 18px;font-fam=
+ily: 'Inter', Arial, Helvetica, sans-serif;">&gt;</span>&nbsp;<b style=3D"f=
+ont-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">Graph =
+generators</b> secretly memorize their training data in a way standard qual=
+ity checks miss entirely, meaning businesses using these tools to create sy=
+nthetic networks risk leaking the original data they trained on. <a href=3D=
+"https://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx02SV3aXJ1doHxPP=
+mQ8GXRI3u5kG3CzRsgi90WVEBVqdvl36R-Er5_3gakfp7EdJBZ-Lh4bC1uQ1wx9T6C9iiAF5-_S=
+Qf4_gjfBQxRN_sdBY/4ut/wz9uBVyZS6yd7ENL1e8ttA/h40/h001.lhDQ9HQSow5R2TxHlwc73=
+E8fgf_dL8DU-lgmv4N-B5M" style=3D"font-weight: 500; font-size: 15px; color: =
+#919090; text-decoration: underline; text-decoration-color: #919090; displa=
+y: inline-block; margin-left: 5px"><span style=3D"color: #919090;font-famil=
+y: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LINK</span></a>=
+</td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding-top: 10px; padding-bo=
+ttom: 10px; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: =
+16px; line-height: 150%;"><span style=3D"color: #e0a87c; font-weight: bold;=
+ font-size: 18px;font-family: 'Inter', Arial, Helvetica, sans-serif;">&gt;<=
+/span>&nbsp;<b style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif;=
+ font-size: 16px;">Confidence-aware training</b> teaches a neural network t=
+o be both accurate and honest about how sure it is in a single training pas=
+s, removing the usual extra calibration step and its overhead. <a href=3D"h=
+ttps://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx02SV3aXJ1doHxPPmQ=
+8GXRJuKZujn1Xn06TyxH2VMVp_x0ovw5vZhVXUuEAxhDizsxRC6YTmYpKWt_AGljDCOqTtl3fav=
+fPzyoaZ2OdWiFt5/4ut/wz9uBVyZS6yd7ENL1e8ttA/h41/h001.8USBqvJMhD6WKTvImAV_R6g=
+oXE7wUUw-Cl_aS_x-e0o" style=3D"font-weight: 500; font-size: 15px; color: #9=
+19090; text-decoration: underline; text-decoration-color: #919090; display:=
+ inline-block; margin-left: 5px"><span style=3D"color: #919090;font-family:=
+ 'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LINK</span></a></=
+td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding-top: 10px; padding-bo=
+ttom: 10px; font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: =
+16px; line-height: 150%;"><span style=3D"color: #e0a87c; font-weight: bold;=
+ font-size: 18px;font-family: 'Inter', Arial, Helvetica, sans-serif;">&gt;<=
+/span>&nbsp;<b style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif;=
+ font-size: 16px;">What-if predictions</b> can be made directly from raw da=
+ta without first mapping out cause-and-effect, cutting error by over 20x on=
+ a loan benchmark and handling bigger problems than it was trained on. <a h=
+ref=3D"https://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx02SV3aXJ1=
+doHxPPmQ8GXRLCG5AqGxb3zbc98lUj7h73ofhhA0iz3yx9JKea6yWkAh98nDAQbvOBs5DIVkkco=
+QsRiKr4t_rFjJv7v4Ysid7h/4ut/wz9uBVyZS6yd7ENL1e8ttA/h42/h001.jhpQS7ZtWTYz3pC=
+AnaTc2CQZ4DWe3x-6_DwgJAbiWHw" style=3D"font-weight: 500; font-size: 15px; c=
+olor: #919090; text-decoration: underline; text-decoration-color: #919090; =
+display: inline-block; margin-left: 5px"><span style=3D"color: #919090;font=
+-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 15px;">LINK</spa=
+n></a></td></tr></tbody></table><table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"padding-top: 10px; padd=
+ing-bottom: 10px; font-family: 'Inter', Arial, Helvetica, sans-serif; font-=
+size: 16px; line-height: 150%;"><span style=3D"color: #e0a87c; font-weight:=
+ bold; font-size: 18px;font-family: 'Inter', Arial, Helvetica, sans-serif;"=
+>&gt;</span>&nbsp;<b style=3D"font-family: 'Inter', Arial, Helvetica, sans-=
+serif; font-size: 16px;">Team-safety credit assignment</b> pinpoints which =
+cooperating robots or vehicles most cause a shared safety breach, boosting =
+safe task completion up to ~5x in transport and lifting traffic throughput =
+by ~50 to 68%. <a href=3D"https://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaG=
+Z_6S42yjMx02SV3aXJ1doHxPPmQ8GXRIKwMG0VB-dKL7LWVYzYdiwzhbvVfhWJfa8dJKHaQ8jp1=
+ccU0IC15_XOLvRBTZyvcLE7nztTHkxrMgJXqSsQTAF/4ut/wz9uBVyZS6yd7ENL1e8ttA/h43/h=
+001.rCLirSpb-Z2R0-3fdpl1fkZlWltn7P1BHYnsf6DBoBY" style=3D"font-weight: 500;=
+ font-size: 15px; color: #919090; text-decoration: underline; text-decorati=
+on-color: #919090; display: inline-block; margin-left: 5px"><span style=3D"=
+color: #919090;font-family: 'Inter', Arial, Helvetica, sans-serif; font-siz=
+e: 15px;">LINK</span></a></td></tr></tbody></table></td></tr></tbody></tabl=
+e></td></tr></tbody></table></td></tr></tbody></table><table align=3D"cente=
+r" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"m=
+l-default" width=3D"100%"><tbody><tr><td><table align=3D"center" bgcolor=3D=
+"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"contain=
+er ml-10 ml-default-border" style=3D"width: 100%; max-width: 640px;" width=
+=3D"640"><tbody><tr><td><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tbody><tr><td align=3D"center" class=3D"" style=3D"p=
+adding: 0 0px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"border-top: 1px solid =
+#EAECED; line-height: 1px;"></td></tr></tbody></table></td></tr></tbody></t=
+able></td></tr></tbody></table></td></tr></tbody></table><table align=3D"ce=
+nter" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"ml-default" width=3D"100%"><tbody><tr><td><table align=3D"center" bgcol=
+or=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"co=
+ntainer ml-8 ml-default-border" style=3D"color: #000000; width: 100%; max-w=
+idth: 640px;" width=3D"640"><tbody><tr><td class=3D"row" style=3D"padding: =
+30px 50px;"><h3 style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif=
+; color: #000000; font-size: 18px; line-height: 125%; font-weight: bold; ma=
+rgin-top: 0; margin-bottom: 15px;">=F0=9F=A4=9D From our community: Compari=
+ng ten AI chatbots side by side</h3><p style=3D"font-family: 'Inter', Arial=
+, Helvetica, sans-serif; color: #000000; font-size: 16px; line-height: 165%=
+; margin-top: 0; margin-bottom: 15px;"><strong style=3D"font-family: 'Inter=
+', Arial, Helvetica, sans-serif; font-size: 16px;">Richard</strong> runs th=
+e same set of questions, some playful, some serious, through ten AI platfor=
+ms like Grok to compare their answers, a habit that turned into daily conve=
+rsation and companionship after his wife's death.</p><p style=3D"font-famil=
+y: 'Inter', Arial, Helvetica, sans-serif; color: #000000; font-size: 16px; =
+line-height: 165%; margin-top: 0; margin-bottom: 0;"><a href=3D"https://eli=
+nk640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx0u3NioHeBKwjX8MPLNtp0duBjrP=
+2OXyIzZr6PZ3hXADGA3pOJrshqFT7yy09aWC6-JerA9CFPQrtl0EloQO64QzaIyLR9TAaI12u6d=
+nFXP8AiseEK6IARqXCGo9GcOjfHl2K0sHtKDug7n6l2jWBBmomHfH3c6pZ5coTo71LjM8s8YA7K=
+GXbjVHhN9-sRF8gw/4ut/wz9uBVyZS6yd7ENL1e8ttA/h44/h001.mf5Jz93zonsq7bIEUPVSYp=
+pyimV0aZ3-9zUA6Pwo4co" style=3D"font-family: 'Inter', Arial, Helvetica, san=
+s-serif; color: #000000; font-size: 16px; line-height: 165%; font-weight: b=
+old; color: #4f46e5 !important; text-decoration: underline;">Read the full =
+use case =E2=86=92</a></p><p style=3D"font-family: 'Inter', Arial, Helvetic=
+a, sans-serif; font-size: 13px; line-height: 150%; font-style: italic; colo=
+r: #6b7280; margin-top: 6px; margin-bottom: 0;">You can see more community =
+use cases <a href=3D"https://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S4=
+2yjMx0u3NioHeBKwjX8MPLNtp0eba7UDBuHxniGHg5EmxPPh2A71yaITyJj62Y8gIF4IBGsDDZJ=
+3wHd6eFDzDBqWmy0lSljY3bdrTmgx9qA1cr1o/4ut/wz9uBVyZS6yd7ENL1e8ttA/h45/h001.X=
+IzQIECP7Hg6p9hHjakd8JG_TsLJiB1J_xbpwFnAvdg" style=3D"color: #6b7280 !import=
+ant; text-decoration: underline;font-family: 'Inter', Arial, Helvetica, san=
+s-serif; font-size: 13px;">here</a>, or submit your own <a href=3D"https://=
+elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx0u3NioHeBKwjX8MPLNtp0dYi=
+6pLk0PbnK2_4mw9slzxvJRo-1c5fRiyxvpsEFmkbECDID3l6Bxkv3SuwBX03D9y8MNt1RawQdI5=
+7SsjmJ4nDxg5bHg9aBVZWOEv-SUK6eI7JQYj36N1YuSoDcWW3HbMnRQ0stQnbSd1WKwSDxce0Sc=
+VFCSqoXArL7nH3xzuOC6oZbjgYmc7EJBDjy0-ZXqA2MCW6hD1vWKTDpEvufut/4ut/wz9uBVyZS=
+6yd7ENL1e8ttA/h46/h001.BBLzFjzRoZADLwJxCb6tFP4JCGw14NvT7_0FgpMPeWA" style=
+=3D"color: #6b7280 !important; text-decoration: underline;font-family: 'Int=
+er', Arial, Helvetica, sans-serif; font-size: 13px;">here</a>.</p></td></tr=
+></tbody></table></td></tr></tbody></table><table align=3D"center" bgcolor=
+=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"ml-default"=
+ width=3D"100%"><tbody><tr><td><table align=3D"center" bgcolor=3D"#ffffff" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"container ml-10 m=
+l-default-border" style=3D"width: 100%; max-width: 640px;" width=3D"640"><t=
+body><tr><td><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%"><tbody><tr><td align=3D"center" style=3D"padding: 0 0px;"><table =
+align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%"><tbody><tr><td style=3D"border-top: 1px solid #EAECED; line-height: 1=
+px;"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody>=
+</table></td></tr></tbody></table><table align=3D"center" bgcolor=3D"" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"ml-default" width=3D"=
+100%"><tbody><tr><td><table align=3D"center" bgcolor=3D"#ffffff" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" class=3D"container ml-8 ml-default-b=
+order" style=3D"color: #000000; width: 100%; max-width: 640px;" width=3D"64=
+0"><tbody><tr><td class=3D"row" style=3D"padding: 30px 50px;"><h3 style=3D"=
+font-family: 'Inter', Arial, Helvetica, sans-serif; color: #000000; font-si=
+ze: 18px; line-height: 125%; font-weight: bold; margin-top: 0; margin-botto=
+m: 15px;"><a href=3D"https://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S4=
+2yjMx0u3NioHeBKwjX8MPLNtp0ch99bLpJCbsQBEfUZUTEJqpBl3pSoWathpXhX3tu01yjHSseh=
+My2ZWXbBwtdMFLc1OEz43xfPSkWe24EGV9t-93WJ0ikxAx3NWpuu9eUoBNZAMih--qrYHhVJgJ8=
+EFjlXrSiRa9MDDBmrlYXZdnEVbtGG5xXzI8d4SMMGwBv8tVQ/4ut/wz9uBVyZS6yd7ENL1e8ttA=
+/h47/h001.x9x40gfA8nimddkUssMYWOxqdCoYjteMZMxepwP4Pg0" style=3D"color: #4f4=
+6e5 !important; text-decoration: none !important;font-family: 'Inter', Aria=
+l, Helvetica, sans-serif; font-size: 18px;">=F0=9F=8E=93 <span style=3D"tex=
+t-decoration: underline !important;font-family: 'Inter', Arial, Helvetica, =
+sans-serif; font-size: 18px;">Want to master the AI tools we cover every da=
+y?</span></a></h3><p style=3D"font-family: 'Inter', Arial, Helvetica, sans-=
+serif; color: #000000; font-size: 16px; line-height: 165%; margin-top: 15px=
+; margin-bottom: 0;">Techpresso's AI Academy has 330+ step-by-step tutorial=
+s on ChatGPT, Claude, Perplexity, and every tool that matters. No fluff =E2=
+=80=94 just practical workflows you can use at work. <a href=3D"https://eli=
+nk640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx0u3NioHeBKwjX8MPLNtp0ch99bL=
+pJCbsQBEfUZUTEJqpBl3pSoWathpXhX3tu01yjHSsehMy2ZWXbBwtdMFLc1OEz43xfPSkWe24EG=
+V9t-93WJ0ikxAx3NWpuu9eUoBNaxOIyx33msCfC0eGQHQKgeR4gjOIXiAVbfgtEnmWED1OndITo=
+E6YgsAaU7PlWuQmQ/4ut/wz9uBVyZS6yd7ENL1e8ttA/h48/h001.gq7-aEkPEeVoxC7U3GyLJP=
+J2BwbR9yGbmrIeZElJyLA" style=3D"font-family: 'Inter', Arial, Helvetica, san=
+s-serif; color: #000000; font-size: 16px; line-height: 165%; font-weight: b=
+old; color: #4f46e5; text-decoration: underline;">Try it free for 7 days.</=
+a></p></td></tr></tbody></table></td></tr></tbody></table><table align=3D"c=
+enter" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"ml-default" width=3D"100%"><tbody><tr><td><table align=3D"center" bgcol=
+or=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"co=
+ntainer ml-8 ml-default-border" style=3D"color: #000000; width: 100%; max-w=
+idth: 640px;" width=3D"640"><tbody><tr><td style=3D"padding: 0;"><table bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td=
+ style=3D"border-top: 1px solid #EAECED; line-height: 1px; font-size: 0;"><=
+/td></tr></tbody></table></td></tr><tr><td class=3D"row" style=3D"padding: =
+25px 50px;"><p style=3D"font-family: 'Inter', Arial, Helvetica, sans-serif;=
+ color: #000000; font-size: 16px; line-height: 165%; margin: 0;"><b style=
+=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px;">D=
+id you know?</b> The first ARM chip in 1985 kept running on tiny leakage cu=
+rrent alone after a fault disconnected its power line, even as the ammeter =
+read zero.</p></td></tr><tr><td style=3D"padding: 0;"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"b=
+order-top: 1px solid #EAECED; line-height: 1px; font-size: 0;"></td></tr></=
+tbody></table></td></tr></tbody></table></td></tr></tbody></table><table al=
+ign=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" class=3D"ml-default" width=3D"100%"><tbody><tr><td><table align=3D"center=
+" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" clas=
+s=3D"container ml-8 ml-default-border" style=3D"color: #000000; width: 100%=
+; max-width: 640px;" width=3D"640"><tbody><tr><td class=3D"row" style=3D"pa=
+dding: 30px 50px;"><h3 style=3D"font-family: 'Inter', Arial, Helvetica, san=
+s-serif; color: #000000; font-size: 18px; line-height: 125%; font-weight: b=
+old; margin-top:0; margin-bottom: 15px;"> =F0=9F=92=AC How did you find tod=
+ay's edition?</h3><p style=3D"font-family: 'Inter', Arial, Helvetica, sans-=
+serif; color: #000000; font-size: 16px; line-height: 165%;"> We read every =
+reply =E2=80=94 just reply to this email and let us know how we can improve=
+! </p><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"marg=
+in: 0;" width=3D"100%"><tbody><tr><td style=3D"padding: 16px 0 6px 0;"><tab=
+le align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"max-width: 300px; border-collapse: separate;" width=3D"100%"><tbody><tr><t=
+d style=3D"border: 1px solid #EAECED; border-radius: 8px; padding: 9px 12px=
+; font-family: 'Inter', Arial, Helvetica, sans-serif;"><a href=3D"https://e=
+link640.dupple.com/ss/c/u001.EtuiSsFv_HKMV_vePc-azxjtfK1x2HCOwZv3k3BEI8pak8=
+Co28enTP0bZumspV5PrXjBiHd6VNzKqSIwGD37Nq8VF-dDGV5xUaw-1UlTO83c2NQn1vvdlOIZV=
+A3zge4Lo9e3ob8FPSvSuJKzFCIy_k5jx6YqbcMnj1BJhhsYAoa6C9xkd6XgY-7UzZ5KEvitWlDo=
+KDHWfC7xcnKSc1qGLU6lRz9eIMaJlWLvlwy595jAYn7sPC85e05ONuMbQY_wq_gfNZTOQapxYdq=
+CroCwwYlisHY_i18BPxPG1wHh7qs9qBzPDwI6jQ50KDAKFv05/4ut/wz9uBVyZS6yd7ENL1e8tt=
+A/h49/h001.VlkzWqCSsZT_vGRyNbq6IoKDdyBs1hXLan3GpVttiro" style=3D"text-decor=
+ation: none;"><span style=3D"color: #f5b301; font-size: 14px; letter-spacin=
+g: 1px; vertical-align: middle;font-family: 'Inter', Arial, Helvetica, sans=
+-serif;">=E2=98=85=E2=98=85=E2=98=85=E2=98=85=E2=98=85</span><span style=3D=
+"color: #5607e8; font-size: 14px; font-weight: bold; vertical-align: middle=
+;font-family: 'Inter', Arial, Helvetica, sans-serif;">&nbsp;&nbsp;Nailed it=
+</span></a></td></tr></tbody></table></td></tr><tr><td style=3D"padding: 0 =
+0 6px 0;"><table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"max-width: 300px; border-collapse: separate;" width=3D"100%=
+"><tbody><tr><td style=3D"border: 1px solid #EAECED; border-radius: 8px; pa=
+dding: 9px 12px; font-family: 'Inter', Arial, Helvetica, sans-serif;"><a hr=
+ef=3D"https://elink640.dupple.com/ss/c/u001.EtuiSsFv_HKMV_vePc-azxjtfK1x2HC=
+OwZv3k3BEI8pak8Co28enTP0bZumspV5PrXjBiHd6VNzKqSIwGD37Nq8VF-dDGV5xUaw-1UlTO8=
+3c2NQn1vvdlOIZVA3zge4Lo9e3ob8FPSvSuJKzFCIy_k5jx6YqbcMnj1BJhhsYAobNqDrCmU-Sl=
+oe_ZM1uTIqqF-fsteC4nRSJJWsmjoco43HjHKVFUSAtOuxPEq5EPr-Irva17cnPRi7Bsw-gtwwb=
+zpC1X3vWXKOsFLdRt1Vhr85D-z9dXxY6hIXIJNI_onXxBYMy8v37caEewpvcuTTr/4ut/wz9uBV=
+yZS6yd7ENL1e8ttA/h50/h001.feJNFmibpQYDQRX2FF6Bdoc38u4m1xFhp6-XsYXB_rU" styl=
+e=3D"text-decoration: none;"><span style=3D"color: #f5b301; font-size: 14px=
+; letter-spacing: 1px; vertical-align: middle;font-family: 'Inter', Arial, =
+Helvetica, sans-serif;">=E2=98=85=E2=98=85=E2=98=85</span><span style=3D"co=
+lor: #5607e8; font-size: 14px; font-weight: bold; vertical-align: middle;fo=
+nt-family: 'Inter', Arial, Helvetica, sans-serif;">&nbsp;&nbsp;Average</spa=
+n></a></td></tr></tbody></table></td></tr><tr><td style=3D"padding: 0;"><ta=
+ble align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"max-width: 300px; border-collapse: separate;" width=3D"100%"><tbody><tr=
+><td style=3D"border: 1px solid #EAECED; border-radius: 8px; padding: 9px 1=
+2px; font-family: 'Inter', Arial, Helvetica, sans-serif;"><a href=3D"https:=
+//elink640.dupple.com/ss/c/u001.EtuiSsFv_HKMV_vePc-azxjtfK1x2HCOwZv3k3BEI8p=
+ak8Co28enTP0bZumspV5PrXjBiHd6VNzKqSIwGD37Nq8VF-dDGV5xUaw-1UlTO83c2NQn1vvdlO=
+IZVA3zge4Lo9e3ob8FPSvSuJKzFCIy_k5jx6YqbcMnj1BJhhsYAoYnk9gBx0xXx2-UFf0HvXHoa=
+UQps-vRZBZkN4zOJHyQLK4ZbeBU2xmx402ujmwT-i459FtbnWVd4hNtz0iPRKwIcsV7nt2nCpTQ=
+IpoBAgvVdEInOWnbiNFW7rAms7bbh3TnRO3VCF9LzPhmWEXpufFg/4ut/wz9uBVyZS6yd7ENL1e=
+8ttA/h51/h001.mvNRMRGRFUuG_Hv3NA_kLd2RB2fTBdRoswti-2yBHe0" style=3D"text-de=
+coration: none;"><span style=3D"color: #f5b301; font-size: 14px; letter-spa=
+cing: 1px; vertical-align: middle;font-family: 'Inter', Arial, Helvetica, s=
+ans-serif;">=E2=98=85</span><span style=3D"color: #5607e8; font-size: 14px;=
+ font-weight: bold; vertical-align: middle;font-family: 'Inter', Arial, Hel=
+vetica, sans-serif;">&nbsp;&nbsp;Fail</span></a></td></tr></tbody></table><=
+/td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></tabl=
+e><table bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"max-width: 640px; padding-bottom: 5px; padding-top: 5px;" width=
+=3D"100%"><tbody><tr><td align=3D"center" style=3D"padding: 10px 0;"></td><=
+/tr></tbody><tbody><tr><td align=3D"center" style=3D"padding: 10px 0;font-f=
+amily: 'Inter', Arial, Helvetica, sans-serif; font-size: medium;"><p style=
+=3D"font-family: 'Inter', Arial, Helvetica, sans-serif; font-size: 16px; co=
+lor: #000000; line-height: 165%; margin: 20px 0; text-align: center;"> Not =
+subscribed to <strong style=3D"font-family: 'Inter', Arial, Helvetica, sans=
+-serif; font-size: 16px;">=E2=98=95=EF=B8=8F Techpresso</strong> yet? <span=
+><a href=3D"https://elink640.dupple.com/ss/c/u001.eA4BJlw1jawIyadcQA4lRO4BJ=
+UtcbechAVmIC8kOOYFCvHcKSMiLJSPB4tWuIrON-qrpZy02yllgLXNUk4ykeL4tX-CNGgQDBJk4=
+DUJM_LKJXp82Yyzd58CU910AMj2xT0pVAJaK9kgmE4fLYslrdl2HPc8BX-WQfU5_XrbFVAJIntD=
+UFMCf9oW4-BoQMo9u/4ut/wz9uBVyZS6yd7ENL1e8ttA/h52/h001.sOV5S1IGUyW3AUOL8On9P=
+qdvLX2-P0WauhAoo1P2RIs" style=3D"display: block; color: #5607e8 !important;=
+ font-weight: bold; text-decoration: none;"><u>Subscribe for free</u></a></=
+span></p></td></tr></tbody></table><table align=3D"center" bgcolor=3D"" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"ml-default" width=3D=
+"100%"><tbody><tr><td><table align=3D"center" bgcolor=3D"#ffffff" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"container ml-22 ml-default=
+-border" style=3D" width: 100%; max-width: 640px; padding-bottom: 25px; " w=
+idth=3D"640"><tbody><tr><td class=3D"ml-default-border container" style=3D"=
+line-height: 20px;"></td></tr><tr><td><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td align=3D"=
+center" class=3D"row" style=3D"padding: 0 50px;"><table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" class=3D"menu mobile-mx-auto" width=3D""><tbo=
+dy><tr><td align=3D"center" class=3D"menu-item" style=3D"padding: 0 20px 0 =
+0;"><a href=3D"https://elink640.dupple.com/ss/c/u001.QT9-cN0mZn-HYCKnMP3yhW=
+1aBE0qevXPXyOkVs18T_jtas3C7ir9UakQBnKkvUV2fGSnXo71ZTTT5epmzje3ajHZRJf9Ti8D8=
+uTJbm8Ity_fqF6a-YRH1_UKh5DEwnmX/4ut/wz9uBVyZS6yd7ENL1e8ttA/h53/h001.3RoKc6G=
+-LwvbTvwV5hd2CocFwweCqYUfif00jYrQWzw" style=3D"font-family: 'Inter', sans-s=
+erif; font-size: 14px; line-height: 150%; color: #444444; font-weight: norm=
+al; font-style: normal; text-decoration: none;"><span style=3D"color: #4444=
+44;font-family: 'Inter', sans-serif; font-size: 14px;">Advertise</span></a>=
+</td><td align=3D"center" class=3D"menu-item" style=3D"padding: 0 20px 0 20=
+px;"><a href=3D"https://elink640.dupple.com/ss/c/u001.EtuiSsFv_HKMV_vePc-az=
+xjtfK1x2HCOwZv3k3BEI8p0JfMeIQY-4MNke5uw4QIhI-dA-KgpUqCEyq9xAM-_d964HMXB7x__=
+yhOlgcVpeY_JanHZFqh154w3j2ILBAFx7mIpMU2uDab9FiTqok_C2CEud_gdRaR78LYNZljCbT2=
+2ECxnHB5mvNUk1EHi73UOea6etEWA9nP4AbZX_3VCqLszbhBG_KQU4iyh_2SuC3xI3oCbnhvpsm=
+zfzQd2qY76xfEJnwhwB5unyF2_OKBd0V5qg4YTz6IWFbRNJgCQaenvIlgpD9MiIffEPggUyvp5/=
+4ut/wz9uBVyZS6yd7ENL1e8ttA/h54/h001.U4m3K-iq0IU0yGBmcybdRQeQVSkPymoQHfBOBXH=
+-L40" style=3D"font-family: 'Inter', sans-serif; font-size: 14px; line-heig=
+ht: 150%; color: #444444; font-weight: normal; font-style: normal; text-dec=
+oration: none;"><span style=3D"color: #444444;font-family: 'Inter', sans-se=
+rif; font-size: 14px;">Feedback</span></a></td><td align=3D"center" class=
+=3D"menu-item" style=3D"padding: 0 0 0 20px;"><a href=3D"https://elink640.d=
+upple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx5WJcaM96W2Xn4SqdyL9PaFZ7xjctpnoFqI=
+tAAKb6D-cjeWTnZ-YZDm4BIPbNhmTJj-aXAgvTc7UGakfQaT9KPhY32Lh6Omk0Ae7wUTkKZmIJ8=
+SaoPF4C3MVDWV1EnyjxFy8O_qYL4hHL7zDK0wG7uMvYFwnGewNmk8W1ij2Bjt0/4ut/wz9uBVyZ=
+S6yd7ENL1e8ttA/h55/h001.TmqQ-0-Cu3TnAVWXF_JFXkKUa_zmqvaq6Vj2bb2iEsc" style=
+=3D"font-family: 'Inter', sans-serif; font-size: 14px; line-height: 150%; c=
+olor: #444444; font-weight: normal; font-style: normal; text-decoration: no=
+ne;"><span style=3D"color: #444444;font-family: 'Inter', sans-serif; font-s=
+ize: 14px;">Read Online</span></a></td></tr></tbody></table></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr></tbody></table><table align=
+=3D"center" bgcolor=3D"" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" c=
+lass=3D"ml-default" width=3D"100%"><tbody><tr><td><table align=3D"center" b=
+gcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"container ml-16 ml-default-border" style=3D" width: 100%; max-width: 64=
+0px; " width=3D"640"><tbody><tr><td class=3D"ml-default-border container" s=
+tyle=3D"line-height: 20px;"></td></tr><tr><td><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td align=3D"center" c=
+lass=3D"" style=3D"padding: 0 0px;"><table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tbody><tr><td style=3D"bo=
+rder-top: 0px solid #EAECED; line-height: 0px;"></td></tr></tbody></table><=
+/td></tr></tbody></table></td></tr><tr><td style=3D"line-height: 20px;"></t=
+d></tr></tbody></table></td></tr></tbody></table></td></tr></table></td></t=
+r></table></td></tr><tr><td align=3D"center" valign=3D"top"><table role=3D"=
+none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=
+=3D"center"><tr><td><tr><td class=3D"b" align=3D"center" valign=3D"top" bgc=
+olor=3D"#ffffff" style=3D"padding:0px 0px 0px 0px;border-style:solid;border=
+-width: 0px 1px 1px 1px;border-color: #e2e2e2;border-bottom-left-radius:10p=
+x;border-bottom-right-radius:10px;"><table role=3D"none" width=3D"100%" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td heig=
+ht=3D"10" style=3D"line-height:1px;font-size:1px;height:10px;"> &nbsp; </td=
+></tr><tr><td class=3D"w" align=3D"center" valign=3D"top" style=3D"padding:=
+0px 20px 20px 20px;"><table role=3D"none" width=3D"100%" border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center" va=
+lign=3D"top"><p style=3D"font-family:'Inter',-apple-system,BlinkMacSystemFo=
+nt,Roboto,sans-serif;color:#979797!important;"> Update your <a href=3D'http=
+s://elink640.dupple.com/ss/c/u001.5-wdQ2MlRaGZ_6S42yjMx5WJcaM96W2Xn4SqdyL9P=
+aHpeAAKWNurfyn28fNQQzyqfHfFwCFwmqqWVle_RcT5MS39JuaeizaffO1Volya7OCwumM3gRj6=
+31tmgCgQW3bU6E5jQhmPDSinam4OoBcSPGWeEPDghK6-9CR6DXMI70g52g1IWRHYdoiKevK_lMM=
+Mz9NUbbf6WWJYWvBF4yHn2s6RDbZw01Hlr4ja3n4JAilcDq9Vv44twXjD6hJkOyaJo_7FavwROL=
+HcZuJH5sKOeQ/4ut/wz9uBVyZS6yd7ENL1e8ttA/h56/h001.rG3L31BkMqP0hfb_QlTRXKWkio=
+iNTQ5Z4BSCjFXfXUM' style=3D'text-decoration:underline;text-decoration-color=
+:#979797!important;color:#979797!important;'>email preferences</a> or unsub=
+scribe <a class=3D"link" href=3D"https://elink640.dupple.com/ss/c/u001.5-wd=
+Q2MlRaGZ_6S42yjMx5WJcaM96W2Xn4SqdyL9PaHpeAAKWNurfyn28fNQQzyqfHfFwCFwmqqWVle=
+_RcT5MS39JuaeizaffO1Volya7OCwumM3gRj631tmgCgQW3bUF-k6l_JDnTG6UTKBeFPonmA8R-=
+O6HJ5VO7w5LSVA8tUcubUgeUNT6N200S3ODHIR2FmLA9IBWPrUYuRVYwdi59hX36LzzsIbG4MJ7=
+JcYAdJrvOOSnPULMXCR75Twd_6I4p4lNQTeUzuSF-xuD1emcze4fqzfo91E47aGTqwAU1cq6Yeg=
+PomGEDs59L9WmPL8l4lefcUgfD7CQRZa_1OEV-kHViHRxMFhr3U2MLph9-jb63dXZQQAIlTOU26=
+Abb4ww5l9ajq6R2i98ZBL9__crsijwgCu3eZKSGiDOZkZwHA/4ut/wz9uBVyZS6yd7ENL1e8ttA=
+/h57/h001.cYrYjh-kr9oxx4EeSpqHk-1CdmkR-vOtuPkF37vmnGs" style=3D"text-decora=
+tion:underline;text-decoration-color:#979797!important;color:#979797!import=
+ant;"> here</a></p><p class=3D"copyright" style=3D"font-family:'Inter',-app=
+le-system,BlinkMacSystemFont,Roboto,sans-serif;color:#979797!important;"> &=
+copy; 2026 =E2=98=95=EF=B8=8F Techpresso </p><p style=3D"font-family:'Inter=
+',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#979797!importan=
+t;"> 228 Park Ave S, #29976, New York, New York 10003, United States </p></=
+td></tr><tr><td align=3D"left" valign=3D"top" height=3D"2" style=3D"height:=
+2px;line-height:1px;font-size:1px;mso-line-height-rule:exactly;"><a href=3D=
+'https://elink640.dupple.com/ss/c/u001.LhM5HfnofgYVXeEuZRPepcJPItFI2hvN_ne7=
+Y-mcvv_JTEeE4Hwlt4gQhA6Ndt3x6I3GHr-ucHSrPXv7RLzTbOb29fliUcsc8sChMhKRyVM/4ut=
+/wz9uBVyZS6yd7ENL1e8ttA/h58/h001.pV7ptUfhAENR_HV3KXETvP71j6XDRgLFMCxo1vmHaR=
+o' style=3D"color: #ffffff !important; cursor: default; font-size: 1px; tex=
+t-decoration: none;"></a></td></tr><tr><td align=3D"left" valign=3D"top" he=
+ight=3D"2" style=3D"height:2px;"><a href=3D'https://email.beehiivstatus.com=
+/8fe90830803d8f96dfece94856b2125521e4dd39/hclick' clicktracking=3D"off" sty=
+le=3D"color: #ffffff !important; cursor: default; font-size: 1px; text-deco=
+ration: none;"></a></td></tr></table></td></tr></table></td></tr></td></tr>=
+</table></td></tr></table></td></tr></table></td></tr></table></div></body>=
+</html>
+--47b7bbd6821fd3b36e154e137e7be67cfbe77e87e61170e822441ac59f99--
