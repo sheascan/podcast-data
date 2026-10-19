@@ -1,0 +1,689 @@
+Delivered-To: mike.mcconigley@gmail.com
+Received: by 2002:a8a:11c6:0:b0:664:6bf3:5e27 with SMTP id w6csp2777758oct;
+        Mon, 19 Oct 2026 01:56:45 -0700 (PDT)
+X-Received: by 2002:a05:600d:848c:20b0:4a1:e9fb:7677 with SMTP id 5b1f17b1804b1-4a1e9fb7776mr19753325e9.8.1792400205502;
+        Mon, 19 Oct 2026 01:56:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792400205; cv=none;
+        d=google.com; s=arc-20260327;
+        b=dLamhuX9UhFoLjvqXOI69XViDGoGrZ85xWB/gGQIS9ulqLFQf7vjGGydObXTBB31/H
+         ldysrOprAYKthmZvHEqT8YN90FWa+tE+QiqjfIX+Q+WdqAEhMZ925FfK6oa0tHoNSAff
+         3rSRxCCim9Gv3wzM2mW7Fx2iPmYyyMUZnHOC3HIVOi7Gg0jZRjhNLbgi8PZulCejDrgX
+         0BH6FWNLcEE2ig3mc5ENLSgLeSlXVbjbG39/DfJ7QQdagpfIo8jU8T+IFEarYvUlKS0E
+         IUe4EYzVq+61tGzajO9Ya1PcR5iKkr+STRQQAlQy4Iu8ct2YXJWIZaMeXar9hPnfudv2
+         Wb6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=feedback-id:date:list-unsubscribe:list-unsubscribe-post
+         :content-transfer-encoding:mime-version:subject:message-id:to
+         :reply-to:from:dkim-signature:dkim-signature;
+        bh=VzBBOt06u62gc+qOI9UnlGRsth2ote0RhU2Raz8cuRw=;
+        fh=tUTYCbTOUI69DxYKXGXRz08XnPP7jEKRU6E5rS0DFR4=;
+        b=L+7vP4nGR0qKjQUwZy8xFHg+b9deXScMMd2PVnZAPHmlAwzXbx+bDcln9e4mXeyUxH
+         r2906qp8vihwlWA8K3h24b709c9wlb6yDjSMWypP/gxiLEO8Wpm/ZYgqPB3QNWJlTQaB
+         yQ2YFMMguCcwbudatiGDsLL33qkaPYumiFvkVl9F31EYDytsgDO8F/HxB56Rkg+JT9HS
+         REq9SW05IjoSivNAZGOsNk40yHT9Lx/jM7Ttr7WKjQz0bShyI1zaLEboA61MJNUow6N+
+         dssyBRZR1UjCzVM+b9So4mmfWR/RdgtLaeLIMNlsqlCgOZEtae57Bj2wJQ+T+p3WH9ob
+         THtw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@unitedinfocus.com header.s=jfcaylct5pdnzimooyxkvuyo5lk66b73 header.b="cQRt0/ea";
+       dkim=pass header.i=@amazonses.com header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=fYaM9KMI;
+       spf=pass (google.com: domain of 010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000@eu-west-1.amazonses.com designates 54.240.106.144 as permitted sender) smtp.mailfrom=010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000@eu-west-1.amazonses.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=unitedinfocus.com
+Return-Path: <010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000@eu-west-1.amazonses.com>
+Received: from a106-144.smtp-out.eu-west-1.amazonses.com (a106-144.smtp-out.eu-west-1.amazonses.com. [54.240.106.144])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-48dfd519a7bsi18171304f8f.346.2026.10.19.01.56.45
+        for <mike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Oct 2026 01:56:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000@eu-west-1.amazonses.com designates 54.240.106.144 as permitted sender) client-ip=54.240.106.144;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@unitedinfocus.com header.s=jfcaylct5pdnzimooyxkvuyo5lk66b73 header.b="cQRt0/ea";
+       dkim=pass header.i=@amazonses.com header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=fYaM9KMI;
+       spf=pass (google.com: domain of 010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000@eu-west-1.amazonses.com designates 54.240.106.144 as permitted sender) smtp.mailfrom=010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000@eu-west-1.amazonses.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=unitedinfocus.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=jfcaylct5pdnzimooyxkvuyo5lk66b73; d=unitedinfocus.com;
+	t=1792400205;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:List-Unsubscribe-Post:List-Unsubscribe:Date;
+	bh=VzBBOt06u62gc+qOI9UnlGRsth2ote0RhU2Raz8cuRw=;
+	b=cQRt0/eatpkSB1ZnouQyplOmuizR5SpvacfeVfSFm7e8MavAIVKzDkOLMsBRSO6p
+	k1P1aklZWeo5iPAcXC51SzQnKZH9oXiD4FIU9EIaFa0cQS3xFFaU/FLdR7xt3LD1WHD
+	7i0YI8/9nlKu0B8nVsA1M7FH6oSNKuTx6ImqxfrhyIntuh1p0Q9P8yaIX7Yvh1VnB0Y
+	G3ekuwioI/eKgHnnHwX9FGvjZ9lfLkYtX4yjFdiA1vaGrbnRaW4bDG7xczO7wcuzJAO
+	usgif3vjx4vX7bCIV2h8viZSnQvHbGmrWOFM9VMkEHbCbH6YqxB7BoZJPhNWLPZup9E
+	Pu+BvbTTIw==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=shh3fegwg5fppqsuzphvschd53n6ihuv; d=amazonses.com; t=1792400205;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:List-Unsubscribe-Post:List-Unsubscribe:Date:Feedback-ID;
+	bh=VzBBOt06u62gc+qOI9UnlGRsth2ote0RhU2Raz8cuRw=;
+	b=fYaM9KMIetIx9tDV6nf3lAH/4/XjslQ5Ic+t6YSDt2v9MZDcAPH2my7uPebRMIDJ
+	pIojsAiFoxzmhryfbWaCAzynBH6Dcxs5tU4JC+ik31SvyFgq5MebsPgPbbURobho19O
+	pwRnL7GZeF9yErN9ipCn1Fve3qUYqXdlkGa837Z8=
+From: United In Focus <newsletter@unitedinfocus.com>
+Reply-To: newsletter@unitedinfocus.com
+To: mike.mcconigley@gmail.com
+Message-ID: <010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000@eu-west-1.amazonses.com>
+Subject: Gary Neville PRAISES Man Utd & Player Ratings & Reaction vs Leeds
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://subscribe.campaign-list.com/v1/public/campaigns/unsubscribe?campaignURN=urn:newsletter:campaign:34ad3246-54ca-4078-9670-354a962e8265&email=mike.mcconigley@gmail.com>
+Date: Mon, 19 Oct 2026 08:56:45 +0000
+Feedback-ID: ::1.eu-west-1.CDSMG+3JxfRXDGlk5uN6eX7Dt9wqy4oSiScyGWRJN2c=:AmazonSES
+X-SES-Outgoing: 2026.10.19-54.240.106.144
+
+<!doctype html> <html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:off=
+ice"> <head> <title>Gary Neville PRAISES Man Utd & Player Ratings & Reactio=
+n vs Leeds</title> <!--[if !mso]><meta http-equiv=3D"X-UA-Compatible" conte=
+nt=3D"IE=3Dedge"><![endif]--> <meta http-equiv=3D"Content-Type" content=3D"=
+text/html;charset=3DUTF-8"> <meta name=3D"viewport" content=3D"width=3Ddevi=
+ce-width, initial-scale=3D1"> <style type=3D"text/css">#outlook a{padding:0=
+}body{margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust=
+:100%}table,td{border-collapse:collapse;mso-table-lspace:0;mso-table-rspace=
+:0}img{border:0;height:auto;line-height:100%;outline:0;text-decoration:none=
+;-ms-interpolation-mode:bicubic}p{display:block;margin:0}p+p{margin-top:13p=
+x}table,td,p,a,li,blockquote{-webkit-text-size-adjust:100%;-ms-text-size-ad=
+just:100%}</style> <!--[if mso]><style type=3D"text/css">p{margin-top:13px}=
+</style><![endif]--> <!--[if mso]><noscript> <xml> <o:OfficeDocumentSetting=
+s> <o:AllowPNG/> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSe=
+ttings> </xml> </noscript><![endif]--> <!--[if lte mso 11]><style type=3D"t=
+ext/css">.mj-outlook-group-fix{width:100%!important}</style><![endif]--> <s=
+tyle type=3D"text/css">@media only screen and (min-width:480px){.mj-column-=
+per-100{width:100%!important;max-width:100%}.mj-column-per-50{width:50%!imp=
+ortant;max-width:50%}}</style> <style type=3D"text/css">@import url('https:=
+//fonts.googleapis.com/css2?family=3DAlata:wght@300;400;500;600;700;800&dis=
+play=3Dswap');@import url('https://fonts.googleapis.com/css2?family=3DAlata=
+:wght@300;400;500;600;700;800&display=3Dswap');.link-no-style{color:inherit=
+!important;text-decoration:none}.text-block p span{font-size:16px!important=
+;font-family:Helvetica!important;color:#222000!important}.text-block a,.tex=
+t-block a:link,.custom-text-block a,.editorial-note a{text-decoration:none!=
+important;color:#000!important}.custom-html img{height:auto;max-width:100%}=
+@media(max-width:610px){.article-image-size>table{width:100%!important}.art=
+icle-text-width,.article-image-width,.mobile-image-column-100,.image-width-=
+100-percent{width:100%!important;max-width:100%!important}.cta-width-auto,.=
+cta-mobile-width-auto{width:auto!important}.cta-mobile-width-100{width:100%=
+!important}.mobile-text-column-0{width:0!important;max-width:0!important}.m=
+obile-image-column-5,.mobile-text-column-5,.image-width-5-percent{width:5%!=
+important;max-width:5%!important}.mobile-image-column-10,.mobile-text-colum=
+n-10,.image-width-10-percent{width:10%!important;max-width:10%!important}.m=
+obile-image-column-15,.mobile-text-column-15,.image-width-15-percent{width:=
+15%!important;max-width:15%!important}.mobile-image-column-20,.mobile-text-=
+column-20,.image-width-20-percent{width:20%!important;max-width:20%!importa=
+nt}.mobile-image-column-25,.mobile-text-column-25,.image-width-25-percent{w=
+idth:25%!important;max-width:25%!important}.mobile-image-column-30,.mobile-=
+text-column-30,.image-width-30-percent{width:30%!important;max-width:30%!im=
+portant}.mobile-image-column-35,.mobile-text-column-35,.image-width-35-perc=
+ent{width:35%!important;max-width:35%!important}.mobile-image-column-40,.mo=
+bile-text-column-40,.image-width-40-percent{width:40%!important;max-width:4=
+0%!important}.mobile-image-column-45,.mobile-text-column-45,.image-width-45=
+-percent{width:45%!important;max-width:45%!important}.mobile-image-column-5=
+0,.mobile-text-column-50,.image-width-50-percent{width:50%!important;max-wi=
+dth:50%!important}.mobile-image-column-55,.mobile-text-column-55,.image-wid=
+th-55-percent{width:55%!important;max-width:55%!important}.mobile-image-col=
+umn-60,.mobile-text-column-60,.image-width-60-percent{width:60%!important;m=
+ax-width:60%!important}.mobile-image-column-65,.mobile-text-column-65,.imag=
+e-width-65-percent{width:65%!important;max-width:65%!important}.mobile-imag=
+e-column-70,.mobile-text-column-70,.image-width-70-percent{width:70%!import=
+ant;max-width:70%!important}.mobile-image-column-75,.mobile-text-column-75,=
+.image-width-75-percent{width:75%!important;max-width:75%!important}.mobile=
+-image-column-80,.mobile-text-column-80,.image-width-80-percent{width:80%!i=
+mportant;max-width:80%!important}.mobile-image-column-85,.mobile-text-colum=
+n-85,.image-width-85-percent{width:85%!important;max-width:85%!important}.m=
+obile-image-column-90,.mobile-text-column-90,.image-width-90-percent{width:=
+90%!important;max-width:90%!important}.mobile-image-column-95,.mobile-text-=
+column-95,.image-width-95-percent{width:95%!important;max-width:95%!importa=
+nt}.mobile-stack{width:100%!important;max-width:100%!important;display:bloc=
+k!important}}table{border-collapse:separate}a,a:link,a:visited{text-decorat=
+ion:none;color:#00788a}a:hover{text-decoration:underline}h2,h2 a,h2 a:visit=
+ed,h3,h3 a,h3 a:visited,h4,h5,h6,.t_cht{color:#000!important}.video-wrapper=
+{display:none}@media(-webkit-min-device-pixel-ratio:0) and (min-device-widt=
+h:1024px){.video-wrapper{display:block!important}.video-fallback{display:no=
+ne!important}}@supports(-webkit-overflow-scrolling:touch) and (color:#fffff=
+){div[class^=3Dvideo-wrapper]{display:block!important}div[class^=3Dvideo-fa=
+llback]{display:none!important}}#MessageViewBody .video-wrapper{display:blo=
+ck!important}#MessageViewBody .video-fallback{display:none!important}</styl=
+e> <style type=3D"text/css">@media only screen and (max-width:600px){.mobil=
+e-only{display:block!important}.desktop-only{display:none!important}}</styl=
+e> <style type=3D"text/css">@media only screen and (min-width:601px){.mobil=
+e-only{display:none!important}.desktop-only{display:block!important}}</styl=
+e> </head> <body dir=3D"ltr" style=3D"word-spacing:normal;background-color:=
+#F4F4F4"> <div dir=3D"ltr" style=3D"background-color:#F4F4F4"> <div style=
+=3D"background-color:#F4F4F4;font-size:0px;height:10px;line-height:10px;mso=
+-line-height-rule:exactly">&#8202;</div> <div style=3D"display:none !import=
+ant;visibility:hidden;mso-hide:all;font-size:0;color:#ffffff;line-height:1p=
+x;max-height:0;max-width:0;opacity:0;overflow:hidden;position:fixed;height:=
+0;font-size:0"> LATEST... </div> <div style=3D"display:none !important;visi=
+bility:hidden;mso-hide:all;font-size:0;color:#ffffff;line-height:1px;max-he=
+ight:0;max-width:0;opacity:0;overflow:hidden;position:fixed;height:0;font-s=
+ize:0"> &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#84=
+7;&#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;&#84=
+7; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;&#847; &#8=
+47; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;&#847; &#847; &#=
+847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;&#847; &#847; &#847; &=
+#847; &#847; &#847; &#847; &#847; &#847; &#847;&#847; &#847; &#847; &#847; =
+&#847; &#847; &#847; &#847; &#847; &#847;&#847; &#847; &#847; &#847; &#847;=
+ &#847; &#847; &#847; &#847; &#847;&#847; &#847; &#847; &#847; &#847; &#847=
+; &#847; &#847; &#847; &#847;&#847; &#847; &#847; &#847; &#847; &#847; &#84=
+7; &#847; &#847; &#847;&#847; &#847; &#847; &#847; &#847; &#847; &#847; &#8=
+47; &#847; &#847;&#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#=
+847; &#847;&#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &=
+#847;&#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;&=
+#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;&#847; =
+&#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; </div> <!--[=
+if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" style=3D"width:600px" width=3D"600" bgcolo=
+r=3D"#000"><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+ule:exactly"><![endif]--> <div style=3D"background-color:#000;margin:0px au=
+to;max-width:600px"> <table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"background-color:#000;wid=
+th:100%"> <tbody> <tr> <td style=3D"border:0px;font-size:0px;text-align:cen=
+ter"> <!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td style=3D"vertical-align:top;width:600px"=
+><![endif]--> <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=
+=3D"font-size:0px;text-align:left;display:inline-block;vertical-align:top;w=
+idth:100%"> <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"vertical-align:top" width=3D"100%"> <tbody> <tr> <t=
+d align=3D"left" style=3D"font-size:0px;padding:0px 0px 0px 0px;word-break:=
+break-word"> <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" class=3D"article-image-width" style=3D"border-collapse:co=
+llapse;border-spacing:0px;width:600" width=3D"600"> <tbody> <tr> <td align=
+=3D"left"> <a href=3D"http://sgdbs6pn.r.eu-west-1.awstrack.me/L0/http:%2F%2=
+Funitedinfocus.com%2F/1/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c=
+10-000000/7y9Ls9yLng5VxUbkKd-jjCyZ2eA=3D473" target=3D"_blank" title=3D""> =
+<img alt=3D"" src=3D"https://assets.echobox.com/urn:property:19831/1844c153=
+-23f1-404d-8ebb-b5c26621253f.png" style=3D"border:0;display:block;outline:n=
+one;text-decoration:none;height:auto;width:100%;font-size:13px" title=3D"" =
+width=3D"600" class=3D"image-width-100-percent"/> </a> </td> </tr> </tbody>=
+ </table> </td> </tr> </tbody> </table> </div> <!--[if mso | IE]></td></tr>=
+</table><![endif]--> </td> </tr> </tbody> </table> </div> <!--[if mso | IE]=
+></td></tr></table><![endif]--> <div style=3D"background-color:#F4F4F4;font=
+-size:0px;height:10px;line-height:10px;mso-line-height-rule:exactly">&#8202=
+;</div> <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:600px" width=
+=3D"600" bgcolor=3D"#FFFFFF"><tr><td style=3D"line-height:0px;font-size:0px=
+;mso-line-height-rule:exactly"><![endif]--> <div style=3D"background-color:=
+#FFFFFF;margin:0px auto;max-width:600px"> <table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"back=
+ground-color:#FFFFFF;width:100%"> <tbody> <tr> <td style=3D"border:0px;font=
+-size:0px;padding:25px;text-align:center"> <!--[if mso | IE]><table role=3D=
+"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td sty=
+le=3D"vertical-align:top;width:600px"><![endif]--> <div class=3D"mj-column-=
+per-100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;displa=
+y:inline-block;vertical-align:top;width:100%"> <table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:t=
+op" width=3D"100%"> <tbody class=3D"custom-text-block"> <tr> <td align=3D"l=
+eft" style=3D"font-size:0px;padding:0px;word-break:break-word"> <div style=
+=3D"font-family:Alata, Arial, sans-serif;font-size:18px;font-weight:700;let=
+ter-spacing:0.2px;line-height:24px;text-align:left;color:#222000 !important=
+"> <p><strong>=F0=9F=94=B4 </strong><span style=3D"color: rgb(0,0,0);"><str=
+ong>The Treble Match Recap</strong></span></p> </div> </td> </tr> <tr> <td =
+style=3D"font-size:0px;word-break:break-word"> <div style=3D"height:12px;li=
+ne-height:12px">&#8202;</div> </td> </tr> <tr> <td align=3D"left" style=3D"=
+font-size:0px;padding:0px;word-break:break-word"> <div style=3D"font-family=
+:Alata, Arial, sans-serif;font-size:16px;font-weight:400;letter-spacing:0.2=
+px;line-height:24px;text-align:left;color:#222000 !important"> <p><span sty=
+le=3D"color: rgb(0, 0, 0);">Welcome to another edition of The Treble - Manc=
+hester United had to settle for a draw against Leeds after letting ANOTHER =
+lead slip. But were there actually some positive signs from the performance=
+?</span></p><p><span style=3D"color: rgb(0, 0, 0);">With matches upcoming a=
+gainst Como and Bournemouth, there is plenty to analyse. Take a look at our=
+ latest content on United In Focus...</span></p> </div> </td> </tr> </tbody=
+> </table> </div> <!--[if mso | IE]></td></tr></table><![endif]--> </td> </=
+tr> </tbody> </table> </div> <!--[if mso | IE]></td></tr></table><![endif]-=
+-> <div style=3D"background-color:#F4F4F4;font-size:0px;height:10px;line-he=
+ight:10px;mso-line-height-rule:exactly">&#8202;</div> <!--[if mso | IE]><ta=
+ble align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"width:600px" width=3D"600" bgcolor=3D"#FFFFFF"><=
+tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly"=
+><![endif]--> <div style=3D"background-color:#FFFFFF;margin:0px auto;max-wi=
+dth:600px"> <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"background-color:#FFFFFF;width:100=
+%"> <tbody> <tr> <td style=3D"border:0px;font-size:0px;padding:0px;text-ali=
+gn:center"> <!--[if mso | IE]><table role=3D"presentation" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"vertical-align:top;width:=
+600px"><![endif]--> <div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;display:inline-block;vertical-align:t=
+op;width:100%"> <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"vertical-align:top" width=3D"100%"> <tbody> <tr=
+> <td align=3D"center" style=3D"font-size:0px;padding:10px 25px 10px 25px;w=
+ord-break:break-word"> <table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:=
+0px"> <tbody> <tr> <td style=3D"width:550.0px"> <a href=3D"https://sgdbs6pn=
+.r.eu-west-1.awstrack.me/L0/https:%2F%2Fwww.unitedinfocus.com%2Fnews%2Fgary=
+-neville-found-it-significant-what-man-utd-fans-did-at-full-time-at-elland-=
+road%2F%3Futm_campaign=3Dthe-treble-match-recap%26utm_medium=3Demail%26utm_=
+edition=3D202610190854%26utm_source=3Dnewsletter/1/010201a15360a52c-685b318=
+a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/In2FSmFBgL-CFSWH6anxq7oAH2s=3D473" tar=
+get=3D"_blank"> <img src=3D"https://cdn1.unitedinfocus.com/uploads/14/2026/=
+09/GettyImages-2274545303-scaled.jpg" style=3D"border:0;display:block;outli=
+ne:none;text-decoration:none;height:auto;width:100%;font-size:13px" width=
+=3D"550.0"/> </a> </td> </tr> </tbody> </table> </td> </tr> <tr> <td align=
+=3D"center" style=3D"font-size:0px;padding:10px 25px 10px 25px;word-break:b=
+reak-word" height=3D""> <div style=3D"font-family:Alata, Arial, sans-serif;=
+font-size:18px;font-style:normal;font-weight:700;letter-spacing:0.2px;line-=
+height:24px;text-align:center;color:#000000 !important"> <a class=3D"link-n=
+o-style" href=3D"https://sgdbs6pn.r.eu-west-1.awstrack.me/L0/https:%2F%2Fww=
+w.unitedinfocus.com%2Fnews%2Fgary-neville-found-it-significant-what-man-utd=
+-fans-did-at-full-time-at-elland-road%2F%3Futm_campaign=3Dthe-treble-match-=
+recap%26utm_medium=3Demail%26utm_edition=3D202610190854%26utm_source=3Dnews=
+letter/2/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/f0yNR=
+qYeMbh8P_PtmdHcdn2QzdQ=3D473" target=3D"_blank" style=3D"text-decoration:no=
+ne;color:#000000">Gary Neville found it significant what Man Utd fans did a=
+t full-time at Elland Road</a> </div> </td> </tr> <tr> <td align=3D"center"=
+ style=3D"font-size:0px;padding:10px 25px 10px 25px;word-break:break-word">=
+ <div style=3D"font-family:Alata, Arial, sans-serif;font-size:14px;font-sty=
+le:normal;font-weight:400;letter-spacing:0.2px;line-height:24px;text-align:=
+center;color:#000000 !important"> <span>Gary Neville found it significant w=
+hat Man Utd fans did at full-time at Elland Road</span> </div> </td> </tr> =
+<tr> <td align=3D"center" style=3D"font-size:0px;padding:10px 25px 10px 25p=
+x;word-break:break-word"> <div style=3D"font-family:Alata, Arial, sans-seri=
+f;font-size:14px;font-style:normal;font-weight:700;letter-spacing:0.2px;lin=
+e-height:24px;text-align:center;text-decoration:underline !important;color:=
+#941010 !important"> <a class=3D"link-no-style" href=3D"https://sgdbs6pn.r.=
+eu-west-1.awstrack.me/L0/https:%2F%2Fwww.unitedinfocus.com%2Fnews%2Fgary-ne=
+ville-found-it-significant-what-man-utd-fans-did-at-full-time-at-elland-roa=
+d%2F%3Futm_campaign=3Dthe-treble-match-recap%26utm_medium=3Demail%26utm_edi=
+tion=3D202610190854%26utm_source=3Dnewsletter/3/010201a15360a52c-685b318a-d=
+7f8-45e8-ba6f-5ef6e3e39c10-000000/QzUeH-uR4ar5X9RikJ02hgwf3TI=3D473" target=
+=3D"_blank" style=3D"text-decoration:underline !important;color:#941010"> R=
+ead More </a> </div> </td> </tr> </tbody> </table> </div> <!--[if mso | IE]=
+></td></tr></table><![endif]--> </td> </tr> </tbody> </table> </div> <!--[i=
+f mso | IE]></td></tr></table><![endif]--> <div style=3D"background-color:#=
+F4F4F4;font-size:0px;height:10px;line-height:10px;mso-line-height-rule:exac=
+tly">&#8202;</div> <!--[if mso | IE]><table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:600=
+px" width=3D"600" bgcolor=3D"#FFFFFF"><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly"><![endif]--> <div style=3D"backgrou=
+nd-color:#FFFFFF;margin:0px auto;max-width:600px"> <table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"background-color:#FFFFFF;width:100%"> <tbody> <tr> <td style=3D"border=
+:0px;font-size:0px;text-align:center"> <!--[if mso | IE]><table role=3D"pre=
+sentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=
+=3D"vertical-align:top;width:600px"><![endif]--> <div class=3D"mj-column-pe=
+r-100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;display:=
+inline-block;vertical-align:top;width:100%"> <table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top=
+" width=3D"100%"> <tbody> <tr> <td align=3D"center" style=3D"font-size:0px;=
+padding:0px 0px 0px 0px;word-break:break-word"> <table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"article-image-w=
+idth" style=3D"border-collapse:collapse;border-spacing:0px;width:600" width=
+=3D"600"> <tbody> <tr> <td align=3D"center"> <a href=3D"https://sgdbs6pn.r.=
+eu-west-1.awstrack.me/L0/https:%2F%2Ftalkingpoints.live%2Flauncher%3Freferr=
+er=3Dmanchester-united_uif_email-eb-mid-banner/1/010201a15360a52c-685b318a-=
+d7f8-45e8-ba6f-5ef6e3e39c10-000000/eg1PU4ljd3bO105ZrtUS5CIGkxg=3D473" targe=
+t=3D"_blank" title=3D""> <img alt=3D"" src=3D"https://assets.echobox.com/ur=
+n:property:19831/ca51db89-bda7-43f4-bd43-995f74e18e57.png" style=3D"border:=
+0;display:block;outline:none;text-decoration:none;height:auto;width:100%;fo=
+nt-size:13px" title=3D"" width=3D"600" class=3D"image-width-100-percent"/> =
+</a> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> </div> <!-=
+-[if mso | IE]></td></tr></table><![endif]--> </td> </tr> </tbody> </table>=
+ </div> <!--[if mso | IE]></td></tr></table><![endif]--> <div style=3D"back=
+ground-color:#F4F4F4;font-size:0px;height:10px;line-height:10px;mso-line-he=
+ight-rule:exactly">&#8202;</div> <!--[if mso | IE]><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"width:600px" width=3D"600" bgcolor=3D"#FFFFFF"><tr><td style=3D"line-h=
+eight:0px;font-size:0px;mso-line-height-rule:exactly"><![endif]--> <div sty=
+le=3D"background-color:#FFFFFF;margin:0px auto;max-width:600px"> <table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"background-color:#FFFFFF;width:100%"> <tbody> <tr> <td s=
+tyle=3D"border:0px;font-size:0px;padding:0px;text-align:center"> <!--[if ms=
+o | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0"><tr><td style=3D"vertical-align:top;width:600px"><![endif]--> <d=
+iv class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0px;=
+text-align:left;display:inline-block;vertical-align:top;width:100%"> <table=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"vertical-align:top" width=3D"100%"> <tbody> <tr> <td align=3D"center"=
+ colspan=3D"1" style=3D"font-size:0px;padding:10px 25px 10px 25px;word-brea=
+k:break-word"> <div style=3D"font-family:Alata, Arial, sans-serif;font-size=
+:18px;font-style:normal;font-weight:700;letter-spacing:0.2px;line-height:24=
+px;text-align:center;color:#000000 !important"> <span>=F0=9F=97=9E=EF=B8=8F=
+ YOU MAY ALSO LIKE</span> </div> </td> </tr> <tr> <td align=3D"center" cols=
+pan=3D"1" style=3D"font-size:0px;padding:10px 25px 10px 25px;padding-top:0p=
+x;padding-bottom:0px;word-break:break-word"> <p style=3D"border-top:solid 1=
+px #EAEAEA;font-size:1px;margin:0px auto;width:100%"></p> <!--[if mso | IE]=
+><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"border-top:solid 1px #EAEAEA;font-size:1px;margin:0px auto;width:55=
+0.0px" role=3D"presentation" width=3D"550.0px"><tr><td style=3D"height:0;li=
+ne-height:0">&nbsp;</td></tr></table><![endif]--> </td> </tr> </tbody> </ta=
+ble> </div> <!--[if mso | IE]></td></tr></table><![endif]--> </td> </tr> </=
+tbody> </table> </div> <!--[if mso | IE]></td></tr></table><![endif]--> <!-=
+-[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"width:600px" width=3D"600" bgco=
+lor=3D"#FFFFFF"><tr><td style=3D"line-height:0px;font-size:0px;mso-line-hei=
+ght-rule:exactly"><![endif]--> <div style=3D"background-color:#FFFFFF;margi=
+n:0px auto;max-width:600px"> <table align=3D"center" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background-color:=
+#FFFFFF;width:100%"> <tbody> <tr> <td style=3D"border:0px;font-size:0px;pad=
+ding:0px;text-align:center"> <!--[if mso | IE]><table role=3D"presentation"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"vertical=
+-align:top;width:600px"><![endif]--> <div class=3D"mj-column-per-100 mj-out=
+look-group-fix" style=3D"font-size:0px;text-align:left;display:inline-block=
+;vertical-align:top;width:100%"> <table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"vertical-align:top" width=3D"1=
+00%"> <tbody> <tr> <td align=3D"center" style=3D"font-size:0px;padding:10px=
+ 25px 10px 25px;word-break:break-word"> <table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collaps=
+e;border-spacing:0px"> <tbody> <tr> <td style=3D"width:550.0px"> <a href=3D=
+"https://sgdbs6pn.r.eu-west-1.awstrack.me/L0/https:%2F%2Fwww.unitedinfocus.=
+com%2Fmatch-coverage%2Fman-utd-vs-leeds-player-ratings-baleba-shines-again-=
+but-4-10-star-is-powering-carricks-sacking%2F%3Futm_campaign=3Dthe-treble-m=
+atch-recap%26utm_edition=3D202610190854%26utm_medium=3Demail%26utm_source=
+=3Dnewsletter/1/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-00000=
+0/_IDviN2KADOBoNds3_cYQRTIj5U=3D473" target=3D"_blank"> <img src=3D"https:/=
+/cdn1.unitedinfocus.com/uploads/14/2026/10/GettyImages-2300811694-1-scaled.=
+jpg" style=3D"border:0;display:block;outline:none;text-decoration:none;heig=
+ht:auto;width:100%;font-size:13px" width=3D"550.0"/> </a> </td> </tr> </tbo=
+dy> </table> </td> </tr> <tr> <td align=3D"center" style=3D"font-size:0px;p=
+adding:10px 25px 10px 25px;word-break:break-word" height=3D""> <div style=
+=3D"font-family:Alata, Arial, sans-serif;font-size:18px;font-style:normal;f=
+ont-weight:700;letter-spacing:0.2px;line-height:24px;text-align:center;colo=
+r:#000000 !important"> <a class=3D"link-no-style" href=3D"https://sgdbs6pn.=
+r.eu-west-1.awstrack.me/L0/https:%2F%2Fwww.unitedinfocus.com%2Fmatch-covera=
+ge%2Fman-utd-vs-leeds-player-ratings-baleba-shines-again-but-4-10-star-is-p=
+owering-carricks-sacking%2F%3Futm_campaign=3Dthe-treble-match-recap%26utm_e=
+dition=3D202610190854%26utm_medium=3Demail%26utm_source=3Dnewsletter/2/0102=
+01a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/fOZRsBoLAoiBadtfL1=
+vBIU5QRAk=3D473" target=3D"_blank" style=3D"text-decoration:none;color:#000=
+000">Man Utd vs Leeds player ratings, Baleba shines again but 4/10 star is =
+powering Carrick's sacking</a> </div> </td> </tr> </tbody> </table> </div> =
+<!--[if mso | IE]></td></tr></table><![endif]--> </td> </tr> </tbody> </tab=
+le> </div> <!--[if mso | IE]></td></tr></table><![endif]--> <!--[if mso | I=
+E]><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"width:600px" width=3D"600" bgcolor=3D"#FFFF=
+FF"><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exa=
+ctly"><![endif]--> <div style=3D"background-color:#FFFFFF;margin:0px auto;m=
+ax-width:600px"> <table align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"background-color:#FFFFFF;widt=
+h:100%"> <tbody> <tr> <td style=3D"border:0px;font-size:0px;padding:0px 12.=
+5px;text-align:center"> <!--[if mso | IE]><table role=3D"presentation" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--> <!--[if mso |=
+ IE]><td style=3D"vertical-align:top;width:275.0px"><![endif]--> <div class=
+=3D"mj-column-per-50 mj-outlook-group-fix mobile-stack" style=3D"font-size:=
+0px;text-align:left;display:inline-block;vertical-align:top;width:50%"> <ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+style=3D"vertical-align:top" width=3D"100%"> <tbody> <tr> <td align=3D"cent=
+er" style=3D"font-size:0px;padding:10px 12px 10px 12px;word-break:break-wor=
+d"> <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"present=
+ation" style=3D"border-collapse:collapse;border-spacing:0px"> <tbody> <tr> =
+<td class=3D"article-image-width article-image-top" style=3D"width:200px" w=
+idth=3D"200"> <a href=3D"https://sgdbs6pn.r.eu-west-1.awstrack.me/L0/https:=
+%2F%2Fwww.unitedinfocus.com%2Fnews%2Fcarlos-baleba-sends-message-to-manches=
+ter-united-fans-after-1-1-draw-vs-leeds%2F%3Futm_campaign=3Dthe-treble-matc=
+h-recap%26utm_edition=3D202610190854%26utm_medium=3Demail%26utm_source=3Dne=
+wsletter/1/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/-AN=
+l019LjbkYTsvojsAONxOqbDw=3D473" target=3D"_blank"> <img src=3D"https://cdn1=
+.unitedinfocus.com/uploads/14/2026/10/GettyImages-2300795460-scaled.jpg" st=
+yle=3D"border:0;display:block;outline:none;text-decoration:none;height:auto=
+;width:100%;font-size:13px" width=3D"200"/> </a> </td> </tr> </tbody> </tab=
+le> </td> </tr> <tr> <td align=3D"center" style=3D"font-size:0px;padding:10=
+px 12px 10px 12px;word-break:break-word" height=3D""> <div style=3D"font-fa=
+mily:Alata, Arial, sans-serif;font-size:18px;font-style:normal;font-weight:=
+700;letter-spacing:0.2px;line-height:24px;text-align:center;color:#000000 !=
+important"> <a class=3D"link-no-style" href=3D"https://sgdbs6pn.r.eu-west-1=
+.awstrack.me/L0/https:%2F%2Fwww.unitedinfocus.com%2Fnews%2Fcarlos-baleba-se=
+nds-message-to-manchester-united-fans-after-1-1-draw-vs-leeds%2F%3Futm_camp=
+aign=3Dthe-treble-match-recap%26utm_edition=3D202610190854%26utm_medium=3De=
+mail%26utm_source=3Dnewsletter/2/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5=
+ef6e3e39c10-000000/PxUkLGTaZ148nZjQID5VN1EV2SU=3D473" target=3D"_blank" sty=
+le=3D"text-decoration:none;color:#000000">Carlos Baleba sends message to Ma=
+nchester United fans after 1-1 draw vs Leeds</a> </div> </td> </tr> </tbody=
+> </table> </div> <!--[if mso | IE]></td><![endif]--> <!--[if mso | IE]><td=
+ style=3D"vertical-align:top;width:275.0px"><![endif]--> <div class=3D"mj-c=
+olumn-per-50 mj-outlook-group-fix mobile-stack" style=3D"font-size:0px;text=
+-align:left;display:inline-block;vertical-align:top;width:50%"> <table bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"vertical-align:top" width=3D"100%"> <tbody> <tr> <td align=3D"center" styl=
+e=3D"font-size:0px;padding:10px 12px 10px 12px;word-break:break-word"> <tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" s=
+tyle=3D"border-collapse:collapse;border-spacing:0px"> <tbody> <tr> <td clas=
+s=3D"article-image-width article-image-top" style=3D"width:200px" width=3D"=
+200"> <a href=3D"https://sgdbs6pn.r.eu-west-1.awstrack.me/L0/https:%2F%2Fww=
+w.unitedinfocus.com%2Fopinion%2Fcarricks-lacey-decision-is-puzzling-but-his=
+-wonderkid-teammate-is-being-completely-ignored%2F%3Futm_campaign=3Dthe-tre=
+ble-match-recap%26utm_medium=3Demail%26utm_edition=3D202610190854%26utm_sou=
+rce=3Dnewsletter/1/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-00=
+0000/Wj-KKA80Ck9CCUF0Z4exVycwZVc=3D473" target=3D"_blank"> <img src=3D"http=
+s://cdn1.unitedinfocus.com/uploads/14/2026/10/GettyImages-2295580008-1200x6=
+75.jpg" style=3D"border:0;display:block;outline:none;text-decoration:none;h=
+eight:auto;width:100%;font-size:13px" width=3D"200"/> </a> </td> </tr> </tb=
+ody> </table> </td> </tr> <tr> <td align=3D"center" style=3D"font-size:0px;=
+padding:10px 12px 10px 12px;word-break:break-word" height=3D""> <div style=
+=3D"font-family:Alata, Arial, sans-serif;font-size:18px;font-style:normal;f=
+ont-weight:700;letter-spacing:0.2px;line-height:24px;text-align:center;colo=
+r:#000000 !important"> <a class=3D"link-no-style" href=3D"https://sgdbs6pn.=
+r.eu-west-1.awstrack.me/L0/https:%2F%2Fwww.unitedinfocus.com%2Fopinion%2Fca=
+rricks-lacey-decision-is-puzzling-but-his-wonderkid-teammate-is-being-compl=
+etely-ignored%2F%3Futm_campaign=3Dthe-treble-match-recap%26utm_medium=3Dema=
+il%26utm_edition=3D202610190854%26utm_source=3Dnewsletter/2/010201a15360a52=
+c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/mYgX6eZUxtPDyANDd461Yb_7c4I=
+=3D473" target=3D"_blank" style=3D"text-decoration:none;color:#000000">Carr=
+ick=E2=80=99s Lacey decision is puzzling but his wonderkid teammate is bein=
+g completely ignored</a> </div> </td> </tr> </tbody> </table> </div> <!--[i=
+f mso | IE]></td><![endif]--> <!--[if mso | IE]></tr></table><![endif]--> <=
+/td> </tr> </tbody> </table> </div> <!--[if mso | IE]></td></tr></table><![=
+endif]--> <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:600px" width=
+=3D"600" bgcolor=3D"#FFFFFF"><tr><td style=3D"line-height:0px;font-size:0px=
+;mso-line-height-rule:exactly"><![endif]--> <div style=3D"background-color:=
+#FFFFFF;margin:0px auto;max-width:600px"> <table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"back=
+ground-color:#FFFFFF;width:100%"> <tbody> <tr> <td style=3D"border:0px;font=
+-size:0px;padding:0px 12.5px;text-align:center"> <!--[if mso | IE]><table r=
+ole=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><=
+![endif]--> <!--[if mso | IE]><td style=3D"vertical-align:top;width:275.0px=
+"><![endif]--> <div class=3D"mj-column-per-50 mj-outlook-group-fix mobile-s=
+tack" style=3D"font-size:0px;text-align:left;display:inline-block;vertical-=
+align:top;width:50%"> <table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"vertical-align:top" width=3D"100%"> <tbod=
+y> <tr> <td align=3D"center" style=3D"font-size:0px;padding:10px 12px 10px =
+12px;word-break:break-word"> <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;border-sp=
+acing:0px"> <tbody> <tr> <td class=3D"article-image-width article-image-top=
+" style=3D"width:200px" width=3D"200"> <a href=3D"https://sgdbs6pn.r.eu-wes=
+t-1.awstrack.me/L0/https:%2F%2Fwww.unitedinfocus.com%2Fopinion%2Fforget-fer=
+nandes-man-utd-have-a-new-untouchable-who-carrick-is-trying-to-keep-fit-at-=
+all-costs%2F%3Futm_campaign=3Dthe-treble-match-recap%26utm_medium=3Demail%2=
+6utm_edition=3D202610190854%26utm_source=3Dnewsletter/1/010201a15360a52c-68=
+5b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/YUN5YVD-FJ-tU7LxKgNMlO2eC5o=3D473=
+" target=3D"_blank"> <img src=3D"https://cdn1.unitedinfocus.com/uploads/14/=
+2026/10/GettyImages-2298994625-1200x675.jpg" style=3D"border:0;display:bloc=
+k;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px" =
+width=3D"200"/> </a> </td> </tr> </tbody> </table> </td> </tr> <tr> <td ali=
+gn=3D"center" style=3D"font-size:0px;padding:10px 12px 10px 12px;word-break=
+:break-word" height=3D""> <div style=3D"font-family:Alata, Arial, sans-seri=
+f;font-size:18px;font-style:normal;font-weight:700;letter-spacing:0.2px;lin=
+e-height:24px;text-align:center;color:#000000 !important"> <a class=3D"link=
+-no-style" href=3D"https://sgdbs6pn.r.eu-west-1.awstrack.me/L0/https:%2F%2F=
+www.unitedinfocus.com%2Fopinion%2Fforget-fernandes-man-utd-have-a-new-untou=
+chable-who-carrick-is-trying-to-keep-fit-at-all-costs%2F%3Futm_campaign=3Dt=
+he-treble-match-recap%26utm_medium=3Demail%26utm_edition=3D202610190854%26u=
+tm_source=3Dnewsletter/2/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39=
+c10-000000/RyOCXYmvSDdq-jsIN7nRS6RB6X4=3D473" target=3D"_blank" style=3D"te=
+xt-decoration:none;color:#000000">Forget Fernandes, Man Utd have a new unto=
+uchable who Carrick is trying to keep fit at all costs</a> </div> </td> </t=
+r> </tbody> </table> </div> <!--[if mso | IE]></td><![endif]--> <!--[if mso=
+ | IE]><td style=3D"vertical-align:top;width:275.0px"><![endif]--> <div cla=
+ss=3D"mj-column-per-50 mj-outlook-group-fix mobile-stack" style=3D"font-siz=
+e:0px;text-align:left;display:inline-block;vertical-align:top;width:50%"> <=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" style=3D"vertical-align:top" width=3D"100%"> <tbody> <tr> <td align=3D"ce=
+nter" style=3D"font-size:0px;padding:10px 12px 10px 12px;word-break:break-w=
+ord"> <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px"> <tbody> <tr=
+> <td class=3D"article-image-width article-image-top" style=3D"width:200px"=
+ width=3D"200"> <a href=3D"https://sgdbs6pn.r.eu-west-1.awstrack.me/L0/http=
+s:%2F%2Fwww.unitedinfocus.com%2Fnews%2Fharry-maguire-on-what-fans-cannot-qu=
+estion-about-uniteds-performance-vs-leeds%2F%3Futm_campaign=3Dthe-treble-ma=
+tch-recap%26utm_edition=3D202610190854%26utm_medium=3Demail%26utm_source=3D=
+newsletter/1/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/L=
+xcrZh9XIVjXvkKRzDyWIuVopso=3D473" target=3D"_blank"> <img src=3D"https://cd=
+n1.unitedinfocus.com/uploads/14/2026/10/GettyImages-2300820803-scaled.jpg" =
+style=3D"border:0;display:block;outline:none;text-decoration:none;height:au=
+to;width:100%;font-size:13px" width=3D"200"/> </a> </td> </tr> </tbody> </t=
+able> </td> </tr> <tr> <td align=3D"center" style=3D"font-size:0px;padding:=
+10px 12px 10px 12px;word-break:break-word" height=3D""> <div style=3D"font-=
+family:Alata, Arial, sans-serif;font-size:18px;font-style:normal;font-weigh=
+t:700;letter-spacing:0.2px;line-height:24px;text-align:center;color:#000000=
+ !important"> <a class=3D"link-no-style" href=3D"https://sgdbs6pn.r.eu-west=
+-1.awstrack.me/L0/https:%2F%2Fwww.unitedinfocus.com%2Fnews%2Fharry-maguire-=
+on-what-fans-cannot-question-about-uniteds-performance-vs-leeds%2F%3Futm_ca=
+mpaign=3Dthe-treble-match-recap%26utm_edition=3D202610190854%26utm_medium=
+=3Demail%26utm_source=3Dnewsletter/2/010201a15360a52c-685b318a-d7f8-45e8-ba=
+6f-5ef6e3e39c10-000000/I-2NL0k3BXu8atJAMpd0eTqa8Ww=3D473" target=3D"_blank"=
+ style=3D"text-decoration:none;color:#000000">Harry Maguire on what fans 'c=
+annot question' about United's performance vs Leeds</a> </div> </td> </tr> =
+</tbody> </table> </div> <!--[if mso | IE]></td><![endif]--> <!--[if mso | =
+IE]></tr></table><![endif]--> </td> </tr> </tbody> </table> </div> <!--[if =
+mso | IE]></td></tr></table><![endif]--> <div style=3D"background-color:#F4=
+F4F4;font-size:0px;height:10px;line-height:10px;mso-line-height-rule:exactl=
+y">&#8202;</div> <!--[if mso | IE]><table align=3D"center" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:600px=
+" width=3D"600" bgcolor=3D"#FFFFFF"><tr><td style=3D"line-height:0px;font-s=
+ize:0px;mso-line-height-rule:exactly"><![endif]--> <div style=3D"background=
+-color:#FFFFFF;margin:0px auto;max-width:600px"> <table align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background-color:#FFFFFF;width:100%"> <tbody> <tr> <td style=3D"border:=
+0px;font-size:0px;text-align:center"> <!--[if mso | IE]><table role=3D"pres=
+entation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D=
+"vertical-align:top;width:600px"><![endif]--> <div class=3D"mj-column-per-1=
+00 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;display:inl=
+ine-block;vertical-align:top;width:100%"> <table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top"=
+ width=3D"100%"> <tbody> <tr> <td align=3D"center" style=3D"font-size:0px;p=
+adding:0px 0px 0px 0px;word-break:break-word"> <table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" class=3D"article-image-wi=
+dth" style=3D"border-collapse:collapse;border-spacing:0px;width:600" width=
+=3D"600"> <tbody> <tr> <td align=3D"center" class=3D"article-image-width"> =
+<img alt=3D"" src=3D"https://assets.echobox.com/urn:property:19831/0a245b31=
+-8ced-43e9-88ce-2cf4583348ab.png" style=3D"border:0;display:block;outline:n=
+one;text-decoration:none;height:auto;width:100%;font-size:13px" title=3D"" =
+width=3D"600" class=3D"image-width-100-percent"/> </td> </tr> </tbody> </ta=
+ble> </td> </tr> </tbody> </table> </div> <!--[if mso | IE]></td></tr></tab=
+le><![endif]--> </td> </tr> </tbody> </table> </div> <!--[if mso | IE]></td=
+></tr></table><![endif]--> <!--[if mso | IE]><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"w=
+idth:600px" width=3D"600" bgcolor=3D"#000"><tr><td style=3D"line-height:0px=
+;font-size:0px;mso-line-height-rule:exactly"><![endif]--> <div style=3D"bac=
+kground-color:#000;margin:0px auto;max-width:600px"> <table align=3D"center=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" st=
+yle=3D"background-color:#000;width:100%"> <tbody> <tr> <td style=3D"border:=
+0px;font-size:0px;padding:0px;text-align:center"> <!--[if mso | IE]><table =
+role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td style=3D"vertical-align:top;width:600px"><![endif]--> <div class=3D"mj-=
+column-per-100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:cent=
+er;display:inline-block;vertical-align:top;width:100%"> <table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertica=
+l-align:top" width=3D"100%"> <tbody> <tr> <td align=3D"center" style=3D"fon=
+t-size:0px;padding:10px 25px 10px 25px;word-break:break-word"> <table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+vertical-align:top"> <tbody> <tr> <td width=3D"32" style=3D"width:32px;font=
+-size:0px;padding:0px;word-break:break-word"> <a href=3D"https://sgdbs6pn.r=
+.eu-west-1.awstrack.me/L0/https:%2F%2Fwww.facebook.com%2FUnitedInFocus/1/01=
+0201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/QyxZxWdNZPJ5adRK=
+noxLjgEMBfQ=3D473" target=3D"_blank" title=3D"Facebook"> <img alt=3D"Facebo=
+ok" src=3D"https://cdn1.67hailhail.com/uploads/18/2025/10/Facebook-1.png" s=
+tyle=3D"border:0;display:block;outline:none;text-decoration:none;height:aut=
+o;width:32px;font-size:13px" title=3D"Facebook" width=3D"32"/> </a> </td> <=
+td width=3D"32" style=3D"font-size:0px;padding:0px;word-break:break-word;wi=
+dth:12px"></td> <td width=3D"32" style=3D"width:32px;font-size:0px;padding:=
+0px;word-break:break-word"> <a href=3D"https://sgdbs6pn.r.eu-west-1.awstrac=
+k.me/L0/https:%2F%2Fx.com%2Funitedinfocus/1/010201a15360a52c-685b318a-d7f8-=
+45e8-ba6f-5ef6e3e39c10-000000/mI53cndjChd5qmRJ0zankv8C47c=3D473" target=3D"=
+_blank" title=3D"X"> <img alt=3D"X" src=3D"https://cdn1.67hailhail.com/uplo=
+ads/18/2025/10/X-1.png" style=3D"border:0;display:block;outline:none;text-d=
+ecoration:none;height:auto;width:32px;font-size:13px" title=3D"X" width=3D"=
+32"/> </a> </td> <td width=3D"32" style=3D"font-size:0px;padding:0px;word-b=
+reak:break-word;width:12px"></td> <td width=3D"32" style=3D"width:32px;font=
+-size:0px;padding:0px;word-break:break-word"> <a href=3D"https://sgdbs6pn.r=
+.eu-west-1.awstrack.me/L0/https:%2F%2Fbsky.app%2Fprofile%2Funitedinfocus.co=
+m/1/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/GhmemVrYCm=
+z6oX5Mqf2tfUHkoak=3D473" target=3D"_blank" title=3D"Bluesky"> <img alt=3D"B=
+luesky" src=3D"https://cdn1.67hailhail.com/uploads/18/2025/10/Bluesky.png" =
+style=3D"border:0;display:block;outline:none;text-decoration:none;height:au=
+to;width:32px;font-size:13px" title=3D"Bluesky" width=3D"32"/> </a> </td> <=
+td width=3D"32" style=3D"font-size:0px;padding:0px;word-break:break-word;wi=
+dth:12px"></td> <td width=3D"32" style=3D"width:32px;font-size:0px;padding:=
+0px;word-break:break-word"> <a href=3D"https://sgdbs6pn.r.eu-west-1.awstrac=
+k.me/L0/https:%2F%2Fnews.google.com%2Fpublications%2FCAAqLQgKIidDQklTRndnTW=
+FoTUtFWFZ1YVhSbFpHbHVabTlqZFhNdVkyOXRLQUFQAQ%3Fhl=3Den-GB%26gl=3DGB%26ceid=
+=3DGB:en/1/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/uGS=
+iJDA7e4d1jOfUPZ-2CMEHEvw=3D473" target=3D"_blank" title=3D"Google News"> <i=
+mg alt=3D"Google News" src=3D"https://cdn1.67hailhail.com/uploads/18/2025/1=
+0/GoogleNews.png" style=3D"border:0;display:block;outline:none;text-decorat=
+ion:none;height:auto;width:32px;font-size:13px" title=3D"Google News" width=
+=3D"32"/> </a> </td> </tr> </tbody> </table> </td> </tr> </tbody> </table> =
+</div> <!--[if mso | IE]></td></tr></table><![endif]--> </td> </tr> </tbody=
+> </table> </div> <!--[if mso | IE]></td></tr></table><![endif]--> <!--[if =
+mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:600px" width=3D"600" bgcolor=
+=3D"#000000"><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height=
+-rule:exactly"><![endif]--> <div style=3D"background-color:#000000;margin:0=
+px auto;max-width:600px"> <table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background-color:#0=
+00000;width:100%"> <tbody> <tr> <td style=3D"border:0px;font-size:0px;paddi=
+ng:0px;text-align:center"> <!--[if mso | IE]><table role=3D"presentation" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"vertical-a=
+lign:top;width:600px"><![endif]--> <div class=3D"mj-column-per-100 mj-outlo=
+ok-group-fix" style=3D"font-size:0px;text-align:center;display:inline-block=
+;vertical-align:top;width:100%"> <table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"vertical-align:top" width=3D"1=
+00%"> <tbody> <tr> <td align=3D"center" style=3D"font-size:0px;padding:10px=
+ 25px 10px 25px;word-break:break-word"> <div style=3D"font-size:0px;line-he=
+ight:0px;text-align:center"> <span style=3D"display:inline-block;white-spac=
+e:nowrap;;font-family:Alata, Arial, sans-serif;font-size:14px;line-height:2=
+4px;color:#FFf !important"> <a href=3D"https://sgdbs6pn.r.eu-west-1.awstrac=
+k.me/L0/https:%2F%2Fsubscribe.campaign-list.com%2Fv1%2Fpublic%2Fcampaigns%2=
+Funsubscribe%3FcampaignURN=3Durn:newsletter:campaign:34ad3246-54ca-4078-967=
+0-354a962e8265%26email=3Dmike.mcconigley@gmail.com/1/010201a15360a52c-685b3=
+18a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/INYY1-V5RfZEpVTrPQPYqGy9KpQ=3D473" t=
+arget=3D"_blank" title=3D"Unsubscribe" style=3D"display:inline-block;white-=
+space:nowrap;padding:0 6px;font-family:Alata, Arial, sans-serif;font-size:1=
+4px;font-style:normal;font-weight:400.0;letter-spacing:0.2px;line-height:24=
+px;color:#FFf;text-decoration:none">Unsubscribe</a> </span> <span style=3D"=
+display:inline-block;white-space:nowrap;;font-family:Alata, Arial, sans-ser=
+if;font-size:14px;line-height:24px;color:#FFf !important"> <span style=3D"d=
+isplay:inline-block;white-space:nowrap;font-family:Alata, Arial, sans-serif=
+;font-size:14px;line-height:24px;color:#FFf !important">|</span> <a href=3D=
+"https://sgdbs6pn.r.eu-west-1.awstrack.me/L0/https:%2F%2Fsubscribe.campaign=
+-list.com%2Fv1%2Fpublic%2Fcampaigns%2Funsubscribe%3FcampaignURN=3Durn:newsl=
+etter:campaign:a9c8b1ee-2466-4914-acf3-4a135002316d%26email=3Dmike.mcconigl=
+ey@gmail.com/1/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000=
+/XL6m9CQvOVHBE5U18S-L3NNvXlU=3D473" target=3D"_blank" title=3D"Unsubscribe =
+From All" style=3D"display:inline-block;white-space:nowrap;padding:0 6px;fo=
+nt-family:Alata, Arial, sans-serif;font-size:14px;font-style:normal;font-we=
+ight:400.0;letter-spacing:0.2px;line-height:24px;color:#FFf;text-decoration=
+:none">Unsubscribe From All</a> </span> <span style=3D"display:inline-block=
+;white-space:nowrap;;font-family:Alata, Arial, sans-serif;font-size:14px;li=
+ne-height:24px;color:#FFf !important"> <span style=3D"display:inline-block;=
+white-space:nowrap;font-family:Alata, Arial, sans-serif;font-size:14px;line=
+-height:24px;color:#FFf !important">|</span> <a href=3D"https://sgdbs6pn.r.=
+eu-west-1.awstrack.me/L0/https:%2F%2Fview-mail.echobox.com%2Fviewinbrowser%=
+3Ftoken=3DeyJraWQiOiJ2MSIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJwc=
+m9kLmVtYWlsLnNlcnZpY2UuZWNob2JveC5jb20iLCJjdXN0b206a2V5IjoiMzRhZDMyNDYtNTRj=
+YS00MDc4LTk2NzAtMzU0YTk2MmU4MjY1L2JiMWE4ZGVkLTMxZDktNGM2Mi05ZTBiLWMwYTFmMGI=
+zZTc5Ny83YjU1OWE0Zi0zZjMxLTQxNDgtOTYyYS1lODI2ZjRjODI5YzUvcmVjaXBpZW50cy5wYX=
+JxdWV0LmVtYWlsX3NlcnZpY2UiLCJleHAiOjE3OTQ5OTIyMDMsImN1c3RvbTpidWNrZXQiOiJlY=
+2hvYm94LWVtYWlsLXNlcnZpY2UtbWFzdGVyLXNlbmQiLCJpYXQiOjE3OTI0MDAyMDMsImVtYWls=
+IjoibWlrZS5tY2NvbmlnbGV5QGdtYWlsLmNvbSJ9.Os5XUHbmGOwqsRsowH9z6baTWIN7AzG2qR=
+3XAnDyuPOuBypwmdiZBCFNcywr__LOgtEFI8INaD37SKlAI8Fb22td1GgMp-RP5njCHCdA0cyqa=
+mt7aMW_bEunx3AaRudntCMbD-fr3GpIRlkalSzOMjI13FbNUue-Brv_Yi3efyBiH8S5SabH-nO6=
+RDfmsUnvpRJ_bznBUtxiGHF6kULywX7V3k9Kyqqkn8ays1nD117BTWJvYXX9rcpDazjF6TWOAJ3=
+5SVsr9OEC_LeKdGBDsBTnt-DhPc8d6E0HGNAF6ahWAwDDU5FqHggS8ZOM0zc8wXr_jeX1hhzobc=
+TqtYz9Dg/1/010201a15360a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/H7K=
+Pgb8-sYKJMUUKJEbpRbT1XfY=3D473" target=3D"_blank" title=3D"View In Browser"=
+ style=3D"display:inline-block;white-space:nowrap;padding:0 6px;font-family=
+:Alata, Arial, sans-serif;font-size:14px;font-style:normal;font-weight:400.=
+0;letter-spacing:0.2px;line-height:24px;color:#FFf;text-decoration:none">Vi=
+ew In Browser</a> </span> </div> </td> </tr> </tbody> </table> </div> <!--[=
+if mso | IE]></td></tr></table><![endif]--> </td> </tr> </tbody> </table> <=
+/div> <!--[if mso | IE]></td></tr></table><![endif]--> </div> <div style=3D=
+"display:none;white-space:nowrap;font-size:15px;font-family:Arial;line-heig=
+ht:0"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div> <=
+img alt=3D"" src=3D"https://sgdbs6pn.r.eu-west-1.awstrack.me/I0/010201a1536=
+0a52c-685b318a-d7f8-45e8-ba6f-5ef6e3e39c10-000000/JLnywwe5FdAG_it5bS_puVXb0=
+fc=3D473" style=3D"display: none; width: 1px; height: 1px;">
+</body> </html>
