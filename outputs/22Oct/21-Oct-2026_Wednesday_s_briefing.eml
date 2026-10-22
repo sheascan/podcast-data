@@ -1,0 +1,1689 @@
+Delivered-To: m.ike.mcconigley@gmail.com
+Received: by 2002:a8a:11c6:0:b0:664:6bf3:5e27 with SMTP id w6csp5248302oct;
+        Tue, 20 Oct 2026 22:02:00 -0700 (PDT)
+X-Received: by 2002:a05:6214:3c86:b0:91b:5d3a:4fc9 with SMTP id 6a1803df08f44-91c12f502damr15919796d6.54.1792558920197;
+        Tue, 20 Oct 2026 22:02:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1792558920; cv=none;
+        d=google.com; s=arc-20260327;
+        b=n7EelYmo+txnAfIpSHo8JNkF9XxiXPuio82/PK/fW4SJ90Sxwy+iWD/lCxeTTH+RTP
+         LG6dsC3c9i91Ey4zea1r93eg5mjiHiLIIAG5hXb8PJ4l5WfbgMJyt/sWi6/Awg9FQ7v3
+         dwph3MnQRqXTk0qeXvyGnVDZPvD2x8sBg2RM3RT9MgJr1eh0kwcTv2eXXs2K5Ii+d76z
+         QoUJqFvsELA79yvOUSYERrSN9b7PqCr35tyoAXYQpFNxCxjJkdVEzC7aLZFpWRhGaWpd
+         U8b/OWfuVnPItWyzyQTn0AWYBJGeNJ+2QldUAIGfpWnv09cwZKqYcdHOyCC4rB7Qv50W
+         IIGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=list-unsubscribe:list-unsubscribe-post:precedence:mime-version
+         :subject:message-id:to:from:date:dkim-signature:dkim-signature;
+        bh=f33hafttkdEOreNflCb5+yDOWR5pG7KMhLiLpuAVATM=;
+        fh=mzqY7NEmODHKJczJs8+j4iO37HCGFqhFcn02BBJl2YM=;
+        b=tA1aj8rrjWGfZkLeJdxlCzRCDugRtYeZptYHqxJpNK8p/OrMDHaL9tuExYOnai+TfH
+         rikXzGOUryVjaLrMsrPUsq5L5nhimQNGvAoMYCWgCIxI0ERFcFejkfb209X9FeTdvUw+
+         ri/3dc4+Uzs78PHcL91F7mM51KlTWQYIcXfQBItHoXR4hGZjwxLkXTtMdYZxFssLRyV1
+         8LgnHWSMI4BtqXIgPGJKM99JLFOEX14iXZydOZP+6ytOg5oSzAh3qj94TM+bWCNiyu6i
+         eZcDzdt5Xot1hlv4tK/SqRnZzS9Y+CS418m3kpjl7XwetOQx/K6IXQh8qmQZwHviuy+q
+         Tlqw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@newsletter.thetimes.com header.s=sailthru header.b=cGayOF50;
+       dkim=pass header.i=@pmta.sailthru.com header.s=mt header.b=AZ1iPEKZ;
+       spf=pass (google.com: domain of delivery_20261021010027.48021320.472152@bounce.newsletter.thetimes.com designates 192.64.236.89 as permitted sender) smtp.mailfrom=delivery_20261021010027.48021320.472152@bounce.newsletter.thetimes.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=thetimes.com
+Return-Path: <delivery_20261021010027.48021320.472152@bounce.newsletter.thetimes.com>
+Received: from mta236-89.sailthru.com (mta236-89.sailthru.com. [192.64.236.89])
+        by mx.google.com with ESMTPS id 6a1803df08f44-91c1127f10bsi21253626d6.649.2026.10.20.22.02.00
+        for <m.ike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Oct 2026 22:02:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of delivery_20261021010027.48021320.472152@bounce.newsletter.thetimes.com designates 192.64.236.89 as permitted sender) client-ip=192.64.236.89;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@newsletter.thetimes.com header.s=sailthru header.b=cGayOF50;
+       dkim=pass header.i=@pmta.sailthru.com header.s=mt header.b=AZ1iPEKZ;
+       spf=pass (google.com: domain of delivery_20261021010027.48021320.472152@bounce.newsletter.thetimes.com designates 192.64.236.89 as permitted sender) smtp.mailfrom=delivery_20261021010027.48021320.472152@bounce.newsletter.thetimes.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=thetimes.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=sailthru; d=newsletter.thetimes.com;
+ h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:
+ List-Unsubscribe-Post:List-Unsubscribe; i=noreply@newsletter.thetimes.com;
+ bh=f33hafttkdEOreNflCb5+yDOWR5pG7KMhLiLpuAVATM=;
+ b=cGayOF50WeGijLSaFr2B1OLqpdrzpjj1nhuLxCc7iM9YuGIUm0rSapS4iYt2q7Evpsul9zcdX99x
+   YeQ6w0oqzlg8l9UhVPiNK60dce9OG0AAyTLklFM8GVj1POugu8CIWZCXUZDg717gSp8S1l+FFoK5
+   asTCBEE44hXOpA9j93oLXfnayhaZ5UWSV/E3dEbfWZ57w12aEWL4du4saEYLvJYyAUkhV1KAsglb
+   G2rkxghpgs4k9EFgdM/E0NTqm9Ni4BCmaM8IN4X91Cx/h3H5uBMSiBzMmLe1dXreY0ipWguDDWqh
+   6lVtnchaW4SyKkyvNxoYfxWfen14RK9EwUhdpQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mt; d=pmta.sailthru.com;
+ h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:
+ List-Unsubscribe-Post:List-Unsubscribe;
+ bh=f33hafttkdEOreNflCb5+yDOWR5pG7KMhLiLpuAVATM=;
+ b=AZ1iPEKZuHZq3UPW9C9OgJwN7NGr4kJpIewyzAPTbCxwtIKFwNed9Ux/+DCF0ivax2+/Cuxo/QjN
+   Wy1P9/ViuRbTI49wpChDxMWI3bWQK8Fi7B3aD9lqYiHlnymHusPNYy8VehUQWK4UG6NpVYpKnJby
+   Pd87/bSjeXetYCfaid8=
+Received: from pmta-prod-relay4.sailthru.cloud (10.55.88.100) by pmta19.sailthru.com id hr13kg3791ss for <m.ike.mcconigley@gmail.com>; Wed, 21 Oct 2026 00:00:43 -0500 (envelope-from <delivery_20261021010027.48021320.472152@bounce.newsletter.thetimes.com>)
+Date: Wed, 21 Oct 2026 01:00:27 -0400 (EDT)
+From: The Times <noreply@newsletter.thetimes.com>
+To: m.ike.mcconigley@gmail.com
+Message-ID: <20261021010027.48021320.472152@sailthru.com>
+Subject: =?utf-8?B?V2VkbmVzZGF54oCZcyBicmllZmluZw==?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_2124922_2025358429.1792558827701"
+Precedence: bulk
+x-job: 9245-48021320-20261021
+X-Feedback-ID: 9245:48021320:campaign:sailthru
+X-TM-ID: 20261021010027.48021320.472152
+X-Info: Message sent by sailthru.com customer The Times UK
+X-Info: We do not permit unsolicited commercial email
+X-Info: Please report abuse by forwarding complete headers to
+X-Info: abuse@sailthru.com
+X-Mailer: sailthru.com
+X-JMailer: aws-campaign-mailer-27.sailthru.cloud
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Unsubscribe-Web: https://link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9csl9hk.a4bc/d9aed738
+List-Unsubscribe: <https://link.thetimes.com/oc/6a464fcf7d55e1fcfb02eb9csl9hk.a4bc/d9aed738>,<mailto:unsubscribe_20261021010027.48021320.472152@mx.sailthru.com>
+X-rpcampaign: stnrp48021320
+X-steri: 48021320.472152.0
+
+------=_Part_2124922_2025358429.1792558827701
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"u=
+rn:schemas-microsoft-com:office:office" lang=3D"en"><head><title></title><m=
+eta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><met=
+a name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"><!--=
+[if mso]>
+<xml><w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word"><w:D=
+ontUseAdvancedTypographyReadingMail/></w:WordDocument>
+<o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/=
+></o:OfficeDocumentSettings></xml>
+<![endif]--><!--[if !mso]><!--><!--<![endif]--><style>
+*{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{c=
+olor:inherit!important;text-decoration:inherit!important}#MessageViewBody a=
+{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.de=
+sktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}.im=
+age_block img+div{display:none}sub,sup{font-size:75%;line-height:0} @media =
+(max-width:620px){.desktop_hide table.icons-outer{display:inline-table!impo=
+rtant}.image_block div.fullWidth{max-width:100%!important}.row-content{widt=
+h:100%!important}.stack .column{width:100%!important;display:block}.mobile_=
+hide{min-height:0;max-height:0;max-width:0;display:none;overflow:hidden;fon=
+t-size:0}.desktop_hide,.desktop_hide table{display:table!important;max-heig=
+ht:none!important}.social_block .social-table{display:inline-block!importan=
+t}.row .side{display:none}}
+</style><!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup {=
+ mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]--></hea=
+d><body class=3D"body" style=3D"margin:0;padding:0;-webkit-text-size-adjust=
+:none;text-size-adjust:none;background-color:#f5f5f5"><div class=3D"sailthr=
+u-emco-preheader" style=3D"display: none; max-height: 0px; overflow: hidden=
+;">Approval for Jackdaw drilling | Daily Briefing |</div><div style=3D"disp=
+lay:none"><a href=3D""><img src=3D"https://link.thetimes.com/img/6a464fcf7d=
+55e1fcfb02eb9csl9hk.a4bc/0c0e06ce.gif" alt=3D"" border=3D"0" /></a></div><t=
+able class=3D"nl-container" width=3D"100%" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0;background-color:#f5f5f5"><tbody><tr><td><table class=3D"row row=
+-1"=20
+align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+;background-color:#fff"><tbody><tr><td><table class=3D"row-content" align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#ff=
+f;border-radius:0;color:#000;width:600px;margin:0 auto" width=3D"600"><tbod=
+y><tr><td class=3D"column column-1" width=3D"50%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:50%"><table width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspa=
+ce:0;mso-table-rspace:0"><tr><td class=3D"col-pad" style=3D"padding-bottom:=
+5px;padding-top:5px"><table class=3D"text_block block-1" width=3D"100%" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td=20
+class=3D"pad" style=3D"padding-top:5px;padding-left:5px;padding-right:5px">=
+<div style=3D"font-family:Arial,sans-serif"><div class style=3D"font-size:1=
+4px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-height=
+-alt:16.8px;color:#696969;line-height:1.2"><p style=3D"margin:0;font-size:1=
+4px;text-align:left;mso-line-height-alt:16.8px"><span style=3D"word-break: =
+break-word; color: #555555; font-size: 11px;"><span style=3D""><a href=3D"h=
+ttps://link.thetimes.com/view/6a464fcf7d55e1fcfb02eb9csl9hk.a4bc/7fb137fd" =
+target=3D"_blank" rel=3D"noopener" style=3D"text-decoration: underline; col=
+or: #696969;">View in browser</a>=C2=A0</span></span></p></div></div></td><=
+/tr></table></td></tr>
+</table></td><td class=3D"column column-2" width=3D"50%" style=3D"mso-table=
+-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-align=
+:top;width:50%"><table width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rsp=
+ace:0"><tr><td class=3D"col-pad" style=3D"padding-bottom:5px;padding-top:5p=
+x"><table class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-top:5px;padding-left:5px;padding-right:5p=
+x"><div style=3D"font-family:Arial,sans-serif"><div class style=3D"font-siz=
+e:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-hei=
+ght-alt:16.8px;color:#696969;line-height:1.2"><p style=3D"margin:0;font-siz=
+e:14px;text-align:right;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; font-size: 11px;"><a href=3D"https:/=
+/link.thetimes.com/click/48021320.472152/aHR0cHM6Ly9ob21lLnRoZXRpbWVzLmNvbS=
+9uZXdzbGV0dGVycw/6a464fcf7d55e1fcfb02eb9cB7e5d4a47" target=3D"_blank" style=
+=3D"text-decoration: underline; color: #696969;" rel=3D"noopener">Unsubscri=
+be</a></span></p></div></div></td></tr></table></td></tr></table></td></tr>=
+</tbody></table></td></tr></tbody></table><table class=3D"row row-2" align=
+=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbod=
+y><tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000;width:600px;=
+margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column column-1" width=
+=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;te=
+xt-align:left;vertical-align:top;width:100%"><table=20
+class=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"5"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0"><tr><td class=3D"pad" style=3D"width:100%" align=3D"center"><=
+div style=3D"max-width:150px"><a href=3D"https://link.thetimes.com/click/48=
+021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tLw/6a464fcf7d55e1fcfb02eb9cBd=
+296d459" target=3D"_blank"><img src=3D"https://media.sailthru.com/composer/=
+images/bazh/so1qeqwa/5jw/es9/m4c/Dual%20masthead.png" style=3D"display:bloc=
+k;height:auto;border:0;width:100%" width=3D"150" alt=3D"" title=3D""=20
+height=3D"auto"></a></div></td></tr></table><table class=3D"divider_block b=
+lock-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td =
+class=3D"pad" style=3D"padding-left:5px;padding-right:5px" align=3D"center"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td =
+class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:4px solid #000"><span sty=
+le=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr></=
+table><table class=3D"image_block block-3" width=3D"100%" border=3D"0" cell=
+padding=3D"5" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-ls=
+pace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"width:100%" align=
+=3D"center"><div style=3D"max-width:590px"><a href=3D"https://link.thetimes=
+.com/external/48021320.472152/aHR0cHM6Ly93d3cudGVzY28uY29tL3Nob3AvZW4tR0Ive=
+m9uZS90ZXNjby1maW5lc3Q/6a464fcf7d55e1fcfb02eb9cBe75414cd" target=3D"_blank"=
+><img=20
+src=3D"https://media.sailthru.com/fss/fvbdit/18b8e317-2b73-4b85-8189-39bbb2=
+f1bf12/Tesco_CCP_WEEK34_Newsletter_Salmon_970x250_8td5.jpg" style=3D"displa=
+y:block;height:auto;border:0;width:100%" width=3D"590" alt=3D"" title=3D"" =
+height=3D"auto"></a></div></td></tr></table><table class=3D"image_block mob=
+ile_hide block-4" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0=
+"><tr><td class=3D"pad" style=3D"width:100%;padding-left:5px;padding-right:=
+5px"=20
+align=3D"center"><div class=3D"fullWidth" style=3D"max-width:588px"><a href=
+=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGl=
+tZXMuY29tLw/6a464fcf7d55e1fcfb02eb9cCd296d459" target=3D"_blank"><img src=
+=3D"https://media.sailthru.com/composer/images/sailthru-prod-74t/editor_ima=
+ges/Briefing%20Banner%20desktop_3.png" style=3D"display:block;height:auto;b=
+order:0;width:100%" width=3D"588" alt=3D"" title=3D"" height=3D"auto"></a><=
+/div></td></tr></table><table class=3D"image_block desktop_hide block-5" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hi=
+de:all;display:none;max-height:0;overflow:hidden"><tr><td class=3D"pad" sty=
+le=3D"width:100%;padding-left:5px;padding-right:5px" align=3D"center"><div =
+class=3D"fullWidth" style=3D"max-width:588px"><a href=3D"https://link.theti=
+mes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tLw/6a464fcf7d=
+55e1fcfb02eb9cDd296d459" target=3D"_blank"><img src=3D"https://media.sailth=
+ru.com/composer/images/sailthru-prod-74t/editor_images/Briefing%20Banner%20=
+mobile_3.png"=20
+style=3D"display:block;height:auto;border:0;width:100%" width=3D"588" alt=
+=3D"" title=3D"" height=3D"auto"></a></div></td></tr></table><table class=
+=3D"divider_block block-6" width=3D"100%" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table=
+-rspace:0"><tr><td class=3D"pad" style=3D"padding-bottom:20px;padding-left:=
+5px;padding-right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_in=
+ner" style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e4e4"><=
+span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td=
+></tr></table></td></tr></tbody></table></td></tr></tbody></table><table cl=
+ass=3D"row row-3" align=3D"center" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;background-color:#fff"><tbody><tr><td><table=20
+class=3D"row-content stack" align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;background-color:#fff;color:#000;width:600px;margin:0 auto" wi=
+dth=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;v=
+ertical-align:top;width:100%"><table class=3D"image_block block-1" width=3D=
+"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"width:100%;padding-left:5px;padding-right:5px" align=3D"center"><div cl=
+ass=3D"fullWidth" style=3D"max-width:588px"><a href=3D"https://link.thetime=
+s.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3VrL3Bob3RvZ3J=
+hcGh5LXVrL2FydGljbGUvZ3JpenpseS1jaGFyZ2UtaW4tYWxhc2thLWFuZC1vdGhlci1uZXdzLW=
+luLXBpY3R1cmVzLXR2bm02czhwcQ/6a464fcf7d55e1fcfb02eb9cB6146d012" target=3D"_=
+blank"><img src=3D"https://media.sailthru.com/fss/fvbdit/a494dc67-121a-4ec5=
+-81c7-04e3bfe7eb78/a02cead7-4809-4753-9f8d-fd6e2fe122ca_1gck.webp" style=3D=
+"display:block;height:auto;border:0;width:100%" width=3D"588" alt=3D"" titl=
+e=3D"" height=3D"auto"></a></div>
+</td></tr></table><table class=3D"text_block block-2" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-top:12px;padding-bottom:23px;padding-left:5px;pad=
+ding-right:5px"><div style=3D"font-family:Arial,sans-serif"><div class styl=
+e=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif=
+;mso-line-height-alt:16.8px;color:#333;line-height:1.2"><p=20
+style=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px">
+<strong><span style=3D"word-break: break-word; color: #006699;"><span style=
+=3D"word-break: break-word;">In pictures</span></span></strong><span style=
+=3D"word-break: break-word; color: #000000;">&nbsp;</span><span style=3D"wo=
+rd-break: break-word; color: #000000;">A wounded Ukrainian serviceman smoke=
+s near the front line in the Zaporizhzhia region</span><span style=3D"word-=
+break: break-word; color: #000000;">&nbsp;</span><span style=3D"word-break:=
+ break-word; color: #000000; font-size: 11px;"><span style=3D"word-break: b=
+reak-word; color: #6a6a6a;"><span style=3D"word-break: break-word;">65TH ME=
+CHANIZED BRIGADE PRESS SERVICE/EPA&nbsp;</span></span></span>
+</p></div></div></td></tr></table></td></tr></tbody></table></td></tr></tbo=
+dy></table><table class=3D"row row-4" align=3D"center" width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+mso-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbody><tr><td=
+><table class=3D"row-content" align=3D"center" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0;background-color:#fff;color:#000;width:600px;margin:0 auto"=
+=20
+width=3D"600"><tbody><tr><td class=3D"column column-1" width=3D"16.66666666=
+6666668%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;te=
+xt-align:left;vertical-align:top;width:16.666666666666668%"><table class=3D=
+"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspa=
+ce:0"><tr><td class=3D"pad" style=3D"width:100%;padding-top:5px;padding-lef=
+t:5px" align=3D"center"><div style=3D"max-width:95px">
+<a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cu=
+dGhldGltZXMuY29tL3Byb2ZpbGUvZWxsYS1ob2Rzb24/6a464fcf7d55e1fcfb02eb9cB17b06d=
+38" target=3D"_blank"><img src=3D"https://media.sailthru.com/fss/fvbdit/05f=
+12fc6-e60d-403b-b31f-028bd6b64c79/Untitled+design+%2810%29-modified+%281%29=
+_d3ns.png" style=3D"display:block;height:auto;border:0;width:100%" width=3D=
+"95" alt=3D"" title=3D"" height=3D"auto"></a></div></td></tr></table></td><=
+td class=3D"column column-2" width=3D"83.33333333333333%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:83.33333333333333%"><table class=3D"text_block=
+ block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-br=
+eak:break-word"><tr><td class=3D"pad" style=3D"padding-top:5px;padding-bott=
+om:2px;padding-left:5px;padding-right:5px"><div style=3D"font-family:Georgi=
+a,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:16.8px;color:#1d1d1b;line-height:1.2"><p style=3D"margin=
+:0;font-size:14px;mso-line-height-alt:16.8px"><span style=3D"word-break: br=
+eak-word; font-size: 18px;"><strong><span style=3D"word-break: break-word; =
+color: #000000;"><a href=3D"https://link.thetimes.com/click/48021320.472152=
+/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3Byb2ZpbGUvZWxsYS1ob2Rzb24/6a464fcf7d55e1=
+fcfb02eb9cC17b06d38" target=3D"_blank" style=3D"text-decoration: underline;=
+ color: #000000;" rel=3D"noopener">Ella Hodson</a></span></strong></span></=
+p>
+</div></div></td></tr></table><table class=3D"text_block block-2" width=3D"=
+100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation=
+" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr=
+><td class=3D"pad" style=3D"padding-top:5px;padding-bottom:2px;padding-left=
+:5px;padding-right:5px"><div style=3D"font-family:Arial,sans-serif"><div cl=
+ass style=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sa=
+ns-serif;mso-line-height-alt:16.8px;color:#555;line-height:1.2"><p=20
+style=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px">Daily Briefing=
+ Editor</p></div></div></td></tr></table></td></tr></tbody></table></td></t=
+r></tbody></table><table class=3D"row row-5" align=3D"center" width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" st=
+yle=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff"><tbody>=
+<tr><td><table class=3D"row-content stack" align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:=
+#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"colum=
+n column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0;f=
+ont-weight:400;text-align:left;vertical-align:top;width:100%"><table width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"col-=
+pad" style=3D"padding-bottom:5px;padding-top:5px"><table=20
+class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-t=
+op:10px;padding-bottom:25px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-s=
+ize:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-=
+alt:21px;color:#000;line-height:1.5"><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=3D"w=
+ord-break: break-word; font-size: 18px;"><strong><span style=3D"word-break:=
+ break-word;">Good morning. Today we=E2=80=99re covering approval for drill=
+ing at Jackdaw, Shabana Mahmood=E2=80=99s migration reforms and the Sultan =
+of Oman=E2=80=99s state visit.&nbsp;</span></strong></span></p></div></div>=
+</td></tr></table><table class=3D"divider_block block-2" width=3D"100%" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"padding-bottom:5px;padding-left:5px;padding-right:5px" align=3D"center"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentati=
+on" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td =
+class=3D"divider_inner" style=3D"font-size:1px;line-height:1px;border-top:4=
+px solid #069"><span style=3D"word-break: break-word;">&#8202;</span></td><=
+/tr></table></td></tr></table><table class=3D"text_block block-3"=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-=
+word"><tr><td class=3D"pad" style=3D"padding-bottom:5px;padding-left:5px;pa=
+dding-right:5px"><div style=3D"font-family:Georgia,'Times New Roman',serif"=
+><div class style=3D"font-size:14px;font-family:Georgia,Times,'Times New Ro=
+man',serif;mso-line-height-alt:25.2px;color:#3b3b3b;line-height:1.8"><p sty=
+le=3D"margin:0;font-size:14px;mso-line-height-alt:25.2px">
+<strong><span style=3D"word-break: break-word; font-size: 22px; color: #000=
+000;">Top stories</span></strong></p></div></div></td></tr></table><table c=
+lass=3D"text_block block-4" width=3D"100%" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-le=
+ft:5px;padding-right:5px"><div style=3D"font-family:Georgia,'Times New Roma=
+n',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word; color: #006699; font-size: 18px;"><strong>1.</strong></=
+span><span style=3D"word-break: break-word; font-size: 14px;"> <span style=
+=3D"word-break: break-word; font-size: 18px;">Shabana Mahmood <a href=3D"ht=
+tps://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY=
+29tL3VrL3BvbGl0aWNzL2FydGljbGUva2VtaS1iYWRlbm9jaC1nZXQtdG91Z2gtb24tbWlncmF0=
+aW9uLW9yLXJpc2stdW5yZXN0LWxpa2UtZnJhbmNlLWdkbjh0dm1rOQ/6a464fcf7d55e1fcfb02=
+eb9cBd92b495b" target=3D"_blank" style=3D"text-decoration: underline; color=
+: #006699;" rel=3D"noopener">is fighting a rearguard action</a> to save her=
+ migration reforms in the face of mounting public criticism from cabinet co=
+lleagues</span></span></span>
+</p></div></div></td></tr></table><table class=3D"divider_block block-5" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"p=
+ad" style=3D"padding-top:16px;padding-bottom:16px;padding-left:5px;padding-=
+right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;m=
+so-table-rspace:0"><tr><td class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e4e4"><span =
+style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr=
+></table><table class=3D"text_block block-6" width=3D"100%" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-=
+lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" st=
+yle=3D"padding-left:5px;padding-right:5px"><div style=3D"font-family:Georgi=
+a,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000; font-size: 18px;"><s=
+pan style=3D"word-break: break-word; color: #006699;"><strong>2.</strong></=
+span>&nbsp;</span><span style=3D"word-break: break-word; font-size: 18px;">=
+North Sea gas production <a href=3D"https://link.thetimes.com/click/4802132=
+0.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3VrL2Vudmlyb25tZW50L2FydGljbGUvam=
+Fja2Rhdy1nYXMtZmllbGQtY2xpbWF0ZS1jaGFuZ2UtemRjN2xiZ204/6a464fcf7d55e1fcfb02=
+eb9cBb38c72ef" target=3D"_blank" style=3D"text-decoration: underline; color=
+: #006699;" rel=3D"noopener">will increase</a> after ministers give approva=
+l for drilling in the first big new field in almost a decade</span>
+</p></div></div></td></tr></table><table class=3D"divider_block block-7" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"p=
+ad" style=3D"padding-top:16px;padding-bottom:16px;padding-left:5px;padding-=
+right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;m=
+so-table-rspace:0"><tr><td class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e4e4"><span =
+style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr=
+></table><table class=3D"text_block block-8" width=3D"100%" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-=
+lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" st=
+yle=3D"padding-left:5px;padding-right:5px"><div style=3D"font-family:Georgi=
+a,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;ms=
+o-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word; color: #006699; font-size: 18px;"><strong>3.</strong></=
+span><span style=3D"word-break: break-word; font-size: 14px;">&nbsp;</span>=
+</span><span style=3D"word-break: break-word; font-size: 18px;">The King <a=
+ href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudG=
+hldGltZXMuY29tL3VrL3JveWFsLWZhbWlseS9hcnRpY2xlL2tpbmctY2hhcmxlcy1zdWx0YW4tb=
+21hbi1zdGF0ZS12aXNpdC1jcjZrOHdjNWY/6a464fcf7d55e1fcfb02eb9cBe8261290" targe=
+t=3D"_blank" style=3D"text-decoration: underline; color: #006699;" rel=3D"n=
+oopener">praised Oman=E2=80=99s =E2=80=9Cconstructive neutrality=E2=80=9D</=
+a> in the Middle East at a state banquet at Windsor Castle</span>
+</p></div></div></td></tr></table><table class=3D"divider_block block-9" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"p=
+ad" style=3D"padding-top:16px;padding-bottom:16px;padding-left:5px;padding-=
+right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;m=
+so-table-rspace:0"><tr><td class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e4e4"><span =
+style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr=
+></table><table class=3D"text_block block-10" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table=
+-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" s=
+tyle=3D"padding-left:5px;padding-right:5px"><div style=3D"font-family:Georg=
+ia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;ms=
+o-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word; color: #006699; font-size: 18px;"><strong>4.&nbsp;</str=
+ong></span></span><span style=3D"word-break: break-word; font-size: 18px;">=
+Iran and Russia <a href=3D"https://link.thetimes.com/click/48021320.472152/=
+aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3dvcmxkL2V1cm9wZS9hcnRpY2xlL2hvdy1pcmFuaWF=
+uLWRpc2luZm9ybWF0aW9uLW9ubGluZS1mcmFuY2Utc3R1ZGVudC1wcm90ZXN0cy02Y2Rybm44OG=
+c/6a464fcf7d55e1fcfb02eb9cBc901c56b" target=3D"_blank" style=3D"text-decora=
+tion: underline; color: #006699;" rel=3D"noopener">are among the states see=
+king to exacerbate and exploit riots in France</a> as they work to weaken w=
+estern democracies</span>
+</p></div></div></td></tr></table><table class=3D"divider_block block-11" w=
+idth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"=
+pad" style=3D"padding-top:16px;padding-bottom:16px;padding-left:5px;padding=
+-right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0"><tr><td class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e4e4"><span =
+style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr=
+></table><table class=3D"text_block block-12" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table=
+-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" s=
+tyle=3D"padding-left:5px;padding-right:5px"><div style=3D"font-family:Georg=
+ia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000; font-size: 18px;"><s=
+pan style=3D"word-break: break-word; color: #006699;"><strong>5.</strong></=
+span> A woman allegedly sexually assaulted by Russell Brand <a href=3D"http=
+s://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29=
+tL3VrL2NyaW1lL2FydGljbGUvcnVzc2VsbC1icmFuZC1yYXBlLWFjY3VzZXItdG9ydHVyZWQtbX=
+lzZWxmLXBkMjJkMzNkdA/6a464fcf7d55e1fcfb02eb9cB087c1fcf" target=3D"_blank" s=
+tyle=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">has t=
+old his trial</a> that four people from his team did nothing as he was =E2=
+=80=9Cmauling=E2=80=9D her</span></p></div></div></td></tr></table><table=
+=20
+class=3D"divider_block block-13" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:30px;padding-bo=
+ttom:5px;padding-left:5px;padding-right:5px" align=3D"center"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divid=
+er_inner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #8500=
+29">
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-14" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-left:5px;padding-right:5px"><div style=3D"font-fa=
+mily:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:25.2px;color:#555;line-height:1.8"><p style=3D"margin:0;=
+font-size:14px;text-align:left;mso-line-height-alt:25.2px"><strong><span st=
+yle=3D"word-break: break-word; font-size: 22px; color: #000000;">Comment</s=
+pan></strong></p></div></div></td></tr></table></td></tr></table></td></tr>=
+</tbody></table></td></tr></tbody></table><table class=3D"row row-6" align=
+=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;background-color:#fff"><tbody><tr><td><table class=3D"row-conte=
+nt" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background=
+-color:#fff;color:#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr>=
+<td class=3D"column column-1" width=3D"16.666666666666668%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:16.666666666666668%"><table class=3D"image_blo=
+ck block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr>=
+<td class=3D"pad" style=3D"width:100%;padding-top:5px;padding-left:5px" ali=
+gn=3D"left"><div style=3D"max-width:95px"><a href=3D"https://link.thetimes.=
+com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2NvbW1lbnQvY29sd=
+W1uaXN0cy9hcnRpY2xlL2RvbnQtdGlua2VyLW1ham9yLWZhdm91cnMtMnFycnZ6Z3dz/6a464fc=
+f7d55e1fcfb02eb9cBf9b6a688" target=3D"_blank"><img=20
+src=3D"https://media.sailthru.com/fss/fvbdit/20edd3dc-7712-44c8-bbf7-c7041f=
+e8508e/methode_times_prod_web_bin_05cc1fe9-9eda-4c2e-9b4a-7c6eaa2cc557+%283=
+%29-modified_couv.png" style=3D"display:block;height:auto;border:0;width:10=
+0%" width=3D"95" alt=3D"" title=3D"" height=3D"auto"></a></div></td></tr></=
+table></td><td class=3D"column column-2" width=3D"83.33333333333333%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;v=
+ertical-align:top;width:83.33333333333333%"><table=20
+class=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-t=
+op:5px;padding-bottom:2px;padding-left:5px;padding-right:5px"><div style=3D=
+"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-size=
+:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-alt=
+:16.8px;color:#000;line-height:1.2"><p=20
+style=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px"><span style=3D=
+"word-break: break-word; color: #000000;"><strong><span style=3D"word-break=
+: break-word;"><span style=3D"word-break: break-word; font-size: 18px;">Ali=
+ce Thomson: Don=E2=80=99t tinker, Andy, it did Major no favours</span></spa=
+n></strong></span></p></div></div></td></tr></table><table class=3D"text_bl=
+ock block-2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-top:5px;padding-bottom:2px;padding-left:5=
+px;padding-right:5px"><div style=3D"font-family:Georgia,'Times New Roman',s=
+erif"><div class style=3D"font-size:14px;font-family:Georgia,Times,'Times N=
+ew Roman',serif;mso-line-height-alt:21px;color:#000;line-height:1.5"><p sty=
+le=3D"margin:0;font-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">The prime minister=
+ should focus on big issues like sorting out social care <a href=3D"https:/=
+/link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2=
+NvbW1lbnQvY29sdW1uaXN0cy9hcnRpY2xlL2RvbnQtdGlua2VyLW1ham9yLWZhdm91cnMtMnFyc=
+nZ6Z3dz/6a464fcf7d55e1fcfb02eb9cCf9b6a688" target=3D"_blank" style=3D"text-=
+decoration: underline; color: #006699;" rel=3D"noopener">rather than his ow=
+n brand of citizen=E2=80=99s charter</a></span></p></div></div></td></tr></=
+table></td></tr></tbody></table></td></tr></tbody></table><table class=3D"r=
+ow row-7" align=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;background-color:#fff"><tbody><tr><td><table class=3D"row-conte=
+nt stack" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;backg=
+round-color:#fff;color:#000;width:600px;margin:0 auto" width=3D"600"><tbody=
+><tr><td class=3D"column column-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0"><tr><td class=3D"col-pad" style=3D"padding-bottom=
+:5px;padding-top:5px"><table class=3D"divider_block block-1" width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad"=20
+style=3D"padding-top:6px;padding-bottom:4px;padding-left:5px;padding-right:=
+5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-he=
+ight:1px;border-top:1px solid #e4e4e4"><span style=3D"word-break: break-wor=
+d;">&#8202;</span></td></tr></table></td></tr></table></td></tr></table></t=
+d></tr></tbody></table></td></tr></tbody></table><table=20
+class=3D"row row-8" align=3D"center" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0;background-color:#fff"><tbody><tr><td><table class=3D"r=
+ow-content" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;bac=
+kground-color:#fff;color:#000;width:600px;margin:0 auto" width=3D"600"><tbo=
+dy><tr><td class=3D"column column-1" width=3D"16.666666666666668%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:16.666666666666668%"><table class=3D"image_blo=
+ck block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr>=
+<td class=3D"pad" style=3D"width:100%;padding-top:5px;padding-left:5px" ali=
+gn=3D"left"><div style=3D"max-width:95px"><a href=3D"https://link.thetimes.=
+com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2NvbW1lbnQvY29sd=
+W1uaXN0cy9hcnRpY2xlL29jdG9iZXItNy1oZWFydC1pc3JhZWxpLWVsZWN0aW9ucy1ncHJkZ2pn=
+bGc/6a464fcf7d55e1fcfb02eb9cB18573f24" target=3D"_blank"><img=20
+src=3D"https://media.sailthru.com/fss/fvbdit/cb49a1a4-08d5-4e16-bb96-5a263e=
+61bbca/download+%2817%29-modified_1ex0.png" style=3D"display:block;height:a=
+uto;border:0;width:100%" width=3D"95" alt=3D"" title=3D"" height=3D"auto"><=
+/a></div></td></tr></table></td><td class=3D"column column-2" width=3D"83.3=
+3333333333333%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:=
+400;text-align:left;vertical-align:top;width:83.33333333333333%"><table cla=
+ss=3D"text_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-t=
+op:5px;padding-bottom:2px;padding-left:5px;padding-right:5px"><div style=3D=
+"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-size=
+:12px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-alt=
+:14.399999999999999px;color:#000;line-height:1.2"><p style=3D"margin:0;font=
+-size:12px;mso-line-height-alt:14.399999999999999px">
+<span style=3D"word-break: break-word; color: #000000; font-size: 18px;"><s=
+trong>Roger Boyes: October 7 is at the heart of Israeli elections</strong><=
+/span></p></div></div></td></tr></table><table class=3D"text_block block-2"=
+ width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break=
+-word"><tr><td class=3D"pad" style=3D"padding-top:5px;padding-bottom:2px;pa=
+dding-left:5px;padding-right:5px"><div=20
+style=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"f=
+ont-size:12px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-he=
+ight-alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:12=
+px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">The military has a=
+lways been central to the identity of the Jewish state, <a href=3D"https://=
+link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2N=
+vbW1lbnQvY29sdW1uaXN0cy9hcnRpY2xlL29jdG9iZXItNy1oZWFydC1pc3JhZWxpLWVsZWN0aW=
+9ucy1ncHJkZ2pnbGc/6a464fcf7d55e1fcfb02eb9cC18573f24" target=3D"_blank" styl=
+e=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">now it=
+=E2=80=99s on the ballot</a></span></p></div></div></td></tr></table></td><=
+/tr></tbody></table></td></tr></tbody></table><table class=3D"row row-9" al=
+ign=3D"center" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;backgr=
+ound-color:#fff"><tbody><tr><td><table class=3D"row-content stack" align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;c=
+olor:#000;width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"=
+column column-1" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspac=
+e:0;font-weight:400;text-align:left;vertical-align:top;width:100%"><table=
+=20
+class=3D"divider_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:30px;padding-bot=
+tom:5px;padding-left:5px;padding-right:5px" align=3D"center"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divid=
+er_inner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #069"=
+>
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-2" width=3D"100%" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-=
+table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"p=
+ad" style=3D"padding-top:8px;padding-bottom:2px;padding-left:5px;padding-ri=
+ght:5px"><div style=3D"font-family:Arial,sans-serif"><div class=20
+style=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-s=
+erif;mso-line-height-alt:16.8px;color:#069;line-height:1.2"><p style=3D"mar=
+gin:0;font-size:14px;mso-line-height-alt:16.8px;letter-spacing:1px"><strong=
+><span style=3D"word-break: break-word; font-size: 14px; color: #006699;"><=
+span style=3D"word-break: break-word;">A CLOSER LOOK</span></span></strong>=
+</p></div></div></td></tr></table><table class=3D"text_block block-3" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-b=
+reak:break-word"><tr><td class=3D"pad" style=3D"padding-top:5px;padding-bot=
+tom:10px;padding-left:5px;padding-right:5px"><div style=3D"font-family:Geor=
+gia,'Times New Roman',serif"><div class style=3D"font-size:14px;font-family=
+:Georgia,Times,'Times New Roman',serif;mso-line-height-alt:16.8px;color:#00=
+0;line-height:1.2"><p style=3D"margin:0;font-size:14px;mso-line-height-alt:=
+16.8px">
+<span style=3D"word-break: break-word; color: #000000; font-size: 22px;"><s=
+trong>Approval for Jackdaw drilling</strong></span></p></div></div></td></t=
+r></table><table class=3D"image_block block-4" width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"width:100%;pa=
+dding-left:5px;padding-right:5px" align=3D"center"><div style=3D"max-width:=
+590px">
+<a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cu=
+dGhldGltZXMuY29tL3VrL2Vudmlyb25tZW50L2FydGljbGUvamFja2Rhdy1nYXMtZmllbGQtY2x=
+pbWF0ZS1jaGFuZ2UtemRjN2xiZ204/6a464fcf7d55e1fcfb02eb9cCb38c72ef" target=3D"=
+_blank"><img src=3D"https://media.sailthru.com/fss/fvbdit/79037af9-95c6-4ad=
+9-b58c-44c1049de2ee/c52cd1db-0490-44d8-b1a5-f3f1aa83ffdf_g1lu.webp" style=
+=3D"display:block;height:auto;border:0;width:100%" width=3D"590" alt=3D"" t=
+itle=3D"" height=3D"auto"></a></div></td></tr></table><table class=3D"text_=
+block block-5" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-top:12px;padding-left:5px;padding-right:5=
+px"><div style=3D"font-family:Arial,sans-serif"><div class style=3D"font-si=
+ze:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-he=
+ight-alt:16.8px;color:#333;line-height:1.2"><p style=3D"margin:0;font-size:=
+14px;mso-line-height-alt:16.8px">
+<span style=3D"word-break: break-word; color: #000000;">The Shearwater plat=
+form in the Jackdaw gas field</span><span style=3D"word-break: break-word; =
+color: #000000;"> </span><span style=3D"word-break: break-word; color: #000=
+000; font-size: 11px;"><span style=3D"word-break: break-word; color: #6a6a6=
+a;"><span style=3D"word-break: break-word;">STUART W CONWAY</span></span></=
+span></p></div></div></td></tr></table><table class=3D"text_block block-6" =
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-b=
+reak:break-word"><tr><td class=3D"pad" style=3D"padding-top:15px;padding-le=
+ft:5px;padding-right:5px"><div style=3D"font-family:Georgia,'Times New Roma=
+n',serif"><div class style=3D"font-size:14px;font-family:Georgia,Times,'Tim=
+es New Roman',serif;mso-line-height-alt:21px;color:#000;line-height:1.5"><p=
+ style=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong>What=E2=80=
+=99s the latest story? </strong>North Sea gas production will increase with=
+in weeks after ministers give the go-ahead for drilling in the Jackdaw gas =
+field. It will be the first to be approved in almost a decade.&nbsp;</span>=
+</p><p style=3D"margin:0;mso-line-height-alt:21px">&nbsp;</p><p style=3D"ma=
+rgin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;">Miatta Fahnbulleh,=
+ the energy secretary, <a href=3D"https://link.thetimes.com/click/48021320.=
+472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3VrL2Vudmlyb25tZW50L2FydGljbGUvamFj=
+a2Rhdy1nYXMtZmllbGQtY2xpbWF0ZS1jaGFuZ2UtemRjN2xiZ204/6a464fcf7d55e1fcfb02eb=
+9cDb38c72ef" target=3D"_blank" rel=3D"noopener" style=3D"text-decoration: u=
+nderline; color: #006699;">will confirm today</a> that the new field, off A=
+berdeen, has passed a new environmental assessment and will go into product=
+ion before Christmas. Jackdaw is the UK=E2=80=99s largest known untapped ga=
+s reservoir and could account for 6 per cent of North Sea gas production wh=
+en fully operational.&nbsp;</span>
+</p><p dir=3D"ltr" style=3D"margin:0;font-size:18px;mso-line-height-alt:21p=
+x">&nbsp;</p><p dir=3D"ltr" style=3D"margin:0;font-size:18px;mso-line-heigh=
+t-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong>Why has th=
+is happened now? </strong>The drilling project has been on hold since Janua=
+ry of last year, awaiting fresh approval. The Court of Session ruled that i=
+ts original consent was unlawful because it did not account for the emissio=
+ns that would be produced from burning gas. It is now understood that the o=
+ffshore petroleum regulator for environment and decommissioning has approve=
+d an assessment under the new criteria =E2=80=93 this is a decision that mi=
+nisters are expected to endorse.&nbsp;</span>
+</p><p dir=3D"ltr" style=3D"margin:0;font-size:18px;mso-line-height-alt:21p=
+x">&nbsp;</p><p dir=3D"ltr" style=3D"margin:0;font-size:18px;mso-line-heigh=
+t-alt:27px"><span style=3D"word-break: break-word; font-size: 18px;"><stron=
+g>What does this mean? </strong>The move, happening a week before the budge=
+t, will be paramount to Britain=E2=80=99s energy independence and as a prot=
+ection for jobs and expertise in the North Sea.&nbsp;</span></p><p dir=3D"l=
+tr" style=3D"margin:0;font-size:18px;mso-line-height-alt:21px">&nbsp;
+</p><p dir=3D"ltr" style=3D"margin:0;font-size:18px;mso-line-height-alt:27p=
+x">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong>Won=E2=80=
+=99t there be pushback?&nbsp; </strong>Environmentalists will probably atta=
+ck the move. They have long argued that climate change targets mean that no=
+ new fields should be allowed into production. These concerns are likely to=
+ delay authorisation of the Rosebank field, another field which primarily c=
+ontains oil. The drilling of Rosebank would result in higher levels of emis=
+sions than Jackdaw.&nbsp;</span></p><p dir=3D"ltr"=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:21px">&nbsp;</p><p dir=
+=3D"ltr" style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span s=
+tyle=3D"word-break: break-word; font-size: 18px;">The UN=E2=80=99s environm=
+ental chief, Inger Andersen, has said while she understood governments taki=
+ng =E2=80=9Cshort-term stopgaps=E2=80=9D like approving new oil and gasfiel=
+ds, they needed a long-term vision for energy security and tackling climate=
+ change.&nbsp;</span></p></div></div></td></tr></table><table=20
+class=3D"divider_block block-7" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-=
+table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:30px;padding-bot=
+tom:5px;padding-left:5px;padding-right:5px" align=3D"center"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divid=
+er_inner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #069"=
+>
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-8" width=3D"100%" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-=
+table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"p=
+ad" style=3D"padding-bottom:5px;padding-left:5px;padding-right:5px"><div st=
+yle=3D"font-family:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;=
+font-size:14px;mso-line-height-alt:25.2px"><strong><span style=3D"word-brea=
+k: break-word; font-size: 22px; color: #000000;">Around the world</span></s=
+trong></p></div></div></td></tr></table><table class=3D"text_block block-9"=
+ width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-left:5px;padding-right:5px"><div style=3D=
+"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-size=
+:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-alt=
+:21px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:14px;mso-l=
+ine-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong>Australia:=
+</strong> An MP <a href=3D"https://link.thetimes.com/click/48021320.472152/=
+aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3dvcmxkL2F1c3RyYWxhc2lhL2FydGljbGUvaGVsZW4=
+taGFpbmVzLWF1c3RyYWxpYW4tbXAtYnJlbmRhbi1udWdlbnQtc3VzcGVjdC1hdHRhY2stbnE1cm=
+Qyd3Bu/6a464fcf7d55e1fcfb02eb9cBdc5a82b1" target=3D"_blank" style=3D"text-d=
+ecoration: underline; color: #006699;" rel=3D"noopener">has lost a leg</a> =
+after a car ramming attack outside her constituency office. The suspect, id=
+entified as an environmental campaigner who was friendly with her family, h=
+as been charged with several offences and remanded in custody</span></p></d=
+iv></div></td></tr>
+</table><table class=3D"divider_block block-10" width=3D"100%" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tab=
+le-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:=
+16px;padding-bottom:16px;padding-left:5px;padding-right:5px" align=3D"cente=
+r"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><t=
+d class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e4e4"><span =
+style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr=
+></table><table class=3D"text_block block-11" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table=
+-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" s=
+tyle=3D"padding-left:5px;padding-right:5px"><div style=3D"font-family:Georg=
+ia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong>US:&nbsp;<=
+/strong>A tourist who stole a flamingo from a hotel after drinking as many =
+as 40 beers <a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0=
+cHM6Ly93d3cudGhldGltZXMuY29tL3VzL25ld3MtdG9kYXkvYXJ0aWNsZS9sYXMtdmVnYXMtZmx=
+hbWluZ28taG90ZWwtcm9vbS1qYWlsLXgwOGd6dmRkcg/6a464fcf7d55e1fcfb02eb9cBfcddb9=
+e2" target=3D"_blank" style=3D"text-decoration: underline; color: #006699;"=
+ rel=3D"noopener">has been convicted of animal cruelty</a>. Mitchell Fairba=
+rn snatched the bird from its enclosure at the Flamingo Las Vegas hotel and=
+ casino</span></p></div></div></td></tr></table><table=20
+class=3D"divider_block block-12" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:16px;padding-bo=
+ttom:16px;padding-left:5px;padding-right:5px" align=3D"center"><table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"=
+100%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divi=
+der_inner" style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e=
+4e4">
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-13" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-left:5px;padding-right:5px"><div style=3D"font-fa=
+mily:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong>Middle Eas=
+t:</strong> Saudi Arabia <a href=3D"https://link.thetimes.com/click/4802132=
+0.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3dvcmxkL21pZGRsZS1lYXN0L2FydGljbG=
+UvYmFuZ2xhZGVzaC1jb3VwbGUtZXhlY3V0ZWQtbWVjY2EtZXhlY3V0aW9uLXNhdWRpLWFyYWJpY=
+S14aGo3MDhwM3M/6a464fcf7d55e1fcfb02eb9cB1153e63d" target=3D"_blank" style=
+=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">has execu=
+ted a Bangladeshi man and woman</a> for committing =E2=80=9Cindecent acts=
+=E2=80=9D inside a mosque in the holy city of Mecca, in an unusually harsh =
+punishment even for the conservative kingdom</span></p></div></div></td></t=
+r></table><table=20
+class=3D"divider_block block-14" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:30px;padding-bo=
+ttom:5px;padding-left:5px;padding-right:5px" align=3D"center"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divid=
+er_inner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #005b=
+8d">
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-15" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-bottom:5px;padding-left:5px;padding-right:5px"><d=
+iv style=3D"font-family:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;=
+font-size:14px;text-align:left;mso-line-height-alt:25.2px"><strong><span st=
+yle=3D"word-break: break-word; font-size: 22px; color: #000000;">Business</=
+span></strong></p></div></div></td></tr></table><table class=3D"text_block =
+block-16" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-top:10px;padding-bottom:3px;padding-left:=
+5px;padding-right:5px"><div style=3D"font-family:Georgia,'Times New Roman',=
+serif"><div class style=3D"font-size:14px;font-family:Georgia,Times,'Times =
+New Roman',serif;mso-line-height-alt:21px;color:#000;line-height:1.5"><p st=
+yle=3D"margin:0;font-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong>Fresh FCA =
+scandal:</strong> It <a href=3D"https://link.thetimes.com/click/48021320.47=
+2152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2J1c2luZXNzL2NvbXBhbmllcy1tYXJrZXRzL2=
+FydGljbGUvZmNhLXN1ZXMtbG9hbi1ub3RlLXByb21vdGVyLXJlZWNlLW1lbm5pZS12bDh3cGpta=
+mI/6a464fcf7d55e1fcfb02eb9cBb8937061" target=3D"_blank" style=3D"text-decor=
+ation: underline; color: #006699;" rel=3D"noopener">has emerged that the Ci=
+ty regulator</a> had been scrutinising a major promoter of =E2=80=9Cloan no=
+te=E2=80=99=E2=80=99 investments for more than a decade before High Court a=
+ction last month</span></p></div></div></td></tr></table><table class=3D"di=
+vider_block block-17" width=3D"100%"=20
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"=
+padding-top:16px;padding-bottom:16px;padding-left:5px;padding-right:5px" al=
+ign=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-rspa=
+ce:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-height:1p=
+x;border-top:1px solid #e4e4e4">
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-18" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-bottom:3px;padding-left:5px;padding-right:5px"><d=
+iv style=3D"font-family:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong>=E2=80=98K=
+ick in the teeth=E2=80=99 for remote workers:</strong> A row <a href=3D"htt=
+ps://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY2=
+9tL2J1c2luZXNzL2NvbXBhbmllcy1tYXJrZXRzL2FydGljbGUvbmF0d2VzdC1vcmRlcnMtc3RhZ=
+mYtYmFjay10by1vZmZpY2Utd2ZoLTgzczg2MjZ2cA/6a464fcf7d55e1fcfb02eb9cB8fb18bbd=
+" target=3D"_blank" style=3D"text-decoration: underline; color: #006699;" r=
+el=3D"noopener">has erupted</a> between NatWest and the Unite union after t=
+he bank told more than 30,000 of its staff that they would have to work in =
+the office at least two days a week</span></p></div></div></td></tr></table=
+><table=20
+class=3D"divider_block block-19" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:30px;padding-bo=
+ttom:5px;padding-left:5px;padding-right:5px" align=3D"center"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divid=
+er_inner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #0083=
+47">
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-20" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-bottom:5px;padding-left:5px;padding-right:5px"><d=
+iv style=3D"font-family:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;=
+font-size:14px;text-align:left;mso-line-height-alt:25.2px"><strong><span st=
+yle=3D"word-break: break-word; font-size: 22px; color: #000000;">Sport</spa=
+n></strong></p></div></div></td></tr></table><table class=3D"image_block bl=
+ock-21" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0">
+<tr><td class=3D"pad" style=3D"width:100%;padding-left:5px;padding-right:5p=
+x" align=3D"center"><div class=3D"fullWidth" style=3D"max-width:588px"><a h=
+ref=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhl=
+dGltZXMuY29tL3Nwb3J0L2Zvb3RiYWxsL2FydGljbGUvcmlvLW5ndW1vaGEtbGl2ZXJwb29sLXZ=
+pbGxhcnJlYWwtc2NvcmUtcmVzdWx0LWNqc2RkYnB2aA/6a464fcf7d55e1fcfb02eb9cB161006=
+a9" target=3D"_blank"><img src=3D"https://media.sailthru.com/fss/fvbdit/ed0=
+63e03-0421-4898-9138-f128be2df6bd/c8ee32a0-c55b-483a-80ca-6c94c9717fc0_91q8=
+.webp" style=3D"display:block;height:auto;border:0;width:100%" width=3D"588=
+" alt=3D"" title=3D"" height=3D"auto"></a></div></td></tr></table><table=20
+class=3D"text_block block-22" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-=
+top:20px;padding-bottom:3px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-s=
+ize:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-=
+alt:21px;color:#000;line-height:1.5"><p=20
+style=3D"margin:0;mso-line-height-alt:27px"><span style=3D"word-break: brea=
+k-word; font-size: 18px;"><strong>Champions League:</strong> Liverpool 4 Vi=
+llarreal 3: Andoni Iraola=E2=80=99s side came from 2-0 down thanks largely =
+to teenage star<strong> </strong>Rio Ngumoha<strong> </strong>as the Anfiel=
+d club&nbsp;<a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0=
+cHM6Ly93d3cudGhldGltZXMuY29tL3Nwb3J0L2Zvb3RiYWxsL2FydGljbGUvcmlvLW5ndW1vaGE=
+tbGl2ZXJwb29sLXZpbGxhcnJlYWwtc2NvcmUtcmVzdWx0LWNqc2RkYnB2aA/6a464fcf7d55e1f=
+cfb02eb9cC161006a9" target=3D"_blank" rel=3D"noopener" style=3D"text-decora=
+tion: underline; color: #006699;">made it three wins from three in Europe</=
+a></span></p>
+</div></div></td></tr></table><table class=3D"divider_block block-23" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad"=
+ style=3D"padding-top:16px;padding-bottom:16px;padding-left:5px;padding-rig=
+ht:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0"><tr><td class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #e4e4e4"><span =
+style=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr=
+></table><table class=3D"text_block block-24" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table=
+-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" s=
+tyle=3D"padding-bottom:3px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:14px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><strong>Cricket:</=
+strong> Gqeberha (third day of five): Australia, <a href=3D"https://link.th=
+etimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3Nwb3J0L2=
+NyaWNrZXQvYXJ0aWNsZS90ZW1iYS1iYXZ1bWEtc291dGgtYWZyaWNhLWF1c3RyYWxpYS1zZWNvb=
+mQtdGVzdC1iM2h4djAyc2s/6a464fcf7d55e1fcfb02eb9cB959c1b65" target=3D"_blank"=
+ style=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">wit=
+h nine first-innings wickets in hand</a>, trailed by 422 runs. Temba Bavuma=
+ dragged the home side back into the second Test as they declared on 425 fo=
+r nine</span></p></div></div></td></tr></table><table=20
+class=3D"divider_block block-25" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:30px;padding-bo=
+ttom:5px;padding-left:5px;padding-right:5px" align=3D"center"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divid=
+er_inner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #069"=
+>
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-26" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-bottom:5px;padding-left:5px;padding-right:5px"><d=
+iv style=3D"font-family:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;=
+font-size:14px;mso-line-height-alt:25.2px"><strong><span style=3D"word-brea=
+k: break-word; font-size: 22px; color: #000000;">Culture</span></strong></p=
+></div></div></td></tr></table><table class=3D"image_block block-27" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td=20
+class=3D"pad" style=3D"width:100%;padding-left:5px;padding-right:5px" align=
+=3D"center"><div style=3D"max-width:590px"><a href=3D"https://link.thetimes=
+.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2N1bHR1cmUvdHYt=
+cmFkaW8vYXJ0aWNsZS9zdGFjZXktZG9vbGV5LWRvd24tdGhlLWstaG9sZS1yZXZpZXctYmJjLWN=
+3cmx4NmZsNg/6a464fcf7d55e1fcfb02eb9cBbdb8d351" target=3D"_blank"><img src=
+=3D"https://media.sailthru.com/fss/fvbdit/d6199e0b-1a0b-4e5c-9f8e-6dfe6e86b=
+bf7/8980f86c-c64e-4577-a52c-a434ef17dfa5_i4ut.jpg" style=3D"display:block;h=
+eight:auto;border:0;width:100%" width=3D"590" alt=3D"" title=3D"" height=3D=
+"auto"></a></div></td></tr></table><table class=3D"text_block block-28" wid=
+th=3D"100%"=20
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td c=
+lass=3D"pad" style=3D"padding-top:10px;padding-bottom:10px;padding-left:5px=
+;padding-right:10px"><div style=3D"font-family:sans-serif"><div class style=
+=3D"font-size:14px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;ms=
+o-line-height-alt:16.8px;color:#555;line-height:1.2"><p style=3D"margin:0;f=
+ont-size:14px;mso-line-height-alt:16.8px">
+Stacey Dooley with Jensen and Liam, who received treatment for ketamine add=
+iction at the Acorn Recovery Unit in Stockport</p></div></div></td></tr></t=
+able><table class=3D"text_block block-29" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lsp=
+ace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=
+=3D"padding-top:10px;padding-bottom:3px;padding-left:5px;padding-right:5px"=
+><div style=3D"font-family:Georgia,'Times New Roman',serif"><div=20
+class style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',s=
+erif;mso-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margi=
+n:0;font-size:18px;text-align:left;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000;"><strong>TV:</strong=
+> In her latest documentary about ketamine abuse, Stacey Dooley visits a dr=
+ug rehab centre in Stockport where 19-year-old boys had to wear sanitary br=
+iefs <a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly9=
+3d3cudGhldGltZXMuY29tL2N1bHR1cmUvdHYtcmFkaW8vYXJ0aWNsZS9zdGFjZXktZG9vbGV5LW=
+Rvd24tdGhlLWstaG9sZS1yZXZpZXctYmJjLWN3cmx4NmZsNg/6a464fcf7d55e1fcfb02eb9cCb=
+db8d351" target=3D"_blank" style=3D"text-decoration: underline; color: #006=
+699;" rel=3D"noopener">because of the cheap party drug</a></span></p></div>=
+</div></td></tr></table><table class=3D"divider_block block-30"=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D=
+"pad" style=3D"padding-top:30px;padding-bottom:5px;padding-left:5px;padding=
+-right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;=
+line-height:1px;border-top:4px solid #069">
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-31" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-bottom:5px;padding-left:5px;padding-right:5px"><d=
+iv style=3D"font-family:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;=
+font-size:14px;mso-line-height-alt:25.2px"><strong><span style=3D"word-brea=
+k: break-word; font-size: 22px; color: #000000;">Life & Style</span></stron=
+g></p></div></div></td></tr></table><table class=3D"image_block block-32" w=
+idth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td=20
+class=3D"pad" style=3D"width:100%;padding-left:5px;padding-right:5px" align=
+=3D"center"><div style=3D"max-width:590px"><a href=3D"https://link.thetimes=
+.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2xpZmUtc3R5bGUv=
+Y2VsZWJyaXR5L2FydGljbGUvcHJpbmNlLWhhcnJ5LXdoYXQtd2V2ZS1sZWFybnQtaGlsYXJ5LXJ=
+vc2UtcXFmMnBzcTIw/6a464fcf7d55e1fcfb02eb9cB7d835881" target=3D"_blank"><img=
+ src=3D"https://media.sailthru.com/fss/fvbdit/c3d6b726-10db-43c9-9f16-ae374=
+09f3589/3f8ccb75-b907-429f-8880-94fc19c07f9a_f54h.webp" style=3D"display:bl=
+ock;height:auto;border:0;width:100%" width=3D"590" alt=3D"" title=3D"" heig=
+ht=3D"auto"></a></div></td></tr></table><table class=3D"text_block block-33=
+" width=3D"100%"=20
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td c=
+lass=3D"pad" style=3D"padding-top:20px;padding-bottom:3px;padding-left:5px;=
+padding-right:5px"><div style=3D"font-family:Georgia,'Times New Roman',seri=
+f"><div class style=3D"font-size:14px;font-family:Georgia,Times,'Times New =
+Roman',serif;mso-line-height-alt:21px;color:#000;line-height:1.5"><p style=
+=3D"margin:0;font-size:18px;text-align:left;mso-line-height-alt:27px">
+<strong>The Royals:</strong> The Duke of Sussex has told a US podcast that =
+he wants to move forward with hope =E2=80=94 so why can=E2=80=99t he stop l=
+ooking back in anger? <a href=3D"https://link.thetimes.com/click/48021320.4=
+72152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL2xpZmUtc3R5bGUvY2VsZWJyaXR5L2FydGljb=
+GUvcHJpbmNlLWhhcnJ5LXdoYXQtd2V2ZS1sZWFybnQtaGlsYXJ5LXJvc2UtcXFmMnBzcTIw/6a4=
+64fcf7d55e1fcfb02eb9cC7d835881" target=3D"_blank" style=3D"text-decoration:=
+ underline; color: #006699;" rel=3D"noopener">Asks Hilary Rose</a></p></div=
+></div></td></tr></table><table class=3D"divider_block block-34" width=3D"1=
+00%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"padding-top:30px;padding-bottom:5px;padding-left:5px;padding-right:5px"=
+ align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-r=
+space:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-height=
+:1px;border-top:4px solid #db133b"><span style=3D"word-break: break-word;">=
+&#8202;</span></td></tr></table></td></tr></table><table=20
+class=3D"text_block block-35" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-=
+bottom:5px;padding-left:5px;padding-right:5px"><div style=3D"font-family:Ge=
+orgia,'Times New Roman',serif"><div class style=3D"font-size:14px;font-fami=
+ly:Georgia,Times,'Times New Roman',serif;mso-line-height-alt:25.2px;color:#=
+000;line-height:1.8"><p=20
+style=3D"margin:0;font-size:14px;mso-line-height-alt:25.2px"><strong><span =
+style=3D"word-break: break-word; font-size: 22px; color: #000000;">Recipe</=
+span></strong></p></div></div></td></tr></table><table class=3D"image_block=
+ block-36" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><=
+td class=3D"pad" style=3D"width:100%;padding-left:5px;padding-right:5px" al=
+ign=3D"center"><div style=3D"max-width:590px">
+<a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cu=
+dGhldGltZXMuY29tL3JlY2lwZXMvZWFzeS1ldmVyeWRheS9kaW5uZXIvYXJ0aWNsZS9yb2FzdGV=
+kLXNxdWFzaC13aXRoLXlvZ2h1cnQtYW5kLXNwaWNlZC1waXN0YWNoaW9zLXJlY2lwZS0zeG1maj=
+k3ZmM/6a464fcf7d55e1fcfb02eb9cB82d53967" target=3D"_blank"><img src=3D"http=
+s://media.sailthru.com/fss/fvbdit/136bee8e-43ce-4e03-8152-e804ed27186d/2277=
+6016-eb4f-4166-b20a-469baf2c97fc_465o.webp" style=3D"display:block;height:a=
+uto;border:0;width:100%" width=3D"590" alt=3D"" title=3D"" height=3D"auto">=
+</a></div></td></tr></table><table class=3D"text_block block-37" width=3D"1=
+00%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-top:20px;padding-bottom:3px;padding-left:=
+5px;padding-right:5px"><div style=3D"font-family:Georgia,'Times New Roman',=
+serif"><div class style=3D"font-size:14px;font-family:Georgia,Times,'Times =
+New Roman',serif;mso-line-height-alt:21px;color:#000;line-height:1.5"><p st=
+yle=3D"margin:0;font-size:18px;text-align:left;mso-line-height-alt:27px">
+<strong>Alison Roman=E2=80=99s roasted squash with spiced pistachios:</stro=
+ng> A moreish and comforting seasonal dish <a href=3D"https://link.thetimes=
+.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3JlY2lwZXMvZWFz=
+eS1ldmVyeWRheS9kaW5uZXIvYXJ0aWNsZS9yb2FzdGVkLXNxdWFzaC13aXRoLXlvZ2h1cnQtYW5=
+kLXNwaWNlZC1waXN0YWNoaW9zLXJlY2lwZS0zeG1majk3ZmM/6a464fcf7d55e1fcfb02eb9cC8=
+2d53967" target=3D"_blank" style=3D"text-decoration: underline; color: #006=
+699;" rel=3D"noopener">from the food writer and social media star Alison Ro=
+man</a></p></div></div></td></tr></table><table class=3D"divider_block bloc=
+k-38" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=
+=3D"padding-top:30px;padding-bottom:5px;padding-left:5px;padding-right:5px"=
+ align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-table-r=
+space:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-height=
+:1px;border-top:4px solid #069"><span style=3D"word-break: break-word;">&#8=
+202;</span></td></tr></table></td></tr></table><table=20
+class=3D"text_block block-39" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-=
+bottom:5px;padding-left:5px;padding-right:5px"><div style=3D"font-family:Ge=
+orgia,'Times New Roman',serif"><div class style=3D"font-size:14px;font-fami=
+ly:Georgia,Times,'Times New Roman',serif;mso-line-height-alt:25.2px;color:#=
+000;line-height:1.8"><p=20
+style=3D"margin:0;font-size:14px;mso-line-height-alt:39.6px"><span style=3D=
+"word-break: break-word; font-size: 22px;"><strong>Obituaries</strong></spa=
+n></p></div></div></td></tr></table><table class=3D"image_block block-40" w=
+idth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"=
+pad" style=3D"width:100%;padding-left:5px;padding-right:5px" align=3D"cente=
+r"><div style=3D"max-width:590px">
+<a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cu=
+dGhldGltZXMuY29tL3VrL29iaXR1YXJpZXMvYXJ0aWNsZS9zaXItZG9uYWxkLWluc2FsbC1vYml=
+0dWFyaWVzLWRlYXRoLTNwcHpiMjNxMA/6a464fcf7d55e1fcfb02eb9cB5ebb0d7f" target=
+=3D"_blank"><img src=3D"https://media.sailthru.com/fss/fvbdit/76ab353c-9133=
+-413f-8bfe-22b4dd5713f1/79864009-976c-41c0-859f-d8d62c15aeeb_89v0.png" styl=
+e=3D"display:block;height:auto;border:0;width:100%" width=3D"590" alt=3D"" =
+title=3D"" height=3D"auto"></a></div></td></tr></table><table class=3D"text=
+_block block-41" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad" style=3D"padding-top:10px;padding-bottom:10px;padding-left=
+:5px;padding-right:10px"><div style=3D"font-family:Arial,sans-serif"><div c=
+lass style=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,s=
+ans-serif;mso-line-height-alt:16.8px;color:#555;line-height:1.2"><p style=
+=3D"margin:0;font-size:14px;mso-line-height-alt:16.8px">Insall inspecting N=
+elson=E2=80=99s Column in Trafalgar Square</p></div></div></td></tr>
+</table><table class=3D"text_block block-42" width=3D"100%" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-=
+lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" st=
+yle=3D"padding-top:10px;padding-bottom:3px;padding-left:5px;padding-right:5=
+px"><div style=3D"font-family:Georgia,'Times New Roman',serif"><div class s=
+tyle=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;ms=
+o-line-height-alt:21px;color:#000;line-height:1.5"><p=20
+style=3D"margin:0;font-size:18px;text-align:left;mso-line-height-alt:27px">=
+<span style=3D"word-break: break-word; color: #000000;"><span style=3D"word=
+-break: break-word;"><strong>Sir Donald Insall:&nbsp;</strong><a href=3D"ht=
+tps://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY=
+29tL3VrL29iaXR1YXJpZXMvYXJ0aWNsZS9zaXItZG9uYWxkLWluc2FsbC1vYml0dWFyaWVzLWRl=
+YXRoLTNwcHpiMjNxMA/6a464fcf7d55e1fcfb02eb9cC5ebb0d7f" target=3D"_blank" sty=
+le=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">Plannin=
+g consultant</a> who helped to pioneer the building conservation movement</=
+span></span></p></div></div></td></tr></table><table=20
+class=3D"divider_block block-43" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:30px;padding-bo=
+ttom:5px;padding-left:5px;padding-right:5px" align=3D"center"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divid=
+er_inner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #069"=
+>
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-44" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-left:5px;padding-right:5px"><div style=3D"font-fa=
+mily:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;=
+font-size:14px;mso-line-height-alt:25.2px"><strong><span style=3D"word-brea=
+k: break-word; font-size: 22px; color: #000000;">Puzzles</span></strong></p=
+></div></div></td></tr></table><table class=3D"image_block block-45" width=
+=3D"100%" border=3D"0" cellpadding=3D"5" cellspacing=3D"0" role=3D"presenta=
+tion" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td=20
+class=3D"pad" style=3D"width:100%" align=3D"center"><div class=3D"fullWidth=
+" style=3D"max-width:590px"><a href=3D"https://link.thetimes.com/click/4802=
+1320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3B1enpsZXMvcXVpenplcy1hbmQtdGV=
+hc2Vycy9waWNsZS8yMDI2LTEwLTIx/6a464fcf7d55e1fcfb02eb9cBf54b8dba" target=3D"=
+_blank"><img src=3D"https://media.sailthru.com/fss/fvbdit/77c59ac1-fcbb-418=
+e-9cbd-1c6dc1c2e121/76480e61-04d0-4da7-92a8-aa486ca824be_emo6.png" style=3D=
+"display:block;height:auto;border:0;width:100%" width=3D"590" alt=3D"" titl=
+e=3D"" height=3D"auto"></a></div></td></tr></table><table class=3D"text_blo=
+ck block-46" width=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-top:10px;padding-left:5px;padding-right:5px"><div style=3D=
+"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-size=
+:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-alt=
+:21px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:18px;text-=
+align:left;mso-line-height-alt:27px">
+Can you guess where and in which year <span style=3D"word-break: break-word=
+;"><a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d=
+3cudGhldGltZXMuY29tL3B1enpsZXMvcXVpenplcy1hbmQtdGVhc2Vycy9waWNsZS8yMDI2LTEw=
+LTIx/6a464fcf7d55e1fcfb02eb9cCf54b8dba" target=3D"_blank" style=3D"text-dec=
+oration: underline; color: #006699;" rel=3D"noopener">today=E2=80=99s Picle=
+ picture</a></span> was taken?&nbsp;</p><p style=3D"margin:0;font-size:18px=
+;text-align:left;mso-line-height-alt:27px"><span style=3D"word-break: break=
+-word; font-size: 18px;"><br>
+Find the rest of our puzzles <a href=3D"https://link.thetimes.com/click/480=
+21320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3B1enpsZXM/6a464fcf7d55e1fcfb=
+02eb9cB6a1bb75b" target=3D"_blank" style=3D"text-decoration: underline; col=
+or: #006699;" rel=3D"noopener">here</a> or have a go at this anagram of som=
+eone who recently made the news =E2=80=94 can you guess who it is? Hint: US=
+ political consultant&nbsp;<br><br>LIE WUSSIES (Answer below)</span></p></d=
+iv></div></td></tr></table><table class=3D"divider_block block-47" width=3D=
+"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><=
+td class=3D"pad" style=3D"padding-top:30px;padding-bottom:5px;padding-left:=
+5px;padding-right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_inner" style=3D"fon=
+t-size:1px;line-height:1px;border-top:4px solid #069"><span style=3D"word-b=
+reak: break-word;">&#8202;</span></td></tr></table></td></tr></table><table=
+=20
+class=3D"text_block block-48" width=3D"100%" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-=
+left:5px;padding-right:5px"><div style=3D"font-family:Georgia,'Times New Ro=
+man',serif"><div class style=3D"font-size:14px;font-family:Georgia,Times,'T=
+imes New Roman',serif;mso-line-height-alt:25.2px;color:#000;line-height:1.8=
+"><p style=3D"margin:0;font-size:18px;mso-line-height-alt:43.2px">
+<span style=3D"word-break: break-word; font-size: 24px; color: #000000;"><s=
+trong><span style=3D"word-break: break-word; font-size: 22px;">Letter of th=
+e day</span></strong></span></p></div></div></td></tr></table><table class=
+=3D"text_block block-49" width=3D"100%" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-r=
+space:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-top:5=
+px;padding-left:5px;padding-right:5px"><div=20
+style=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"f=
+ont-size:12px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-he=
+ight-alt:18px;color:#000;line-height:1.5"><p style=3D"margin:0;font-size:18=
+px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px; color: #000000;">On=
+ the <a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly9=
+3d3cudGhldGltZXMuY29tL2NvbW1lbnQvbGV0dGVycy10by1lZGl0b3IvYXJ0aWNsZS90aW1lcy=
+1sZXR0ZXJzLWJ1ZGdldC1qb2huLWhlYWxleS05ZjhmcTV3MHI/6a464fcf7d55e1fcfb02eb9cB=
+a75477aa" target=3D"_blank" style=3D"text-decoration: underline; color: #00=
+6699;" rel=3D"noopener">letters</a>&nbsp;page today, a response from Dr Dav=
+id Simons to pudding pleasures.&nbsp;</span></p><p style=3D"margin:0;font-s=
+ize:18px;mso-line-height-alt:18px">&nbsp;</p><p style=3D"margin:0;font-size=
+:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px; color: #000000;"><s=
+trong><strong>Dr David Simons</strong>: </strong>Sticky toffee pudding was =
+invented by Francis Coulson and Brian Sack at the fantastic Sharrow Bay Hot=
+el, Ullswater, in the 1960s. Two friends of ours were honoured when, during=
+ a stay, Coulson gave them the recipe and permission to include it on the m=
+enu at their restaurant, Just Cooking, in Sheffield, where it became a huge=
+ hit.</span></p><p=20
+style=3D"margin:0;font-size:18px;mso-line-height-alt:18px">&nbsp;</p><p sty=
+le=3D"margin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px; color: #000000;"><e=
+m>You can submit a letter to the Editor, which may be edited or shortened f=
+or publication, by emailing <a href=3D"mailto:letters@thetimes.co.uk" rel=
+=3D"noopener" target=3D"_blank" title=3D"letters@thetimes.co.uk" style=3D"t=
+ext-decoration: underline; color: #006699;">letters@thetimes.co.uk</a> </em=
+><em>with&nbsp;your name, address and phone number.</em></span></p></div></=
+div></td></tr></table><table=20
+class=3D"divider_block block-50" width=3D"100%" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso=
+-table-rspace:0"><tr><td class=3D"pad" style=3D"padding-top:30px;padding-bo=
+ttom:5px;padding-left:5px;padding-right:5px" align=3D"center"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divid=
+er_inner" style=3D"font-size:1px;line-height:1px;border-top:4px solid #069"=
+>
+<span style=3D"word-break: break-word;">&#8202;</span></td></tr></table></t=
+d></tr></table><table class=3D"text_block block-51" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"m=
+so-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=
+=3D"pad" style=3D"padding-bottom:5px;padding-left:5px;padding-right:5px"><d=
+iv style=3D"font-family:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;=
+font-size:18px;mso-line-height-alt:43.2px"><span style=3D"word-break: break=
+-word; font-size: 24px; color: #000000;"><strong><span style=3D"word-break:=
+ break-word; font-size: 22px;">Reasons to be cheerful</span></strong></span=
+></p></div></div></td></tr></table><table class=3D"image_block block-52" wi=
+dth=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><=
+td class=3D"pad" style=3D"width:100%;padding-left:5px;padding-right:5px" al=
+ign=3D"center"><div style=3D"max-width:590px"><a href=3D"https://link.theti=
+mes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3dvcmxkL2Nhb=
+mFkYS13b3JsZC9hcnRpY2xlL3NtYWxsLXRvd24tZ29pbmctdG8tdGhlLWRvZ3MtaXQtbWF5LWJl=
+LXRpbWUtZm9yLWFuLWFuaW1hbC1lbGVjdGlvbi05YmptcW1zeGM/6a464fcf7d55e1fcfb02eb9=
+cB4906c1b7" target=3D"_blank"><img src=3D"https://media.sailthru.com/fss/fv=
+bdit/e39e27bb-1bc4-44b7-b28d-92e0787d1273/a7acf7e1-b4af-4107-a27a-635867d12=
+ca1_2uf0.webp" style=3D"display:block;height:auto;border:0;width:100%" widt=
+h=3D"590" alt=3D"" title=3D"" height=3D"auto"></a>
+</div></td></tr></table><table class=3D"text_block block-53" width=3D"100%"=
+ border=3D"0" cellpadding=3D"10" cellspacing=3D"0" role=3D"presentation" st=
+yle=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td=
+ class=3D"pad"><div style=3D"font-family:Arial,sans-serif"><div class style=
+=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;=
+mso-line-height-alt:16.8px;color:#555;line-height:1.2"><p style=3D"margin:0=
+;font-size:14px;mso-line-height-alt:16.8px">
+Gus, left, will be the dog mayor of Kitimat in British Columbia</p></div></=
+div></td></tr></table><table class=3D"text_block block-54" width=3D"100%" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td cl=
+ass=3D"pad" style=3D"padding-top:20px;padding-left:5px;padding-right:5px"><=
+div style=3D"font-family:Georgia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000; font-size: 18px;"><s=
+pan style=3D"word-break: break-word;"><span style=3D"word-break: break-word=
+; font-size: 18px;">The menagerie of animals who have run for political off=
+ice was this week&nbsp;<a href=3D"https://link.thetimes.com/click/48021320.=
+472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3dvcmxkL2NhbmFkYS13b3JsZC9hcnRpY2xl=
+L3NtYWxsLXRvd24tZ29pbmctdG8tdGhlLWRvZ3MtaXQtbWF5LWJlLXRpbWUtZm9yLWFuLWFuaW1=
+hbC1lbGVjdGlvbi05YmptcW1zeGM/6a464fcf7d55e1fcfb02eb9cC4906c1b7" target=3D"_=
+blank" style=3D"text-decoration: underline; color: #006699;" rel=3D"noopene=
+r">joined by Gus and Koko</a>, two dogs who live in Kitimat, an industrial =
+town in the shadow of a vast Rio Tinto smelter at the foot of British Colum=
+bia=E2=80=99s mountain ranges.&nbsp;</span></span></span>
+</p><p style=3D"margin:0;mso-line-height-alt:21px">&nbsp;</p><p style=3D"ma=
+rgin:0;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000; font-size: 18px;"><s=
+pan style=3D"word-break: break-word;"><span style=3D"word-break: break-word=
+; font-size: 18px;">Jobs are few, the economic picture is bleak, and in the=
+ form of Gus and Koko, officials hoped to get the vote out and inspire a ne=
+w generation into a local political scene in the doldrums after a poor turn=
+out in the previous elections.&nbsp;</span></span></span></p><p style=3D"ma=
+rgin:0;font-size:18px;mso-line-height-alt:21px">&nbsp;</p>
+<p style=3D"margin:0;font-size:18px;mso-line-height-alt:27px"><span style=
+=3D"word-break: break-word; color: #000000;"><span style=3D"word-break: bre=
+ak-word; font-size: 18px;"><span style=3D"word-break: break-word;"><strong =
+style=3D"color:#000;font-family:Georgia,Times,'Times New Roman',serif;font-=
+family:Georgia,Times,'Times New Roman',serif">
+Anagram</strong></span><strong><span style=3D"word-break: break-word; color=
+: #000000;"><span style=3D"word-break: break-word;">:</span></span></strong=
+></span><em><span style=3D"word-break: break-word; color: #000000;"><span s=
+tyle=3D"word-break: break-word; font-size: 18px;"> The answer was Susie Wil=
+es, whose position as the White House chief of staff seems secure after rum=
+ours of the opposite being true, <a href=3D"https://link.thetimes.com/click=
+/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3VzL2FtZXJpY2FuLXBvbGl0aW=
+NzL2FydGljbGUvdHJ1bXAtaWNlLW1haWRlbi1zdXNpZS13aWxlcy1zYWNrLWRvbnQtYmV0LW9uL=
+Wl0LWZsM2M2dmNwaw/6a464fcf7d55e1fcfb02eb9cB7cb57164" target=3D"_blank" styl=
+e=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">reports =
+Katy Balls</a>.&nbsp;</span></span></em></span>
+</strong></p></div></div></td></tr></table><table class=3D"divider_block bl=
+ock-55" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" rol=
+e=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td =
+class=3D"pad" style=3D"padding-top:30px;padding-bottom:5px;padding-left:5px=
+;padding-right:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-l=
+space:0;mso-table-rspace:0"><tr><td class=3D"divider_inner"=20
+style=3D"font-size:1px;line-height:1px;border-top:4px solid #069"><span sty=
+le=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr></=
+table></td></tr></tbody></table></td></tr></tbody></table><table class=3D"r=
+ow row-10 mobile_hide" align=3D"center" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspac=
+e:0;mso-table-rspace:0;background-color:#fff"><tbody><tr><td><table class=
+=3D"row-content" align=3D"center" border=3D"0" cellpadding=3D"0"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;background-color:#fff;border-radius:0;color:#000;width:600px;ma=
+rgin:0 auto" width=3D"600"><tbody><tr><td class=3D"column column-1" width=
+=3D"8.333333333333334%" style=3D"mso-table-lspace:0;mso-table-rspace:0;font=
+-weight:400;text-align:left;vertical-align:top;width:8.333333333333334%"><t=
+able width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td=
+=20
+class=3D"col-pad" style=3D"padding-bottom:5px;padding-top:5px"><table class=
+=3D"image_block block-1" width=3D"100%" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-r=
+space:0"><tr><td class=3D"pad" style=3D"width:100%;padding-left:5px" align=
+=3D"center"><div style=3D"max-width:45px"><img src=3D"https://media.sailthr=
+u.com/composer/images/bazh/so1qeqwa/1h6/my7/ky6/unnamed_16.png" style=3D"di=
+splay:block;height:auto;border:0;width:100%" width=3D"45" alt=3D"" title=3D=
+""=20
+height=3D"auto"></div></td></tr></table></td></tr></table></td><td class=3D=
+"column column-2" width=3D"91.66666666666667%" style=3D"mso-table-lspace:0;=
+mso-table-rspace:0;font-weight:400;text-align:left;vertical-align:top;width=
+:91.66666666666667%"><table width=3D"100%" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tabl=
+e-rspace:0"><tr><td class=3D"col-pad" style=3D"padding-bottom:5px;padding-t=
+op:5px"><table class=3D"text_block block-1" width=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-bottom:5px;padding-left:10px;padding-right:5px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-s=
+ize:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-=
+alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;font-size:18px;=
+mso-line-height-alt:43.2px">
+<span style=3D"word-break: break-word; font-size: 24px; color: #000000;"><s=
+trong><span style=3D"word-break: break-word; font-size: 22px;">Times Radio<=
+/span></strong></span></p></div></div></td></tr></table></td></tr></table><=
+/td></tr></tbody></table></td></tr></tbody></table><!--[if !mso]><!--><tabl=
+e class=3D"row row-11 desktop_hide" align=3D"center" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;ma=
+x-height:0;overflow:hidden;background-color:#fff"><tbody><tr><td><table cla=
+ss=3D"row-content" align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspac=
+e:0;mso-hide:all;display:none;max-height:0;overflow:hidden;background-color=
+:#fff;border-radius:0;color:#000;width:600px;margin:0 auto" width=3D"600"><=
+tbody><tr><td class=3D"column column-1" width=3D"16.666666666666668%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:16.666666666666668%"><table width=3D"100%" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;max-hei=
+ght:0;overflow:hidden"><tr><td class=3D"col-pad" style=3D"padding-bottom:5p=
+x;padding-top:5px"><table class=3D"image_block block-1" width=3D"100%" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;ma=
+x-height:0;overflow:hidden"><tr><td class=3D"pad" style=3D"width:100%;paddi=
+ng-left:5px" align=3D"center"><div style=3D"max-width:95px"><img src=3D"htt=
+ps://media.sailthru.com/composer/images/bazh/so1qeqwa/1h6/my7/ky6/unnamed_1=
+6.png" style=3D"display:block;height:auto;border:0;width:100%" width=3D"95"=
+ alt=3D"" title=3D"" height=3D"auto"></div></td></tr></table></td></tr></ta=
+ble></td><td class=3D"column column-2" width=3D"83.33333333333333%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:83.33333333333333%"><table width=3D"100%" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"mso-table-lspace:0;mso-table-rspace:0;mso-hide:all;display:none;max-height=
+:0;overflow:hidden"><tr><td class=3D"col-pad" style=3D"padding-bottom:5px;p=
+adding-top:5px"><table class=3D"text_block block-1" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word;mso-hi=
+de:all;display:none;max-height:0;overflow:hidden"><tr><td class=3D"pad" sty=
+le=3D"padding-bottom:5px;padding-left:10px;padding-right:5px"><div style=3D=
+"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-size=
+:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-alt=
+:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;font-size:18px;mso=
+-line-height-alt:43.2px">
+<span style=3D"word-break: break-word; font-size: 24px; color: #000000;"><s=
+trong><span style=3D"word-break: break-word; font-size: 22px;">Times Radio<=
+/span></strong></span></p></div></div></td></tr></table></td></tr></table><=
+/td></tr></tbody></table></td></tr></tbody></table><!--<![endif]--><table c=
+lass=3D"row row-12" align=3D"center" width=3D"100%" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0=
+;mso-table-rspace:0;background-color:#fff"><tbody><tr><td><table=20
+class=3D"row-content" align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rs=
+pace:0;background-color:#fff;color:#000;width:600px;margin:0 auto" width=3D=
+"600"><tbody><tr><td class=3D"column column-1" width=3D"100%" style=3D"mso-=
+table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-=
+align:top;width:100%"><table class=3D"text_block block-1" width=3D"100%" bo=
+rder=3D"0" cellpadding=3D"5" cellspacing=3D"0" role=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><=
+td class=3D"pad"><div style=3D"font-family:Georgia,'Times New Roman',serif"=
+><div class style=3D"font-size:14px;font-family:Georgia,Times,'Times New Ro=
+man',serif;mso-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D=
+"margin:0;text-align:left;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><span style=3D"wor=
+d-break: break-word; background-color: transparent;">T</span><span style=3D=
+"word-break: break-word; background-color: transparent;">oday=E2=80=99s hig=
+hlights:&nbsp;</span></span></p><p style=3D"margin:0;text-align:left;font-s=
+ize:18px;mso-line-height-alt:21px">&nbsp;</p><p style=3D"margin:0;text-alig=
+n:left;font-size:18px;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; font-size: 18px;"><span style=3D"wor=
+d-break: break-word; background-color: transparent;"><strong>8.00am:</stron=
+g> Former migration minister <strong>Mike Tapp MP</strong></span></span></p=
+><p style=3D"margin:0;text-align:left;font-size:18px;mso-line-height-alt:27=
+px">
+<span style=3D"word-break: break-word; font-size: 18px;"><span style=3D"wor=
+d-break: break-word; background-color: transparent;"><strong>11.10am:</stro=
+ng> Creator of <em>Horrible Histories</em> <strong>Terry Deary</strong> on =
+his new book <em>The History of the World in Ten Wars</em></span></span></p=
+><p style=3D"margin:0;text-align:left;font-size:18px;mso-line-height-alt:27=
+px">
+<span style=3D"word-break: break-word; font-size: 18px;"><span style=3D"wor=
+d-break: break-word; background-color: transparent;"><strong>4.30pm: </stro=
+ng><strong>Bill Esterson MP</strong>, chair of the energy and net zero comm=
+ittee</span></span></p><p style=3D"margin:0;font-size:18px;mso-line-height-=
+alt:21px">&nbsp;</p><p style=3D"margin:0;font-size:18px;mso-line-height-alt=
+:27px">
+Listen for free on DAB radio, the Times Radio app or online&nbsp;<a href=3D=
+"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly93d3cudGhldGltZX=
+MuY29tL3JhZGlvL2xpdmU/6a464fcf7d55e1fcfb02eb9cB4d579f6b" target=3D"_blank" =
+style=3D"text-decoration: underline; color: #006699;" rel=3D"noopener">here=
+</a>.</p></div></div></td></tr></table><table class=3D"divider_block block-=
+2" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=
+=3D"pad"=20
+style=3D"padding-top:30px;padding-bottom:5px;padding-left:5px;padding-right=
+:5px" align=3D"center"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" width=3D"100%" style=3D"mso-table-lspace:0;mso-ta=
+ble-rspace:0"><tr><td class=3D"divider_inner" style=3D"font-size:1px;line-h=
+eight:1px;border-top:4px solid #069"><span style=3D"word-break: break-word;=
+">&#8202;</span></td></tr></table></td></tr></table></td></tr></tbody></tab=
+le></td></tr></tbody></table><table class=3D"row row-13" align=3D"center"=
+=20
+width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:=
+#fff"><tbody><tr><td><table class=3D"row-content stack" align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0;background-color:#fff;color:#000;=
+width:600px;margin:0 auto" width=3D"600"><tbody><tr><td class=3D"column col=
+umn-1" width=3D"100%"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:l=
+eft;vertical-align:top;width:100%"><table class=3D"text_block block-1" widt=
+h=3D"100%" border=3D"0" cellpadding=3D"5" cellspacing=3D"0" role=3D"present=
+ation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word=
+"><tr><td class=3D"pad"><div style=3D"font-family:Georgia,'Times New Roman'=
+,serif"><div class style=3D"font-size:14px;font-family:Georgia,Times,'Times=
+ New Roman',serif;mso-line-height-alt:21px;color:#000;line-height:1.5">
+<p style=3D"margin:0;text-align:left;font-size:18px;mso-line-height-alt:27p=
+x">Most of our full-price digital subscribers can share their account with =
+up to three people at no extra cost using Bonus Accounts. You can read more=
+ about it here:&nbsp;<a href=3D"https://link.thetimes.com/click/46395892.21=
+6863/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3N0YXRpYy9pbnRyb2R1Y2luZy1ib251cy1hY2=
+NvdW50cy8/67079a0733b854cf5506c85dB303e1d25" rel=3D"noopener" target=3D"_bl=
+ank" style=3D"text-decoration: underline; color: #006699;">Introducing&nbsp=
+;Bonus&nbsp;Accounts</a>&nbsp;</p><p=20
+style=3D"margin:0;text-align:left;font-size:18px;mso-line-height-alt:21px">=
+&nbsp;</p><p style=3D"margin:0;text-align:left;font-size:18px;mso-line-heig=
+ht-alt:27px">
+<em>Sign in to <a href=3D"https://link.thetimes.com/click/46395892.216863/a=
+HR0cHM6Ly9ob21lLnRoZXRpbWVzLmNvbS9ib251cy1hY2NvdW50cz91dG1fc291cmNlPUNSTSZ1=
+dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1GWTI2X1RNX1RNX0JBVV9SZXRlbnRpb25fVGl=
+tZXNTdWJzY3JpcHRpb25fMDUyNl9OZXdzbGV0dGVyQm9udXNBY2NvdW50X1VLX0FjdGl2ZQ/670=
+79a0733b854cf5506c85dB0a098b3a" rel=3D"noopener" target=3D"_blank" style=3D=
+"text-decoration: underline; color: #006699;">My&nbsp;Account</a>&nbsp;to c=
+heck if your subscription includes Bonus Accounts, then follow the instruct=
+ions to invite members. If you don=E2=80=99t have inclusive Bonus Accounts,=
+ contact customer services to discuss your options.</em></p></div></div></t=
+d></tr></table><table class=3D"divider_block block-2" width=3D"100%" border=
+=3D"0" cellpadding=3D"10"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0"><tr><td class=3D"pad" align=3D"center"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%" style=
+=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td class=3D"divider_inner" =
+style=3D"font-size:1px;line-height:1px;border-top:1px solid #bbb"><span sty=
+le=3D"word-break: break-word;">&#8202;</span></td></tr></table></td></tr></=
+table><table class=3D"image_block block-3" width=3D"100%" border=3D"0"=20
+cellpadding=3D"5" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0"><tr><td class=3D"pad" style=3D"width:100%" a=
+lign=3D"center"><div style=3D"max-width:590px"><a href=3D"https://link.thet=
+imes.com/external/48021320.472152/aHR0cHM6Ly93d3cudGVzY28uY29tL3Nob3AvZW4tR=
+0Ivem9uZS90ZXNjby1maW5lc3Q/6a464fcf7d55e1fcfb02eb9cCe75414cd" target=3D"_bl=
+ank"><img src=3D"https://media.sailthru.com/fss/fvbdit/18b8e317-2b73-4b85-8=
+189-39bbb2f1bf12/Tesco_CCP_WEEK34_Newsletter_Salmon_970x250_8td5.jpg" style=
+=3D"display:block;height:auto;border:0;width:100%" width=3D"590" alt=3D"" t=
+itle=3D"" height=3D"auto"></a>
+</div></td></tr></table><table class=3D"icons_block block-4" width=3D"100%"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"mso-table-lspace:0;mso-table-rspace:0;text-align:center;line-height:0=
+"><tr><td class=3D"pad" style=3D"vertical-align:middle;color:#000;font-fami=
+ly:inherit;font-size:14px;padding-left:5px;padding-right:5px" align=3D"cent=
+er"><table class=3D"icons-outer" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation"=20
+style=3D"mso-table-lspace:0;mso-table-rspace:0;display:inline-table"><tr><t=
+d style=3D"vertical-align:middle;text-align:center;padding-top:20px;padding=
+-bottom:15px;padding-left:5px;padding-right:5px"><img class=3D"icon" src=3D=
+"https://media.sailthru.com/composer/images/sailthru-prod-74t/Check.png" al=
+t=3D"" height=3D"auto" width=3D"32" align=3D"center" style=3D"display:block=
+;height:auto;margin:0 auto;border:0"></td></tr></table></td></tr></table><t=
+able class=3D"text_block block-5" width=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-bottom:11px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Georgia,'Times New Roman',serif"><div class style=3D"font-s=
+ize:14px;font-family:Georgia,Times,'Times New Roman',serif;mso-line-height-=
+alt:25.2px;color:#000;line-height:1.8"><p style=3D"margin:0;font-size:14px;=
+text-align:center;mso-line-height-alt:25.2px">
+<strong><span style=3D"word-break: break-word; font-size: 22px; color: #000=
+000;">... that=E2=80=99s all for now</span></strong></p></div></div></td></=
+tr></table><table class=3D"text_block block-6" width=3D"100%" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-left:5px;padding-right:5px"><div style=3D"font-family:Geor=
+gia,'Times New Roman',serif"><div class=20
+style=3D"font-size:14px;font-family:Georgia,Times,'Times New Roman',serif;m=
+so-line-height-alt:21px;color:#000;line-height:1.5"><p style=3D"margin:0;fo=
+nt-size:18px;text-align:center;mso-line-height-alt:27px">
+<span style=3D"word-break: break-word; color: #000000;">What did you think =
+of today=E2=80=99s newsletter? Tell us what you=E2=80=99d like to see more =
+of by emailing</span> <a href=3D"mailto:newsletters@thetimes.co.uk?subject=
+=3DDaily%20Briefing%20newsletter:%20feedback" target=3D"_blank" title=3D"ne=
+wsletters@thetimes.co.uk" rel=3D"noopener" style=3D"text-decoration: underl=
+ine; color: #006699;">newsletters@thetimes.co.uk</a></p></div></div></td></=
+tr></table><table class=3D"social_block block-7" width=3D"100%" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0"=20
+role=3D"presentation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><=
+td class=3D"pad" style=3D"padding-top:20px;padding-bottom:10px;padding-left=
+:10px;padding-right:10px" align=3D"center"><table class=3D"social-table" wi=
+dth=3D"126px" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"mso-table-lspace:0;mso-table-rspace:0"><tr><td style=3D"=
+padding:0"><a href=3D"https://link.thetimes.com/external/48021320.472152/aH=
+R0cHM6Ly93d3cuZmFjZWJvb2suY29tL3RpbWVzYW5kc3VuZGF5dGltZXMvP2xvY2FsZT1lbl9HQ=
+g/6a464fcf7d55e1fcfb02eb9cB8992ee7d" target=3D"_blank"><img=20
+src=3D"https://app-rsrc.getbee.io/public/resources/social-networks-icon-set=
+s/circle-color/facebook@2x.png" width=3D"32" height=3D"auto" alt=3D"Faceboo=
+k" title=3D"Facebook" style=3D"display:block;height:auto;border:0"></a></td=
+><td style=3D"padding:0 0 0 15px"><a href=3D"https://link.thetimes.com/exte=
+rnal/48021320.472152/aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS90aGV0aW1lcy8_aGw9ZW=
+4/6a464fcf7d55e1fcfb02eb9cB3f6edf42" target=3D"_blank"><img src=3D"https://=
+app-rsrc.getbee.io/public/resources/social-networks-icon-sets/circle-color/=
+instagram@2x.png" width=3D"32" height=3D"auto" alt=3D"Instagram" title=3D"I=
+nstagram"=20
+style=3D"display:block;height:auto;border:0"></a></td><td style=3D"padding:=
+0 0 0 15px"><a href=3D"https://link.thetimes.com/external/48021320.472152/a=
+HR0cHM6Ly91ay5saW5rZWRpbi5jb20vY29tcGFueS90aGUtdGltZXM/6a464fcf7d55e1fcfb02=
+eb9cB11232d6a" target=3D"_blank"><img src=3D"https://app-rsrc.getbee.io/pub=
+lic/resources/social-networks-icon-sets/circle-color/linkedin@2x.png" width=
+=3D"32" height=3D"auto" alt=3D"LinkedIn" title=3D"LinkedIn" style=3D"displa=
+y:block;height:auto;border:0"></a></td></tr></table></td></tr></table><tabl=
+e class=3D"text_block block-8" width=3D"100%" border=3D"0" cellpadding=3D"0=
+"=20
+cellspacing=3D"0" role=3D"presentation" style=3D"mso-table-lspace:0;mso-tab=
+le-rspace:0;word-break:break-word"><tr><td class=3D"pad" style=3D"padding-t=
+op:5px;padding-bottom:10px;padding-left:5px;padding-right:5px"><div style=
+=3D"font-family:Arial,sans-serif"><div class style=3D"font-size:14px;font-f=
+amily:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-height-alt:21px;=
+color:#696969;line-height:1.5"><p style=3D"margin:0;font-size:18px;text-ali=
+gn:center;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; font-size: 14px;">Download our app f=
+or <a href=3D"https://link.thetimes.com/external/48021320.472152/aHR0cHM6Ly=
+9wbGF5Lmdvb2dsZS5jb20vc3RvcmUvYXBwcy9kZXRhaWxzP2lkPXVrLmNvLnRoZXRpbWVz/6a46=
+4fcf7d55e1fcfb02eb9cBe93d9449" target=3D"_blank" style=3D"text-decoration: =
+underline; color: #1d1d1b;" rel=3D"noopener">Android</a> and <a href=3D"htt=
+ps://link.thetimes.com/external/48021320.472152/aHR0cHM6Ly9hcHBzLmFwcGxlLmN=
+vbS9nYi9hcHAvdGhlLXRpbWVzLXVrLXdvcmxkLW5ld3MvaWQ0MzY3OTIzMjE/6a464fcf7d55e1=
+fcfb02eb9cB0d235b47" target=3D"_blank" style=3D"text-decoration: underline;=
+ color: #1d1d1b;" rel=3D"noopener">IOS</a></span></p></div></div></td></tr>=
+</table><table class=3D"text_block block-9" width=3D"100%" border=3D"0"=20
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"mso-tabl=
+e-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class=3D"pad" =
+style=3D"padding-top:5px;padding-bottom:10px;padding-left:5px;padding-right=
+:5px"><div style=3D"font-family:Arial,sans-serif"><div class style=3D"font-=
+size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;mso-line-=
+height-alt:21px;color:#1d1d1b;line-height:1.5"><p style=3D"margin:0;font-si=
+ze:18px;text-align:center;mso-line-height-alt:21px">
+<span style=3D"word-break: break-word; font-size: 14px;"><a href=3D"https:/=
+/link.thetimes.com/click/48021320.472152/aHR0cHM6Ly9ob21lLnRoZXRpbWVzLmNvbS=
+9uZXdzbGV0dGVycw/6a464fcf7d55e1fcfb02eb9cC7e5d4a47" target=3D"_blank" style=
+=3D"text-decoration: underline; color: #1d1d1b;" rel=3D"noopener">See all o=
+ur newsletters</a> <span style=3D"word-break: break-word; color: #e4e4e4;">=
+|</span> <a href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM=
+6Ly93d3cudGhldGltZXMuY29tL3N0YXRpYy9uZXdzLXVrLXByaXZhY3ktY29va2llLXBvbGljeS=
+8jaW50cm9kdWN0aW9uMQ/6a464fcf7d55e1fcfb02eb9cBa84ba870" target=3D"_blank" s=
+tyle=3D"text-decoration: underline; color: #1d1d1b;" rel=3D"noopener">Priva=
+cy Policy</a> <span style=3D"word-break: break-word; color: #e4e4e4;">| <a =
+href=3D"https://link.thetimes.com/click/48021320.472152/aHR0cHM6Ly9ob21lLnR=
+oZXRpbWVzLmNvbS9uZXdzbGV0dGVycw/6a464fcf7d55e1fcfb02eb9cD7e5d4a47" target=
+=3D"_blank" style=3D"text-decoration: underline; color: #1d1d1b;" rel=3D"no=
+opener">Unsubscribe</a> | <a href=3D"https://link.thetimes.com/click/480213=
+20.472152/aHR0cHM6Ly93d3cudGhldGltZXMuY29tL3N0YXRpYy90ZXJtcy1hbmQtY29uZGl0a=
+W9ucy8/6a464fcf7d55e1fcfb02eb9cB6d33d75e" target=3D"_blank" style=3D"text-d=
+ecoration: underline; color: #1d1d1b;" rel=3D"noopener">Terms of service</a=
+></span></span>
+</p></div></div></td></tr></table><table class=3D"text_block block-10" widt=
+h=3D"100%" border=3D"0" cellpadding=3D"5" cellspacing=3D"0" role=3D"present=
+ation" style=3D"mso-table-lspace:0;mso-table-rspace:0;word-break:break-word=
+"><tr><td class=3D"pad"><div style=3D"font-family:Arial,sans-serif"><div cl=
+ass style=3D"font-size:14px;font-family:'Helvetica Neue',Helvetica,Arial,sa=
+ns-serif;mso-line-height-alt:21px;color:#696969;line-height:1.5"><p style=
+=3D"margin:0;font-size:14px;text-align:left;mso-line-height-alt:18px">
+<span style=3D"word-break: break-word; font-size: 12px;">You have received =
+this as part of your subscription. If you <a href=3D"https://link.thetimes.=
+com/click/48021320.472152/aHR0cHM6Ly9ob21lLnRoZXRpbWVzLmNvbS9uZXdzbGV0dGVyc=
+w/6a464fcf7d55e1fcfb02eb9cE7e5d4a47" target=3D"_blank" style=3D"text-decora=
+tion: underline; color: #696969;" rel=3D"noopener">unsubscribe here</a> you=
+ will still receive offers, promotions and market research emails, unless y=
+ou have also unsubscribed from these communications.&nbsp;This email is fro=
+m a member of the News UK group. News Corp UK & Ireland Limited, with its r=
+egistered office at&nbsp;1 London Bridge Street, London, SE1 9GF, UK,&nbsp;=
+is the holding company for the News UK Group and is registered in England, =
+no. 81701. VAT number GB 243 8054 69.</span>
+</p></div></div></td></tr></table></td></tr></tbody></table></td></tr></tbo=
+dy></table></td></tr></tbody></table><!-- End --></body></html>
+------=_Part_2124922_2025358429.1792558827701--
