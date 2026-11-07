@@ -1,0 +1,2373 @@
+Delivered-To: mike.mcconigley@gmail.com
+Received: by 2002:a05:6802:6302:b0:664:6bf3:5e27 with SMTP id x2csp5109505ocb;
+        Mon, 2 Nov 2026 07:24:19 -0800 (PST)
+X-Received: by 2002:a05:620a:28c5:b0:940:ef15:1c99 with SMTP id af79cd13be357-94421735a1amr1762524085a.72.1793632219203;
+        Mon, 02 Nov 2026 07:10:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1793632219; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NPL6jpxlG9rdwN+r2Me1WO3OJUK2HUY+P1s5NIfQ8Mb6r71nPFuW59Dzl5XGt05uPk
+         C8bVS48kQ0oIcflpHLp9Qb9yIyeRhlfB9xwaSuG0bIAW/LZ/Tl3iwLsPl/IbD1hXIPy2
+         XEqyF+9O9JtNPBd1kxQkQmieUe5MStnxSkJ5MqBGn0AwjaFtcTNbIqo5Lmehmp6t9ULu
+         dkQluhYVpgxOeH0+mqQ6sJTV5bQ22lpHU5yh0Oyx0dF+DAwYny+9XyG/thk2mKGrDwfv
+         srTooQ/1RZu2JUZyMkw0M4opnt9t6N7jEw/SotbprZJ+u+WHjf6G/fT6WJVYirolKJ/0
+         sXjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:list-unsubscribe-post:list-unsubscribe:reply-to:subject
+         :message-id:mime-version:from:date:dkim-signature:dkim-signature;
+        bh=xQgIvKFGBCqnx5TVSHEErrMa01BcMs0zJHO1RwBbv70=;
+        fh=tUTYCbTOUI69DxYKXGXRz08XnPP7jEKRU6E5rS0DFR4=;
+        b=YxWru13ckS9DdwTteaQXEoRoamrAbYLTi/TVoRnVDUUzkuX/0llE7/oAkFkqLHl9Re
+         PAfsbJoueVQSZ8X3Rxc2qsVr7eT8zIm3OR0RmLBx+m22cbfpTgydPrMQNwbGzpGbQVEt
+         RIhJb7m2vr/OuL02KmLOZbg/efMd6U4UDES9h65VEzY63duP1JBBIUbPqSMjFm7bMtS/
+         rcd20qRCghXAOppXC8RBG6Nr5R2IDxfd0HDgYP4ewqyIkdaLuHm7T/wH7nR2/4wNRYLw
+         fLm6K5Gk/QH1eNLzDPGRgq1zodkJeJHBa00ZIZvJbLHQQFMSrfps/K53nTXENw6Eo8g7
+         lEbg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=M7S3TIE7;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=U6RbJCz1;
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 167.89.49.187 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+Return-Path: <bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com>
+Received: from o4054.abmail.editorial.theguardian.com (o4054.abmail.editorial.theguardian.com. [167.89.49.187])
+        by mx.google.com with ESMTPS id af79cd13be357-94425b02695si816491585a.399.2026.11.02.07.10.18
+        for <mike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Nov 2026 07:10:19 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 167.89.49.187 as permitted sender) client-ip=167.89.49.187;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=M7S3TIE7;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=U6RbJCz1;
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 167.89.49.187 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=editorial.theguardian.com;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=s1; t=1793632216;
+	bh=xQgIvKFGBCqnx5TVSHEErrMa01BcMs0zJHO1RwBbv70=;
+	b=M7S3TIE7vAd5XHDrJX6Wu47+tZK1UsTHD+HOi94fgN3qM1m98yF/TsdZOZ8LlaJX+S3c
+	P0pNMvoKRFl8YMZUpNwBltnApOn4fTURYN/sEahTI29xAfZo36pa3R6LzsuYx9tvoxo64V
+	j/7/7RENTD+zwCIVcVof+1ZZzrv4eibAKMl2iMNexjFVXaDHtAMoC+SYTxhJlqExwKIgkm
+	LM8pnnM/6nf90R8JfOnSSfpU0oUltmTqnX9j+L0mT/DKlnQ5/hRd55BOwm60VToP7+aKDa
+	2QLRkvM7U9AXkJTaFC8ffeQtoYb5zhPU3nbv2PkKOM35oxfX+IU1AwrZBEBmTVEg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; t=1793632216;
+	bh=xQgIvKFGBCqnx5TVSHEErrMa01BcMs0zJHO1RwBbv70=;
+	b=U6RbJCz1rfCCpxLnIjNdJwD/SGyYb4wRiVazNRto6Fr59TI+Z2XHKNJ9Lf3gI0AA2pcq
+	ygcv/+QkD1PzhjM+suYSJsHtWzRRF9JRYwf5BP7asoAMWQzqOoVuM8PXQHC0e0hVKzoIw4
+	aNv9GCrQhMW/2cliJX4N6JNqUOj9g2jGc=
+Received: by recvd-5fbf9c6c9f-kv567 with SMTP id recvd-5fbf9c6c9f-kv567-1-6AE8A7D8-A4
+	2026-11-02 15:10:16.616817506 +0000 UTC m=+2931000.310646357
+Received: from ODE0Mzg3Mw (unknown)
+	by geopod-ismtpd-12 (SG) with HTTP
+	id xXHQs0tuRC2PPk-RV6TILw
+	Mon, 02 Nov 2026 15:10:16.581 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=d7c75f7c391bde9f651d41a1a40ffbe5ccb70435633643adf43ff81b4220
+Date: Mon, 02 Nov 2026 15:10:16 +0000 (UTC)
+From: The Guardian <info@editorial.theguardian.com>
+Mime-Version: 1.0
+Message-ID: <xXHQs0tuRC2PPk-RV6TILw@geopod-ismtpd-12>
+Subject: Football Daily | Aston Villa,
+ =?UTF-8?B?4oCYdW5hY2NlcHRhYmxlIGluc3VsdHPigJk=?= and pearl-clutching
+Reply-To: info@editorial.theguardian.com
+List-Unsubscribe:
+ <https://profile.theguardian.com/unsubscribe-all/13579145%3A1793632216/d6a5bce320d920ba06b1ded2d9a32eb776199e8c>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EH=2FXI28ruo0ozWDQcpBSyaYR+tUix=2FHrsngcfNTFfr7ETe3ubjr340jdBR?=
+ =?us-ascii?Q?S=2F0glDit9NpIVoJQO9P29qVNgxtUiqco7x8mxgY?=
+ =?us-ascii?Q?L2=2F9jCRCnVuO2JNAU=2FqHOb2QFRZz2Vh+wKxqWV9?=
+ =?us-ascii?Q?Enb28a3AdRUb2NDHnUPe1GMMLL2M0k=2FtAuPzzb=2F?=
+ =?us-ascii?Q?DNI5FikfqJUZng=2F1qvTJC7coFwMfIWVAKI6JFnz?=
+ =?us-ascii?Q?HCnNuCIXqVMNHvCjQYVIZaX=2FjHaKzSHvZBWt1ao?=
+ =?us-ascii?Q?4cP9zOITmXd0wurLMrNRwSIeIg=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDrjDW6011yC6XOo?=
+ =?us-ascii?Q?3uya5MXinai8OW5N9tOiZRQJvIGALHeOnrLfudY?=
+ =?us-ascii?Q?MeGqXv8341Ilufo+U3ov1Eik8D6dyIue5iqsAzu?=
+ =?us-ascii?Q?4p=2FcG4K9ZHUgKgg8UN0SEiK3ie+sJon+hQgqwry?=
+ =?us-ascii?Q?Opl10a=2Fvy5VzEpYJSobH+P1qD4whfejgpvkmaC+?=
+ =?us-ascii?Q?Cxf+5ia+UN1+yKwGT7vZ3Vb1CZUeAnPFI8qfikO?=
+ =?us-ascii?Q?PP6J5mV4RriQohlMx4QZJBsjGGPPyKXeKEj1W7a?=
+ =?us-ascii?Q?Lue=2Fiwez8rT1hT4XuhoPZYJAwLaFtDqS4q9HgU5?=
+ =?us-ascii?Q?0w4oCzm9XU1n6+IQlPOc3=2FqSXUzbUbDtkX0TU0k?=
+ =?us-ascii?Q?GydAmuOFLDmFHeNdnvSz2nDSm8NL2a9=2FIZPxNAJ?=
+ =?us-ascii?Q?Hdjrxhv8e5xyXhOImjEbAVPkjnmd0XXSirlzvuY?=
+ =?us-ascii?Q?EjOYSy9z1NNscPFk=2FjFXVBOmWDLJu3YA5FJamPa?=
+ =?us-ascii?Q?kEwvwviHRe5NsC2I+V8mEP2DtiAIESsVQ5GhSh4?=
+ =?us-ascii?Q?CNzeXmKFg=3D=3D?=
+To: mike.mcconigley@gmail.com
+X-Entity-ID: u001.BbpwILxocfqEYp+CrGsJkw==
+
+--d7c75f7c391bde9f651d41a1a40ffbe5ccb70435633643adf43ff81b4220
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+
+
+
+
+
+
+The Fiver | Gianni Infantino presents his big idea for peace through Qatar =
+2022 | Football | The Guardian
+
+
+Gianni Infantino presents his big idea for peace through Qatar 2022
+
+
+Like this? Forward it to your friend(s)
+
+
+Gianni Infantino with Vladimir Putin in 2018. Photograph: Michael Regan/Fif=
+a/Getty Images
+
+
+Niall McVeigh
+https://ablink.editorial.theguardian.com/ss/c/u001.wtfWA9uPAn8i7Lb0U_hU2h_o=
+3_RzvBP96KH57mePgVEexEVtZ6pn9XO4o8iZ_HOauhoT3pU9Pbr6YK_o0fU3lULRGuolUaNhmdV=
+qLA8AyWa3-Bd3z7sX2B2ZHGVm_HsD3flHPqNfYZrWJA104khdj74EoepxsMqdnwWp9lQUglLqcF=
+G75QeoHQF8SKCmOXLAIFxn9cglZLznWklX2jKXmQ/4ve/0FD4L6e_T3mX59uU0fDAGg/t0/h001=
+.B5PEXrgIaNrBiShMbHIIfKzsiIG4vrH8CgK56s1lTCU
+@niallmcveigh=20
+
+
+STICKING TO FOOTBALL LATEST
+
+Gianni Infantino might give off major Bond villain vibes =E2=80=93 the cosy=
+ chats with unscrupulous autocrats, the fleet of private jets, the impeccab=
+ly lacquered bonce, the name =E2=80=93 but really, he=E2=80=99s just a nice=
+ guy in a tough spot, doing the best he can. After all, he wasn=E2=80=99t i=
+n charge when Fifa awarded the Human Rights World Cup to Qatar =E2=80=93 ha=
+ving taken the reins in 2016, Po=E2=80=99 Gianni has had barely six years t=
+o make what little difference he can as the leader of world football=E2=80=
+=99s governing body. Finally then, with the HRWC=E2=80=99s big kick-off six=
+ days away and with tofu-munching do-gooders adding to the chorus of concer=
+n over a lack of tangible progress in Qatar, Infantino had his big idea.
+
+Speaking to G20 leaders over lunch in Bali, he called for a =E2=80=9Ctempor=
+ary ceasefire=E2=80=9D in Ukraine for the
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEGX5DeS9JLM0qw1_52V0QW8G5zxpyzEJvUMu=
+yvpyVCHUv_kbABtBEUZCndCY1vnKBUJTg5aVVaSBp9Drw3H7-xlIEgRM55xCFm0PHznGLwS8QE-=
+vxbt3QosplkK5ViYH5fmGNEgw1mMo0mpyzN0V8MpUrLAPC0PHiBV-ltZHw08YKblySpWoh5eAjQ=
+WE2f1qizbpSbDJgki5fZy5JndNUSw/4ve/0FD4L6e_T3mX59uU0fDAGg/t1/h001.sqqG7Q4qKe=
+PBjnwmBj0BjXyCMZFay0kRu750PNO1UI4
+duration of the big bash
+in Qatar. =E2=80=9CFootball and the [HR] World Cup are offering you and the=
+ world a unique platform of unity and peace,=E2=80=9D Infantino cheered, as=
+ various suits asked to have whatever the grinning bald guy was having. =E2=
+=80=9CMaybe the current [HR] World Cup can be that positive trigger.=E2=80=
+=9D That=E2=80=99s some serious blue sky thinking. And yes, we=E2=80=99re s=
+ure critics will be queuing up to =E2=80=9Chand out moral lessons=E2=80=9D =
+(
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEM_9a6Zw6Tt_ezgI2JlGLK8asgGXmaebuBO5=
+CCa5xzyCZRqK0iVrIB3S9iErWd4v87uZsjYKkDI9oHsDkeL6UDCU1xg7p2tSXmuayv2ffL9keKv=
+DImOymn8fVT-W375CSxRowEz2bpTwB64LF35KozsJVMWWAxzOzFhuTb1LJc1exuDkfRQRgZqbF2=
+lcqDRgWgoPKhhvaI2qb6DAx0mOtx3XLccrVlZRQLMXQI1F1Tch5aQhUjJISxvUVvDIN1BnH/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/t2/h001.JGN7jWqaJ0BDaQRa25DzMPTIAnyhhR0ZMY_fj4Xpx9c
+G Infantino, 2022
+), pointing out that a couple of weeks ago, Infantino himself wrote to ever=
+y competing nation, urging everyone to =E2=80=9Cfocus on football=E2=80=9D =
+in Qatar and =E2=80=9Cnot allow football to be dragged into every ideologic=
+al or political battle=E2=80=9D. Presumably, ones that have nothing to do w=
+ith the 2022 host nation are OK. Those same hand-wringing haters might also=
+ suggest that, as the recipient of a Russian Order of Friendship medal, Inf=
+antino has a better chance of getting through to Vladimir Putin than any of=
+ those sat around the table.
+
+Said tedious naysayers might also suggest that focusing on the plight of mi=
+grants would be a better use of Gianni=E2=80=99s time, but he=E2=80=99s way=
+ ahead of them =E2=80=93 back in January, he suggested
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEwpMj6UZXVAv8nGIk3nIwmoenNU12DNt1ciE=
+-4YsJn2ThpwtBY2FSMJBDTFqppILDFRZKXOA_sj-RaBv11-2aejrSIs6jWrBpvqB92nD1t3s2x7=
+HRoK2ynLyd5_48l6W3jFuaqrTPFYEE3uoORaDmWpmiJzZfYQVxTCV9I7UwRHRVQRpUv7TchOnU2=
+ON-4FJxoSMD-CQzkbQ8QTKX1DfthbT7fKlXM7A0yxBGdvdljaRAiW8TOKpbPwNEpODqwjQWPt7H=
+vGAznhW9yuJ2oCX8AT-pGLGozbHKDcHDDwQ-t8k/4ve/0FD4L6e_T3mX59uU0fDAGg/t3/h001.=
+1-7NlWvZZMCzX7HTPg8uFqzlInz89rPe0wm-9rINzP0
+a biennial World Cup
+=E2=80=9Cmight give hope to Africans so that they don=E2=80=99t need to cro=
+ss the Mediterranean in order to find, probably, death in the sea=E2=80=9D.=
+ Yet Infantino seems less keen to engage with initiatives that actually hav=
+e a basis in reality, like the
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR-ia=
+y7xP1nX2ee5wRfYUt7uSQ8LaobzMDIPYu6kzOHrYukFKlr9z6ynOYcBHXoT9zjW2sgheByjKjh8=
+Ph5rpcd750qfxt-yoAW6sQtWRUE8WV3ZRYh7DXZfS32C9FT83brwT8G5n34dKRjcxZI02vAXAWy=
+QBabAYvHa0ONfDMJMtMgEqql--YTchfldALeDuJQ/4ve/0FD4L6e_T3mX59uU0fDAGg/t4/h001=
+.DFp42XKsAe5vVekFNvXKr6KfJdQnGlzBGM5DzD6V1yk
+#PayUpFifa
+campaign, led by Amnesty and Human Rights Watch, calling for support and fi=
+nancial compensation for migrant workers in Qatar.
+
+
+The scene in Doha, earlier. Photograph: Giuseppe Cacace/AFP/Getty Images
+
+
+Infantino addressed the issue of workers=E2=80=99 rights in Doha earlier th=
+is month, breezily claiming =E2=80=9Csome criticism was raised, rightfully,=
+ and changes have happened.=E2=80=9D Since then,
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSENHzxdCDZHERqxNMawGZalR20iZ0ccUpiCke=
+f_PjPph3RVYcu6UelktWuBrMIIWIm7TjxzUD6n247qzHUR81KVgys3MaWJZGScmQ0oBP-tCrxIq=
+VPOGFmE3HrNk4GVYiITb5SbcIvdn2bNYpyOmBaqRY8HD9WrDc4ISHfFfZrTESlyIaunxZub_z10=
+vhTaDJP5BZKmKPA7BLEf4AO8M4FJ2-z_fFeOIG3QlwsugKAbThDPEAhTDqJHj_VQJqGhq012QXb=
+F-6AQZ7HyGwXpKvzdg/4ve/0FD4L6e_T3mX59uU0fDAGg/t5/h001.C5SCofmdf0lpwUh-Zaiaf=
+wOQdqB53QDl-TA2iU-RJ6w
+10 European FAs
+have collectively called for =E2=80=9Cconcrete answers on issues, [such as]=
+ the compensation fund for migrant workers=E2=80=9D. Infantino has kept his=
+ counsel since then, perhaps wary of an ability to lever his foot directly =
+into his mouth every time he opens it. =E2=80=9CWhen you give work to someb=
+ody, even in hard conditions, you give him dignity and pride,=E2=80=9D Infa=
+ntino
+https://ablink.editorial.theguardian.com/ss/c/u001.HesXJ57d0x1owJZ-aZPL3fz_=
+4wcsBI-pQxT3dTgAgjp2XdQTNgUNTxSrDzVHFD6vGfxZRXfTUHM70ivhrcsnOAdVhc0VbUY9jw-=
+2SiY0tmcBjRTSR7ZGwE91dFgjn_c26IPz9CBnGc6OrUYZ93UXlIbiDcTjkixnBcw3QKvuxa0fl4=
+6eO9NcLLUml8EijGiOYYt36fdwYYefbVFoQRxhiy-gB-RmdBiQOaks6hg6j4TnYBLtAvxD7vhWi=
+tr7kSDY0VTRuvRiXJ96Y9PmkAdZ80v-di_UqVU5cl24OLfGxFnFSJxCiFowIgRXqqCPWL0D/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/t6/h001.yOdHe8R4PheJyrVDzB3d0R1eDA3Xc1E0zT80wI2bHE4
+said in May
+, before expressing an attempt at solidarity with migrant workers far from =
+home, toiling in the heat of Qatar. =E2=80=9CMy family emigrated from Italy=
+ to Switzerland.=E2=80=9D Gianni is nothing if not a man of the people.
+
+OH FIVER, WE BARELY KNEW YE
+
+The Fiver made the fatal mistake of stopping out last night =E2=80=93 turns=
+ out a whole 2.5l bottle of Fistfight, The Fiver=E2=80=99s favourite 74.8% =
+ABV turps-infused sippin=E2=80=99 liquor, doesn=E2=80=99t pair well with Ga=
+viscon, hence waking in a skip on the Caledonian Road =E2=80=93 and when we=
+ got back to Fiver Towers this morning, we found The Man had taken the oppo=
+rtunity to change all the locks. Poor Fiver! And if that wasn=E2=80=99t bad=
+ enough, upon peering through the window, we witnessed an army of clipboard=
+-clutching marketing milquetoasts clearing out the desks, ripping up the ca=
+rpet, and changing all the signage, letterheads and other associated brand =
+paraphernalia to Football Daily. Oh milquetoasts! How could you! Pity poor =
+Fiver!
+
+So there it is. That was then, this is now, and here we are. Football Daily=
+. Football Daily! The Man=E2=80=99s done a proper number on us this time. P=
+oor Football Daily=E2=80=99s a-cold!
+
+QUOTE OF THE DAY
+
+=E2=80=9CI was there and saw everything, it was a funny moment that was mis=
+interpreted on the outside. I understand that the images can be interpreted=
+ in many ways, but it was a joke between them. They have a great relationsh=
+ip because they play together, I saw them all day yesterday. There is no pr=
+oblem between them=E2=80=9D =E2=80=93 Jo=C3=A3o M=C3=A1rio insists that an =
+awkward handshake between Cristiano Ronaldo and Bruno Fernandes was the res=
+ult of a joke between the Portugal and Manchester United teammates. Speakin=
+g of which, here=E2=80=99s
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECU1cRqabsOz8MYwPiVqdMlS-dMEIRGrmts5pwqkuJil-_M1N1NoPvF2gv=
+zs7tyZl1Qn4J6Jzt31q4P0ZU-rx6naQXq1LZxSm-uW-H50KObYHtamFl6o8kUibBiKXSnDVsEoU=
+HaZwASJ_eNeQN5bYlOCyl582GEmc6d-jmH8x_xYc2d-VO0QUbjPV__998tRwREgDXnmp9QQgycJ=
+HPnvJ7Yhr6P--gLmXfNwRwXk8urqa3yEamcLWsEcUnRj_4Ww6vwG2vk1Ybn5QOKc-9CizAk/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/t7/h001.DOgFpSCoaF04jz9bJXtG29ipBjdVXFurmC3fAyJr0Bw
+Jamie Jackson on
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECU1cRqabsOz8MYwPiVqdMlS-dMEIRGrmts5pwqkuJil-_M1N1NoPvF2gv=
+zs7tyZl1Qn4J6Jzt31q4P0ZU-rx6naQXq1LZxSm-uW-H50KObYHtamFl6o8kUibBiKXSnDVsEoU=
+HaZwASJ_eNeQN5bYlOCyl582GEmc6d-jmH8x_xYc2d-VO0QUbjPV__998tRwREgDXnmp9QQgycJ=
+HPnvJ7Yhr6P--gLmXfNwRwXk8urqa3yEamcLWsEcUnRj_4Ww6vwG2vk1Ybn5QOKc-9CizAk/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/t8/h001.p43kGh7N1y2YZnp-Z7oFuOEaqXGNfq3UVE7zfygR7W8
+that
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECU1cRqabsOz8MYwPiVqdMlS-dMEIRGrmts5pwqkuJil-_M1N1NoPvF2gv=
+zs7tyZl1Qn4J6Jzt31q4P0ZU-rx6naQXq1LZxSm-uW-H50KObYHtamFl6o8kUibBiKXSnDVsEoU=
+HaZwASJ_eNeQN5bYlOCyl582GEmc6d-jmH8x_xYc2d-VO0QUbjPV__998tRwREgDXnmp9QQgycJ=
+HPnvJ7Yhr6P--gLmXfNwRwXk8urqa3yEamcLWsEcUnRj_4Ww6vwG2vk1Ybn5QOKc-9CizAk/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/t9/h001.H5XHsMC8PkMEbiT4Q7EF0KLzM3yYYNboCyWOHSkrbjU
+chinwag
+.
+
+FIVER LETTERS
+
+=E2=80=9CRe: the Cristiano Ronaldo interview given to Piers Morgan (yesterd=
+ay=E2=80=99s Fiver). Yes, it was a great chance for =E2=80=98a narcissistic=
+, self-serving egomaniac=E2=80=99 (to use
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEgXuhWEKg_IQoaItDsz0aVkzb6MuRtRqCGEg=
+nuaw5DSLlsgSlEE08d6BrVSK0rlDpTzSfsTz8mIyfIyNNp-jrT_ZepHY4CCM-e2jlaRNg_hfxY1=
+RNlOeLy0VaqNCzl5GQthHhR0MalCrI6ZrEqzAhe9RTs-ybzGDW8x67GLsZPTj7qrLS4dozmlEkN=
+34taZI75dX26INetP_dVzMWg4PpOtsUU76iVxNwjo2a00-0Idyr8SCQPblYMbRMpDjLSEHeX0LF=
+QXWDW3bRjRfVAXaG8w/4ve/0FD4L6e_T3mX59uU0fDAGg/t10/h001.79MV8_3hPLV5cSKbHOvL=
+pIXi8qNWJrXMzNAPNtT1Op4
+Barney Ronay=E2=80=99s description
+) to make it all about himself and he took it with both hands, but I think =
+Ronaldo is not entirely faultless either=E2=80=9D =E2=80=93 Admir Pajic.
+
+=E2=80=9CFair play to Lufthansa.
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR88s=
+yZRyZZIPRsCyoAZgXSrxwqY5wxytoM5kgcAHWfm9fBQwUo3EYOC8qtUB7Save9zDJFA8kGY3vui=
+z2zajpD8WHjeCNW5siw5G0C-0PyMdG2-dPCQUx0LehUtO-KizxnzFnchTc_Hxu05vOcoWvsw3ug=
+795u-yaXUU1pAJ6eKIwYo5pUtKfXR6Ru72t0zMNmc2FZSMWGKfiaWh0lcB8y8/4ve/0FD4L6e_T=
+3mX59uU0fDAGg/t11/h001.8c3gxmxeOErgZ90iobIwaIQDg4YblNgomuKXTracVBc
+This
+is the plane taking the German team to the HRWC=E2=80=9D =E2=80=93 Jim Salt=
+er.
+
+
+The Germany team head off from Frankfurt. Photograph: Christian Kaspar-Bart=
+ke/Getty Images
+
+
+=E2=80=9CThe admirable pedant, Dan Westacott takes The Fiver to task over t=
+he fibia/fibula/tibia controversy (
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEgXuhWEKg_IQoaItDsz0aVuC2ly0DvuQ3HNr=
+_ttTkTx-3AfTp9308ONqnUL6bDKM-j1U2A2TVR7kr37tzZ333hgSSyWR0g1QXfuOQ5yOjkjD4s9=
+OPaN4E0lyiA5jepEB7sakRyNakd8fnB2ZeP02eUzt0msmlT4mmqfR5O1CrLR0_KQ3SL2FmrP-Xs=
+0o5-Z-XGMATcR-EW9oSq2Ki1mvNa4Y0-QGmhigO_CDRUoKraJ0/4ve/0FD4L6e_T3mX59uU0fDA=
+Gg/t12/h001.O75OTatohUhIpv0uaWTFPidd0Me4Ul4iJcJdEAhWTdk
+yesterday=E2=80=99s Fiver letters
+), only to ruin his short-lived reputation by suggesting that the fibula or=
+ tibia of Sadio Man=C3=A9 may have gone twang! Since when did a bone twang?=
+=E2=80=9D=E2=80=93 Adam Forde.
+
+Send your letters to
+mailto:the.boss@theguardian.com?utm_term=3D74a748e4b8e110828c18f39d5a2b0182=
+&utm_campaign=3DTheFiver&utm_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver_em=
+ail&utm_term=3D55272aa72d2eb1611c2c7da0d82ff8f9&utm_campaign=3DTheFiver&utm=
+_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver_email&utm_term=3D1b24df1f5360e=
+aff87d33d10ad52d105&utm_campaign=3DTheFiver&utm_source=3Desp&utm_medium=3DE=
+mail&CMP=3Dfiver_email&utm_term=3D63595f88d7fe7e91b58d4d825ef59e04&utm_camp=
+aign=3DTheFiver&utm_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver_email&utm_t=
+erm=3D635aa25cfdf60167aba7e6d066e63a11&utm_campaign=3DTheFiver&utm_source=
+=3Desp&utm_medium=3DEmail&CMP=3Dfiver_email&utm_term=3D635bef3ff6ccaeb70568=
+a78228c6bde0&utm_campaign=3DTheFiver&utm_source=3Desp&utm_medium=3DEmail&CM=
+P=3Dfiver_email&utm_term=3D6361455ef6ae0cf08bf2ff49f9f5a6e5&utm_campaign=3D=
+TheFiver&utm_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver_email&utm_term=3D6=
+36298f03343e7237d4e96a0c8571588&utm_campaign=3DTheFiver&utm_source=3Desp&ut=
+m_medium=3DEmail&CMP=3Dfiver_email&utm_term=3D6363e51e02ff3016acbeae5079b3c=
+0b8&utm_campaign=3DTheFiver&utm_source=3Desp&utm_medium=3DEmail&CMP=3Dfiver=
+_email?
+the.boss@theguardian.com
+. And you can always tweet The Fiver via
+https://ablink.editorial.theguardian.com/ss/c/u001.HesXJ57d0x1owJZ-aZPL3dMF=
+Wr92HeUFQk2v_wBSJ_UtgE-pwHb4UgXNOWZZo0YVNxtE-j_wc1lyD1JBeavjZilHQIL1o4k__8T=
+ztQ3_XRPxDezdQjqRyUyCflNXhe7T8AjeDj5NSDGVTBLT_dYNgU0mGNy_ZYvKx8FCun1Zzofl0r=
+dnY_bmwjK_BCk8Gz0wwEIL-bbWHKxxOXWI-QviIiYsPwUuwJwFRCQq6BkqrKbOQSmkgZ1WLrUGR=
+Iyf1NbTykBnhxQwPVYtBxUjvueh5jPjSh2zMr-sL4fJQM16P7w2sNpDcxxPPeyFxp4NAWZu7ZIk=
+YpppuQMF5zWQcGNUqI35Pm0dIjfrr6stP3N6mJVFfFzgBKPqs8UTcfPMQRD7w57kpw47lWfNfbs=
+t4uJqqq2s-ePhG6tW8xxVhPFzuf7Hi3SyVUIBX0v6J_a8TPWRjPJipVh49io485SwtHXFKbFQy_=
+bciP4hLycSJ1p3EuQ8m3SRUsrX1xEsJueoqBfS91S-wt1tgLds-PkAulbw4VL1CWak0VFejnixP=
+RfLUhdwUoktWIkjW4-PkHEw0TPvr7f4DVv1PZpPXCq7CQrTJ9lMCOd6Uv-P4bbTSCgJee6zCeTD=
+P26niKCkvGQpJKaw3W5I2ipHoPN4cH50NaDNUqIhX4O-T3zQvJ8d1RrgbQtYN4iAdEwdYWT_gNe=
+7C9PNveMHmSQcy-aivGkMb9xn6siRO9uEc3uFkURaWeRWMYZWDeInNdaIbs5PwuZ2Frkc1vJrpZ=
+29V94LsvmQs6Ts0TJaPERoAJXzsgDr4xBT1flqk20kizghkMxHhwjuEm-USL9NcEUFhbwm1QmBl=
+X77VaoRnBMoy1VbKYkhAdgwNCxFILUFE3Sd0LYrCcq37HphhMMNENj7TSfFdmbxMnFu7I6cQfUY=
+_kA-6gF5-nO3voGFjoI_yCr2vpoW9w-4ecGF7sOYd3ehFV0xOCgY-EVdaMG9r57aPkCaQVmCcjT=
+VNZt2VtQITbrY2QlWfjmYaviniWLH4_OAAfQH7b4zXYK5b_yi31MQj76PzQPqs4zwZZBbb3XlC3=
+Q4qOaho00xQ_XjyqLKTQmyXMy4ZbcyWX2wbTUqJKoyqOO_QSJVra-yDRPgcdqdmmVxetoj0SXiY=
+BP7p3F9nT3aycyI0lY2dEYiMqyF4kfdI4lWkvfYnx2swUobs2-1fGCsDHoRv8TugxUTy8To4avc=
+z1TPevPC4_LhqxYe2yeIycAK3GrAmE-EvEXZGh7fH5YNarKtMwX5cp43VXjPqkJL9zLTczuXQYP=
+2rcvJLW7cdHNDIZdFhID6lXy9ttlfQ6YuSq0y0wIJ-x2Uq96N0lTZ_xHawbeLCjJ7QQh_cUE7eI=
+ZPie3QZUTcOaSzsNwFlHKheKjbzqhn59K5I2PeOQsnn7UWg9m7R5NTRj80j88IoF9Yl5qHxurKf=
+2bUpmvoSBsHyJtsMQiPNAKYFZHIg0YFstz4xPr6jnExnd5QJeJLY48aho2PIgea5LL6uiNJbOKA=
+QonOrI2rrIAygQPKQf7JuM_kaCjMTMRmqcnZxcjeuafln4ICVFY-DuuwTcOXTtJi76Veq5i8CaR=
+0m_Uy_-Oo956GDQqPfArDLJWy4Z_ScBgM3Llbneao_rAzKOGTC1kKYbW3DmDCd2xqYWwwtfiMND=
+FHjrB4-JtyTxE_jPeCj8Q98TiexNiXSWiFlAC1Dw8tROe3KsRqCtiKQG_GD_J9j-L32-N0e4-5-=
+GU9ymRCjw_bM4RZtjxBXEdwQGCfOOt4geHaZYVEHuDzeEUGgTNoEFhbR_GhAljTSygwngx1tNzK=
+iNmNI90amYevfnLD0Dt1Ks7Ph20jYq3x1MFleGHrdNTiKsrlMU2d4lg0VQgX18yovB7i_FDoiVK=
+nRf4IOpPaQp-Mepo4nqvO8KG0ilwapaQlxwJNqJQ_QxUHezJEV2YonLb3CYXxaviWD3NnBeS1cS=
+HuKCuUZfg-IJlY9dy6JUsZXYeJ8KONWZKZsBNAmJUeCJME8szPArEduI5-PlxaQCJVqvfm_9PmQ=
+Lmln2l_XkaJJ3MjLgscs7H6spA4dTewc7czHgD1aflbJAPOyL5JpZw9Ugh05SFLeOMBR0W-YCEq=
+R_xgBEdzlJnIGcxW40XaLX1-JivJbRM1uqb9aRy3tgH6t64PknffmvYOZPczX2Wolb96WckCzlv=
+an0zXcDzp-Pf1u57kNkuZl8sg0rJ1BCBcWA_YLokq0rNiTi6m10Q57prXeCdjJ9iDU2aQEIIAPD=
+E83QOl-tyUiQ1Q23XadUip1wzLVnlH0SRj8Q1Z_1wLIxVQdh0WrCD4jAx3TrSCYhyvj5GkVu6yC=
+JeTJxHLr-9Ffj-6taDNPpJUcKgnfJUOYprUQyAnLPQg-99ZIOPvuf1VR7ixD_Xjmi9kNQgSdSGy=
+TCxrGL__OyZ1BoSGR3q0hfHNNhZKAYaY0TyVD6g73vjvH_hgUIcLC1Hf5XWFkKqKweFNPTxW7g8=
+Q12D9DnHgCgP9w7TECuxfbLPi9WJdBGQHqUOMMbaYdqmww_i-TBxJTvUgpVCraFO9ZCf9oDcoxy=
+VfvEsoF95r1NgyM_5kOOKTcQV-dXbBERZseqUrIGdiHhyfAEMk3tHASWJ0s7ywGvj-nZi-B6JPp=
+6x_GxImVZQUFn_gm5KEuP6Xq_dkD50cGrAgqJ68DOw6xa-1AblgGnQ-eyonIW48ky4k1FPyoulD=
+IdOWckZl9sq9r4zOmilSDErhoCOIOMObhbDYuRa83-itT7bMXOZdF6N6B6o2pHT6NfoG619km1-=
+1PG1K2V2xTUwNiV7ZKDA_qZancRkkYgDFs2IU4c8QoIRgW7LxTaehJ34CzfUgEDPTAhv3qxXXMQ=
+oa66wof-byYF0TEpLob8_xQGxzY3bw04uphdHLuybmYLFHmr076OwBPvqUYmNWQzEVjUJP418S9=
+gwhb6FgrFv6TdZLu_1iOg8wRNDtkLT9PC3Pgh_uq9ITu6vLk2JQ2wrPEKSh0tW4Nc0fa6XqC1ds=
+J1JS1M2YQXs-Csj3ooPrzcyz9uNRYY9n_F9Y3t2aSiKFk_vAIkfSw6hHfTKPSqy0CNrqYMibpP1=
+mHfcBOMrD6iM-YKu90LxZYZOu8Kx_7kPsUKsP7TjEaVvVOgZJ2dhuwrs_GvQBAa5njhnJhLT4BS=
+brCGFQXrGbbsBN10SiFRB9kHM7AeYipT8tYnN6rOFdv-UpMpVE4bhA1HxDxOKniaX2ACwQzZ52X=
+WLqm5qdEjEnqdu-NvXWEYC0UZjzLdYbKvW8yFV6XD3lSwURNAsB4Buao8Bn6tlcSFmjhzoSyv67=
+zUPCtKENeRnbsPM0lcV_tcjz4s6QKxnSx99bQJrDe34Z3-XITl7Xf_T1XeRZ8Mlpsdcm4jlaOqC=
+nnCE3e45Omy1yBMSHIC8gtdriHlLr-SeoS8__lHTl2rK944xTiQ5D3d10-_ybG7DOnmvZj35ezI=
+k3EsIluX4IoKnrGzVNqGVVnIQBE57dQq9si_n63x5h_TFZF3IIFm3wWjkwe-SXMyCSqWOUYk8R0=
+S1aRF-eqTsIE1udcL2bFt1_1R3g4Qsot_jQDgf0J2c3LqzXM46IRgkcVpGVJUFexYxrbPAdZm0w=
+a4bDaz-rayputNeMoXF94X1Yeb_x5GrIAMvLZrHNmbCbIxwGYMae70msb8xdgQXaf_GhGYsd9kM=
+oHHHFzmFoqn1g0Uu-FpfC74r3xjbn40i3nS373kxI4T6Wx-97gNbPjYyzRpBKWO8-pwY1JxvSkW=
+B1taIXW7HGzRI6WgedJW1UtypsKMRuC2VdbAdBOxhpB60NbORIM9FZ49_caDTuemGKm5g_XdlUF=
+ev0fpKQXv3AmFUOjQR65ZWN1vSqbJ8Y1QV_cCM341XBCoUXD4AMzl4QOfucCJ4f0KFrqduMZSdF=
+mM61BRjz2DFhvnhg9vU2m0JSAyobzux9zPjKXHccFwSV8c8FuulJeM6ZSEU_duN3LhbeLF2YyNm=
+onX74HD-kuWg9wUffvk0vuLkllH7G8o9QVOh8A2SJQFqgfqiLMchNZIzLZlKXz_5S_5z4uTgtw7=
+eUjayoEar_7i1BNpWb9LHhT9pXWnZxIA0IVamAVw9369487evN78ZvZkUzir_5UQPQEP1zxCWBW=
+mkT5_1aTZ9vY6UIUnwi4m5ESsB8IX_2nOtaQFmJWWIV4E3YaX7APb0Jgmz6qM5-IxN-dO0f9xAP=
+PWhfHjUMx-v6HEfuUw5TAe-nnX0Ikrj6O9h9gPuxmApQPK-hufTdUR9aDnV3qNacA7OHMVaVuT8=
+rplvuloXnEpxKreJ2z7boqFMxrWBdBXYDFXQuLIEsikMscCqk5-qX4V_YYf3MmWS8DJ2s1EQnI6=
+EJHKXHaaq36Ab3FVXwtzah721LqI0_VMHnVU9b7BDh7u8kkCAmxzPua7hSzNpf5tCQc4kwkgaoy=
+sad0ogNEeIBDGk0Xex_ha6gp_EAQ5Yr1CJtBeWhNBSz0MDYfzWpgRxu3-acMILcB8TnrT3PxK26=
+F6Ve1ITAYA3U4kL2YpI3vU9gdt3VbCmc9yMZI9SQSafFm0gW6-apPWzy7tlzb7II8-SiR9fVZp4=
+lLet98LCu3YsqZU1R_MJrdIEn1NQUU3392ZtvqxNsKJGufP7Lhd3Ryh5i2XA_kq1VM0fcrp9eBv=
+qjo63wBeBOKex9VMZ_tZu9chFeO-HYHxqkO-3qNmja7vss8V-CuyvPq6u7MjOZ99Slpv1aJRRoU=
+agcaDXxGvGseLpOxXOeQ-TXIMPT1pD58T_lBz8-uzCOZhVCo0zH969fXQs0MfVkuBLmbydXhZUk=
+REGAIXAqhASvaW3HIeyb2oRKUZdRoSGSx-wexO0zajRucYZHJfXFYVpyG1JGcWKv1_znihwKlTi=
+NG7g_0PuOW8LsdFpWhlpBRLJ2U7MheGWY3Gld-ofZ6Sf43bHG1BzVEVgsmzBieGd91-UbRbWXpL=
+BMx7svkCEbt1tllIfAJ6LZLQKciupZB5x7TcoWpJ6RTxoB1rkXlreZW42jYbjA3DmeApYBLB7FF=
+mhicd_rKIxQ_6pTQmsdIc4byVXErLkUVmuPo1oleoxQg7QIdgEqHKaxOR0pehIF5mLybz_lWDYo=
+GtNv8FYmqzRDiV9-1x6y5UCmENo9KNKisL4kBBw_h4AiRqiFephHeVFa5P2_mLShhz5dLeDsRbP=
+-NFN6qS-PwuElmiJVNhlc3DqhWD9kReu1pRyMrs8sUnszPCCtUwaEJqDTxNBVHasnyDxru_zJO4=
+RHbSU1JDnI8FyHB-yAp-uS3jUHrrST5aXPfgYX1EIbqrorWemBgwJvYSa00XVAzLPccN9uNnvB1=
+BbYxsjPZ62_26WXui13M9NETBrZb5huY6JoqNeMTuX6HrUZipJHGBDNCYXZ4mQXd-HFyXwNYeFc=
+nkeIVetJ70MjLpJE0fEqbkU0mFcuqq2VcMUMOtjFet5KyuiINsAtKbDjjxQZHHuknwJ_5amGyz5=
+I1-58jCD9mtKOksLkeiXS8jyaWtrYrGpMv26SFtyJOwgiVAiyVho3oWwgSBXuNfwKPpTEIvlUDy=
+Zuwl6Igb69okVk8XysvBBnYxEizpLsg5nxzZjGcIQr95tDwqOUG9O20ipdmJNLa7qPWMBlTlaNp=
+5z0V7Vu_ohRGyIvod_ktzwisErTwwFOyNnMfN19Wavxe7XZzJ2lbF0jy6XmUb4qwXY_BbpPl7eV=
+EU_HzqdDcZmyW5UT0-UffKV16TNvbHn-HW-SWc7nTH8n4K1IZSl2zKRpVIbV5HRg2ywdVAByFpG=
+siTs9CNPem8iaHQUkt1hGs9XEOqF2kS5R8TmvJ1I-T_HctMXjW7UcALjzhL_x9N95r52r-7EglJ=
+eL0m2KVmXS6_W2uei-9I5VM-C-AdtV9eOtUhlYIaeSngNfJVaCqPFSBIzsI5AkvCoJJIGVGX1e2=
+gepD9kiUi3I8VNkYQDyF7857otPBacJo6bgfegQwBKV07KN-Z-Ndvg1-MCPT0GlK-PW2EsMdenB=
+R2_RbjU6E2Bwsc9O1K11u1Ku2GjRUalC5mFfkCzP_Q55Or46kxST5JjaVwYx52CJ0qlPSOlRPPh=
+RuGxIJ16f_DQdqgygyJXBRdFVZ35YxI_kWYRtaaojr11V9UiFKgalyc_putNeS8QAZM9KOVAag6=
+oe4wXkgjitJpRWMFC8K7-tbodzsWea7qR5WDSRsBIsdGWg9ICoaAZE4-csDztxC2_t2_GUQYJeE=
+olOs2_yJKwAQN-ErTI8MBdSSMmv_Cxel-gFF1s9Xa5gqfiZJXRF8Glt88zqd6zND-XatF2FPGwY=
+I0-ZfSgYSODyl9Eji_yx8AlRjk9ggfW90Mf2LkwyvbeSyTKXhu5QpDvcraMbzJ9WYrrptoFZo6r=
+RODe-mgtYjz8Yrgfte4q9aq-C0sWNfDHU97AtgWhXHO-oeRF9TqQd3AVMyqEoF5U3G143axXGrZ=
+4JOkrkjlXqRdDrV2baRVNPhcrrgdwtOLV6Td7hfZS9BdT1dM1SL8EUoxuHQAeOzFzGuOWiGM_vp=
+FOZmgYInfr_cKOkZRIxKWMlg3rCp6_AAhdLTrvm7zjfbbJ-C2FyreonzffOqigDmBgT9iCC8ZQQ=
+rVXvJICbrZUxOfi2UQhj0yoRNPr5lyvpJZ9Cr5MRUhEhKAQOsW1V7dril537LDb2XUgvjRMmly-=
+1C4UkfyKnMKXl8sBDGKh-JiukGIlxju541lXRabyKB8fAPHmV8PfINxCqGso3xQJNnzkUPv2SFL=
+jJNSp783OuToppPFgqeTwAVZEaL9ZJDrsWaCL0BGOD2TxWQU9KrxdkC79Lkl8Tt9B_VkCIQZc1z=
+U9h9m56_WQYuVZSh7DDVfbKVkpRZO6g_hAlxHT44_JoNXGi689TCVsjvK1pkxK0wi8-eR0_FtGA=
+tsN2PpMCCitwtf4XKAVLQqevVE-ACzSa7GaYqkrPKGJoLJK0HFJ93WuMXYySw84c7WJOJu_oPS2=
+e51oUjvD6CfWXNbf8bLMMngGW7LjPrTNyJYXTEKcmzT9IjXp0q4fSY6TAi5lhQqLhqK5BVYoMXi=
+RjBrdyFS-Vby6BfMm2saQjNA7FMtT99VK4kxHbfIG8u0acWFIEZh3qbK0UTLE-7YCXCpNGCkfSl=
+IoW0IyksOUoTZrXHMovsrxpREgODuRuKaCZp275s7SH6D2VzqtCK33oGmMFD_XaUlTxSYJ7IqTU=
+8PXIi23_oglNz7daahTzWO5mW5gEcEX8xpsomcJl2gNI8siJDaXQeB3-yLB21c8ngpBYhhHHAJf=
+vTVszTwojf9dGMrTD-z-maCunYAbJfUHWhMsedLMlXTUJVs9Z1J28drafTI6tVptQVlQHSzjVD-=
+eFVu-AISfNbnJp5VB0AuR-yO3Y0_sLFoGVlzzH5-hplIhoNJ3Vior3Qq5-SqGE88pjgWzv4a3vk=
+zRLp595_iNlWTPK0s0BNvBEvQjIl8RsgMmnUodFxDLHFB7yNUQKlvluscfDW9WMNe7lTLaxmr6W=
+FCvob0l6ajuDyUjDM5p-fCYYUAfmnbg-eZoYiIRzFm7Kd7NB4EyUB3xePkeTW8rhPvrVnVOV93Y=
+TeGbdECA0qaNnPVnmFCyFooz1Mai_UM6Cy0iKKErM5iSUXxO_qHUCsHYhHoSaf_zHtcqoIIN_UG=
+lzHKeWxQZJBgrHxqRdxsAsmbnvq33sjJSJs44Gv1EHbCVtRXzSmbxI-9Dxt4rWvUeF1OvT_TyiI=
+kZWJHPnF6CQ6B2TW3YqsKaxGbUnfJxNrqdpAWHeimZTJGxzyjf6mos8CPq1nZQqQ39sHyLPAgLL=
+YDvZ2eoCMemss4PCPTGZRxev9e9fIRwdirjPveCkz9RR6nAfXtW0S6l6i-YL60unybi5daobx9Z=
+oeSn7hycww5ZljC4qc0Ae6vjE1XRl-RWxtPMOB8tHFOIise8FxOIIJ0OIaxjjMA6agCuu_FMilB=
+aoQ-Vcrv1I79xMjRRmoojvTYXM6viZMB89apOD35fG_9gpyakYmlni2_Cf7pPmAdinilaeejM0r=
+_80h6C8AgFzQvlle2Oe-225_jO7vZ4u8My26xQlejPHiKxC2inxBMD2XLC0Pn-Nl84K85uUKR-e=
+vkWzoXduNYEMdwPHpe8aeljAcAXQlpDzs1YWGn2jemOMDCtUjVe-ZWnupCux-yTBK7Twd-HkrNX=
+d1Y_YInMFpx6bsuydipNWyTVmqWeI3bVGcD8U6ZCeFESVaJZmB6UtVnVpy3XXb6w05MGYqD_9t_=
+toYPIAyOM6Lff4-78l2j_F3JBYWMvzSbNTqnqDfC4jpsZwKT-bnKSmSOm-1UhLDDGScFD2tcuYw=
+IhzDrsd4eoQ3oegKHbz8XuRREZBb7UhxB_EVbdXmHWdtc5lG8qYjTXQoZnVl_op18nkeknp1rDD=
+5GOp8gp7w0NuQTd9Yi1xguA6ZAE63zIik0UQe18a6lSdJJI0n52dbiUxn8NOLevjBF_FswW1Rd9=
+ZpC-Y5_ll2DuodJuTnDN6YxReKG0dK0PAAPtQVuePdfU2Pe8AF0RQqSY-QxqrozCdg1LLZ4oo4S=
+vj-rDD_7fLqtkJAR0ipShRYT4GTf95_Etu2PtlXBHtrqe0hyQns0tOnfM3rVP5tcnZPkpn-jqYy=
+QvyGf0OLkKpHGUpg8RnGVsZG9l5Ze3EjMTWg2qbfvxDJdK7aU0qNC29mBi2QEIYYj-UTMtKBNu8=
+c1-_nHCElLapacyMk4DjInqKmOigf6AdxqpqD0_vsVvw2oP2kWTicRmR_RTSthK2BQvF4IylDQN=
+55q0GtENnE8axBjVckkDJUeHbWJnEjrZ8nv02AWXaWfrC7HJqFt4sBlQeL5soRckoLWxxOAJR1X=
+yBjr5pBAjf4VdOWH-aFjZevNqicB_zNsw2as8eVznbtNb8PaEW6dCd_0gukiXhUvS_6z9Dj5PHK=
+Olp-6pzS7x56_EdYoADEqhYZMWeMniy__w0eKxeG5I0OiZ8X3OowBanakjTgpkZP6544ZQ9OjyS=
+Ovr3Og1hsNfxOnt1cfERrDgYjxAqN9yGnLqyr_bAMwwIyoHHIpYry3GTTmVycZyf1nwDmuEQ22m=
+UsBldBOxBh0Z0fZWz53DcaWpp-JL84r1eLMhTfQeXL6UYouRgAltFHMRfag26EK8ly49XgthR3v=
+_AAOZwYw56LEQvKBXueX-kV61ynN7F8B6VVDEVDsKtsJ5WfjWJOZH79fngdYgU5SZUX2ujKfmHd=
+MnffRC3wo3w15SyHOy2bLqIApqmN_bYTzJyL0N42SEg-j6DqgsCy2ppxXFGt_dw4nGaFCraqS9w=
+ZkcaH2MAyuKPS3v8QMqhIukBuLlM_K7Jaj8AgcEczz3AEN8vNqBh1k5hqFIUO3nsta8GAyE-tcZ=
+uEjDhbwA2zQ0HOnnvsjfS0SkD9eLBUva-iaL_buoTUndwDd8xJPzOsFUM0mZGt-Bp9x2tcPo0-_=
+aiFa3rRTUO0UCYUIW1xwZH7EWgZqIn_OBZqxY1C_Y2tH65558SeITuB09hn3fy_w-XRr9tpeZiW=
+kPxNuWVEgoJHbXEIHfYvf_tBSPscTQnwM1VqRww-6nQB56q0oGBSiTrKSNHJTZclEyjOr6gjf6K=
+76PYWjrGWT3rbyG1kVAGcZ_rkPnAa6WW8VENpMu8N3ULQQmSlcNbkARHQwETiu86JZfdw_I6gJ9=
+ThPgSYjGIsZZltXc6-wKCqbPFakNWZSz9EQB7yj1XeKsSZJSPPzye1IoPp1sfkm659RMb_XP_Ho=
+LXBVUbzX2-TOsj9T2VlmVgSld9PvQN7fqnm55aUb_LUG6xGEKcOclIZMZV5a2mFhBdjbWfKQnxG=
+lNM49e_U0X0ioawMDCn2tRWcS1XPvdHUeZBYlfg3rEJBAVdjWNsfh2sPtjwR5YlScumBZlBGfMC=
+PkngSoXfPYyxl_AMF-9-IMFWlIrRk0H8VBwZYEIv5vma7FC7kumHEhb44CbrDhhtpTXVaqjM286=
+CwN3GKDWXcralaBN3yiI_2sfEDl1K9MPfUTbJnBaSiXx780HcGCiZZoznaY4Xi_qK17i4xXFoaQ=
+rIGdwVyyqtliax_YsEkIdlyQ07Zvkhxa78iZWQCcmNPrlt5ypDIVhruPyp-PB5qGi0QkyAz0met=
+Ms8T52OF79tO3FFGiQV5LNDGI-RGVd_8u2lkDpktGHqahA0xsvcigzi4F10ayjs5mE2r3GOXq4J=
+ZhXoQglG24lr4th5MTu_059gjBO_ql5MlYDXnrgyLTQ7rMJjwx5QIQv1Pdvy4Og_qqKyph98RAO=
+RQul6r6Cm7peRbq0E-r9yuekSRpmlLUSkapu1l2uKyRkAjjdu3ZeY0AkUMza4oHbUrPkfO0jUEZ=
+NlEQlsuLByEefnJzmm_pqICnwOTWFVxpln8v8qASacAvLyFflvFDOaspQvF8XIUKzBun0a5TxDp=
+8LEzazShnVv1gWdwja4_RLxvXixdfFF6E3yF6WjUcRyxYFRM1MFMY2SonfKEJpboxLu5hi1z27X=
+fCWlXKc0TDZWl_Rlr5f-u_VhmW0wzIzrU8mPQlAp82rSSjUdlQcJFyODmnByIuoy2xYWCSuWN8C=
+Fgo7IMiadiu11HNVUwR2voJc_-APpkbjja3r722SchYXosamPaXjo5mvVFK8WjSeaUyR7WhvzPi=
+xq9rT_qTkM8vM3edZ0KnkjoOnjOH4mMwI6QWxQjyKA-q6_w2huD43KklmTp3nLWyu5kzJVrvf-u=
+_eST615ojn1TmBH0rxHgrlIyDSU2begIR09ZTK6gwcHDUIhKIGVne9fmnoPU3m6phymwnfTH6xK=
+dQEohCzTZGdGP2EorxUZ6r1UZBnmanES1RMoOsUYwe_rPV_a3MKLX5joexW7AgAM6HofvxcQVKx=
+JGiG-nx0r-vPNgJnG8iJ1m2F97CcuAyW-dscJ3-w1duwwyniFP3h7XBcpttciYHHncswcsuF171=
+OY30APMQ01U8bYDkwUQD9ggc-_MVg2NrNqrh9wN3yiFa6bAXYV2VYlETDYGSaAyyIXq2Pk3fsu9=
+imEvJno5EkCN_H8qc4NCorWLwUy83Xr1fJKTZnPT53KJT6xGBhkIYmfwfEj_nOvp2-yCkRAkSnI=
+Vt0nlPUo1QTrqTJ5Pfmg_cIX_fs5dX6G0Fhelpc0QlnePdJ3iveeTMpgfFTFhTvoyeOxc1ZOAMq=
+RM5V9Uh31KNtu_TNCc8lKYdX3qVJ0iR1ZRj0tNTRaXXrAdEzGM1ttpTzuAbuvg_fU7Y6up2Buz9=
+4mATw10DiPnvzDFB014iGTJYkXWFzS-DgLlr3wTkIUAk_cV8qZcdGabw2BwXqusEPkdf90D7eee=
+Yg2XY9oWmdV2CIMFtvK00FYkoaBi-5aFrtCCBoWadmpu9jk5NoEOFcinOeoCT_cxP9NoV97imXf=
+L4q4q1Lcbp0ujpH1ccOiZrZsLl3aCa5gwVk7BVxKae7u3RmXeB5kVPBT6XXSbAYFmrex2EgMBfm=
+-9p6WnuQb-eXPemeZJ50KNiFJQSA9QuwZs10qGQdVXaK9wMeBInY6YMoci9_Z2SKDlcVmUMzocU=
+CBStziABXSTTggFLAiz8QuZ9qMGFezyCuWP2r2yMo04eF6SnIKO35FFZiZqXR7XE168Nrn2MxuC=
+ZYdLciaO4pfxNJh03ZzD1ZBZMxWObzHtNQCgLIbZedFqVOHWjxugHptCrYIJMhm0TgQPg7AkV8E=
+Ic7ihqQ5PjBgrn3AE1_LT7vEdXvUgfIWjzRhUUY-cV9zkRGaRGB0Ekclxq1J-fySZYVuiiCcx2Q=
+3GAgmRH77AyUAUCM6HJHR50lEnfCH9vQZRozYnutS8Ya-AHZg8HawATmSJppVfQK3CHeAtkMOSi=
+kYYGwGfgEdIlDfoo-GMpniuocnN9wCPWZ7kRsDoGQQLpDlbgBD-m_OIImD2mEsVj7CB5YBwk9Ev=
+czbR1fjPqGfY2jBVBOSNx3eqGlWBQ2KStuHSZLn17v08OEYQVuWgBBwm8MANjcqIazKChJDHQvG=
+xn9dN1nbKPEBzT4KhSr0AldIkzxfFf_6LYHucAEjHfrk_1rycE5HRE_5jrjpgRqxdNkPA4XcFoL=
+LSElsJGEJzB4alVSfyxyD0p8HpRJd7vCKe9-pET4HW_OAlMIey9v9b7cdI5-j97BOTtU1pyzCvR=
+Hsz6W9XTVUM-bJXdW4a_4-YwD3RKaXFszushhLh73ER0gADG-K3esFYikpAeGjJ8PAz6MJTCsqw=
+ftk-yqwh8fFtteqJmaLHVttvamQGJRklfjoOzI1sog11PvPHhM0TQWOy9oQUKul2en-ioNslMx8=
+X2TL2gd6zIzBXVFHmYo3FteQZeSe5WLTgL6JOHyW9GCAwcSF1f94bnZP3Ey6Dheh2CuW9tMl-fd=
+PpcpQ4VGb2dQdvL8EEMMUmLgBROpPVEiG_c2XGi72c-bCLDH-i_MQpZ_FIuQ2O6oUW6np34qxAQ=
+SC4hndpiIKFy4GkSkd-12JzshpyNDbDkZcK5HGjyiPNmng-pCdqj4T0KYtZehVlhnhcg1b0eBv5=
+ZI4G4hiVKNy5tbeXKS-CmFeofa5pYk-ozZVhR1osKyvfWi6kq8QHCToGiuq_eBJOHl4nhVlRo8Q=
+_CxQBKkC4VOYOJIsr79nJ5PidbwghOSrS7wLiqC_-NXmCUOoJivLyYibYbqH_5xYQ9Jj-UpF86S=
+FHyDcq5ldzihGofGj1IIl8MZ_5WRDmCpQnhVxxyfJemX2EAK8Zh8Gk_cjEn4zAYrCaUg0QaeGpg=
+Y2MnvfLaqQPnCgYEGd1VBfqwBL1xLY9e3tg3xRnw71ZKeBLNE6QshXC-YRUKXuS-uYCN7JAFMsf=
+q1BSot9iUt6Jd5gAkmbZp6g1QPuDy4Y0Jc5xbQORd6MH_HwI5fxljFD4RepWdg5YuoxXWqKXZsi=
+sQoKgwWtu_8gHJFJpZwHa6H0FhJcv_p-FRbziK_6fsGLYxa8USSx68c-aUuHV-dZv3Mdtwf8uSH=
+b7trugzhFGcHfHq8uK6i3wETXEcB6LYbaKW6cCk_lj67WnaL0TWm3LsYfFoP9gNTxO1Ui-1rp2B=
+D6xnlDRqvywjO09JVvdudUhEtWUF-UvamleAdUyfkb_RmwikInWb-UL2APtnl6vIjs8FtsmNJkY=
+8Pw05l64ab2VwEojiTNajX0jxJPk4hAa4X2mIEOGoNAlOw64JWhr0Xd222Sexr_S9MfJIjO3z3p=
+1966kt6YSxWcvJmSr756A3zAXhOO_V-nJjR5oAGnpV1LDPchHTFXYpYsispPMpqe3sUbjtFTX8e=
+ulohBdbSHxUO307U1qvIXl2g9dwbvR2H4teU0QCbh4nl93ESInrjN8pNLaokV9J6HP3Ft5TRfcu=
+eZWDNc4kMJAbKBuJNnUgrJfEgMKt8X5hbCHRGSTjhC1jIfm4E92x5Ch-RcbgXqSrcmOGqCzVRem=
+-wc-taqwVIix_4Gwm_PQz7vFv7wVqhD9fkejkC6COAw4c8szjGK6ytRiInlfZ9oriHTy-MepM5V=
+UqgjZQkk_QtUs3PlWidvaiGiL5VaukytWk06CzKnoPGyTxG4R5s6L-Cy-Gx9SKkfyLmQTqlQh21=
+nfDzi8bziVd494YO8XdM3eG5pBwsZTQ36FK8e-xY8bONO6yT3UB2y4WHKZvSXFLZtl3_LcOcC90=
+I6t4Je-ySF0e7qzUJA8VHsAD8H5lmDp_2oIxLHApQZ2IOk8JDFx__3AIwMkfv5kJrlVHL84DQnb=
+BMfM6E8PGF4nntWp6GrTbIIqpmF4stUCfA-eB1wPqKoYMOfUaEnor5CxQUMsppO3YIOC1B69-pt=
+8fBADUm6JXUhdxBwDCg4OZoRkXJrAeBwKDt_ApIw6Rtdef6E-H5w3IFHoKcfTj04GtuwUERlSBV=
+4LBrELPq7xcjdiIXI1cN2jGwVPeDA54SxoTAYdrzOJokVGODyEGiIEF1hf20L_KLFN7XGZpFSH6=
+e-wxNKuibvxvY7Gl5WXIHO5VFI0FI9JbLlPHglkjSAUQ8nKT1RoWSommrFq-PA2cZWp26B8gE1g=
+_I_D_lnYqej14TDD6YC5kk6FLWM05Gfy6p4QMkVn9WgNc6OgXCmyj2qQpDrV0pzgSCdlX981Hra=
+19-EP84Hry0JwEqbAup0JpS7c-zCFVOizN5w8g9QBKSshjBSO7OWNECxtxMfxt4ZIQgykBCd5pn=
+BAu1X5YVwKddPFKfEj45tJYdVp2g59J-LEaXiTL_c9dEGIzTK_eTBiXkzEk1Xvp5_tWnWxwrm6a=
+hh3cwZUnxgXZ54sjvFSP9jJtdZ9PHSx_OaZ1yKi1NNTFdHDForQxA1DmM9Sul_J-p3hNEVhcXKP=
+y6K9fL1ioH6D4rAbYBZsvHt8ll_NkXslz3RWi7WzRzqQ4tF-2Ftv_RtmzLaFSjzLoIBSx1e9RyV=
+RK1lMm5dnfZgWV8wGR9o_GXEtMuZ2uoe5RRkowPcjEKVUXeWq9N5A4qpMhTjMgs3KEpNqxZaixd=
+gijYfWFWdfl0x35NR-4MHotVTF2llz5nQXxHn6PzJO_j60pDpU3pcIzHcAfv2d-60qp8I1fqk6p=
+ZOHBF6eCfcuvUXaE53Ab4jEw5n9hD8Xrw7EWl2PqulFx13_lR8SiSBDbRL8fllVcTlq6ixvLcc5=
+sJZ8hNPXxcPUfT8UzZzSYNRkFyh72zS9feGAiqhxp8kPVEueY-iApDkHFvxgrqEgppSOP0iKflo=
+1ygczKhJH6KYkRqrQWFjznmBy8Ud779vzRPSH0KDXp4IJ6lduFomf8V0CGgEUEapMjLSJdxOraY=
+ZesKc2k0xgJaDIRO9SFFERNewfTGzezKMlSfUCC0CM9Df6qTuqSwlNHhNum7l3MYs9Ss7kOosWV=
+sdprvY3tq0Mf9sPl8Gpb0W68qB4CZoQSknT5MqWnmwfBV0hWfrltfLacS0gxczrGX8Frh8OVYcs=
+L_pPUd8xhymjV_8F5QgLJyrCBVLp5btZw-zcxPa9EyE927H4edumXk_csD939xzXxYAt1uOCFW2=
+tkRBRqqsvdQ5tDwJ_XRQl4SdWHuuUezXYU-XsZCmP28VZIZ2N0VI1q2-7_GmN4aVQhpsj4vgIIx=
+cUdqwMrH0gB_t8lbA31wQc2rjC1lll-WZUgxnUJjz01mdAur2K29-8doWaqsd7nwYx8B0Ids26C=
+g20sTj9MH5Pk0sfhigww5-JW-nB1_-S5QzfnaYGlDk_7bY3BQ9Evwe3jz6n28pFZgyFzFRoKV77=
+4Z6klBdyrut7jTTbTw4iMqBC3lfsyktHeM9SmTe5Zw7U601a-g0kIM-aX_tsr3C1qTBKV5pVHJi=
+gOg-50Sr66Rrk5soV-DgwzadUizVdKeJkxc3g1VARpqciMEBIZYYx2FqFYbewdobsEBw8CWyKYE=
+lQ_oTB7qfHALYRiKAg0wpq56gKc9hUrGQ6SZhblFr6aSvBg7dAYVqjdlJV2OAbgyZVGS8F_ULzx=
+e1qYLq7cOsS6Uj6C0hEmJdDOrCw3wNk98bbk2zKNnOU5RoNJlEvCG060KfN7ZIE1Mn4hv8NYoAS=
+-bn6r6Qr-LKfTQ88_VF5eR0NagnrdrQZ_9p-0yTl5E1Zuu1pXsaFKKFom05tiblw4-aKrTdAxdS=
+haHJRkCU6dUO5QaQCkXkJp_pbLzxXSj2Xx47hx3xElQbCE2bSjDdh1ey90WfATsqb7jHmfkwRqP=
+eif7jsxI_isx6WJoacuU1prW3XYQ5tloHSKV6gC5Fek-U2EeK3zYCflB1cbZwZDvRw0xe8x5VDo=
+6xCXErv95e6dNm7An2FKFle0IBKZob3MdQvlwEApC15jRTtMCyapn3z47DjE0lSyscH85ODA0F9=
+7U0sT5JK-LF8FA8X9s93XikpuXmvYzgM-GpMJ5Q-3ksww0l9Asu_6_qqLZbiN_esxFNZR-tyNM0=
+cNRVm3-YQDuoSBsBi7qDLbOP3K4qpu0BpJFI5ETr1e58NxmW45Vp3uuwFZoaQdAJpbCf9FXx2c2=
+8lAWmNTLNMrrDo42tcQXSI13T3_vZGZ4HCKKgB-oVPnQgxcGRDrmeT_Iuj0cQ2JvD7kcmIFKUyd=
+fmajNqovaisoBdFpVLdpQMLrVxbM2wRfg09xhuW0aJ_LlmR803PaRLDeQHkR3xaTIqrPi1f0i-a=
+-8cjWWpWWoBkkEIguLKPrV5VM_jl99HHzmMXW7vmnqtMljw9VLxbVATlREog_VlChJPL49OENaQ=
+kvh3pHbJ_btG9LNoPUr3LiwiXlbigGoL0hHz8_igh8zNvJYF_vmVNxggVCLoPswTgbC48VYhwCy=
+dPuwnHEG5qc6idkR07p1eaEVd5dthk8AMQ0dVS2oG0jNQucgivHWexhIfL4cgtQ4lQcfKeFfkXI=
+AmCcJeR9Ypt3O83NcBTdSaQ8-duXW07JcwPrulDqUOZ4ZWXR5DfNRp3Hre0uQn_O03pHctTu28B=
+6Dm9KCLvTs2QbladIPnFbriQgijQSCXJ5dn9xpa2FdbPPIslN6m7Qw3ZpwvjtH5yMzBfF1VeW_F=
+tG3cic572wI0tbTxz8wugpC1nSwBbL9lYEW7YA_lQyYvVp4gZ6GwNa4l9rDffzxDrDzao34OJyP=
+1X8M2aEEsNwkXN48jDDfBUYc8qBWuBX8g7zB46-yiSBEzLw9CXV_5Wavjgy-b1WuxCrBcpJQQ4R=
+4z_UvsKPg0e1xMp9cxcJkyeZDbthoUibQENdeFxKpLsMGWcWs8-M8J6IP4A6tXtiDbB2pQ7tEap=
+iePFVI3RyfGJd948IgLmdZEGyarqjVoGJmpHOe-mulQwhUvyCpVu6-DEN9qKpBKTpd8KC9rDZ53=
+DcZbrw8jHTHgyGcHhhLs4W2VVMmuMo0oW4YEjyZNxACe7E-NKn6_c8ugnmzEGGlyprqy7LKJXD3=
+d4gHavucSdOU_To2Bn2NMypmNpMNMqelLnh2t1i8dKZifOXuUnJD4T1jfYGEjEajp3S91WoqG1P=
+03dJrIQRLmQtNPTaRnhdQr1ctK4U6dGIHami0Dqc-jCz_Jz5zW112ybijuhB2U3EQ56c1VjPFiI=
+SjHnDKYByft1PF_Jhq568lLhcyZwWuSLAOkpdlaeHGpzuqvcAQUOxQ6SbaDAZz0fqEPwK0i7gCc=
+ISwMhAYIemNsYVb1XouTlL2PeGudJVDjxALGdDhU01lHYyMKLRIFmpvS4jsXVBPj_4kzEt9R_Os=
+adaWBQjpw8v45s7gbp9JNfWnlAoi7qHXenQPDutxKUn3WWy-fYmNs4zz3mXQN2rmv87ddtuz9ST=
+ZlZ9sXtT0h8zaWmfpzkOS6nmM9rwKmKEesvAItRO05CQ6iaHW__WfH9CLgdvQgZQICHBgB6paEJ=
+0BMwQBSbCdss7919w_QH3ciSsU3U4XgJAD-HdHnbREKTfTRRak0I-5QLeFQJ_x5t6XEUb_ew3LU=
+qmx02HW2dzrlWJfAVkiJaJ6lHJdI1XgLcxEh1qIR8IWCRaXAfWyVdBQazGYV9YVsKQCMN0lU31Q=
+z-ApePCnM2dPkxOvtLn3Rvk06ZCb1i8Uavab87zVL5rATpvgDFzcoyFmY8NBv5MvpKzrxiE-WVP=
+PQhRPMtmn4Gt2vuB_TCzU9c3DKQDuI6LTroHwlr1VsvbHyULENTVUmWWOAcEIsbt6uIm4ugSdNS=
+dSiDC1RjgumC3glASLxplYyhFguwYgUJ-hdImY23lq2DUBCsc8O38iF-gdtI__8rB5n3Mi2O88B=
+uDpnN7oppgThe2enx1f5WO2l55FZHMJ5VCnlmUZEnM_Fp5TELANbxcHT2ROyK9yM54tUTqlnzmk=
+zmdhDGwZ9YR-iQ7YKs2OsnMtS7S671kc3Aiym1GJuGfF82Y0EoY9NHltiTs6dhXdKLz9zPnDH0K=
+a3RNv1cvOVowCqPzQjPoF1TaV0z_CgALiIcCoptCy8XLd7IJmSgi0ZEPSuBjVkoSw1K9uAOxtF0=
+KRVS11iRxFmDx4d7yYPt-nvvRFyknqI554ybCj-xOCu-xL3INOLWKf3o5LppS3jEsH53mzxRaJc=
+otBQTaIGzRp33vIWKH6zY5ewNKq4LHBuKBmeX21JeHoJZOb3YUV0odPGlL_xmjl1mv-4D8VxgBG=
+W4QdFedHOIOY5vCrSsmmtR0Zki1wiW8eakHn6WtbbX63mwODbAE6tF0etoR_D9DsDu4p4-Uu3Ln=
+pIxasaYbmzZZyyY1YhQbyo7uQs3B4fDpEvOTBhlPkzG27Vw6Jvu1iZm4GYdAgsvyFHzT5AKMRMx=
+aHngMIj756wyJPNWeJ9fLhzjUwIiyb4UYc2cvgCOpMxgi630mpztOfSeWBKnTKF5VK4Y0l-h6zW=
+mHlsjmtTfD842YFtybCqt60vObtlX7kIJUHpu-DuKuIOIlZW2x_goqCcfD4hjQPJ5trvudjMYeJ=
+Py-kUMT4oS64omOrofElFQlclgmd9fF2hILq3VNH54TTP-sxD7Q2BI-YQQO1xkfILFdPi_BgZW1=
+NRct4Kq6hNTFbsYaWUeVyMHjYkU3Musz2Me7TCv9wyjic0mrPgErgKTSmgVIzenM3fI9E6UL2c_=
+QV1xDWBbn8CGYTBf6nVr3cKLg3HYz5IZbSaj1UPkEwG_cFfi_tRlBEEBsiHbvb6b1L0O0OAFXjO=
+qFa0Wiy7pOJHLIVF3F-xnKEkrVwFrQko9wLHtgsCXNzx0XVY_jn-ZXQOTLu6lUlC9k_Xq_9VTBY=
+qXa7K83E-pwm_DiUX35zzDECcyw9_SIduO7kHxwCL8DbvFOwY4JgLXl07Oqs2r1tifmVr-q7We_=
+nPlLCnG7vF9ak_d3Vitfl-WsBYsxWPsOF7nxaJCVMQCEvqBxsH4bSi4axBzRJiUGaUcW9LOcYNy=
+ORssUTX-UxsyZz8XKsGr--Q8BCO9KOE9xHDJEnP5BIZdcMpbuTi7leWaL--0YMeF9Bt9f1dNHkE=
+40mjKsmFZ4qkO-SbqIAvey0ZEYEnwIny3AlsCgnG5cdvlPxxd65q9Chf_bsQI4Y_kouwspHl2gX=
+iP2Mjv5YdXYQk3uSA4DohwDKkD7Dy-55zDv8PB9Fvigr6a6ShhAyyzyT24NCPVJGizEBCbKrhUi=
+TraZvRh1zvquCgFOD3Fw1t9s2lqMPt_XcdZ-_YDZnNbKangIWHoO89AKe1ODax8P0V_yOcieUqT=
+HpVGVQrl40nsiTVWPf-bjs6JlncHCx98cHYHSr-lCgoXtjnOHumhc92jd-8gW4GP9ryDxGfFFTp=
+_qholW7VD2lVZyUKrCLtZR6jHCY2hv8Y7xRo7W8R7V9blyqfpAWb17pOB0Rw5hBx35JY7gRwEAa=
+7-fvZ75lOvILvfSeabQfMt3tT6cu0kw_CH-KXPd1Ym4XPZ0QFro_xWn6of164wqWrDyum5zpPK8=
+Ub16BPASawgH8yk-ZbywIBMeyOK9jGhpULCQfjXr-aXWrSm4i0Y4hhpMNFYh0CqxBX9adkNaBsJ=
+OIRAxnjyEgcxpp6lJFAIdOzVaS08z1RAdmSz9CV2K8wk7VKKfZC5OT5DY57d8b0BbqstKHisTSp=
+GhJkOH-yprPwDDhyI4WgK7B8Ed9XD5_zuzo0WEf2WG40zhX9uUN7MDoOEiZzeDuSg8_YCBAa2FK=
+wE3SlGlx7LqY2LtJBEpfXP7dcHgFl7KFITM3hhIo11p_UzyMwkrlPsMgxXT0-MSmK71Y-4DnuHX=
+Vm6LkGmzdEWe4b0p4__KaHU9gqvCVQogULz_0EJmaAfj0GsJXJr4LzCTZYjs-0-Fvn9x412uNd4=
+us4hBR2Cpxkvh1zBV44n4ibOoQzSCtvpdFyXXsc7oWB8D5h_8MPTMy9x92KHezxpuRFwDJV0Da5=
+Axmb-IkdCWCidID2r863dX6IGsyXGgSV3vNXZc1Eamf0nHDyorvenGORZ6v5CIuUDz06WaVBzu8=
+f4eJEBTsFmw8Zy9rBlEUiY0ZPlPjJdWYiAP7sBEPgcpNEABAlz0Hf_5XKK6Sj25vaiNls8cc_7X=
+4ovCkFYM0Db5j1yuptEyzF_3ApO7wzDKLG0xiFr1PasNvCGR_xsMhHnBX3SUWZwFBcHQL3c1YOO=
+xaZV_cnPJLkfGIQzxnjFP0yflU8y464dyayOlTrnXDaOrwMCmp8eUq72QYB7QkCPtaXNgq-A2jz=
+_BIw6YGTp9bdyTvUcYNFRAqAIz8fyomO41h9zQpFlYa4meqBDmrjb44qDCkY-_PufmJ5OlIbXa5=
+NX5IAVgVKEVNWYKMaunEaqbh6Ty1Q7hILdnG260fxN5xEnYVPxK5Wplnnq65Jtpc8Sw_woigJGA=
+sDnEcqUEKnltjpk7a912qDa-eudLEHCNPQ4y2oLIA5syPvwSrzknapwQ9C5O9ak-PTPkOgs4kOy=
+MsJhhVO0OOZ_JWgO_3KMNW4UL7O2POPDT9NJ9wQs6GJ5fVxPzNT_68ESuCgGiQnngMM73iDiTjR=
+aL3RVkKoj0TH589aJdXW-gQBv-c_Ne0nZK2ME8n8XQk2v85HrM21XUOFm_xJsL54uA_srFepuDX=
+fPOWfxpigO97FpOHjp-j9D2lB9_9icIIE8hT1As1E7phmFHiL3MLRUV5h9F8tLTRuMc9YDSu7Mk=
+HToptktKaN_9AujikM5Rtrnu28wHibzPKOiGVmoA6W851vsS2mYPqKUAqPJGqK104UKsdS8eWPo=
+PEiD4MTET2IpETvXhnzSA1tyocUpaJljmSKcor9H_k7KNgTO3TOmKlDT33pVzNIay86b8czXmFm=
+MutfPmfIAgT3sHNvzl4XzgvtZtBqS32Kdvt_UU8ZX4TxpRG0kg2i92ZeJweBzbmQCRgTYk_VUsa=
+6Doid1oKwE82ippiLaLWeVlAGQd_mDoQRj9cJX9nsPO6rGRlRE1Gw4fI5aT8WuTEAv17hDe8PG_=
+heeFCPcSDyTDUHNzPzO7FMsST5aXVHZMRW-JT1frR-npn2Ni2ggxIfx4M7A2EHqXrP8pAkfEbuH=
+tw8bQj_pVX8E72yisc5BQfCrlM_0yQNDZbwfL0V8W8Ql9UthwT1mx1lEI5y-qhNAk0YJyMeAPmZ=
+FQofhdosTp1K9g9AVgz2qiTg19hpo9VfxFRu9gcemBkRbkUap8-lNi8_4oYx1cPE2SPKPbIxV3O=
+BnrmMY1eu_Dmbm5v_9ZOSRvOhslbBc_BJzCPJJ8qW-H9eEmH0jCOC2G2MiA9gu2-9WB1Zh0HGuW=
+itEM3H1sdBc83EvI3VmB7yoVmrt4kh7uWmM2sQEIoVD4tp7He3TzACd98Ny5ddtcrSZl2_0nI-V=
+PZqH64YPu5IZxsxGivPLz_uEWCwugXgiOEij69G1FjA6Enb9NUqJV7z5jAm45hvkWlnaRzGtaZu=
+q4OrNPkIkIC7XDZyLVNluho5JamfWJKIUZyraDGnKRzFcRBgYraNIlRCZNGBrS5GIbuhJw13tTm=
+vYmzsrgsauIU-5ccmF6xyEXsfByfC2RKXwT7P_iUpX1QLeypRGm0rg4eUI_67d3wD8nPpRQ6lr6=
+NlUtmZgOCTyBfAlVl3whkROJcxFrL6sBy5B7GuEw7PeAzJPmu_dH00sVRo1fCTapBZcO7Qwb797=
+YMbXcWa_id09SAwTATtwhft5wGn9eK5oUkXzJeuMTyQHAa--GtTSWQZfhWNCLxVg5_mPUDTnqzU=
+tS20LsC4zKrCr3QVzxk91AzVhbVv80hi-8nJ1GSJyIRaoUs64N1H8peK9j4ltAzjZgTRC8_F_AF=
+5XE2yl2Z4UE4B1ab8IU3Wn_d9RhED2HpeR9PsY4HtaaXN7TWSPvYdv5yEhfobNljb2-9qPzesXA=
+-JthvSnlX_FesXvOco5ugvvxCwnpYN7Lc7vHsbFUWxjeLQNZIrOhMDChn0NRjAvO6rjY35kBe9i=
+SCU9_4W-Yfwju8x0tnkcqBHO6Je-HhMpQZedSyEkoxWFKsjayjU02IY8u2SiU6ccsvrzDHOsgUI=
+GgkFkhz-ycQcJcDXxOQJnVIUcWpJX82_mCMiHbhUYBsBmuB5BySzFKD6La8sDgUb42fDe9HyZWN=
+Y-Yg6AZ0tWhpL3p5jZyVwkZk0LnDfHrOch4MdxJlplEGdacIpmq2Rr2dbcUzLh_TuiyHoh7jftY=
+Ut9Q0P5SCUxBcii4j9zeub9EQj0e6afslDKlJL9kWICh7Pn6VRWtn_N0_hfa5RgEwWrhCF6Lxkw=
+cIvvOkXuo6DY0tgQ53_I8U9Iv87Ng1GzYAyzEQuImOeTB1NHU8XPPkoO1K09PmkiwenyQFzHY4S=
+0Foqv6iK26NdN8LgUMKpJ_92SgqYUZsvN4AZRFs4ptm3FrEwXaNumoQyXfMiltLa3daz8-QieC-=
+mn0Y-WPIbRVhvPG5L1g5FsjBquqSNNxpuipDGQDRjj5o02i_x442kN8paVPgBc_npR2z2znTWvN=
+HaWXbrc7Gf4IKJX3Zp2Oc4-mh5aUDwhy7IDkmkdpbXvpzXJOrm5AF_zqfmQeBuLo1Dml0fpqiIM=
+HslWScpO4S-yOkdv5jh8otxdKHrzcib0pWhu8-D8xNgOPZjAsHSRTnq18JY4lqQVNzsUmTXixYb=
+qf_vIwOPYdmhMsMCDC85kJDgm_KOf8UxrU5DojxxsAHbZlhWSj1GxvfLHDRIap9OhdAX7FTP_XG=
+VZ_DUTuvBJu50e656vVBMYd_E2yp9Aso7JNnLRU1QBw0qicdUFVmXahGQ__RyAhQnHfDS9vWQ9g=
+WPuxY62Oyl0AIbC450r6w55IQQEZH5UDCmw2lglgdVS56G5FEJGky5RCFaui2RyW7ROxNU3mpI4=
+jCFt9x7NlysXXvhE8ydZ55TIYQac_q4xvTIJYbAPBSutGIDn0Tl0Puzxsg1gVEpxFo_XxTZPYx3=
+bHtuJUJhqZBw-TywV8fRRVoUgaWUwJU4wLs65FihrxCd8g29jQv2JLj0E84096sl3b54UFhkL-d=
+ACf7mKM4T49E2bz23Q-_1OgL37ZYONKZkpha1U46aaEs3oGmlkStT42YPoSH5g3jiJV991MsAeb=
+47z2SeYUSLUu4PUjIoVt6_pi3o7lG5gCQRnwmjxN2ujSC3MbGLPvHAOouBMPxc5l8CSp__WxzD4=
+BcjVDW6GHyzhRZQuHbTiDUrBnDoZIrQEabXyyhj4QcnAVkdKAo-7sS0voQe_8un7M869axqIMWj=
+tL-yD995X-d5-T95o0hfihSE1sEOMGG99Yz8WhPDb1NjT43nyEM8_UmXzZtFg6YdVsCSXOsqQS1=
+J20zYZuouMuEZAXjXyyDKi11uAfLZ5VwXEuOcAeHxePkjLEMNro0k-1GZMsKlZFz5tZiXI7yfvI=
+iWF23MxwblG6gI0xgZKiJrdXAjx6MxSm4xzGFM-rJ57olS2ewqN-RGcZZNrVuYN7au3NDMGUCEx=
+Hqz8QRDA41kMCQJTbMYwCZUKiQ5ftEXMoIzgi3O7vHvp6ffJEyLC5jgAnJs-WBnTJv3eeZa3nWi=
+1M6OPpAF3854M5gNSnBj2F2u0X5vBXkDF2ONIdp1Pk80S18uq4F2EGWX52-rP22B0ls7xTNfA14=
+bR9jrzjnSV1Zc436-uYUflp7-667d5s0AjWP_6BMpAvUrYFPFsx7V8JQHZ-L96mFDrbmmOCRsw3=
+0_pZP-t-6vWJ40RML2w_bUxMrfQPUjr3GeM1VLTsikLpxaZIC4o_T9RwiHOUuEIxM2qL0ruIRBj=
+YZBo-E4eCxXUvVknhJqMzgQY7uveZn5qPieaCXYwfQFjCZQwfm3XmoaY21fTFef6HL2QMQHmXUF=
+4tYZ57LxMzVxoohN2BfDb39AckO6663XLmNnD_a9mq7xiHb-lC0nk0tK-KxHqiIA4YrdQcxNPx8=
+0NVpM6HQQIvu5MMX5TFJMP3gargIomd4QC8Ch3LzkKVx9nzcp3zJSSt0ocs3wFrZ0MXne6zblRN=
+YvntDRHwT-AonuXF2Os8lE5Ok4k0NN9q7y1bwQ-cauGJyjOM_6Su6hY-7B1E8jE8hG9xylz5pcQ=
+0Ojk1fE6h_fjIiU-bByvB_KELca3DkG8SMoAZ1Q463QtBUB5RaMdUSmnsqDg1fl1KQcVhmLiflp=
+-VcW3JYHuiJRBA-uvEjbi6LMC6Y9Uu8xJHsHq0YUTHosmBQvwj36oBxsg0O_iJAArWwSxjv6jC1=
+i2zdRFc2zh2OdgqO6pdKQOzNxIHYOTKU4s7mCyAVxlaC-WY6X5QZdbCoFBTDK_k77jW_7mZYLtf=
+LmPJNhB4kw8DNa38Bj8bPjoTnQ1t8bXNaA8CvidvaI9vLxCWSP_0h8ci0eiUy7ON75QjHlqZy0s=
+wI-Gn0Pam4ajNIaH15gkhYX2jdKX6k2VcGmrNbiGd6IVsWjzUvgyOYAj7ZQeOd_jzXNQKxmriUS=
+Hrl1UrVmDftPdRS5KMY41lqln-pUOBRo0VaIrC_IquuQ6RKmtxAL5p0Pcug7Bq-kiQOd1Qjkjql=
+gyiROHRBXAMgvik0b0NDFHyKHGEpjpM6KNSGJ_MTU0nkKGaH7yCNVHm_MRjCwnDBIyzFSqUPaoV=
+da0ihBns8Lk30xOQ5QK_B14zWO_2zpfdrvk7VgTqAf65f-CgLOYGe01bquGLp33-TNx3Nhebh0r=
+NHshrAuWe-URB_u-H-QsbjUd4ZCMv2VfAwFJJJ4IkJ2A8LUDNtvV3fylEpz2NoRDfMzc6daYsw0=
+8Fw9imxlN6RcS93pnYCNGzvF2QdxEt2daYMhl-dU9PaDOnzgrtYDi1fS7OxfOgsCH06iWFyPiWq=
+zKvJvSWuDBDDhqK6hove44oMHZuliPqU5TBPC6nt2K3KJRZnSK-7NiAadrIlHpJMW0raV7Jfa5u=
+qYtTe5vqa0NLCfvJJBC4XSh04jMilhrZ1UpMwz-3AtZKMSPUfTZQE4EZJJSFEebEpRZy7OkOkOR=
+VbG4E6KMRtU64Vge957hKsFtIbXgvAsj8Vss6dfLb-NbCXYCsCyQqCjhPw2-y5wRixuMgk8qjcB=
+YPUzGfez4_VqvfB05oYARmeL8ljFo_1tHaQSBuK-R7Cluq3uX-Ts4A8nIaO7zqH0XKc0ewcqeQj=
+yO2b63RxTNv0bcp6dr3WORzrBFsaUUnJeR3JrNreia4qtpbXrtJhsVN4L6xwHX4x4FDB04eSAJt=
+OEbrVAH1jYVBSl5c5zlCleiMmk488Wqtu_v9PAPzPf0sS3ljInYRr7Q9OEy-duNe6H7aAdC1pVq=
+8n7wLKrvEzS-rXzJezWlTMQrGnOAxsJNdlXE7OgIkQpsQZFHV6rDApoDccRfFgwODn7yGNpoCHH=
+MgTpNjp9QcVdTHnBwz-n6RLYocdI5uEP8p-WkiRM7drxxUrn8XaKs-c3i_vHBDEJYfYiRSBRPB7=
+FnqBPZARkfFLGJmOamFOvi6itkC_w_GilplnA3Y-ZMvQQBnZxI_w0tqIMzgsWEl1Nz9riMvipyi=
+taObrRuxZShQvRRSZjoDvFX1r_nT2Nm6TVH0xRijEolxd6wAHvJTTy2VMJ8RFnI7UwvodnW7IWQ=
+I5JROkKId2mfmPDWljm26FcO4E1rDlDngsHfrRkMgzj_NYyH-XcdOyzz13Ew66aVdndJF9HWa5Y=
+qFSokKAYFS6kQt56cdMxQOA66WnlrABS9zg3-yjwYdxAU2hTAopurx9-JnR7yqwr75heddZWju_=
+mufVqhCz9tcAfnvTU8nObZSPqcihUeyY3oaUiLfOoE5y2N937VifU8tvEiCc0d5RUgYMTfeHBVK=
+RZMxXBSOLzuixe4YIRn3V3bwsepLQBnZPhBHw61qigIG0iUQFRwDakmlLDy1QYxCP3R5XNsRzJw=
+66JwIBL_FpT1-Nvfl-j479EGCTswHiwE9HVKJmeeDYcKz_cCU3_apfgEAIkfr56qu8pgwfxOy-D=
+O-ldZvyG38unzDyTbUYlEYO_rE23UkPDSHfv0TAYH26g08bu5Ar5FmwoMhnQc6p7hQOJzMLhVVp=
+_6SZjcYLk_XgpbaJ4wxrCcosiUUy-KUiEdgTNh9GBMjgeRL-rwvVUQZTmZSuxo3T45Ta3KAnyfP=
+5ckDbAr9sRmQETCPYCHnyVDpKNn8zkqEaQM_yNVgKfd8cmJYznJGByreX9b-ic0yCuWu4Hm9mzX=
+GEt4f4S_I5dXCXqWCMqB8YV_soqWoDOxTuwukMGcl5O7BVLS3l1OGSzMPL7uCzK3YzaEMPv4h95=
+MTUMXzjp0T_KeCNJRQ_XXDxwW9N02p3A_90r_nV1eSa3m4-O9vEc-AkiFLfRqAMGn8ArED83Z_h=
+YHA7x7rANBqt1S1MH9LxsNA7NiEKWQoW-EtkPSok2XFC7LmPDfEkyqBC0oSKrDb6zq51yqbDIHJ=
+K8MQEBHFfGo0sI2IhQDgTlS-8XaOCD7yYC2LYXkKOqTDfxru5NNkk5ytElC45fbY4W2kEQ28WRE=
+bua68O_fSTV3f5cjzAO-h-0HFbDk8bnID1j23RRSzYCQXlQUw6x_iDZdXo74eUyNnVgxIt7SO6I=
+pnmlz2ND5LlbirZ2oyNGWCY3jLN9RVAtg6pY64eJ6BC2cthsucg8mnH6d8Sb59y96Ve4iuwmdzq=
+h66xrZmgmSZvXDvsjGiPNpf7MvKtuSe8AgTsvtaaJkqhJs8WvhF5sAUYXjdk3FXkFCUvnSxnSUW=
+NTPtyY0Si_-MTpzrz62U50j-IFDxOltj1KeOIJGFQSWSgLSDbgoUR4sr6H_Y41rtVX5T1vMc57X=
+nmiKiRPGNGtZpVMaONZh6bE8TUUAib-o039STxJLko6sW-ix0hRFE6NBybRiWaAsv2ff_ahVgyj=
+iLSLwh5a3sUpzB-dKDXlvxIZat_FDhOP3GTp2RzgzD5bYHLIIMlLQYD3-lqnwsoMxKbvdIgrjCE=
+6OozOJFOmJ8Xaj9RwXuCgqeQ6ehIEHM0tBCxuNcMj8gmIg9Rq3hdFdU7tU3mqlNDpZh8nvLKrD4=
+1uNvTnzi8zwGs6pkiCUe2eSoRAXNZ83O66dJzM3wCTP_NdGuWijRrk2gysXk6rRsI4HyT1thiPZ=
+bd9NVqGt8EcAcRnkLiU2daoAiIVVRpxRq9OrEoKMOhBOhJYMT7CmBf9Ku8bqRy8PtWiaN2Lr3Jf=
+kadlU08QMdAxdhdWGzvwodQPgYMXxV0xsGATLshTtmPTJyCqFgE5xMzZktA0EFTFx7h7FtMcO_s=
+qY-px1R7iEkbwV4I5-VtqzstNgbgit2870KKXX3h0TBS_LrkJnZb39Oov45ofZKrg0rdekxAJAY=
+yc_g9Yrqsx-9q5GXwNSiDnbgdWAsU1u3Q3LJjV8aEypRLuSXHVRTGnhwg_ufiPlbgQ39UipO6gL=
+xyxadbU3UZy7gJDIr1JI4INdcuN88RmibEaaOTR3-HPDrJp5sg5iIWyoC06yLUzWtc2wHlP2jpf=
+KlvTLb5jX1OdtXK16RjK8Sc1FgTmCh9atOZO59bYfPViNkQlT03Z7HtINY2oD3-vhdxgqieW6kQ=
+C-u7OFKtLIk7ou2u7iVsTMI3GYrTqcTPGsC6PPDvHKRdLPmRPN_PnZibiPYSdl1LFKNTc6XhOtb=
+8Aer3OmlCRAMAjpujRQKgbXhp-6klsRG6ZnIC0KVP45nhC94Nwq1V5n4Z8j-FV4m2DHaek1CZiy=
+S_AMMCSiREoudFhIJcCbsJwN7vY1r6ZaiqDbHK7uEEkEOBsUQ5jSNk-ubZg9ZexSetH-cvCUSyW=
+Q6cV-loWGdbCBnb3L12fkhT-Fyh9x7gHL3SkkDbbXAzeCrNJJ7h5vbP1UEhRcejoqEOlQmCBd1B=
+OAnUPPrylPMJiUph80av9rGQqt4voF3Ncz5sDVwRwDDrIkPiQ_o_QB2QsKWNnmmhEeI0dVmbZgh=
+kEDaeN8blAKbBljxhU2dv-z_SbNe-z3AXg1BMrpUWz79-AfGioQ6QcTl3TCWI4PN-SEpfazzs3O=
+SsjKL70mXMYHu_S1iFm87tUx6XoZOpjmegU2W6qWCL6_R-A4udiLHEzbdnrbKv9ivV6tlP66Sy5=
+MUVJ_mk5WpWj67yqwzaz0jBQjs5TPtSI7Fgh6VS4HPxf9q3YivB6VUg1MVW8eor8kBtxm6Y7auT=
+ByxWIn2Nt1y87VPZfGUPZhFvv8GGnlvyvb5GJNseXnmsY80dkH8X0e0S969aDSENQdbm68tyQDF=
+R-CcduYIkPDOA-MBzac7-8KEcKmeVVKU3V2Jd5YFG0tGKhWVuI7za0TjNp24xguw8fkLIi2bBgO=
+3UBTo4UVswffLaQQBcApPQlHsgoJ75rGGz-2hDoCtElgd2PomeqYB_cZ_gbXS9WBLfEiHR91gy1=
+BULUaKfQqR8feiM13gyVzs1vqwwvMSle6pta4nwJr99EWA5l7ZH7wMiXVm-Qhbiv7w2aEMcL7ns=
+qNNyeveFFOOWMabNEGhOt6OJHEsb2wiFgVwhiGRtoyu-V2_LHpIIfl6j6pwkIAxcaXeScuMBjcd=
+OkTQ0MDESuToEdPZWeukHPtb72bB2dxS-6U2QW2_q0JhW5afkrHLr8jZJSHk3tqFizYby2w9I9M=
+dSDctP2IfRw6l2hmk8DzXC9snE3EQx46BZj-qrlgjRZIHPb_nt1Tulfsufd05qmmDy0-3I654Qf=
+FpocCd9sqFLtemhkuDVwIYhtOvfVasbC6ckG-nQ7x3gS-0g45IQ9zyH4Nkf15U9CIHI_kgrLoft=
+YpnUXh8YRaa_ABy0ZJqCEdPmm7xWqqc8ENImV6c0LJTHVIq--578cpVS3prwKe-KPtNjYmAmNET=
+U0TXltknmkgCUb6PFg2XEnvGe_FSz8lprinP5kCbkEm-b6qE1sFePUjjYkKzN-jV81dWjBI9qJO=
+eGEzzjMZwGkeUrM5CTSg_w29t9Yz7pg6vqqe5HYAzr0qHchm9s1PXjuKs_k2tVvdfyhVQaPcSHz=
+zaNDN3k_bzikPGnZTSdzIosBrs_x2JCogIVvmlafn-AT3ALa9oMghNiNmEm-GA/4ve/0FD4L6e_=
+T3mX59uU0fDAGg/t13/h001.Ob4R5toH9804VWg3-slpNSOkPtVwlPDc0-jy8emCycU
+@guardian_sport
+.
+Today=E2=80=99s winners of our prizeless letter o=E2=80=99 the day is =E2=
+=80=A6 Admir Pajic =E2=80=A6 but prizes are back for the rest of the week f=
+rom Wednesday.
+
+RECOMMENDED LOOKING
+
+The final part of David Squires=E2=80=99s powerful series to set up the HRW=
+C, telling the story of
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEDom6Up7NBgS48fUZgZf5ceWpUTnbF7VpmxeQmzhZm-yT_LPwcuwwrW4pH=
+yT9BOCM3445OAs_AjYYrmq_mhqQkut7rNZewl0QYd79Hxiv3IcC0WY9VJ2ZEB8PPriEVLvVaslb=
+XV9FErA5lVr6HmGuE0USGQXrAdGnrXqg2pWSVIKsXii6vhJYg1UkJ7Ws1RnWZ9-Pm4fnL3Ws1c1=
+sEP1yB_-fKmmg8Q4mSa6thnaIKyDSyjb9Uo_Svms1a0UxFPib2WzNW3vtqidVDm8lDZJs6PIrRA=
+f_BSKmQ2b6FuTvpFCg/4ve/0FD4L6e_T3mX59uU0fDAGg/t14/h001.GPNsT_egImItbrm9BaMn=
+EIPwjgB3GEkYIMXFhNfc92M
+Rupchandra Rumba and his widow
+.
+
+
+The story of Rupchandra Rumba. Illustration: David Squires/The Guardian
+
+
+RECOMMENDED LISTENING
+
+The Football Weekly podcast is turning Football Daily too.
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECimGXIZA1iejAIbhh-nNrWQTsBTW2QPxJQkOMcBV2_yMAgHcT9qDC7j2g=
+iMzOxzZjrTgrMaIrQX4mdWSLwqUbKvpYPhiG-3Kzrrh-NtEWX8iiuJTY6s_rFvl-iFw9FrruNE2=
+hSl-aMA8XI3n-Fjl6fCUGCGycSwWIpVZqYUuflZCZ1RTvRXg_BQk-uXFDczcrhLtge9Gr6Wfd7J=
+zMdgKgaAcs8vBudzCu_lWtLSj_rb_vCf2f0p4UvSI83Npom59k8tkwtN71-fk3xf2bOofYN3q8V=
+9s811VnNObQxCERKWQ/4ve/0FD4L6e_T3mX59uU0fDAGg/t15/h001.iszUPzYhtgcO-jAsIHdQ=
+3ZhqS1ZPs3ouEUDGfqb2Hzs
+Here=E2=80=99s the first HRWC special
+, focusing on Groups A and B, plus: how did we get here?
+
+NEWS, BITS AND BOBS
+
+Celtic and Rangers never managed it, but Big Paper has landed a 10th Footba=
+ll Supporters=E2=80=99 Association title in a row for best Big Paper.
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEl33B1oii0a7B1Z7DbUtgg7tz5LLpjtQWcQr=
+BCILz3SJNiqmG39joXUO4umO-hDWRmMEbVl9atSXXgeCjz6rJm5UX5agIo9CvuUfKzM-FHNe14F=
+GNinxUZG-vCONqSKmzEFq0wt9k6KjMra3YfUGgGEHHj9TJNarKfCRzNcXdw7lFIr97BJogS8Ng4=
+w22NjpDMPt7xRQ7tl2Aim_WsUDbmFXVh6kTD8HCErZjx-cmexb7yka8L1S_rlYU4oXZGmhu/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/t16/h001.bAaM_bYRPtKJBFCtsDrkutHRUum64O9L_vPpkLTpGF=
+g
+Whoop!
+Barney Ronay and the podcast are celebrating wins too.
+
+Chelsea have appointed Paul Winstanley as their =E2=80=9Cdirector of global=
+ talent and transfers=E2=80=9D, which means that they=E2=80=99ve now procur=
+ed Brighton=E2=80=99s manager, assistant manager, current player of the sea=
+son, first-team coach, goalkeeping coach, head of recruitment, etc and so o=
+n.
+
+England have revealed their
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEktxKo64ccLG7L6zQMWSbrGaf3_St9oZuTxw=
+xBJ38EQaaWkUhaxYcKb3kW-NfpoOtSSH4_108jmCr7pFVxlvdYjz-7AYshBMl_jtRzLvoLcs7nV=
+0rdtnZIIWm0E-RvEB5CJx4jAfh5YjFAnCV10ObYlJxCklYoYN0Q5zzVVQ4KuuBAoD79SX0SKJ14=
+Eo5FL8WaJJIagJIMfn9he9c9fNYt9BlZ4a6Z8sRsoFBBnbKw7QRIACW3fAUSnHjvus1uzIB/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/t17/h001.3OVAo0mZOBUsXwv4NJhl7USVWrwn-6yWoO4M2AuxyV=
+I
+squad numbers for the HRWC
+, with James Maddison handed the, erm, coveted No 25 shirt which means the =
+Leicester playmaker=E2=80=99s fitness is not too troublesome.
+
+
+Prince William presents an England shirt to James Maddison before they head=
+ for the HRWC. Photograph: Eddie Keogh/The FA/Getty Images
+
+
+Aaron Lennon has called time on his career at the age of 35.
+
+And Ashton United of the Northern Premier League Division have offered to t=
+ake Erling Haaland on loan from Manchester City to stop the gigantic goalbo=
+t from seizing up while he=E2=80=99s in storage. =E2=80=9CIt just makes sen=
+se,=E2=80=9D
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSErkZkHtxqdOoDj2K7PR50YE-HsXgFCob5Ixz=
+issXKZf0U3nh_wzhEMDXlODprGaJENjtFOd9fmOM4_LFX3QTP2JMcD6mFtolEqSOel_KaoyqUqj=
+aakEpf4pE9cuYZ-9bF15QYD6OuPfdFLHGpDoe2wecEMqtjJ4zXDM5YOpHqyRnu6gjWYT4R_JdG4=
+qwTYvTEuxXPC22zwfEmwjAUe_oUlFtvBFqrpARhcqIfAw8b5xrYroNHVQKyc3zeBJP3WWZX/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/t18/h001.Yb5xdNnt1Vr4NNKyAUGdowMETKl35UsGQaBHMCJj48=
+4
+cackled manager Michael Clegg
+. =E2=80=9CCity aren=E2=80=99t playing, and we want to help by keeping [him=
+] fit. It makes more sense than him playing golf for six weeks.=E2=80=9D
+
+STILL WANT MORE?
+
+=E2=80=9CGiving [it] to Qatar was a mistake. It doesn=E2=80=99t belong ther=
+e.=E2=80=9D The Fiver=E2=80=99s World Cup-winning colleague, Philipp Lahm,
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEBYsb93GJSEF_C1-UhtUYc3WBy485gUl0ZOnK6lysuBFnMiiaF2cntsjY_=
+txRD4RGqy_bd8WhLa0hJHm-5F0menmrqooFc_D4xFvBse8LopP4P1MZKX5YmPhqjEVGCgTx9V7z=
+XDypGPLmWh0OcCerNwt5UpCGjuCnQGWKIGE_WuUrR9jGjPrzt7l8DLfGOOQUPEfzaWu4fZYljNK=
+CkuFafhexlkMOwWiOwiMVgNN72hfwVi9Rj1QPHDvUlQWkinqx8/4ve/0FD4L6e_T3mX59uU0fDA=
+Gg/t19/h001.K5lgTskP6lgKiIMtm1Czv0vJsEZD6m9MJ0D6Euy5kIQ
+on why he won=E2=80=99t be going to the HRWC
+.
+
+Stadiums of shame:
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEnQuVGEA4GRDUbQnn9K-DVqHHpJq3amXWnx2=
+0Gmva4K8_c-EVj-sVW5C1PisgYPmUbAVQdnHJsr5bKKq1LgQLyIfJIIwJ6q8Nx-BAgpKNVKqAJu=
+ycxQQxRP28bLDNKxFY8wX370Ve5jKvlVvhAuNhQjQ-Bv6OApudUZzv9MlDcIFyu4wU50bUWV6WP=
+O1w1dqE45X2A9GY0v7y66s9V14-yiEg9SfP0o_vmkm3vzBOEBzHuX5YIOR0jvTrNxtRRHS5Asmy=
+fwfdiSAwXkMYEo5yUg/4ve/0FD4L6e_T3mX59uU0fDAGg/t20/h001.j19erul9pqbSp1B07N0Z=
+HIfQbynn7EHALRqj_WAs79M
+the HRWC numbers
+that Qatar=E2=80=99s Supreme Committee doesn=E2=80=99t want you to see. By =
+Sean Ingle.
+
+
+Outside Stadium 974 in Doha. Photograph: Kirill Kudryavtsev/AFP/Getty Image=
+s
+
+
+Like 90s bangers at a Skegness indie night, our HRWC guides just keep on dr=
+opping. Today:
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEGX5DeS9JLM0qw1_52V0QW_ZD6b6eIVmz_kr=
+QNfaSDhEtyHmYBrWDo9yW3mSXK__naSJ1BajfReRiB9Soj5975eQdn4KvVNV-83Dh7bTxBW77de=
+ZPnUW-f-Sv5VxAjjLueK0kV_s7A0CjuAXnZ7m5fOCrslOmj1ZGnmurd0ikMAGI0pVo80jQSDHo5=
+ci8tD801k0Yp350po3JSf7Prlxl2A/4ve/0FD4L6e_T3mX59uU0fDAGg/t21/h001.VLjnagDQX=
+xOs4kC0Sasshoy4Ze3Hh9ClwuXxOXE2cvU
+Brazil
+and
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEGX5DeS9JLM0qw1_52V0QW_ZD6b6eIVmz_kr=
+QNfaSDhFv1OF0qPYg0pT8qqOhgrSz3DWw2_23OxWAYW9AehDeoNBtaWy4Wauhojp8cMkMsbVS_A=
+Qw38ppTiuk334KoeI9TvB1noxTMm6lC7iCdQGU_KnUbo8tRCVkDFm8H0meJ9BBkGiZSZPv3uamh=
+K55J6UrZ7PbDYZqBYCXRYoXW-2xog/4ve/0FD4L6e_T3mX59uU0fDAGg/t22/h001.Ugbvh5vmA=
+rBVB5THH_X_J-di2JnnjE2jBAVS3Cj_O8o
+Cameroon
+.
+
+Barney Ronay on Cristiano Ronaldo=E2=80=99s interview,
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEgXuhWEKg_IQoaItDsz0aVkzb6MuRtRqCGEg=
+nuaw5DSLlsgSlEE08d6BrVSK0rlDpTzSfsTz8mIyfIyNNp-jrT_ZepHY4CCM-e2jlaRNg_hfxY1=
+RNlOeLy0VaqNCzl5GQthHhR0MalCrI6ZrEqzAhe9RTs-ybzGDW8x67GLsZPTj7qrLS4dozmlEkN=
+34taZI75dX26INetP_dVzMWg4PpOtsUU76iVxNwjo2a00-0Idyr8SCQPblYMbRMpDjLSEHeX0LF=
+QXWDW3bRjRfVAXaG8w/4ve/0FD4L6e_T3mX59uU0fDAGg/t23/h001.mDmTKGn6yq5Fw3my7OKy=
+RC9w46WwdAYQx16vrxyGcbY
+aka: SI-U-Later
+.
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECnAs-OF_4HlpIBAhCduXoVYaOdkX5Gf7NROLIiqpRj2NId7-DdSP49-eL=
+4V_kY5T7bcl3YT8ERLkuAOmYtd1ZOZnfU-pI65SM5P-s8RYgdIIC74-oS_4evJmBKIAp-cVXx5u=
+-7D8A2vr4hm03HFgKTdalXNRm0NUOVqSlLBQtqja-lA8xihOf16V2C6ceXS89reKU3OINUM-tCd=
+Cjk2gFgyCgYxflq7RMjCciT70V7idSr77KMfZx796ODwAbAbW5-O32-NDx_-05qLdWRrXd1/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/t24/h001.J31o-k1bDKQXKHCjRyQ34T2MvnD5S7GmiDOAfLhUI1=
+w
+HARSH
+?
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmR0gdnm-n_3USlklxsyKH2MfTWEugk6yZN7n9=
+g2pWSj834AL9T6f8zXgzhYrWRYX2EIlEIIoG-7imMQvtgdN6l7N_mubPcaThc0W9L24u45wWXGO=
+0uoN-oD4WypA-xYvBmakJjF3YbkuSamnjJK5T5Mpzk6-1k7DEUFlDpns76AAE/4ve/0FD4L6e_T=
+3mX59uU0fDAGg/t25/h001.wjSTalJ6Lj-J-EPsYTcuz2s0lNkAJmDKZMZqiY2W6Js
+Manage your emails
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6K_5zaO_ntyE7Unu01EppyvGETeBl6q8pRHQpPnXT70flQWGuE_Gdb39PQ=
+KswWa4CLE12M9SyTvKVyvUx0vYPo9PU5ZovFsWSycDpGVzTdKt-NArQmqon3IudMyH8BXdsrAJ2=
+VKeLl0U6ctkAVLLZ9W/4ve/0FD4L6e_T3mX59uU0fDAGg/t26/h001.CRKyzeU-hIwoXZf4fDHc=
+_lxQwtCG7nOTDhaT60S6_Ec
+Unsubscribe
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAL7GJWVk6OP-hWZy2kpgSEQ4CMBn5lxsH9-PgA1oxYTG-pQeO6rHCqy88=
+QrKbY0oFo3nGb520OHI1oai3nAt6EZHHFcFNgi5TUR2GGXQbNSLOVkwEUbBYs9BKcJz-AVdczMe=
+dSiQd8SIJmwwvO1QUGa8abT127SBihgTMtLMWP4Ycu9MhPjLuBLzZhNEAgQY4GSm7av8fGJKRat=
+a756BEXKMga2v9CvZ3s32IHe-ylPDj-RXXjYEvICdh73dIgtUE/4ve/0FD4L6e_T3mX59uU0fDA=
+Gg/t27/h001.CFBB-hVZQYT9_n0QE6VnkyI9axf7vQpxGvc6yY2MmOc
+Trouble viewing?
+
+You are receiving this email because you are a subscriber to The Fiver. Gua=
+rdian News & Media Limited - a member of Guardian Media Group PLC. Register=
+ed Office: Kings Place, 90 York Way, London, N1 9GU. Registered in England =
+No. 908396
+--d7c75f7c391bde9f651d41a1a40ffbe5ccb70435633643adf43ff81b4220
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html lang=3D"en" dir=3D"auto" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=
+:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:o=
+ffice:office">
+<head>
+<title>Aston Villa, =E2=80=98unacceptable insults=E2=80=99 and pearl-clutch=
+ing | The Guardian</title>
+<!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedg=
+e">
+<!--<![endif]--><meta http-equiv=3D"Content-Type" content=3D"text/html; cha=
+rset=3DUTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1">
+<style type=3D"text/css">#outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }</style>
+<!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><style type=3D"text/css">@media only screen and (min-width:=
+480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-70 { width:70% !important; max-width: 70%; }
+.mj-column-per-30 { width:30% !important; max-width: 30%; }
+      }</style>
+<style media=3D"screen and (min-width:480px)">.moz-text-html .mj-column-per=
+-100 { width:100% !important; max-width: 100%; }
+.moz-text-html .mj-column-per-70 { width:70% !important; max-width: 70%; }
+.moz-text-html .mj-column-per-30 { width:30% !important; max-width: 30%; }<=
+/style>
+<style type=3D"text/css">@media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }</style>
+<meta name=3D"format-detection" content=3D"telephone=3Dno, date=3Dno, addre=
+ss=3Dno, email=3Dno, url=3Dno">
+</head>
+<body style=3D"word-spacing:normal;background-color:#FFFFFF;"><img src=3D"h=
+ttps://ablink.editorial.theguardian.com/ss/o/u001.OMpll5AjohZ3LgbA8XhVqA/4v=
+e/0FD4L6e_T3mX59uU0fDAGg/ho.gif" alt=3D"" width=3D"1" height=3D"1" border=
+=3D"0" style=3D"height:1px !important;width:1px !important;border-width:0 !=
+important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0=
+ !important;margin-left:0 !important;padding-top:0 !important;padding-botto=
+m:0 !important;padding-right:0 !important;padding-left:0 !important;"/><div=
+ aria-label=3D"Aston Villa, =E2=80=98unacceptable insults=E2=80=99 and pear=
+l-clutching  | The Guardian" aria-roledescription=3D"email" style=3D"backgr=
+ound-color:#FFFFFF;" role=3D"article" lang=3D"en" dir=3D"auto">
+<!--{% comment %} Required Campaign-level variables {% endcomment %} {% ass=
+ign
+				identity_newsletter_id =3D "the-fiver" %} {% assign utm_campaign =3D
+				"TheFiver" %} {% assign CMP =3D "fiver_email" %} {% capture
+				unsub_url %}{{content_blocks.${Editorial_UnsubscribeLogic}}}{% endcaptu=
+re %}
+				{% assign dispatch_id =3D {{campaign.${dispatch_id}}} %} {% assign
+				url_parameters_unstripped =3D "utm_term=3D" | append: dispatch_id | app=
+end:
+				"&utm_campaign=3D" | append: utm_campaign | append:
+				"&utm_source=3Desp&utm_medium=3DEmail&CMP=3D" | append: CMP %}--><!--[i=
+f mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"=
+600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]--><div style=3D"margin:0px auto;max-width:600px;"><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;f=
+ont-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;dire=
+ction:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td>
+<!-- START - DO NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+<!-- LIFECYCLE EXCLUSIONS START -->
+
+
+<!-- SUPPORTERS END -->
+
+
+<!-- SINGLES START -->
+</td></tr>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;word-break:break-=
+word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr=
+><td style=3D"width:598px;"><img alt=3D"Football Daily - The Guardian" src=
+=3D"https://i.guim.co.uk/img/uploads/2026/07/22/Football_daily.jpg?quality=
+=3D85&amp;dpr=3D2&amp;width=3D650&amp;s=3D38c2799d19ebd2d966f5426bc02ce45d"=
+ style=3D"border:0;display:block;outline:none;text-decoration:none;height:a=
+uto;width:100%;font-size:13px;" width=3D"598" height=3D"auto"></td></tr></t=
+body></table></td></tr>
+<tr><td>
+</td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 0px 0px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:598px;"><img alt=3D"Zion Suz=
+uki fumbles one over the line" src=3D"https://i.guim.co.uk/img/media/d6a54a=
+91281b767c21eacf65894a4437d950c118/244_0_3008_2407/master/3008.jpg?quality=
+=3D85&amp;dpr=3D2&amp;width=3D650&amp;s=3D94ce84f73224ae2ab756117b48cc2730"=
+ style=3D"border:0;display:block;outline:none;text-decoration:none;height:a=
+uto;width:100%;font-size:13px;" width=3D"598" height=3D"auto"></td></tr></t=
+body></table></td></tr>
+<tr><td align=3D"left" class=3D"text headline-text" style=3D"background:#FF=
+FFFF;font-size:0px;padding:16px;word-break:break-word;"><div style=3D"font-=
+family:Georgia, serif;font-size:13px;line-height:1;text-align:left;color:#0=
+00000;">
+<div style=3D"font-size:14px;line-height:17px;font-family:Arial, sans-serif=
+;font-weight:700;color:#0077B6;margin-bottom:8px">02/11/2026</div>
+<h1 style=3D"font-size: 24px; line-height: 29px; font-weight: 700; color: #=
+000000; margin: 0 0 0px 0;">Aston Villa, =E2=80=98unacceptable insults=E2=
+=80=99 and pearl-clutching</h1>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 1 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;direction:ltr;font-si=
+ze:0px;padding:0;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" style=3D"background:#FFFFFF;font-size:0px;padding:16=
+px 16px 0;word-break:break-word;"><table cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" border=3D"0" style=3D"color:#000000;font-family:Georgia, s=
+erif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:no=
+ne;"><tr>
+<td valign=3D"top"><span style=3D"font-size:24px;font-style:italic;font-fam=
+ily:Georgia, serif;font-weight:400;line-height:140%;color:#0077B6">Barry Gl=
+endenning</span></td>
+<td width=3D"110" height=3D"90" style=3D"line-height:0;font-size:0"><img sr=
+c=3D"https://i.guim.co.uk/img/uploads/2017/10/06/Barry-Glendenning-L.png?qu=
+ality=3D85&amp;dpr=3D2&amp;width=3D120&amp;s=3D45c057be9abb037bdb8c39b38a97=
+6a61" alt=3D"Barry Glendenning" width=3D"110" height=3D"90"></td>
+</tr></table></td></tr>
+<tr><td style=3D"border-top:2px dashed;border-top-color:#999999;background-=
+color:#FFFFFF;padding-bottom:8px">=C2=A0</td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">THE VILLANS OF THE PIECE</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">When Jamie Carragher appeared as a pundit =
+on Sky Sports Super Sunday, Football Daily was surprised he didn=E2=80=99t =
+have a solicitor sitting alongside him, occasionally jotting notes on a pad=
+ or leaning over to give whispered instructions and answer =E2=80=9Cno comm=
+ent=E2=80=9D to any leading questions about Trey Nyoni starting ahead of Ry=
+an Gravenberch. On Friday night, the former Liverpool defender was subjecte=
+d to a threat of legal action from Aston Villa, who took such grave excepti=
+on to some =E2=80=9Cunacceptable insults=E2=80=9D he had rained down on the=
+m from his podcast pulpit, that they were <a href=3D"https://ablink.editori=
+al.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtj=
+hYSJYcaNsDra0BxnPgTuibY6nsmBnuxMdDsmcWmaXFEDi_kchJj87Ru25HRDREpT_K_gEVFqIGB=
+UihytFHjKd_J5PF5h4yvwggGkqkQYcSWaCwJ0umx-ymjdcLUVWEALxlxYUBN_6Q5pC6LvYeqFe_=
+CeQAaYV5XfOxxwlHFOYKvG63Gyyr-9jCNQuTwMBJ9oEMCxPjoZUJb1ipeFx2e5ELmvSiJdSClx2=
+QtL4QYrXh_AAEB10kyAV7_6vfFA2PiN2jbj75TdIsVlfdd6JRC6i_YfUiCYTRsa-ZIPaWiA/4ve=
+/0FD4L6e_T3mX59uU0fDAGg/h28/h001.DxRlcEvfWEGFGEhFdtrYDBYWcpgpyFjvHVkUwB00qz=
+A" style=3D"color: #0077B6;">ready to call in the heavy legal artillery</a>=
+ and stop him from preventing their =E2=80=9Cascension in English and Europ=
+ean football=E2=80=9D. Taking a leaf out of the tried-and-much-ridiculed <a=
+ href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_=
+XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgkOliMzTbJaA7am0FSte37Lr3Co=
+ZHvRoTi9n5wBtdZRg9iyH0wq7Xy4nD7Oa2Vqo8kAEdDPxartubEQW3DrV_mC8_Pi36bwO6u_4wI=
+-XA1v7OEeWMnR97cswVWRO6uNCV6dw4GN6xovD-XBAJZd5Qg5aBBcFpYjRGKtQQk6nMsqOXglfA=
+vfnrYL0ote04l49jH4bpYuvNhsmOrznvzz9ml2tCdsArBPy5bTrU5Lt9m1qFijg3NGlKefjDA_j=
+9_4KQ/4ve/0FD4L6e_T3mX59uU0fDAGg/h29/h001.CZ06qvXKdugEiPP8-wRoOXe8RQUlj3V2x=
+OUBINW4-pc" style=3D"color: #0077B6;">Nottingham Forest playbook</a>, Villa=
+ chair Nassef Sawiris appears to have eschewed contacting Carragher through=
+ the usual formal channels and instead cajoled some unfortunate junior comm=
+s staffer to make the portentous announcement on their Social Media Disgrac=
+es.</p>
+<p style=3D"margin: 0 0 16px 0;">Villa=E2=80=99s threat came on the back of=
+ some fairly obvious observations he made on Stick To Football, when he poi=
+nted out that English football has a food-chain and despite their commendab=
+le successes in recent seasons, Villa aren=E2=80=99t quite as high up it as=
+ the richest man in Egypt might like to think. During a debate about the li=
+kelihood of Unai Emery leaving Villa to take over the soon-to-be-vacant hea=
+d coach=E2=80=99s job at Manchester United, Carragher had said the Spaniard=
+ would =E2=80=9Cwant that opportunity to manage a giant again=E2=80=9D, bef=
+ore pointing out =E2=80=9Cthere is a chain in football, whether you like it=
+ or not=E2=80=9D. As controversial footballing takes go, it was right up th=
+ere with pointing out that bears defecate in the woods and Pope Leo XIV wea=
+rs a funny hat. =E2=80=9CSo shut the [eff] up Aston Villa fans,=E2=80=9D ho=
+nked Carragher, hitting his stride. =E2=80=9CAston Villa will never be Manc=
+hester United.=E2=80=9D</p>
+</div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Jamie Car=
+ragher arrives for the Ballon d=E2=80=99Or ceremony" src=3D"https://i.guim.=
+co.uk/img/media/fd1420d08ac749a2f06b50c23e311a77bd0cf95d/0_823_5156_4125/ma=
+ster/5156.jpg?quality=3D85&amp;dpr=3D1&amp;width=3D600&amp;s=3Db3377fed905d=
+bacb125882fe987de82e" style=3D"border:0;display:block;outline:none;text-dec=
+oration:none;height:auto;width:100%;font-size:13px;" width=3D"566" height=
+=3D"auto"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Jamie Carragher, earlier. Photograph: Jeff Spic=
+er/Uefa/Getty Images</div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">Of course, with this being football, there=
+ is always a danger that explicitly signposted and totally anodyne badinage=
+ will inevitably be misinterpreted by thin-skinned folk who are desperate t=
+o be offended. But it is usually self-professed terminally-online superfans=
+, not multi-billionaire club chairs whose hands instinctively reach for the=
+ir pearls. While it remains unclear what exactly it was he said that was ac=
+tionable, Carragher subsequently apologised for his comments. =E2=80=9CI=E2=
+=80=99d like to apologise to Aston Villa, the owners &amp; their fans,=E2=
+=80=9D he trumpeted from his soapbox in the digital town square. =E2=80=9CM=
+y language this week was clumsy &amp; wrong. I can assure Villa fans it was=
+ tongue in cheek but I can understand it=E2=80=99s not come across that way=
+, so apologies. Good luck today UTV!=E2=80=9D</p>
+<p style=3D"margin: 0 0 16px 0;">It has now been widely reported that Villa=
+ have dropped their threat of unspecified legal action against Carragher bu=
+t it remains to be seen if Fulham can look forward to hearing from their la=
+wyers after helping to prevent their ascension up the league after [Snip! S=
+nip! Snippety-snip! =E2=80=93 Football Daily Lawyers] at Villa Park <a href=
+=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18I=
+RyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgxSVVLHYac7zt4a5YfhTAO_DYyps05kj=
+fxM8U_L-jgCe98zWsKQUjXFC6TrwufczcQ2YXMHCYaibaZxFDtxuGe6Mke70YIk5JISFrR-zXjw=
+H53L3W0Zv2BDLB-mTPxqK7-beWK1nvocegpabGS9GiOMoKPi2RJz64LUWVBpRFqjr2wI5xuzkmV=
+xJCzbwKGJnzMyAbfh1Ovev_NGCf6V6SaSpASaiMR8CLMQaNjTR2n84/4ve/0FD4L6e_T3mX59uU=
+0fDAGg/h30/h001.o3Hjg77VA9MNgAc62RJPq94JtPrRf9nF1dBeUzLX7NA" style=3D"color=
+: #0077B6;">on Saturday night</a>.</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]-->=20
+
+
+
+<table width=3D"100%">
+  <tbody>
+			<tr>
+				<td>
+					<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+ role=3D"presentation" align=3D"center">
+						<!-- Padding -->
+						<tr>
+							<td class=3D"img pb-20" style=3D"font-size:0pt; line-height:0pt; tex=
+t-align:left; padding-bottom: 20px;">&nbsp;</td>
+						</tr>
+						<tr>
+					=09
+								<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"center">
+									<tr>
+										<td style=3D"border: 5px solid #052962" bgcolor=3D"#FFDD03">
+											<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" role=3D"presentation">
+												<!-- Hero image -->
+												<tr>
+													<td valign=3D"top" colspan=3D"3" align=3D"center">
+														<a href=3D"theguardian.com/FWPrem" target=3D"_blank">
+															<img width=3D"128" style=3D"width: 100%; height: auto; displ=
+ay: block; max-width: 600px; " border=3D"0" src=3D"https://cdn.braze.eu/app=
+boy/communication/assets/image_assets/images/6a901045e9f46e0088495dd9/origi=
+nal.jpg?1787826245" alt=3D"Football Weekly Podcast">
+														</a>
+													</td>
+												</tr>
+												<tr>
+													<!-- Header -->
+													<td width=3D"100%" colspan=3D"3" valign=3D"top" style=3D"paddi=
+ng: 10px 10px 0px 10px" bgcolor=3D"#ffffff">
+														<table style=3D"width:100%;">
+															<tr>
+																<td align=3D"left">
+																	<p style=3D"font-family: 'GuardianTextEgyptian', Georgia, =
+serif; color:#000000; font-size: 16px; line-height: 24px; text-align:left; =
+margin: 0;">
+                                    <strong>The Premier League of podcasts =
+is back</strong>=20
+																		<br>
+													<!-- CTA -->
+													</p>
+</td>
+<td valign=3D"middle" colspan=3D"2" style=3D"padding: 20px 0px 25px 10px" b=
+gcolor=3D"#ffffff">
+														<table align=3D"left" role=3D"presentation" width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width: 100%">
+															<tr>
+																<td valign=3D"middle" align=3D"left">
+																	<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" ro=
+le=3D"none" align=3D"left" style=3D"border-collapse: separate !important;">
+																		<tr>
+																			<div>
+																				<a href=3D"theguardian.com/FWPrem" target=3D"_blank" st=
+yle=3D"padding: 10px 0px 10px 10px; background-color: #052962; border-radiu=
+s: 40px; color: #ffffff; font-family: 'Guardian Text Sans Regular', Arial, =
+sans-serif; font-size: 16px; line-height: 24px; text-align: center; text-de=
+coration: none; min-width: auto; padding: 10px 15px; -webkit-text-size-adju=
+st: none; white-space: nowrap; mso-hide: all;">
+																				<strong>Listen here</strong></a>
+																			</div>
+																		</tr>
+																	</table>
+																</td>
+															</tr>
+														</table>
+													</td>
+													<!-- The Guardian Bookshop Logo -->	=09
+												=09
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- Padding -->
+						<tr>
+							<td class=3D"img pb-20" style=3D"font-size:0pt; line-height:0pt; tex=
+t-align:left; padding-bottom: 10px;">&nbsp;</td>
+						</tr>
+					</table>
+			=09
+			</tr>						=09
+		<img src=3D"https://email.mvt.theguardian.com/1.gif?identity_id=3D1357914=
+5&amp;variant=3DEditorial_FootballWeeklyPodcastNewsletterAdAug26&amp;send_i=
+d=3D6ae8a7c9f75236b7f3f7685437daf2bf&amp;position=3Dfooter&amp;" alt=3D"" w=
+idth=3D"1" height=3D"1" border=3D"0" style=3D"display:block!important;heigh=
+t:1px!important;width:1px!important;border-width:0!important;margin-top:0!i=
+mportant;margin-bottom:0!important;margin-right:0!important;margin-left:0!i=
+mportant;padding-top:0!important;padding-bottom:0!important;padding-right:0=
+!important;padding-left:0!important">
+ =20
+</table> <table role=3D"presentation"><tbody><tr><td><div style=3D"height:2=
+0px;line-height:20px">=E2=80=8A</div></td></tr></tbody></table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">LIVE ON BIG WEBSITE</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Join Daniel Harris from 8pm=
+ GMT for hot minute-by-minute updates from Newcastle 2-1 Everton in the Pre=
+mier League, for which Jack Grealish <a href=3D"https://ablink.editorial.th=
+eguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJY=
+caNsDra0BxnPg0CztzxyNnVyg8gfJHj53_xLBgOCnggq_nzDIVqdNLalInvhVIC1a4s32jvczam=
+UpIDo0K5qhFvkyF1gKNac7chKv3hjl0XDw431URaMrikXtHJrNs2BNtkv2-Jv8WFNJtceqcH_Np=
+ii5fAJ5fEbfk2nRj-c7XskWFjKP7RFBeWw2zoPowSEBYN09RnwWxALbWqSeBjkuf_kVWALiPHvM=
+nUzLojdXk6DX3EZt7EMw7NW61gyRYA74bajVxwJACKsZReKIiZeErS0GglysCSMmnA/4ve/0FD4=
+L6e_T3mX59uU0fDAGg/h31/h001.kZBHxpWrQIgBlPGDleaJe_QEWX0KPMwPVP5rN7Hi0c8" st=
+yle=3D"color: #0077B6;">will again be absent from</a>.</p></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]-->=20
+<table role=3D"presentation"><tbody><tr><td><div style=3D"height:20px;line-=
+height:20px">=E2=80=8A</div></td></tr></tbody></table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">RECOMMENDED SUBSCRIBING</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Sport in Focus picks out th=
+e best images from the past week and delivers them, along with the stories =
+behind them, to your inbox every Friday. It=E2=80=99s great and well worth =
+your time subscribing to. <a href=3D"https://ablink.editorial.theguardian.c=
+om/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAGY2792OXv2AimPAqS17=
+tQFRBm9SrNdicIDRStvDquTJldofAqlM9_Pn--kZ2H6WrS1komuUngCymhw60JPOFmBLFU6PZQA=
+GcADWCwfozlqz3MfymX6ab9WVTE9Ry3HXgB5ioWNP7qIEa059Hf1NE7c-EYYQHc3jZpBp7oxfoX=
+l9dsWIjGtTLpbI7FVjrlQ5_eLSXC8ld8zqw1d63972yZnTrbxBRlCSaRzyyFb3cd4Ql0rjH5yOD=
+qmXCy9YBwobNOsrer2rsje2CpkqyWH2bL/4ve/0FD4L6e_T3mX59uU0fDAGg/h32/h001.6p8OS=
+WLOQBO95pzoffORkYo2Lb5ovfc6mEKTt-sV1is" style=3D"color: #0077B6;">Right. He=
+re</a>.</p></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 4 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">QUOTE OF THE DAY</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">=E2=80=9CI=E2=80=99m not al=
+ways showing my emotions, but it=E2=80=99s really touching. So maybe it loo=
+ks like I=E2=80=99m an =E2=80=98ice king=E2=80=99, so to say. Normally in H=
+olland we say =E2=80=98ice queen=E2=80=99, but therefore an ice king becaus=
+e I=E2=80=99m not a woman. But for me, it is really important that this hap=
+pens and it comes close to my heart. Guys who inspire people on the pitch w=
+ith something people off the pitch and in the stands love to see. That is w=
+hat football is about=E2=80=9D =E2=80=93 Hibs head coach Marink Reedijk get=
+s emotional after watching fans=E2=80=99 rendition of Sunshine on Leith, in=
+ the wake of <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.=
+Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPg5Wzew1jxNxL=
+Rh2VGWdwEpNTRGOrgRvZNY-gJhQgYVuOjmbe-QN4sx_jxx0kF5pFTzbxZX0LvPecQu9lc4J1tKk=
+IsJK0cXbp8USJrpbtNaTSGQe2rUKcFcsDCaeumBscz3Ei2QRYNH_of5wHKPIOpGnIit-ONmc2W-=
+a7zS_kz-LRipBtAWgEel45rWeLfbwrl_uA164HoGi8xUkn2TNPZ19qdXCG9wmVPMbDmTUc-8q45=
+Ld4VmU0SscoC0LbuVt1C/4ve/0FD4L6e_T3mX59uU0fDAGg/h33/h001.WnRHq0im008cByo107=
+COPaAOccOA3UravOHyshRJsxk" style=3D"color: #0077B6;">their 2-1 Skol Cup sem=
+i-final win over Hearts</a> at Hampden.</p></div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Nicky Cad=
+den of Hibs celebrates after the win over Hearts." src=3D"https://i.guim.co=
+.uk/img/media/dc6ac9dd82c0eac48948bd62bd9f7946929b85bb/0_0_6000_4000/master=
+/6000.jpg?quality=3D85&amp;dpr=3D1&amp;width=3D600&amp;s=3D7cc173ca4c079572=
+58928cce10712294" style=3D"border:0;display:block;outline:none;text-decorat=
+ion:none;height:auto;width:100%;font-size:13px;" width=3D"566" height=3D"au=
+to"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Nicky Cadden and Hibs get their celebrations on=
+. Photograph: Zak Mauger/Getty Images</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 5 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">FOOTBALL DAILY LETTERS</h2></div></td></tr>
+<tr><td align=3D"left" style=3D"background:#FFFFFF;font-size:0px;padding:0 =
+60px 10px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:22px;"><img alt=3D"quote" sr=
+c=3D"https://i.guim.co.uk/img/uploads/2022/11/17/blockquote.png?dpr=3D2&amp=
+;quality=3D100&amp;s=3D9610f58be45a50b23f088ff688c98a3b" style=3D"border:0;=
+display:block;outline:none;text-decoration:none;height:14px;width:100%;font=
+-size:13px;" width=3D"22" height=3D"14"></td></tr></tbody></table></td></tr=
+>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 60px 10px;word-break:break-word;"><div style=3D"font-family:=
+Georgia, serif;font-size:16px;font-style:italic;line-height:24px;text-align=
+:left;color:#121212;"><p style=3D"margin: 0 0 16px 0;">OK. I know readers a=
+re going to say I=E2=80=99m only writing about this because I=E2=80=99m a L=
+iverpool fan and VAR looked the other way <a href=3D"https://ablink.editori=
+al.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtj=
+hYSJYcaNsDra0BxnPg7t-NtGn0sx36BmMx-2_S6M2IZNRXnwpdzGac5GIYkoa2co1h6KLVXpdFc=
+UDCsO4voamOl-L_2Ja2dGkjtO2THK1mhK_ShTBw9KXtPLFwdjfD71QTtWKwMBF4AQpGfMYzLqhU=
+tVsytNGCDyNd3dRTq4hRXGfsknXJU9_AaRTdiyYouMA5VubKijG9Vdd54CGaPnysNDPDe1odz24=
+9d6ZgDEq93bvdDS5fqz_tTIUypa2MOWdFE2AYhAnJDIQVQttJ/4ve/0FD4L6e_T3mX59uU0fDAG=
+g/h34/h001.ydajLPipzfZqRdSK_uPs8B9pKUvtJ0cfc7wB9YIyksY" style=3D"color: #00=
+77B6;">when a clear and obvious shirt pull</a> prevented Alexander Isak fro=
+m a free header a few yards from goal. But, every week, a different team ha=
+s a similar beef while commentators debate over whether the shirt was held =
+for long enough, as if there were a time limit stated in the rulebook. And =
+the infuriating thing is that unlike pushing and tripping fouls, no referee=
+ing judgment should be required: it=E2=80=99s either a fist-full of shirt o=
+r it=E2=80=99s not. And unlike handballs, shirt pulls are always intentiona=
+l and always illegal. So, if I had a spare =C2=A31.057bn or so and could bu=
+y a team, I=E2=80=99d outfit my players in paper-thin jerseys that would te=
+ar away without holding them back. Better league-wide solutions would not b=
+e hard to imagine or implement, but no, the Premier League must clearly fee=
+l that refereeing controversies are one of the sport=E2=80=99s main attract=
+ions and probably can point to social media disgraces as evidence. The beau=
+tiful game?=E2=80=9D =E2=80=93 Steve Plever.</p></div></td></tr>
+<tr><td align=3D"left" style=3D"background:#FFFFFF;font-size:0px;padding:0 =
+60px 10px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:22px;"><img alt=3D"quote" sr=
+c=3D"https://i.guim.co.uk/img/uploads/2022/11/17/blockquote.png?dpr=3D2&amp=
+;quality=3D100&amp;s=3D9610f58be45a50b23f088ff688c98a3b" style=3D"border:0;=
+display:block;outline:none;text-decoration:none;height:14px;width:100%;font=
+-size:13px;" width=3D"22" height=3D"14"></td></tr></tbody></table></td></tr=
+>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 60px 10px;word-break:break-word;"><div style=3D"font-family:=
+Georgia, serif;font-size:16px;font-style:italic;line-height:24px;text-align=
+:left;color:#121212;"><p style=3D"margin: 0 0 16px 0;">Friday=E2=80=99s Foo=
+tball Daily letters gave us offerings from L Json and Stewart McGuiness, wh=
+ich caused me to wonder who would be the recipient of the coveted prizeless=
+ prize. Scrolling slowly down, I was shocked. Nothing. Not even a benign =
+=E2=80=98rollover=E2=80=99 announcement. Just =E2=80=A6 nothing. Beyond rui=
+ning the weekend for the 1,057 regulars, imagine the pain this inflicted on=
+ your contributors all weekend long=E2=80=9D =E2=80=93 Peter Rehwaldt (and =
+1,056 others) [our apologies; by way of contrition, we now have prizes all =
+this week =E2=80=93 Football Daily Ed].</p></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Send your letters to <a hre=
+f=3D"mailto:the.boss@theguardian.com?utm_term=3D69c6a4d8b3bfc791c6ed7b366d2=
+71ebb&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEma=
+il&amp;CMP=3Dfiver_email&amp;utm_term=3D69ca87fbedf7fec03459a8e02d8586c2&am=
+p;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;C=
+MP=3Dfiver_email&amp;utm_term=3D6a15ae6fde895db943165ba594d212f6&amp;utm_ca=
+mpaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiv=
+er_email&amp;utm_term=3D6a1852d05d7d9008810ace981a759e73&amp;utm_campaign=
+=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_ema=
+il&amp;utm_term=3D6a1eef0936d70ff33a9ff32c57eeaf2a&amp;utm_campaign=3DTheFi=
+ver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;u=
+tm_term=3D6a21828d9451bba74ed4242c28b385c7&amp;utm_campaign=3DTheFiver&amp;=
+utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=
+=3D6a22e00139997ad8ba5b22c2d0ae78fb&amp;utm_campaign=3DTheFiver&amp;utm_sou=
+rce=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a26d=
+b4a9afc3d8fe82d38c4d11f16f5&amp;utm_campaign=3DTheFiver&amp;utm_source=3Des=
+p&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a2c1af40c70b=
+6f1f6dc1f60bfb36f30&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;ut=
+m_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a428c069ecfc8f943afd=
+cd235997bb3&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=
+=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a43ec9b7c0359ba3f2752b309e2f=
+746&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail=
+&amp;CMP=3Dfiver_email&amp;utm_term=3D6a452dce923cc4045ce0a5226bef128d&amp;=
+utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=
+=3Dfiver_email&amp;utm_term=3D6a4660d3bad497881ad5c148e43bfa32&amp;utm_camp=
+aign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver=
+_email&amp;utm_term=3D6a47cc1aca4af9b6ef9f435f26bccf50&amp;utm_campaign=3DT=
+heFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&a=
+mp;utm_term=3D6a4a7664a79b84047034827b5a9849db&amp;utm_campaign=3DTheFiver&=
+amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_t=
+erm=3D6a4ba928ff69daf1a6a720e159c7a55b&amp;utm_campaign=3DTheFiver&amp;utm_=
+source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a=
+8c4e65668e77df85df7e9fbe444425&amp;utm_campaign=3DTheFiver&amp;utm_source=
+=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a8da545=
+fbf82deb9f888b8cd387b64f&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&a=
+mp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a8ef617111d6185=
+b39bc4e23d570b1e&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_m=
+edium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6a91a505fea686f1038436f5=
+f7f0b633&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3D=
+Email&amp;CMP=3Dfiver_email&amp;utm_term=3D6a96e3c2e4e3982a5db816deca651da0=
+&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&am=
+p;CMP=3Dfiver_email&amp;utm_term=3D6abbd630b02f7bc4a7407ed8e0335a4b&amp;utm=
+_campaign=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3D=
+fiver_email&amp;utm_term=3D6abd2776048f620fe47f08b7e971559b&amp;utm_campaig=
+n=3DTheFiver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_em=
+ail&amp;utm_term=3D6abe676168c64f60f88276d86eb524e3&amp;utm_campaign=3DTheF=
+iver&amp;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;=
+utm_term=3D6abfbf35149f99dfe1c68a10ef28fdac&amp;utm_campaign=3DTheFiver&amp=
+;utm_source=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=
+=3D6ac5069fe0009705b6937e334df27fa3&amp;utm_campaign=3DTheFiver&amp;utm_sou=
+rce=3Desp&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6ac7a=
+7c4f42ab87bf74e8170091dd428&amp;utm_campaign=3DTheFiver&amp;utm_source=3Des=
+p&amp;utm_medium=3DEmail&amp;CMP=3Dfiver_email&amp;utm_term=3D6ae8a7c9f7523=
+6b7f3f7685437daf2bf&amp;utm_campaign=3DTheFiver&amp;utm_source=3Desp&amp;ut=
+m_medium=3DEmail&amp;CMP=3Dfiver_email" style=3D"color: #0077B6;">the.boss@=
+theguardian.com</a>. <strong>Today=E2=80=99s letter o=E2=80=99 the day goes=
+ to =E2=80=A6 Steve Plever, who wins a copy of <a href=3D"https://ablink.ed=
+itorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IR9rqMPDGU9qGkpyTVqHrj=
+fdQVowAackdCczgDz6_m5S9JwvPoKBmTNDaf_8g4gl8CugfjZA8ozA_7BpFBvtF4aKdhkY1Mkco=
+HJP2FW-AYEJV3dtg4CiI8YND5jNitFphESjU5cN-rN0kLDZ0DxEW65q5vck6vCjo6D0YcjWY7do=
+jlAY5Nt2qQQydPJCLixCpXlnScxtFXDe84CiPyaPlUjk/4ve/0FD4L6e_T3mX59uU0fDAGg/h35=
+/h001.0RFrsV__xt9WVi1KiA8SSXl9M-aRxcIi4jAZLI7R7IM" style=3D"color: #0077B6;=
+">Programmes!</a> by Richard Crooks. It=E2=80=99s out now and available to =
+buy on the <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw=
+_JkLMEmFuifc_XG18IR9rqMPDGU9qGkpyTVqHrjfeY0w0mywHfg5ojfFM6uSyu6rezsbdjgaye9=
+pulnsHEecPDT7O40A2acSD_qyT2K0V0S2fUcpNELX-5kG1doOIcqiuiU3fxGvhISAf2q5R2O_7z=
+NTo7DigB0bYIlp9JVIIkZ5SfbuF1-_BQoDi6P4suPuXf5s2XMFh-JzMm-AWS7g/4ve/0FD4L6e_=
+T3mX59uU0fDAGg/h36/h001.RtpF2ujvMzhEq9f3WXjWZYzjWmUYhl1EaOW6uPdeDgA" style=
+=3D"color: #0077B6;">Pitch Publishing</a> website. Terms and conditions for=
+ our competitions are <a href=3D"https://ablink.editorial.theguardian.com/s=
+s/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBvX3x6x9aEblJtWsjZ2xwaun=
+I_lrsQrQTFPfKXBtsJ3tIUIZ-W2XDFHaCeCbCiEo_EHHQvMvc5ZuMls0ywgb9DHc1COZGAm-bA7=
+z9tyB5lm2DmEvYgQuwjGh76L8R_9sYIVKdgsg062Tb0BO2xkayhgEkNuBnEkK5KqXkrW8CLzELG=
+CEMRI8wL2L5Hm07v9n1bXW4jscn6GqLErEc0Bt-4GDoA-z3L54Kbz9bxk9jR6I-qreUPp_kXynw=
+JMdi_pJKAk21pd8M1FrAkwwlrkGQD/4ve/0FD4L6e_T3mX59uU0fDAGg/h37/h001.2D5NsPmXz=
+xyu-56og-xdWkUTpUkt5zTyR3B0hWbfeFs" style=3D"color: #0077B6;">here</a></str=
+ong>.</p></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 6 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">RECOMMENDED LISTENING/VIEWING</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Max, Barry and the pod squa=
+d chop it up over the latest Premier League action and more <a href=3D"http=
+s://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7=
+fIEMgszcCSneHECimGXIZA1iejAIbhh-nNrWEh3Yb07NuUSwUgAnAGNpUynXz5cFI2xQVnX-hKx=
+KVIhvSsl3UYqADLMigvcnUu7Pn98nXPGOohXu4RqYXDOQwFqGVe0jLT9dcO9e0_WUKAMGAEsy3I=
+wuu7Uzj8RSSFZeTnLJNueS7Ty5eW9IXP6Drfhmc09xDKHDRwNeY1tAtd8SL8e3xlGoDAcgoaIed=
+5GTG5YXy4V9gzErwnm5_U_cbqfra8OUqODkdPEeTi2KiuHFc8g0a-MwnQAvK_Vz94uEhoAXwbpR=
+jhQtrtCbF14v-8iiXBZJw5rtMBj3a0Lo3DY/4ve/0FD4L6e_T3mX59uU0fDAGg/h38/h001.jEb=
+ez2QYJWaf1kacbGAjlHNaoGMaR8lk12dQPdCbWnQ" style=3D"color: #0077B6;">in Foot=
+ball Weekly</a>. You can <a href=3D"https://ablink.editorial.theguardian.co=
+m/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHECU1cRqabsOz8MYwPiVqdM=
+lT7K_InroOQrVRLZWuDrbuerXeGck8h3GdtjzGJ_zDOnjRAR-VfSRkn9TZCaLzSo2xSTYGpvJp7=
+OIAOrqsZe1Y1gnLsPVU1otU387qfSD9uCCpj0zkD8XEB5Q2l5GlJe_kbot50TD_EZbY4cjUFWb_=
+BxLtIttSLu3IxTjtKyamwuiaGq86HLKw8sZQfUdXRuxrzNvWJnMctRfhj13vJLH6CFnSiyokpZ1=
+5WPEC8AoXX-k-Z4Tq6ImaeSLfOcjmbr6yFmtkO2ysc6hrW94RU_iNQ/4ve/0FD4L6e_T3mX59uU=
+0fDAGg/h39/h001.gcZe0RIjbRn_exdqeIKIg4l3ODanq3PRkNjSnY6KTTQ" style=3D"color=
+: #0077B6;">watch it too</a>.</p></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 7 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">PLAYTIME</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">You remember Big Website=E2=
+=80=99s iconic brick-by-brick recreations of great moments in football, <a =
+href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_X=
+G18IRyTNtZQ7fIEMgszcCSneHEC7YiiiAjdaM5inWxa-ScT6MZ5-Q8pRSjpVT89QSHxdtcp3kyw=
+CJz1IfUEGlMQ6iad7uPRq20pz9o9xNWHOEWe1OZPwgWyLNGR--oOqPJjh7sjOqf2WxMcslCJQKk=
+vS0_vhjIIDWoa--2ul3y0qBxBSKo_H-tpy3HZ4nf5QSrGRkJh27np6DcuZ3VgQeLrZl2WLgrQt_=
+lyqPLxsxRn0jGWenr2Y1L-6ADVTJYBldZpc779U1JFCNgpu8DKFUdkVG3Jz_taZsyAm2kXZLZKj=
+5VQW/4ve/0FD4L6e_T3mX59uU0fDAGg/h40/h001.ZFwEfCgNj3D4l6Isfjq0gct67xOBhtETHf=
+8Dp_4yx1Q" style=3D"color: #0077B6;">such as these</a>. Well, the Bundeslig=
+a has only gone and brought live coverage of its biggest game =E2=80=93 <em=
+>Der Klassiker</em> =E2=80=93 to the world through the medium of Playmobil.=
+ Viewers were able to watch <a href=3D"https://ablink.editorial.theguardian=
+.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0B=
+xnPgmUQsuOC5Waxi2t81RQrsrgEx8tCfV24OJtip_oxAbk_ewa15ejAtIsE4dFrv4ukPva9tnTf=
+pR5T81gDNbo7AT4dOE1sdq68u_nLBXPIMtKQ92tLXn3heE9GI4sEfpHQ3w7aapyB9Ra8W0F4YPW=
+8rqiViKz_mj2l2_P8CDSbqkT5NabD_kIDduSn3AxrsF4RjYq6dlOhe2teV2jTPuzJlajFDZdq7W=
+9_FSdQvOY7fpCtpgm3qSrzgWmwx_PWWKjsy_cI6StdKBp99pm9hAO3RqA/4ve/0FD4L6e_T3mX5=
+9uU0fDAGg/h41/h001.D2COElECnii3ZfxQGs0vATY9E2Vg81WJUwifaVrVW1k" style=3D"co=
+lor: #0077B6;">Bayern=E2=80=99s entertaining 2-2 draw at home to Dortmund</=
+a>, which featured new men=E2=80=99s Ballon d=E2=80=99Or owner Harry Kane m=
+issing from the spot and the visitors twice coming from behind to grab a po=
+int. =E2=80=9CToday wasn=E2=80=99t my best performance or the team=E2=80=99=
+s best performance, but that=E2=80=99s just life,=E2=80=9D sighed Kane. =E2=
+=80=9CI probably could have been out there for another hour today and the b=
+all wouldn=E2=80=99t have gone in the back of the net.=E2=80=9D You can che=
+ck out the highlights <a href=3D"https://ablink.editorial.theguardian.com/s=
+s/c/u001.Yw_JkLMEmFuifc_XG18IRzGmUk6O4VmuesjttiOp-p0ZHqBEyOZEonm4o084cL9SnV=
+jox853uZvFxpikaJ_-TygszSI0en_KQ0Icb7Te9ErSnkfQSYsJaJY_hAEH2GFnShMcv5zViH5BW=
+G2xnAJTyIsZtH_V-nMm7rSZ4itC51Vb_VPe_ozGmbXInzwWd4f_kFnFRuFo4gSd1bifzdFsOtOu=
+UJsAFKXZBY7Pmn8Xm88/4ve/0FD4L6e_T3mX59uU0fDAGg/h42/h001.8cwPjOBF_RckxLM6nZ9=
+yT3OFSToNVKW4GRORiEiFXt8" style=3D"color: #0077B6;">for yourself</a>.</p></=
+div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Bayern fa=
+ns during the Bundesliga=E2=80=99s Playmobil coverage of Der Klassiker" src=
+=3D"https://i.guim.co.uk/img/media/4fb07d18b93d4985149f1269cccf843244859b9d=
+/0_0_1900_1060/master/1900.jpg?quality=3D85&amp;dpr=3D1&amp;width=3D600&amp=
+;s=3Df6128dab074642d518a7acb44ceaaf3c" style=3D"border:0;display:block;outl=
+ine:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width=
+=3D"566" height=3D"auto"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Bayern fans get their funk on during the broadc=
+ast after Dortmund=E2=80=99s first equaliser. Photograph: Bundesliga</div><=
+/td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 8 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">NEWS, BITS AND BOBS</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">A 14-year-old boy <a href=3D"https://ablin=
+k.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcC=
+SneHEBgtjhYSJYcaNsDra0BxnPgMlwJ9wpiy9duVQnNuR-yEnO_zxvJPlyjKiGeuZJSH4GX67od=
+4z94d4k8tvGfcpBzaiyOOSD4Evf6_9u-bTFD9FTUKlqoH0DrJ3QxiCy86kds9k3eTnnULVbkGtY=
+ou6ldix_V22MEyQFjafIJfdfdVH5zyb0WFT4kqYOnlUxON47oMUvEzqoqGVOeD4QycnFYbQCIYK=
+wWInaxe0PidsnMtX42lgomwVO4d-oIU2TUHLoWcZuawE2TEB7pi4dIgWIH/4ve/0FD4L6e_T3mX=
+59uU0fDAGg/h43/h001.OtvE7gyrVPMNLvB0NlzOmXcefSX7eV6P6cF3kMbN-uw" style=3D"c=
+olor: #0077B6;">has handed himself in to West Midlands police</a> after a v=
+ideo appeared to show a Coventry fan taunting Sunderland with a photo of Br=
+adley Lowery during <a href=3D"https://ablink.editorial.theguardian.com/ss/=
+c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgocVh=
+rs90z681o8v4R4FegDNnIZhQvEYYO2Z0YSTGw11Lt4V92NNS8ul8BVMDloHvUhudMo2yzRgJ7Tg=
+I__frbQ0tiVMtUYT0f8YIBN56bDui1wROSmQkZpRWwBjBWM6IhzBpp8tFznc-wgzs_osHe4CFms=
+ZAsCaE2nch2bWr4MwvdWTM7SoGpfTir3PYnjq09qDh3L-b7TjIg2weCgcmoUBMfloYCI1G8rBvC=
+jSmSPs/4ve/0FD4L6e_T3mX59uU0fDAGg/h44/h001.UdWRYdtCzOxRJFu4So_f_Cv0WQc0pGih=
+W3PE1Tq_yIs" style=3D"color: #0077B6;">the Sky Blues=E2=80=99 3-1 Premier L=
+eague win</a>.</p>
+<p style=3D"margin: 0 0 16px 0;">Dazn has secured an exclusive option over =
+global streaming rights <a href=3D"https://ablink.editorial.theguardian.com=
+/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPg=
+OkV1E3yh0ATLQmoCX_EthMD7OttoVwQ3dDXWwcip10TMx1b9noR2GqUNN5PgQ_ZyD4S98DdZJnW=
+z93mJTCJgBLC-HnBzDurSs6o3ANns1ilaf2KmYn9HigzP6_CDcUvL_YrkcKh0PackHSDRSxxr74=
+98RGqXHiKbJ2CkBtaCzQDV-v_BIv9mjo8T-je5x4vmo3SxgzXCuxPAD1oBlUgNEOkQEgjC5KPRt=
+ztv9UWguyz4-ALR8POJaCLFDwmran9Y/4ve/0FD4L6e_T3mX59uU0fDAGg/h45/h001.bJGplz6=
+I-91BOAK1Y5pjXfQ7wntRu6WohJyjaiv3ysE" style=3D"color: #0077B6;">for the Clu=
+b World Cup in 2029</a>, deepening its partnership with Fifa.</p>
+<p style=3D"margin: 0 0 16px 0;">Declan Rice says Arsenal are ready for mor=
+e grinding wins after hailing their 1-0 win at Liverpool as the performance=
+ of champions. =E2=80=9CResults like this one just make it that extra bit s=
+pecial so we are delighted,=E2=80=9D <a href=3D"https://ablink.editorial.th=
+eguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJY=
+caNsDra0BxnPgOE4yFPtagt38SRn6QYAfmpxIcctJ2Eu8KUIuh8AwAWvBgDdole2hwyOow4wBcL=
+a5vSAHPP92iHUmzjqpptvWJ_s57cWwAQAnAdIMPu5B_gnqpaC3QNYGS1smUovp44XBMRCBrDD0H=
+GGgr0_NS-tovwRuN_fi_9dNfRRlj1jnSEGtH-uJuzc6s8zWeJTWq6YQU8waAh5098-wYDMD64_D=
+jg/4ve/0FD4L6e_T3mX59uU0fDAGg/h46/h001.sLCkxV4iZEhMlrtCxyzx0jx9gTBeXSvYSeIJ=
+LiUb67U" style=3D"color: #0077B6;">he whooped</a>.</p>
+</div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Declan Ri=
+ce of Arsenal celebrates" src=3D"https://i.guim.co.uk/img/media/58bf0e29af8=
+1e29d5fb133e4be6ebf7688debbad/353_175_2421_1937/master/2421.jpg?quality=3D8=
+5&amp;dpr=3D1&amp;width=3D600&amp;s=3Db404ee0d87719e1902cf4e6977cddb08" sty=
+le=3D"border:0;display:block;outline:none;text-decoration:none;height:auto;=
+width:100%;font-size:13px;" width=3D"566" height=3D"auto"></td></tr></tbody=
+></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> A chuffed Declan Rice there. Photograph: Robbie=
+ Jay Barratt/AMA/Getty Images</div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">Manchester United will keep Michael Carric=
+k <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFu=
+ifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgDYDpMvyJPiRJe0pW4-QKvc=
+L2YBGwkDeraqFJzSqMJR88ur_P_I8Oc0ag9poel538h5W7dBcrpWjmYQdZexnQpkBH1D6kkbMV7=
+-bSLGzC2YkBD4Z2uClD5suWZEHMAdxW4Sli9jbeXZXWzkuZ0ekL-nJizr2gqbKKXTXf3FibNsdg=
+nPutE_yL3aHn0StTPbI68xDk0sRVLrQsld03JJR2vI2QwTbcXOKH70yG1qCtLgXD4U3oxs5_mSE=
+CRoMfk21o/4ve/0FD4L6e_T3mX59uU0fDAGg/h47/h001.P6b-45Q3sf-HMODzrkfWuI3bVC5Y_=
+3CiNAC5DJqdi6c" style=3D"color: #0077B6;">in the firing line</a> for their =
+Bigger Cup game with Roma, despite the 2-0 defeat at Chelsea extending thei=
+r winless run to nine games and making it their poorest start since 1988. 1=
+988! High in the charts then: The Only Way is Up, by Yazz and the Plastic P=
+opulation [not factually correct, mind =E2=80=93 Mick McCarthy Ed].</p>
+<p style=3D"margin: 0 0 16px 0;">Two home defeats on the spin mean West Ham=
+ are <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLME=
+mFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPgkveYdSD4ytDTLXnH7sr=
+Q9HKzqDRkEFG30W8EckLCIgqPPuvGUTPoJOMTw4h2Zj5PYLyI4pj11J9AvKcFBxcrzbL3GZ8235=
+S2uULx94-kN05VBc3U_5znoDzCb73LujgPWqTxtxPLMscZRfSAgI0iLSDb9CA2sKSQ-6keJTqnq=
+CXuUl5WAsIIy2JJ8bHilefmhB5TChZcnC4uCz9LFWWrxxr3lcilV4UnVMBg5qqVujXszXCWwsjM=
+rQ0r5mRXOtXm8orPgXgwJyvDLWXhz_bTAA/4ve/0FD4L6e_T3mX59uU0fDAGg/h48/h001.z-G5=
+dkNJUhY__WaOhgEqxkDv_gd8eQuZTR-0Y-p07oA" style=3D"color: #0077B6;">consider=
+ing the future of Nuno Esp=C3=ADrito Santo</a>.</p>
+<p style=3D"margin: 0 0 16px 0;">Paulo Fonseca is poised to march himself o=
+ut of Lyon and move to Sporting, who offed Rui Borges at the weekend.</p>
+<p style=3D"margin: 0 0 16px 0;">And even in retirement James Milner keeps =
+on running, completing the New York City marathon in three hours and nine m=
+inutes.</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 9 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">STILL WANT MORE?</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">Come get <a href=3D"https:/=
+/ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIE=
+MgszcCSneHEBgtjhYSJYcaNsDra0BxnPgtLcfWL5Rs8gGjLNhpyasfqN2u_3IC09lXQYEkhIba5=
+ywU82-1HFyRwm8p8yioOGHVOf_JOV9mhD-cPoMCd1A4vetrj63eF3_Muf2b56bolmj5vx4G1P7f=
+KFesoD7gEum8DGHGxYUlJPk323ukVvVGlb3bOiaqBdhNMH_GebWsa833rNlQrGwSgvOZiosBszV=
+Rtl0lR3Ls15jKXO0YrCbJX4uf0tLkK6XcwU3zOssNY3UtWSaXZipUTIZZMUPnGM-/4ve/0FD4L6=
+e_T3mX59uU0fDAGg/h49/h001.rHwMUpv50CvwoIbNRUx-DqLzUig5rt2ExlfSb-L8ekM" styl=
+e=3D"color: #0077B6;">all 10 of your Premier League weekend talking points<=
+/a>.</p></div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Aston Vil=
+la=E2=80=99s Unai Emery, Rom=C3=A9o Lavia of Chelsea and Ipswich=E2=80=99s =
+Julio Enciso" src=3D"https://i.guim.co.uk/img/media/1978f1655b52ef0ae49e99f=
+9614da896f54afbee/0_0_5000_4000/master/5000.jpg?quality=3D85&amp;dpr=3D1&am=
+p;width=3D600&amp;s=3D3133de3a16f317ce98e676d23a0b6d53" style=3D"border:0;d=
+isplay:block;outline:none;text-decoration:none;height:auto;width:100%;font-=
+size:13px;" width=3D"566" height=3D"auto"></td></tr></tbody></table></td></=
+tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Here you go. Composite: Guardian Pictures (via =
+Getty/REX)</div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">=E2=80=9CHere we have another staging poin=
+t in the progress of the Manchester United ghost ship, where even sacking a=
+ manager carries almost zero tension, where it feels like something that ha=
+s basically already happened.=E2=80=9D Barney Ronay <a href=3D"https://abli=
+nk.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszc=
+CSneHEBgtjhYSJYcaNsDra0BxnPgc_6Wo2ZSJGbIIrJxKPSACuT9iC2rrtEMEs795b2A8R-9iRW=
+-_ArJye8dnTsfcZNALtneiw4ZJB355aXe8170lqUjkqfcRGLBerY2a8AqyUdt92GWPj6LqQmO4L=
+JiXMqSglwmLwQzxKyxLwyNR6SrrgW0pcvYPuwJk0SakgrOjzW3K3MHfhvlsZZk8VFuzGrUBqG82=
+D7At5aFkwZ6EMcpKVfL41D4hpcCeDZGZC1OEkn66NEU7d4P3VpHDru4jceB/4ve/0FD4L6e_T3m=
+X59uU0fDAGg/h50/h001.FCnoujv8r6jS-zlz0swATRojTYEkcdtmFTZUNrEP0rU" style=3D"=
+color: #0077B6;">digests another dismal result for Michael Carrick</a>.</p>
+<p style=3D"margin: 0 0 16px 0;">Should Premier League strugglers stick or =
+twist as pressure on managers mounts? Andrew Beasley <a href=3D"https://abl=
+ink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgsz=
+cCSneHEBgtjhYSJYcaNsDra0BxnPgDYDpMvyJPiRJe0pW4-QKvejyBxxauJIFk_kjQdk-sMe_k5=
+CHp85QwyCdXLEtHlDhk68NlbMplScpy7SVAV9aAfU308OItmv5LNbD9dZMg1Vni3DFK9bZ8hj4q=
+KGMSihLEz0P4blxzXlNbTvjTLasIxxfOU9L_dc1zNvTLVn_aFG6OpXMwl4NVpME8SVSHcK-DVsy=
+Dl0WV0AAmgpat4LIPOLb4yygiJglIpX9u4gI86-u7U_frwuCaJkqNMKggVab/4ve/0FD4L6e_T3=
+mX59uU0fDAGg/h51/h001.r1TQZmaTfj1xAAMNBE1lFdFCB3YHiMR3e-Ba4-fKJd0" style=3D=
+"color: #0077B6;">crunches the numbers</a>.</p>
+<p style=3D"margin: 0 0 16px 0;"><a href=3D"https://ablink.editorial.thegua=
+rdian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNs=
+Dra0BxnPgHR3WYHiDD47kaAVZDLuuK_U37omQ9c3SUqJjFkhmVN6XMYED7sT0lYmHszo7We44TK=
+WByC8FhHJKjOgXC2fFA2LUUetNWLYqWLb2srYHMT_Y4ICYvfF7_C26Jk9DMSApIPxp3Ftcc5LRA=
+-3469Gqg5SyZDDa0srMIBDXiP3PFPr24wEuxm7nFegX0ERA_pGE7_9q_QtuxkL0JliuYXAArg/4=
+ve/0FD4L6e_T3mX59uU0fDAGg/h52/h001._p_YCHSQqIrGWoSv49KG4DiPWp6QsQb9eTiA4ewr=
+W3E" style=3D"color: #0077B6;">Here=E2=80=99s Nicky Bandini on the Milan de=
+rby</a>. Look away, Inter fans.</p>
+<p style=3D"margin: 0 0 16px 0;">Unai Sim=C3=B3n has had quite the week, <a=
+ href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_=
+XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPg3tVJxDja0XV3UEp-YXQZUqSu5U=
+qQ5DXaE31zjixcXV_mkxgNnl_9OSnocSJJm50sA0aSnYzeNLAVJKhMu3MatJNuPKTuqn5GAM5fS=
+ISR_-0TZuMe6r4zR2V-2tTKMWzKnyofSUJTDHY6n2oKM598Lab7w8VoZ4l5GHWtAqCH0zQ1Tj_4=
+AAB4HrjlawaQVJzwcDQ6lb_LZvVMoENoK3OTQ5zYiF_5rDc6MmS4B6UpKrjZRRUyTydmpLNJXyV=
+YnO1L/4ve/0FD4L6e_T3mX59uU0fDAGg/h53/h001.b5ZrqRFt1ZP7a5RZrnEFnvFPkt85shJd7=
+0MDlqDWeOE" style=3D"color: #0077B6;">as Sid Lowe reports</a>.</p>
+<p style=3D"margin: 0 0 16px 0;">The Kang dynasty could pose quite the conu=
+ndrum, while the top two continue to pull clear. <a href=3D"https://ablink.=
+editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSn=
+eHEBgtjhYSJYcaNsDra0BxnPgbmOM3lX6fYKH15KtDgwf00NqHWg2dUo66sw4DGI2rJvHAP5q9D=
+tBF7Cq-zz0LtuH6mLckI2z3oEf9kzFIFthq7AIWLXGkqkZvCYMGBsFgF7uC6g6OZw-llYSKMVph=
+5MsuyXEtLqOfXSAG2ol7uSM7dvrC7Z6mf3MGCJ6KsSWzDgwYbYcVkV4Ok8z1BwtvLxMn0DqFjST=
+2AiV7qz9XTePim9tydQcBN_jhFhn7EAozI0D2E4e579RvIB7ocHpwXtbP0HYIokFX3nSG5mEUP7=
+AVQ/4ve/0FD4L6e_T3mX59uU0fDAGg/h54/h001.jtKdQ0nVuA9wO1sAy-TdhvAYxtUpbAS0OhC=
+9SQ8W_RA" style=3D"color: #0077B6;">It=E2=80=99s the WSL weekend review</a>=
+.</p>
+</div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"Lauren Ja=
+mes, Khadija Shaw, Alessia Russo" src=3D"https://i.guim.co.uk/img/media/5d0=
+c5ce09ad93dda61419eb1789341f56852cbcd/0_0_5000_4000/master/5000.jpg?quality=
+=3D85&amp;dpr=3D1&amp;width=3D600&amp;s=3D02a4eabdc6b0ef3538f3304079bbabad"=
+ style=3D"border:0;display:block;outline:none;text-decoration:none;height:a=
+uto;width:100%;font-size:13px;" width=3D"566" height=3D"auto"></td></tr></t=
+body></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Here you go again. Composite: Getty Images</div=
+></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;">Will Unwin watched Salford City sneak past=
+ Exeter and continue their surge clear at the top of League Two, showing th=
+at David Beckham=E2=80=99s lofty ambitions there <a href=3D"https://ablink.=
+editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSn=
+eHEBgtjhYSJYcaNsDra0BxnPgLblpA4n9SEweirT8E96YTWwWeQtSCr9B3Jhl8gFE7lWc2uYzNH=
+g3Yb0pL_97-A7doNVJGeJQfdO4IPLQh5V_IwFxdw6SWNXc3o4xBOgMIBBD6IBIqi0uZm6tcR21n=
+rFHAafulmDcMGZ6cNYNDjusnUJpJEIlwEhJ_UC1rBywfvhskapf4q4VaHGaTkElAqYu_YxE3sOQ=
+CuIOggLLdJ69ub8EZhGRJ4fCfgD07EUfmk0/4ve/0FD4L6e_T3mX59uU0fDAGg/h55/h001.jSE=
+r65huMuZKe0pvwdBNabAzMRfOVworo9TAHFwPnPY" style=3D"color: #0077B6;">might n=
+ot be a pipe dream after all</a>.</p>
+<p style=3D"margin: 0 0 16px 0;">Will also looks at Jack Grealish and surmi=
+ses that, while the former England man could have been Everton=E2=80=99s po=
+ster boy, <a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_=
+JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYcaNsDra0BxnPg6wpaaUMTWUp-Lk=
+sZdj7zQ9nAWYt1CqmmPerhpoBNbkN1AA40Zy0FSk3s8r_XmGRXepziitr_1ObBTobNElKZ8KlV7=
+JYfvzuXgtnJADarkYx09Z5d5FpPR6297vL4pM0gIm76E6e7JDl5tmtvkuJNqRgzGyuHebfiJCAw=
+fG5qJl19apjhN_zTsIV8Xno0TD9DfPBzZFQ7RHXN_A4MkuopM5XRJhVIn4UVtP9A07HgxI0j_ZH=
+TzxfrV_5NGRily0NTzg0IjJ0gfbxXVL-9KEodMw/4ve/0FD4L6e_T3mX59uU0fDAGg/h56/h001=
+.pd1B_Aa0PrbQsw9UmKvWUfzOqAJ7LV8iBs79FQeAnfY" style=3D"color: #0077B6;">his=
+ career is now in limbo</a>.</p>
+<p style=3D"margin: 0 0 16px 0;">And if there=E2=80=99s anything you=E2=80=
+=99d like to ask Charlie Nicholas, <a href=3D"https://ablink.editorial.theg=
+uardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgtjhYSJYca=
+NsDra0BxnPgqaSqSHGhcr_g38uUZxi9wdF3MYKaPXX5MixdfS8n30CRGL2cnTuwrYMYt7lwdb7t=
+iuStlOMDIlTn3S9lJmNqlDaRzvmaHR-LkX-tMpTZUC2VGz1-wQZEKo-5JWMAoLkUKBVBLfP6P9_=
+YAn22ex-j8MtYrvy4al8_JvqYyrUMdXfl0Y8JXCK7CrvUS_T2-6LhkbsdY4HDfBLzqDE68cWgvg=
+SK-qC4Ocq8xX4sJdTZVhS6cj57PrfiC8kp599gHaVc/4ve/0FD4L6e_T3mX59uU0fDAGg/h57/h=
+001.I4248C4yJVzHfKJlLT5nHKnJbZwbjOLp7VVwcrg8spo" style=3D"color: #0077B6;">=
+ask away</a>.</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 10 --><table role=3D"presentation"><tbody><tr><td><d=
+iv style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody>=
+</table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">MEMORY LANE</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;"><p style=3D"margin: 0 0 16px 0;">To October 2002 and members=
+ of North Korea=E2=80=99s 1966 World Cup squad =E2=80=93 including Pak Doo-=
+ik in the coat =E2=80=93 visit the very spot he scored from during <a href=
+=3D"https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18I=
+RyTNtZQ7fIEMgszcCSneHECCfuuR4dHJGEN7u2do0Yqhs8kwL7piIWk_2JfO43Y07VkOzTCDXS8=
+tqXULQhpO193yg6Ww05JHtClpmRGyEMLwh_u8r01f2e8omMMtZO4mjMLilioPwFBdynOlFmIK1T=
+IdklL7iGOeLW40Z-uThXjj3OWs54_OUrHXfCe1_QhWmOc1b_j8vxbSr8tBELCb_jV7GD1nnCOOa=
+ojlFj93hx__jFAfe5SUdLyttcIA1OtPSw/4ve/0FD4L6e_T3mX59uU0fDAGg/h58/h001.YiO2J=
+DyxgKKmubbTgh5--5vcwH0QPQX2qeIGhBi5yrE" style=3D"color: #0077B6;">the team=
+=E2=80=99s famous victory over Italy</a>. The spot had become a front lawn =
+of a housing estate, called The Turnstile, when Ayresome Park was demolishe=
+d in 1995.</p></div></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 16px 0;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;borde=
+r-spacing:0px;"><tbody><tr><td style=3D"width:566px;"><img alt=3D"To late-O=
+ctober 1995 and members of North Korea=E2=80=99s 1966 World Cup squad =E2=
+=80=93 including Pak Do-ik in the coat =E2=80=93 visit the very spot he sco=
+red from during the team=E2=80=99s famous victory over Italy" src=3D"https:=
+//i.guim.co.uk/img/media/1ea9f75253ff88207689aab1c77dcc63b6d8f104/0_0_2606_=
+1950/master/2606.jpg?quality=3D85&amp;dpr=3D1&amp;width=3D600&amp;s=3D18230=
+048802137edafe6f476dbbac34d" style=3D"border:0;display:block;outline:none;t=
+ext-decoration:none;height:auto;width:100%;font-size:13px;" width=3D"566" h=
+eight=3D"auto"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:4px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Arial, sans-serif;font-size:14px;line-height:16.8px;text=
+-align:left;color:#707070;">
+<img width=3D"15" alt=3D"camera" src=3D"https://i.guim.co.uk/img/uploads/20=
+22/11/24/camera.png?quality=3D85&amp;dpr=3D2&amp;width=3D15&amp;s=3D03fdaa2=
+70619d86dd802c1c43bef847c"> Photograph: Lee Smith/Action Images/Reuters</di=
+v></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 11 --><table role=3D"presentation"><tbody><tr><td><d=
+iv style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody>=
+</table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">PUNCTURED AGAIN</h2></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--><table role=3D"pr=
+esentation"><tbody><tr><td><div style=3D"height:20px;line-height:20px">=E2=
+=80=8A</div></td></tr></tbody></table>
+<table width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"padding=
+:0"><div style=3D"margin:0px auto;max-width:600px">
+<!-- START - DO NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+<!-- LIFECYCLE START -->
+
+
+
+<!-- SUPPORTERS END -->
+
+
+<!-- SINGLES START -->
+</div></td></tr></tbody></table>
+<!--[if mso | IE]></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso | IE]></td></tr></table><![endif]--><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td=
+>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" wid=
+th=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:=
+0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margin:0px aut=
+o;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"width:100%;"><tbody><tr><t=
+d style=3D"border:1px solid #DCDCDC;border-top:5px solid #999999;direction:=
+ltr;font-size:0px;padding:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:566px;" width=3D"566" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:566px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;text-al=
+ign:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:3=
+96.2px;" ><![endif]--><div class=3D"mj-column-per-70 mj-outlook-group-fix" =
+style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;v=
+ertical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ve=
+rtical-align:top;padding:0;padding-right:16px;"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Georgia, serif;font-size:20px;line-height:20px;text-align:left;colo=
+r:#000000;">Get in touch</div></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Guardian Text Sans, Arial, sans-serif;font-size:13px;line-height:20=
+px;text-align:left;color:#000000;">If you have any questions or comments ab=
+out any of our newsletters please email <a href=3D"mailto:the.boss@theguard=
+ian.com" style=3D"text-decoration: underline; color: #0077B6;">the.boss@the=
+guardian.com</a>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td><td class=3D"" style=3D"vertical-align:top;width:169=
+.8px;" ><![endif]--><div class=3D"mj-column-per-30 mj-outlook-group-fix" st=
+yle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ver=
+tical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vert=
+ical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left" =
+style=3D"font-size:0px;padding:0;padding-bottom:16px;word-break:break-word;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr><td =
+style=3D"width:169px;"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBlRXChRrlHyDctO_P2Zbh9B=
+WPvXmCokj9S8DlM8O5NtOoXeu_3lv3Thv3d9gJZIOPxq396dCoqdVBJFIeOwdw711HJgVkfew5Z=
+OHa8AlPUzleN-XaeSQVOq8EMIDKa4vTtw1ZXUdTisJjPWTOcRm6-6R_S53_EAtXcFpt_wgdDqQ/=
+4ve/0FD4L6e_T3mX59uU0fDAGg/h59/h001.OfCf6rOp-w9jOvv4LZqOagM_H0sXVwLDuBjumx9=
+Frbo" target=3D"_blank" style=3D"color: #0077B6;"><img alt=3D"https://www.t=
+heguardian.com/uk" src=3D"https://cdn.braze.eu/appboy/communication/assets/=
+image_assets/images/614211d0ff8fcb5f969e0ccd/original.png?1631719888" style=
+=3D"border:0;display:block;outline:none;text-decoration:none;height:auto;wi=
+dth:100%;font-size:13px;" width=3D"169" height=3D"auto"></a></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;padding-bottom:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left"=
+ class=3D"text text-with-border" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><div style=3D"font-family:Guardian Text Sans, Arial, sans-se=
+rif;font-size:13px;line-height:20px;text-align:left;color:#000000;">
+<a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71=
+YMHfBFwuXBK43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmR0gdnm-n_3USlklxsyKH2MfTW=
+Eugk6yZN7n9g2pWSj834AL9T6f8zXgzhYrWRYX2EIlEIIoG-7imMQvtgdN6l7N_mubPcaThc0W9=
+L24u45wWXGO0uoN-oD4WypA-xYvBmakJjF3YbkuSamnjJK5T5Mpzk6-1k7DEUFlDpns76AAE/4v=
+e/0FD4L6e_T3mX59uU0fDAGg/h60/h001.O0xSvzkbepU5RrRVcZN8jC1i3xuxRwmrqntGoOImv=
+5M" style=3D"font-family: Guardian Text Sans, Arial, sans-serif; text-decor=
+ation: none; color: #0077B6;">Manage your emails</a> | <a href=3D"https://a=
+blink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK43AaH4pdD=
+evU7uuHt6K_5zaO_ntyE7Unu01EppyvGETeBl6q8pRHQpPnXT70flQWGuE_Gdb39PQKswWa4CLE=
+12M9SyTvKVyvUx0vYPo9PU5ZovFsWSycDpGVzTdKt-NArQmqon3IudMyH8BXdsrAJ2VKeLl0U6c=
+tkAVLLZ9W/4ve/0FD4L6e_T3mX59uU0fDAGg/h61/h001.O3HQsEf4ob3vSIJfrib7Zq8u5aeMK=
+5DOirMeHU1WV8s" style=3D"font-family: Guardian Text Sans, Arial, sans-serif=
+; text-decoration: none; color: #0077B6;">Unsubscribe</a>
+</div></td></tr></tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;padding-bottom:16=
+px;word-break:break-word;">
+<p style=3D"border-top: solid 1px #DCDCDC; font-size: 1px; margin: 0px auto=
+; width: 100%;"></p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #DCDCDC;font-size:1px;margin:=
+0px auto;width:566px;" role=3D"presentation" width=3D"566px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;word-break:break-word;"><div style=3D"font-family:Guardian Tex=
+t Sans, Arial, sans-serif;font-size:13px;line-height:20px;text-align:left;c=
+olor:#999999;">You are receiving this email because you are a subscriber to=
+ Football Daily. Guardian News &amp; Media Limited - a member of Guardian M=
+edia Group PLC. Registered Office: Kings Place, 90 York Way, London, N1 9GU=
+. Registered in England No. 908396</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table>
+</td></tr></tbody></table></div>
+</div>
+</body>
+</html>
+
+--d7c75f7c391bde9f651d41a1a40ffbe5ccb70435633643adf43ff81b4220--
