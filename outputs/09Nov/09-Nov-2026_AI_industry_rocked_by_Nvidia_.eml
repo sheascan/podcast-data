@@ -1,0 +1,1827 @@
+Delivered-To: mike.mcconigley@gmail.com
+Received: by 2002:a05:6802:2692:b0:685:df7a:2561 with SMTP id fw18csp511033ocb;
+        Mon, 9 Nov 2026 00:18:59 -0800 (PST)
+X-Received: by 2002:a05:6871:14d:b0:4a2:4e0c:593c with SMTP id 586e51a60fabf-4adec86507amr2056070fac.33.1794212339391;
+        Mon, 09 Nov 2026 00:18:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794212339; cv=none;
+        d=google.com; s=arc-20260327;
+        b=CPVVvTgumOjxLAYKIyrDW0lseUR1eQwyIl656InALQD/EUX0sObAFS1FXrFWXPmpG/
+         VhNcMnYroZ2PaiUH8lwKMddBr0CjCDxFOeDKkKkBUm5MQZ3UNUbrZgt3wE6h+zxVR8XA
+         ryGnxAdvvksj5L4q6eYN0PZz/RvkLsuSsVWD3E4OjTSrsnYIYKimSO8Krqc0XKpmxz3a
+         fZMcSL3sx7UVCnDyvQxuCUR8o0E/9m+QePRynrEEQjbrn4W51CwaRkmlnh0Lm8u7j3+e
+         lk5m1IOcc9jXFY2gACC5l5FuI1cREMXxqsVKji6iECXdCjTQNfzH8UFI36eWf18+N56Z
+         haKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:list-unsubscribe-post:list-unsubscribe:reply-to:subject
+         :message-id:mime-version:from:date:dkim-signature:dkim-signature;
+        bh=2kJCpL3W01EXMGnCoOuhE0r5H7t2+SjwBEzZw/P09gY=;
+        fh=tUTYCbTOUI69DxYKXGXRz08XnPP7jEKRU6E5rS0DFR4=;
+        b=g3X7+JGJu589IXURzzkLYQilBqBN9pjpeSMl8zXGKZOuPRauF2upKNYSxNyOZjQPi7
+         dL8InIveO3YHHAdG1TyrDV0jXawkA3B+htHpUbJrpjZc0+KGWoFmA1EhD2VAKJj7yJth
+         wvxIHp7oyyJKWIvLyXYibDya5IJ3ztCp3Sv+FKCKSHGo9n7NSDhEyN8/IXp7THEyTRIJ
+         PbG46FRdSAKqzxqMkJS/1af3YOHitTuRgGLlt71htzGq93ZKJ8k/4LcB5/vg9bcBYLrK
+         tf8YoSGhWOLswyT059G0wzikL/qDicotARru20/e+1iq5qOn8ekuJLpllAsJB0Kyso2W
+         oGlQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=okSH4atx;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=nT7YRzFB;
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 223.165.120.202 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+Return-Path: <bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com>
+Received: from o4890.abmail.editorial.theguardian.com (o4890.abmail.editorial.theguardian.com. [223.165.120.202])
+        by mx.google.com with ESMTPS id 586e51a60fabf-4ade64c7b35si4395258fac.22.2026.11.09.00.18.59
+        for <mike.mcconigley@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Nov 2026 00:18:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 223.165.120.202 as permitted sender) client-ip=223.165.120.202;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@editorial.theguardian.com header.s=s1 header.b=okSH4atx;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=nT7YRzFB;
+       spf=pass (google.com: domain of bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com designates 223.165.120.202 as permitted sender) smtp.mailfrom="bounces+8143873-fb61-mike.mcconigley=gmail.com@abmail.editorial.theguardian.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=theguardian.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=editorial.theguardian.com;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=s1; t=1794212338;
+	bh=2kJCpL3W01EXMGnCoOuhE0r5H7t2+SjwBEzZw/P09gY=;
+	b=okSH4atx8v4AJsDW+/H1fOHYqduZE95KEt8Z1XBML1K4wMUwisJIS0ArtCEpNTwrywLr
+	8ZIwqxZfWcPBhP9KdUogGc2tAb/yKO8gr97xcbuEwrWny88O1jzbt1sz532r23jvGgdWzc
+	16atsg/NlaqhmHcQD5S3V6JQqWo1YnSfWsnrlhehoztTnp5qDl0vB4+dKSjjusUBkN42K2
+	qb6phWeFMSIazXN2SXNQdZSw15Hotj6JQ9bkzDWfMhsYRWqyHimJew/PIKAHRG9HJEYS5U
+	jtvdmlf7yfb9Gsvb0Va5CI/pndmFL+WDJCDSSE8VgdBfgAjKPbMS1v9XEzvDNvKA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; t=1794212338;
+	bh=2kJCpL3W01EXMGnCoOuhE0r5H7t2+SjwBEzZw/P09gY=;
+	b=nT7YRzFBezPd31Rzt42H8wKnzqG5Dom6XDrSpQWJGtX5w+ogJ90a3sKMeeOX2mbYMykc
+	kjX26sgDialvjw1ISXe4onHCom8LcdOeq+YqIfpupT4RUU19sDgr3PdDF0uAwZPunHljjl
+	vzgXSHsXBTL9XKOl5pSnVWYrOORVFaicM=
+Received: by recvd-9b5f69495-99mq2 with SMTP id recvd-9b5f69495-99mq2-1-6AF181F2-12
+	2026-11-09 08:18:58.636416299 +0000 UTC m=+288468.463201103
+Received: from ODE0Mzg3Mw (unknown)
+	by geopod-ismtpd-4 (SG) with HTTP
+	id liucKjgtQ-2rfVHgipUgJQ
+	Mon, 09 Nov 2026 08:18:58.584 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=29d252448ee36fe60c92b6a62684833a882a182c55708ec57bc2f2a3d447
+Date: Mon, 09 Nov 2026 08:18:58 +0000 (UTC)
+From: The Guardian <info@editorial.theguardian.com>
+Mime-Version: 1.0
+Message-ID: <liucKjgtQ-2rfVHgipUgJQ@geopod-ismtpd-4>
+Subject: AI industry rocked by Nvidia =?UTF-8?B?4oCYaG9uZXl0cmFw4oCZ?= scandal
+ as China denies spying | Business Today
+Reply-To: info@editorial.theguardian.com
+List-Unsubscribe:
+ <https://profile.theguardian.com/unsubscribe-all/13579145%3A1794212337/4ac5c22d69a4fd7d5fe6427f316a709d945cd6cd>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EH=2FXI28ruo0ozWDQcpBSyaYR+tUix=2FHrsngcfNTFfr7ETe3ubjr340jdBR?=
+ =?us-ascii?Q?S=2F0glDit9NpIVoJQO9P29qVNgxtUhA9fUjjC5Of?=
+ =?us-ascii?Q?ydBMARhA+8w=2FnIgjS=2FaBHIOzrs=2FzwakSvEuWsdG?=
+ =?us-ascii?Q?+5oKeWM5vsNn4c729MdksV1LBFTQJaYwTP8QP2=2F?=
+ =?us-ascii?Q?3vquL8PnUcZTmjB9bM14YrC1ClPDhPdaKOa8ug1?=
+ =?us-ascii?Q?DDui1dsViMYkMXQqETN8x9AB5L=2F3woQYrgjvkdT?=
+ =?us-ascii?Q?f3SN9qJf5BebT0ftwN9AQeN+Fw=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDrjDW6011yC6XOo?=
+ =?us-ascii?Q?3uya5MXW3XIg6dKqcWAMxzaZUg1htxn6QbFFpkY?=
+ =?us-ascii?Q?hNANDwDySDPj4bWZpxEZsr62zIkl+GjlvIwLun2?=
+ =?us-ascii?Q?ZqBG9bsCN90Q0138D+JQp3Vi4QDtGRQWMKOWk+=2F?=
+ =?us-ascii?Q?AiBts3xgSXQB8+YVcHJnGLCjkxb4VF8Tz0EhGc3?=
+ =?us-ascii?Q?HEqmpRjqAnkkN5+KKNU5hjMw1xvl5kI6sKM8NI6?=
+ =?us-ascii?Q?8ZGzUaFY0YrtYexXq8KjosNxubRB2JxmTCjNqAF?=
+ =?us-ascii?Q?ePlEZTE1PiQRIcqzECYQN9dXK7xjyTcEE9ytCcs?=
+ =?us-ascii?Q?2ayTjQ9huEydY3=2FuVGZWV2NAti=2FR=2FRZclf6fruo?=
+ =?us-ascii?Q?gO+l8dFaV=2FmdWv1YeWkMx=2F4WGLvDrc5H0R1gCkt?=
+ =?us-ascii?Q?vlARNntv5k+0XEJmphUdgP4VJ=2FFAuQe4UUgCK5N?=
+ =?us-ascii?Q?i1ozv+SQkKFOt4pvz49IkhoI3HQLTgVeHxRp+Us?=
+ =?us-ascii?Q?7tkhfg8tuqpfZmRmdeOb31B80dlmr8+ycDdn57o?=
+ =?us-ascii?Q?G+Y67jU7Q=3D=3D?=
+To: mike.mcconigley@gmail.com
+X-Entity-ID: u001.BbpwILxocfqEYp+CrGsJkw==
+
+--29d252448ee36fe60c92b6a62684833a882a182c55708ec57bc2f2a3d447
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+
+
+
+
+
+
+Business Today | The Guardian
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEA1Ooy93rkaihOj5kyR882o-6P1Xd0Vy0yHh2_L7ljbmO3K6zyBFkkz_pp=
+j3wwp6vfQBClghTCCdtW5FK_wDdW2qzbXrkHDoxIcuh9ybqxqv6xMIELl0APPmQIVhGTiuiAd2B=
+CqWeJ7o3XqmJmB7XE2GYRMgC6_DiSI_TWd367Uqh4PnNAarDYJhY8t-9eEcjbRcPk2UyLfIiM3C=
+0BKFj_O/4vl/i7h1-4s9QB2dZeEPZyhquw/t0/h001.OsyVwFE7xwtpZasL1eK1DvJVapD03WRo=
+wjasMXGa5O8
+Opinion
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHECyyyKiIcsbT_mvO_CmKOtXg2SeDgSjGFbW2ZR9gQ4L6OwlguxJ0K8pe6i=
+tfkEjF62YToqAtjtbWs272XpYeZB3InYV-ot2Xvky46tdphS4lIR4dcsY5txVz1G2YurIQnAJ2_=
+HQEs1XgIBIOHr0n1plBR9IzCuzGdjtgQEkvkgFsykZAyG0QZxVCO6NRJsUJZ3s6il31RSDA3afF=
+EOLS9TQCIK-elWGeg_BRoIcFOmDrg/4vl/i7h1-4s9QB2dZeEPZyhquw/t1/h001.1CjnAnyeGB=
+mtQGwCFdhRaTkp3WiAtY3Uo2mEBBuL_14
+Trump administration=20
+Is the US actually too chicken to take on China for trade?
+
+
+Media
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEB5-yCxrQOZHIFekerHZ3YCJEZFMB3bSacYZERNhArr3cRkF32SV14JP70=
+xummuYUPQ4Ck1Hm8i7TsYnhF-6ZqctL8RyxsFOxANvsCba3gP1qxxu5pBdr80JBmawzBeV-Q70D=
+ff-VLqmbRS3ZRa2tRO4DQHZ9ymznlnWtQ9QllXbpyAr7iKYMd3uzJfn6R4pc22E31u6shb59esc=
+43ZhoEueB3y0LZfpCbT3M_u1z88omx9Sv8o8M2-h_f-Y7yf66FETsf6g07600dIwehvPLEO/4vl=
+/i7h1-4s9QB2dZeEPZyhquw/t2/h001.GaKh1aHaZehMsbW4WAU90mmkyV8VsxGIQszmpefALfI
+Television industry=20
+Russell Brand case must be wake-up call to protect women in media, Lisa Nan=
+dy says
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEBgZM0T79bJAv3aYOpqxip-HCZBZBzvqKpWeCqiCq5MAwgnVPsJ0lwOjY8=
+qG6bqnTJsk0GHf3bma729vxcYVF4gD1r6qHotOHrtHeH9koSeny9J0mjxOl3ghMKOMezau6KsLu=
+CXtiYWvYpJ178_VhJz4cfY_6HCtyxUbKEScxMuweSP1GWtz5K5ayZHUOBeoYfJjjkokxC8e0k_4=
+dhZgo2dRIXrphorQHd7tTxroAy_BnrMNN3EHrln4w7dnvduH03M9YiXzsYycE3iUblGQ2ei/4vl=
+/i7h1-4s9QB2dZeEPZyhquw/t3/h001.Z-I2mw6_OyD-cYjo76xNOtDzD7OFpe0FoLGEKIwDcm4
+Analysis=20
+Does Andy Burnham=E2=80=99s pivot from press to social media put scrutiny a=
+t risk?
+
+
+Popular on business
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAX2I5fp6olyh5yUeClMls_nUtfCZ3Hck3HTJsNTrUN4CD8tWZVSzBLowI=
+_-nzPcFHYL-7oYJs6Bz5C7fxPTiYY17Ttlc171bAqhcncmx6DLHncA6mtFpFAAAVR_E1EPgxeGC=
+sEJa5-NQ1ULproPtoZ44Oop8h100aeqV3y-wUAqI2kthK85kF0gASn4CzAhzVsRlIeM5HJzgDOB=
+TrLdYfHyRwxfydxSGMUC6R9wnKNx-dgU4CLd7pry_eU-cfIoQZu1ljpKgl9QdSxYBawT96QZ9oe=
+26YBL-AgyMK--bIHFTd7HYA8PsGgWBuRomqQhr-1u5caz3S__ZN-JXIUrS9J/4vl/i7h1-4s9QB=
+2dZeEPZyhquw/t4/h001.Zri1mS7X2L7iTTS8Z-mbilXi_MSD_MbSqNlwl6_30fU
+Live=20
+Nvidia =E2=80=98honeytrap=E2=80=99 scandal rocks AI industry, as China deni=
+es spying claims =E2=80=93 business live
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3r10qYCTEIjhVkORyuAI15LdMyfHyHVsaktt=
+s6-oRCQsgzFzI-iCIDvz-ECGd7-9afvMN33oJVXdZE-xJZd1hpt1kq9xCSQM79PrFSjKfEVOmZ7=
+4oLUPPiSWPlWwLSWJ_Pgqru93LjP3KTPM5sibEDn3qRhFx5nckZDWf1L8VzKee3wd7eSMONNZe4=
+g9lwtVMkT7fecLWIvwmlaFG_2KOJv6S1S7WD0B5ybqQ6I2zxQVznRTAR54vfmu4Yx-0AkrsM0WE=
+U7FycvrQWb6DGQqnJg/4vl/i7h1-4s9QB2dZeEPZyhquw/t5/h001.FsiWqFAXxZPSQl00Z9Aau=
+n0YW8NRO3SFmrPWAt5IEkg
+Rare call for more electricity supplies as wind power drops across Europe
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP32NqPiyOkfcHTbzlOjH_5u4toHlbgu4TWQjl=
+GdXFf0cnhUSuXL6TO-XLxhKqXF470MWMa5T_npoZUOSRa58FeYv7wPIUJI9U808CLZB8Dlw7xFf=
+tWubFUkLaZdbUzR7hwEEMiTqAPEm9ILID8oIdOUmyxFyWIdoMq_aUMffYIF9ta7vqFbyF7KfLS5=
+IapZ0Cj9fRC5MHOSsLoi6UDyzvQTRsjj2mG1DCRS83NO11NaGQ/4vl/i7h1-4s9QB2dZeEPZyhq=
+uw/t6/h001.mfLl78UV9X14kcPXDO_It6O3mOynsDKpbCWofJ8oXWA
+Starbucks plans to hire 7,500 staff in major UK expansion plan
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3RvwYDlEmxvgv4dzJMv45OhNie6RShEyAdAR=
+5fKpg9nGUgt3-Ny802Cp3HGHXc7fZy2OnTZBPN_9vbjEQL310AssgFXZ7CwtOCjBtxeUcICPrnz=
+NAmbxXlj3NRgEVK24ur6s6rtk0L93oG6T5LrgDOQ2_r7MuI4lLP4CAUH5M4YPxnUXVDAwQofXLd=
+DRYPyLGlK4VTeQVxLGXD1ZIgLkbeZw0CCDwwnY8pPBYYGRV0JRbhbQ-kp1ECEV2_dK06U5EphyV=
+hVN3Q1HG2UO8ZH6oTA/4vl/i7h1-4s9QB2dZeEPZyhquw/t7/h001.XtqDDwzCNoCgWNVAZ2J3U=
+S6Q3BXRJRtLl3DcDaVE3uQ
+Chinese carmaker BYD=E2=80=99s offices in Netherlands raided over JLR =E2=
+=80=98copycat car=E2=80=99 claim
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3oDVfRQjhx8GJK0COdirh4ljrorCyWN9T0H0=
+qQULT-E9KFLmDmaJxkLTaeChhhPvSZEDw7W5U36ZfTP9ir17fTmgea9zLIXTdUSnGqePFMN3zaG=
+245EMOmG2aE03oyDoPCPVHof0xmbkGr5PNZYgtgajBLnkAIWGv8BLV6yDyrzNqVEX1CvG-3T5Sp=
+6cO6LxEdQhl-29aCGBYhXKiFv7LCplJHCln2CKxPfmywtF-NE0MCSxM2M4cRZVMD7rWslxoO0wZ=
+k70vFqfJlkUq_z0iDWP2a2eunNZelr1VuvV0_wY/4vl/i7h1-4s9QB2dZeEPZyhquw/t8/h001.=
+QkNFX1cb5-bjEUpTrkhYLGy5HbhIXAfz5YUDX6_De50
+Job cuts, lost customers and a =C2=A322bn debt pile: what has gone wrong at=
+ Virgin Media O2?
+
+
+Get in touch
+
+If you have any questions or comments about any of our newsletters, please =
+email
+mailto:newsletters@theguardian.com?
+newsletters@theguardian.com
+
+
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmRQVP7uD4bpUmP6-DxvSSkU5mybcrGWBRzYG3=
+XQQVE7Y0_BxJE2vVtDPHGAZUiQHu2rCgSRaJtNgsvtcj9iaYX1vHSBcDr-ODuA1kjsb4EoxXIW6=
+WK8n8ueo_9CSldOvOYBeys1Fpj1wYOLiyQCG3cG47X3sl78-WFYc5P31WKGQE/4vl/i7h1-4s9Q=
+B2dZeEPZyhquw/t9/h001.7fCFUsKdg-cYldwg5j9-s3nM_h7iIlLnHvHavOqIoeM
+Manage your emails
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK=
+43AaH4pdDevU7uuHt6K_5zaO_ntyE7Unu01Eppyv1uVRzAMNt6oNLeQG1Qf-dY1doGMVd3Y3lHQ=
+f1VHeV2CHqAZ0O_i5RiutTHv9DuHVs22KCGDFHkI9ifMz7wMtOuT2s4JCEjPcKtG2EAb9DLXKdL=
+cG29XSgjfI016nG2PY/4vl/i7h1-4s9QB2dZeEPZyhquw/t10/h001.I4cpoQscxXyh2MQ_YDns=
+vUUVyRSgPAJutTI_fzpTm3E
+Unsubscribe
+|
+https://ablink.editorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTN=
+tZQ7fIEMgszcCSneHEAPEMFZf0NWbPzUxR56MOtPPELqB6rrQZY_Bx_vnH8NZ4K7xhTCojQqeZn=
+q8klfduvCa9UKIG4h8s6oFTOWDbtnHmHcitj6tnpMKApqvEfhZGEysUeqJJ3SCi1qA0PIAgkKvI=
+KeIgFn4LsZf6a-36XIUhQbxCVm3ka3toLl8ZXoxfYGglbYNBCV4cwNRyLS6pI/4vl/i7h1-4s9Q=
+B2dZeEPZyhquw/t11/h001.Vfyde1FQ1boo6Oe4rVYgmbsbb5GL1Z2aLa6ZIGm6D4E
+Trouble viewing?
+
+You are receiving this email because you are a subscriber to Business Today=
+. Guardian News & Media Limited - a member of Guardian Media Group PLC. Reg=
+istered Office: Kings Place, 90 York Way, London, N1 9GU. Registered in Eng=
+land No. 908396
+--29d252448ee36fe60c92b6a62684833a882a182c55708ec57bc2f2a3d447
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w=
+3.org/TR/REC-html40/loose.dtd">
+<html><body><img src=3D"https://ablink.editorial.theguardian.com/ss/o/u001.=
+OMpll5AjohZ3LgbA8XhVqA/4vl/i7h1-4s9QB2dZeEPZyhquw/ho.gif" alt=3D"" width=3D=
+"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !imp=
+ortant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !i=
+mportant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !=
+important;padding-bottom:0 !important;padding-right:0 !important;padding-le=
+ft:0 !important;"/>
+<div style=3D"display:none !important;visibility:hidden;mso-hide:all;font-s=
+ize:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:=
+0;overflow:hidden;">Plus: the rest of this morning's headlines</div>
+<div style=3D"display:none !important;visibility:hidden;mso-hide:all;font-s=
+ize:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:=
+0;overflow:hidden;">=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=
+=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =
+=EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=
+=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =
+=E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=
+=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =
+=E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=
+=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=
+=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=
+=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=
+=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =
+=CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=
+=87 =EF=BB=BF =CD=8F =E2=80=8C =C2=A0 =E2=80=87 =EF=BB=BF =CD=8F =E2=80=8C =
+=C2=A0 =E2=80=87 =EF=BB=BF </div>
+<p>
+
+
+
+
+
+
+
+
+
+
+</p>
+<title>AI industry rocked by Nvidia =E2=80=98honeytrap=E2=80=99 scandal as =
+China denies spying | The Guardian</title>
+<!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedg=
+e">
+<!--<![endif]--><meta http-equiv=3D"Content-Type" content=3D"text/html; cha=
+rset=3DUTF-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1">
+<style type=3D"text/css">#outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }</style>
+<!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><style type=3D"text/css">@media only screen and (min-width:=
+480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-70 { width:70% !important; max-width: 70%; }
+.mj-column-per-30 { width:30% !important; max-width: 30%; }
+      }</style>
+<style media=3D"screen and (min-width:480px)">.moz-text-html .mj-column-per=
+-100 { width:100% !important; max-width: 100%; }
+.moz-text-html .mj-column-per-70 { width:70% !important; max-width: 70%; }
+.moz-text-html .mj-column-per-30 { width:30% !important; max-width: 30%; }<=
+/style>
+<style type=3D"text/css">@media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }</style>
+<meta name=3D"format-detection" content=3D"telephone=3Dno, date=3Dno, addre=
+ss=3Dno, email=3Dno, url=3Dno">
+<div aria-label=3D"AI industry rocked by Nvidia =E2=80=98honeytrap=E2=80=99=
+ scandal as China denies spying | The Guardian" aria-roledescription=3D"ema=
+il" style=3D"background-color:#FFFFFF;" role=3D"article" lang=3D"en" dir=3D=
+"auto">
+<!--{% comment %} Required Campaign-level variables {% endcomment %} {% ass=
+ign
+				identity_newsletter_id =3D "business-today" %} {% assign utm_campaign =
+=3D
+				"BusinessToday" %} {% assign CMP =3D "bustoday_email" %} {% capture
+				unsub_url %}{{content_blocks.${Editorial_UnsubscribeLogic}}}{% endcaptu=
+re %}
+				{% assign dispatch_id =3D {{campaign.${dispatch_id}}} %} {% assign
+				url_parameters_unstripped =3D "utm_term=3D" | append: dispatch_id | app=
+end:
+				"&utm_campaign=3D" | append: utm_campaign | append:
+				"&utm_source=3Desp&utm_medium=3DEmail&CMP=3D" | append: CMP %}--><!--[i=
+f mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"=
+600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:e=
+xactly;"><![endif]--><div style=3D"margin:0px auto;max-width:600px;"><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;f=
+ont-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;dire=
+ction:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td>
+<!-- START - DO NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+<!-- LIFECYCLE EXCLUSIONS START -->
+
+
+<!-- SUPPORTERS END -->
+
+
+<!-- SINGLES START -->
+</td></tr>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;word-break:break-=
+word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr=
+><td style=3D"width:598px;"><img alt=3D"Business Today - The Guardian" src=
+=3D"https://i.guim.co.uk/img/uploads/2025/06/30/Business.jpg?quality=3D85&a=
+mp;dpr=3D2&amp;width=3D650&amp;s=3Df588658586252f99e04caecdb3ba7cf0" style=
+=3D"border:0;display:block;outline:none;text-decoration:none;height:auto;wi=
+dth:100%;font-size:13px;" width=3D"598" height=3D"auto"></td></tr></tbody><=
+/table></td></tr>
+<tr><td></td></tr>
+<tr><td align=3D"center" style=3D"background:#FFFFFF;font-size:0px;padding:=
+0 0px 0px;word-break:break-word;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" style=3D"border-collapse:collapse;bord=
+er-spacing:0px;"><tbody><tr><td style=3D"width:598px;"><img alt=3D"Jensen H=
+uang speaks on stage near a blue classic car with robotic arms" src=3D"http=
+s://i.guim.co.uk/img/media/718432103c8cbd0fe9c140870a77f35a4527b85c/666_0_6=
+661_5329/master/6661.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D650&amp;s=3D3=
+aafe99291a726c4ee44409987d7de98" style=3D"border:0;display:block;outline:no=
+ne;text-decoration:none;height:auto;width:100%;font-size:13px;" width=3D"59=
+8" height=3D"auto"></td></tr></tbody></table></td></tr>
+<tr><td align=3D"left" class=3D"text headline-text" style=3D"background:#FF=
+FFFF;font-size:0px;padding:16px;word-break:break-word;"><div style=3D"font-=
+family:Georgia, serif;font-size:13px;line-height:1;text-align:left;color:#0=
+00000;">
+<div style=3D"font-size:14px;line-height:17px;font-family:Arial, sans-serif=
+;font-weight:700;color:#052962;margin-bottom:8px">09/11/2026</div>
+<h1 style=3D"font-size: 24px; line-height: 29px; font-weight: 700; color: #=
+000000; margin: 0 0 16px 0;">AI industry rocked by Nvidia =E2=80=98honeytra=
+p=E2=80=99 scandal as China denies spying</h1>
+<div style=3D"font-weight:400;font-size:20px;line-height:24px;margin:0;colo=
+r:#121212"><p style=3D"margin: 0 0 16px 0;">Plus: TUC=E2=80=99s youth jobs =
+crisis funding plea; fears of =E2=80=98AI clog=E2=80=99 jamming up public s=
+ervice; and the =C2=A3100m zombie Brexit border post bill</p></div>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 1 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;direction:ltr;font-si=
+ze:0px;padding:0;padding-top:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">Business live</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0;word-break:break-word;"><div style=3D"font-family:Georgia, s=
+erif;font-size:16px;font-weight:400;line-height:22px;text-align:left;color:=
+#121212;"><table style=3D"width:100%" role=3D"presentation"><tbody><tr><td =
+style=3D"padding:0 16px 0 16px;border-top:2px dashed #999999"><p style=3D"m=
+argin: 0 0 16px 0;"><a href=3D"https://ablink.editorial.theguardian.com/ss/=
+c/u001.-maoMBGKBrIn6te6KzY9ajt_saZgwT44cGfYBh43ebbx3eGbJTqAso97A4n80bdtj3F2=
+vHr-OyTKyaMIQ16mcP-wB0vkGt0mHurIwYrVF09nCy4riRxgxQOW24UwZXdxqmjtsjvCdtSoVvP=
+Gfykb3RDnu7aaQ0EkDHqx7dYmM2c/4vl/i7h1-4s9QB2dZeEPZyhquw/h12/h001.7oedsX61sf=
+XmZN431aacE9dQh65ccHiyfBun9DpNaPk" style=3D"color: #0077B6;">Nvidia =E2=80=
+=98honeytrap=E2=80=99 scandal rocks AI industry, as China denies spying cla=
+ims</a></p></td></tr></tbody></table></div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 2 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">Today=E2=80=99s headlines</h2></div></td></tr>
+<tr><td><table style=3D"border-collapse:collapse;font-size:20px;line-height=
+:22px;table-layout:fixed;width:100%;border:none" class=3D"LINK">
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEDZEjAZSKsqWXkCFAOjV8kNu=
+iJWEFMWu_hFLYVAwnO7SWHpv0FIwg67jHpS3xxolqWaTlanM5dS9JMQbAzlM__IU1-4Tg1lS_bM=
+siq13ulYqOMYDopzWAhBCkVSSbcQG2-pckU61B-Gjxk498Kn8qvO-0HDFhefEf4cCek7a9f9MTl=
+gP_XITrs6c2eG0F3I7oLc4v91eTJlGbl2D6ktQ1Ir7FLOcT1r0nl7_tCymMKYEWtcEkVhwJnQ-M=
+roJ0l4lDnMQNmx-41CJQTjfyw1DhqNmAbf1tjKETZXSXh3vcPQlw/4vl/i7h1-4s9QB2dZeEPZy=
+hquw/h13/h001.Qa8BTr9WFNnVUR9w8O1VLk4c0KMr2hsap2ZEcX32oQs" style=3D"text-de=
+coration: none; color: #0077B6;">Fixing UK=E2=80=99s youth jobs crisis dema=
+nds much more investment, TUC boss warns</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEDZEjAZSKsqWXkCFAOjV8kNuiJWEFMWu_hFLYVAwnO7SWHpv0FIwg67jHpS3xxolqWaTlanM5d=
+S9JMQbAzlM__IU1-4Tg1lS_bMsiq13ulYqOMYDopzWAhBCkVSSbcQG2-pckU61B-Gjxk498Kn8q=
+vO-0HDFhefEf4cCek7a9f9MTlgP_XITrs6c2eG0F3I7oLc4v91eTJlGbl2D6ktQ1Ir7FLOcT1r0=
+nl7_tCymMKYEWtcEkVhwJnQ-MroJ0l4lDnMQNmx-41CJQTjfyw1DhqNmAbf1tjKETZXSXh3vcPQ=
+lw/4vl/i7h1-4s9QB2dZeEPZyhquw/h14/h001.86iFrZQAlklr1-fWTrAIdjvCI_XUEB6PUkVB=
+AIac5wk" style=3D"text-decoration: none; color: #0077B6;"><img width=3D"160=
+" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/8e775de151bb9=
+1396f2a85ea4cab2bc69dacdbd7/1001_0_5336_4269/500.jpg?quality=3D85&amp;dpr=
+=3D2&amp;width=3D160&amp;s=3D2d64e0e8f9a2284b6909d8e7173db79a" alt=3D"Fixin=
+g UK=E2=80=99s youth jobs crisis demands much more investment, TUC boss war=
+ns"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3r=
+10qYCTEIjhVkORyuAI15LdMyfHyHVsaktts6-oRCQsgzFzI-iCIDvz-ECGd7-9afvMN33oJVXdZ=
+E-xJZd1hpt1kq9xCSQM79PrFSjKfEVOmZ74oLUPPiSWPlWwLSWJ_Pgqru93LjP3KTPM5sibEDn3=
+qRhFx5nckZDWf1L8VzKee3wd7eSMONNZe4g9lwtVMkT7fecLWIvwmlaFG_2KOJv6S1S7WD0B5yb=
+qQ6I2zxQVznRTAR54vfmu4Yx-0AkrsM0WEU7FycvrQWb6DGQqnJg/4vl/i7h1-4s9QB2dZeEPZy=
+hquw/h15/h001.ZvnrumSrHys5BZNSSCoKzZXcAG8mU4OXKBAwvGWK9Kc" style=3D"text-de=
+coration: none; color: #0077B6;">Rare call for more electricity supplies as=
+ wind power drops across Europe</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP3r10qYCTEIjhVkORyuAI15LdMyfHyHVsaktts6-oRCQsgzFzI-iC=
+IDvz-ECGd7-9afvMN33oJVXdZE-xJZd1hpt1kq9xCSQM79PrFSjKfEVOmZ74oLUPPiSWPlWwLSW=
+J_Pgqru93LjP3KTPM5sibEDn3qRhFx5nckZDWf1L8VzKee3wd7eSMONNZe4g9lwtVMkT7fecLWI=
+vwmlaFG_2KOJv6S1S7WD0B5ybqQ6I2zxQVznRTAR54vfmu4Yx-0AkrsM0WEU7FycvrQWb6DGQqn=
+Jg/4vl/i7h1-4s9QB2dZeEPZyhquw/h16/h001.GSIHWSSwIWlQVInYYrNmlBoZh_S4VBO1TI8O=
+GPyTWHg" style=3D"text-decoration: none; color: #0077B6;"><img width=3D"160=
+" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/a004c46eb6cdd=
+fd0b888fc767cf3bf3f5dc5bc2e/96_0_3100_2480/500.jpg?quality=3D85&amp;dpr=3D2=
+&amp;width=3D160&amp;s=3De3ead31ee0317b1d88c744167fa9152d" alt=3D"Rare call=
+ for more electricity supplies as wind power drops across Europe"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgZM0T79bJAv3aYOpqxip-G=
+bNQU8mMDoaKgYuf7D4SPdwtGUqlHsf-s-2OpaJPdz33asx-06tPdDNWG-RBNsct0t_PfMqp32-z=
+SLLza2-rcPIQB6DUYxHypuz126mDhl-Jj6TohI4Mg5xr10zLk1cIbtfQAOYgz6Ya7Ygfc-sh2wr=
+3bRTOYS3JE-m1GJVKVyDL3JBHevXNOiA6f2ukyXmlfvVgENEDMWkPpOfJX6BztWh7gU7wWZWi-L=
+fZgCbJFlskIbjYCHXzps6Lv-ckakPH/4vl/i7h1-4s9QB2dZeEPZyhquw/h17/h001.zpsCGrZr=
+qDOkjF2EdSsi4IeX0Z0eemtbdPXYY2fPl94" style=3D"text-decoration: none; color:=
+ #0077B6;">UK spent =C2=A3100m on zombie Brexit border inspection posts</a>=
+</td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEBgZM0T79bJAv3aYOpqxip-GbNQU8mMDoaKgYuf7D4SPdwtGUqlHsf-s-2OpaJPdz33asx-06t=
+PdDNWG-RBNsct0t_PfMqp32-zSLLza2-rcPIQB6DUYxHypuz126mDhl-Jj6TohI4Mg5xr10zLk1=
+cIbtfQAOYgz6Ya7Ygfc-sh2wr3bRTOYS3JE-m1GJVKVyDL3JBHevXNOiA6f2ukyXmlfvVgENEDM=
+WkPpOfJX6BztWh7gU7wWZWi-LfZgCbJFlskIbjYCHXzps6Lv-ckakPH/4vl/i7h1-4s9QB2dZeE=
+PZyhquw/h18/h001.WQLjI4RB-uC_2uIVYpC9xPLp-9c-SNcvfH7TUFTYvM4" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/db4240edf03977a12a595754e65bb19448f=
+4299e/368_0_3895_3116/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;=
+s=3Da12588945d0d3bbf57ec545a5d1e5d49" alt=3D"UK spent =C2=A3100m on zombie =
+Brexit border inspection posts"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP32=
+NqPiyOkfcHTbzlOjH_5u4toHlbgu4TWQjlGdXFf0cnhUSuXL6TO-XLxhKqXF470MWMa5T_npoZU=
+OSRa58FeYv7wPIUJI9U808CLZB8Dlw7xFftWubFUkLaZdbUzR7hwEEMiTqAPEm9ILID8oIdOUmy=
+xFyWIdoMq_aUMffYIF9ta7vqFbyF7KfLS5IapZ0Cj9fRC5MHOSsLoi6UDyzvQTRsjj2mG1DCRS8=
+3NO11NaGQ/4vl/i7h1-4s9QB2dZeEPZyhquw/h19/h001.28Elq9n2jhpmRN2gCp3XYbczGuIiw=
+gSikspFvuqRROc" style=3D"text-decoration: none; color: #0077B6;">Starbucks =
+plans to hire 7,500 staff in major UK expansion plan</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP32NqPiyOkfcHTbzlOjH_5u4toHlbgu4TWQjlGdXFf0cnhUSuXL6T=
+O-XLxhKqXF470MWMa5T_npoZUOSRa58FeYv7wPIUJI9U808CLZB8Dlw7xFftWubFUkLaZdbUzR7=
+hwEEMiTqAPEm9ILID8oIdOUmyxFyWIdoMq_aUMffYIF9ta7vqFbyF7KfLS5IapZ0Cj9fRC5MHOS=
+sLoi6UDyzvQTRsjj2mG1DCRS83NO11NaGQ/4vl/i7h1-4s9QB2dZeEPZyhquw/h20/h001.LsGk=
+Ir4wtXKtbbwMZ9YRCUOD6V1d9jaMfS0QcPN-op0" style=3D"text-decoration: none; co=
+lor: #0077B6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.gu=
+im.co.uk/img/media/64a101145ca5d68474ad33ebdc809459efe0ced4/225_0_3295_2636=
+/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3Da4d1783b88d836e64=
+cd648b44be1b0d5" alt=3D"Starbucks plans to hire 7,500 staff in major UK exp=
+ansion plan"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFe6=
+x3CDV5Gq63qcH-uSxpIxFyjgcJp4ku_wZsR46HsP1SJllnhvTE6pzLdJSkNqhH5CsaKXjvXxRBt=
+6wxOx3G2vh5uw6hPr9ISZhMKSd5JfCwuDkT-HpPrNoFV1VMY-C-v6q8avW7XDNyFNIHE0_-IcAN=
+WmcjRgVZ83t-hLzxkHtsoQg9jitYkJ1MldcMABKdz1A5GeN_O-47_17JnVMic_e7byeQI-2t319=
+j4n8utOz3m_6KHS5H_cQ_6e4PcvYa8IvdjdkbxIwlFAHNCuTyoU68Q-Z4tq43MXLrBcUBzO38/4=
+vl/i7h1-4s9QB2dZeEPZyhquw/h21/h001.4HuBpMj36Rj3GTmDgkmnQvbjfxsWplmn73R-u1TA=
+GDE" style=3D"text-decoration: none; color: #0077B6;">=E2=80=99AI clog=E2=
+=80=99: UK public bodies battle onslaught of chatbot-generated complaints</=
+a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEA13-uHzzNLsl3ZqJFCJlFe6x3CDV5Gq63qcH-uSxpIxFyjgcJp4ku_wZsR46HsP1SJllnhvTE=
+6pzLdJSkNqhH5CsaKXjvXxRBt6wxOx3G2vh5uw6hPr9ISZhMKSd5JfCwuDkT-HpPrNoFV1VMY-C=
+-v6q8avW7XDNyFNIHE0_-IcANWmcjRgVZ83t-hLzxkHtsoQg9jitYkJ1MldcMABKdz1A5GeN_O-=
+47_17JnVMic_e7byeQI-2t319j4n8utOz3m_6KHS5H_cQ_6e4PcvYa8IvdjdkbxIwlFAHNCuTyo=
+U68Q-Z4tq43MXLrBcUBzO38/4vl/i7h1-4s9QB2dZeEPZyhquw/h22/h001.PPuskmCFiEntGjq=
+hZbKLjqJzfGqHmAlILtv9q-EesaY" style=3D"text-decoration: none; color: #0077B=
+6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/im=
+g/media/82c6e92cb6cbcabc717462a79d11fbaac898da2c/0_0_5906_4724/500.jpg?qual=
+ity=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3Dad010f532ec24fe083d6351580c225=
+44" alt=3D"=E2=80=99AI clog=E2=80=99: UK public bodies battle onslaught of =
+chatbot-generated complaints"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3R=
+vwYDlEmxvgv4dzJMv45OhNie6RShEyAdAR5fKpg9nGUgt3-Ny802Cp3HGHXc7fZy2OnTZBPN_9v=
+bjEQL310AssgFXZ7CwtOCjBtxeUcICPrnzNAmbxXlj3NRgEVK24ur6s6rtk0L93oG6T5LrgDOQ2=
+_r7MuI4lLP4CAUH5M4YPxnUXVDAwQofXLdDRYPyLGlK4VTeQVxLGXD1ZIgLkbeZw0CCDwwnY8pP=
+BYYGRV0JRbhbQ-kp1ECEV2_dK06U5EphyVhVN3Q1HG2UO8ZH6oTA/4vl/i7h1-4s9QB2dZeEPZy=
+hquw/h23/h001.czIN9MZECSUVmeJ-iih26ilP24X_hh780TlRCF3F91s" style=3D"text-de=
+coration: none; color: #0077B6;">Chinese carmaker BYD=E2=80=99s offices in =
+Netherlands raided over =E2=80=98copycat car=E2=80=99 claim</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP3RvwYDlEmxvgv4dzJMv45OhNie6RShEyAdAR5fKpg9nGUgt3-Ny8=
+02Cp3HGHXc7fZy2OnTZBPN_9vbjEQL310AssgFXZ7CwtOCjBtxeUcICPrnzNAmbxXlj3NRgEVK2=
+4ur6s6rtk0L93oG6T5LrgDOQ2_r7MuI4lLP4CAUH5M4YPxnUXVDAwQofXLdDRYPyLGlK4VTeQVx=
+LGXD1ZIgLkbeZw0CCDwwnY8pPBYYGRV0JRbhbQ-kp1ECEV2_dK06U5EphyVhVN3Q1HG2UO8ZH6o=
+TA/4vl/i7h1-4s9QB2dZeEPZyhquw/h24/h001.qqjc-JoPBDyc_nbscZ1gUYkMlHUh1bRoc-HV=
+hIFj7OQ" style=3D"text-decoration: none; color: #0077B6;"><img width=3D"160=
+" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/df3641cd7932e=
+f0f9d4ed70becb2641c5d68b0eb/334_0_1666_1333/500.jpg?quality=3D85&amp;dpr=3D=
+2&amp;width=3D160&amp;s=3D66d345c009525d51a5a18352d929005a" alt=3D"Chinese =
+carmaker BYD=E2=80=99s offices in Netherlands raided over =E2=80=98copycat =
+car=E2=80=99 claim"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEDTGm4gaYkJk8upnFntp9hnW=
+LA3ARANZo-WjxByZxD_UxLFT7aMLN8zbMCBf-TXtUH525-p7pNhIHwpDPmr-h5OC4aZKycRopcD=
+j_xo-a5FkjJdh9UtNs2GSKnyGhkJ0S2StfiLfETL6QQDDZHUmH9PHPhHt-gmxj3R823nBXuuQXm=
+PikZ-ToBNUs6NceSqmi9nOJglbeRGNOijoHAjMyrMgh6t7LcKNkP-83cGkYTFtOVxXZsyQHL1y_=
+fPhpUuHyN0op2D3FKmjUK_ULKaUpjGJuSFqniLRMtVVH07cI100wf4JG4jNlBdXwoVBkU6wfdbe=
+EUfGda2V60pUcuXrlFb/4vl/i7h1-4s9QB2dZeEPZyhquw/h25/h001.vaUNh3YvdMaiM-w_21p=
+6kbKYX9Cka46tX1dJuhyfMWg" style=3D"text-decoration: none; color: #0077B6;">=
+Hot fridges: are we in the foothills of a hacking epidemic?</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEDTGm4gaYkJk8upnFntp9hnWLA3ARANZo-WjxByZxD_UxLFT7aMLN8zbMCBf-TXtUH525-p7pN=
+hIHwpDPmr-h5OC4aZKycRopcDj_xo-a5FkjJdh9UtNs2GSKnyGhkJ0S2StfiLfETL6QQDDZHUmH=
+9PHPhHt-gmxj3R823nBXuuQXmPikZ-ToBNUs6NceSqmi9nOJglbeRGNOijoHAjMyrMgh6t7LcKN=
+kP-83cGkYTFtOVxXZsyQHL1y_fPhpUuHyN0op2D3FKmjUK_ULKaUpjGJuSFqniLRMtVVH07cI10=
+0wf4JG4jNlBdXwoVBkU6wfdbeEUfGda2V60pUcuXrlFb/4vl/i7h1-4s9QB2dZeEPZyhquw/h26=
+/h001.46wZIBqrpugVCwBXL8BX2AXGLGKQLiNOkB_6wMYj3vE" style=3D"text-decoration=
+: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px" src=3D"ht=
+tps://i.guim.co.uk/img/media/09d27a91ac5dc51fcea6ef2db11a85053e40bb50/0_158=
+_4000_3198/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3D6e700b1=
+2f9cb2eb1ac39f8d9e4a0aa48" alt=3D"Hot fridges: are we in the foothills of a=
+ hacking epidemic?"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3o=
+DVfRQjhx8GJK0COdirh4ljrorCyWN9T0H0qQULT-E9KFLmDmaJxkLTaeChhhPvSZEDw7W5U36Zf=
+TP9ir17fTmgea9zLIXTdUSnGqePFMN3zaG245EMOmG2aE03oyDoPCPVHof0xmbkGr5PNZYgtgaj=
+BLnkAIWGv8BLV6yDyrzNqVEX1CvG-3T5Sp6cO6LxEdQhl-29aCGBYhXKiFv7LCplJHCln2CKxPf=
+mywtF-NE0MCSxM2M4cRZVMD7rWslxoO0wZk70vFqfJlkUq_z0iDWP2a2eunNZelr1VuvV0_wY/4=
+vl/i7h1-4s9QB2dZeEPZyhquw/h27/h001.A5CNWeAAQ8DicLPONCAI5ApBOy7fFb6SE9xZtbHf=
+8Pc" style=3D"text-decoration: none; color: #0077B6;">Job cuts, lost custom=
+ers and a =C2=A322bn debt pile: what=E2=80=99s up at Virgin Media O2?</a></=
+td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP3oDVfRQjhx8GJK0COdirh4ljrorCyWN9T0H0qQULT-E9KFLmDmaJ=
+xkLTaeChhhPvSZEDw7W5U36ZfTP9ir17fTmgea9zLIXTdUSnGqePFMN3zaG245EMOmG2aE03oyD=
+oPCPVHof0xmbkGr5PNZYgtgajBLnkAIWGv8BLV6yDyrzNqVEX1CvG-3T5Sp6cO6LxEdQhl-29aC=
+GBYhXKiFv7LCplJHCln2CKxPfmywtF-NE0MCSxM2M4cRZVMD7rWslxoO0wZk70vFqfJlkUq_z0i=
+DWP2a2eunNZelr1VuvV0_wY/4vl/i7h1-4s9QB2dZeEPZyhquw/h28/h001.J0NhmQQ9TKjrP5L=
+s49yPlX5ottyr0kiGZpZ4oDZmfaM" style=3D"text-decoration: none; color: #0077B=
+6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/im=
+g/media/edb6e58b714179ecc5ed6eeeab0461874281de0e/613_0_5020_4016/500.jpg?qu=
+ality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3De43a9bc4d79188e601cad8fdb4d5=
+8e9c" alt=3D"Job cuts, lost customers and a =C2=A322bn debt pile: what=E2=
+=80=99s up at Virgin Media O2?"></a></td>
+</tr>
+</table></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 3 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">The agenda</h2></div></td></tr>
+<tr><td align=3D"left" class=3D"text" style=3D"background:#FFFFFF;font-size=
+:0px;padding:0 16px;word-break:break-word;"><div style=3D"font-family:Georg=
+ia, serif;font-size:16px;font-weight:400;line-height:22px;text-align:left;c=
+olor:#121212;">
+<p style=3D"margin: 0 0 16px 0;"><strong>An apparent honeytrap scandal invo=
+lving the boss of the world=E2=80=99s most valuable company</strong> and a =
+suspected Chinese spy is rocking the AI sector. Overnight, Nvidia announced=
+ it is launching an independent investigation amid reports that founder and=
+ CEO Jensen Huang has been the target of =E2=80=9Ca foreign intelligence ef=
+fort=E2=80=9D.</p>
+<p style=3D"margin: 0 0 16px 0;">That effort, reports claim, led to Huang i=
+nto a romantic relationship with a Chinese woman, <strong>Alice Huang</stro=
+ng>, who was recruited to spy for China=E2=80=99s Ministry of State Securit=
+y intelligence agency.</p>
+<p style=3D"margin: 0 0 16px 0;">Last night, <strong>Jensen</strong> <stron=
+g>Huang</strong> admitted having an affair, telling Nvidia staff: =E2=80=9C=
+I owe my family and all of you an apology. I was unfaithful to my wife. My =
+actions hurt her and our children. There is no excuse for what I did. I am =
+deeply sorry.=E2=80=9D</p>
+<p style=3D"margin: 0 0 16px 0;">The issue goes much further than simply a =
+CEO=E2=80=99s conduct. It falls squarely within US concerns it could lose t=
+he AI race to China. Alice Huang worked for a Singapore-based datacentre fi=
+rm called Megaspeed, suspected of routing Nvidia chips to China and evading=
+ export controls.</p>
+<p style=3D"margin: 0 0 16px 0;">Jensen Huang has been a critic of those re=
+strictions, arguing in May 2025 that US export controls designed to limit C=
+hina=E2=80=99s access to AI chips were a =E2=80=9Ca failure=E2=80=9D, and h=
+ad simply encouraged China to develop its own alternatives.</p>
+<p style=3D"margin: 0 0 16px 0;">The revelation comes just a few days after=
+ shares in AI-linked companies tumbled, before a late recovery on Wall Stre=
+et on Friday. Today, Asia-Pacific markets are staging a recovery =E2=80=93 =
+Japan=E2=80=99s Nikkei has jumped by 2.2%, while Taiwan=E2=80=99s TAIEX has=
+ surged almost 5%. South Korea=E2=80=99s Kospi is missing out, though, down=
+ by 0.6%.</p>
+<p style=3D"margin: 0 0 16px 0;">Nvidia=E2=80=99s investigation introduces =
+more uncertainty for semiconductor stocks and the broader AI investment eco=
+system, says Naeem Aslam, CIO of Zaye Capital Markets: =E2=80=9CEuropean te=
+ch manufacturers and semiconductor equipment suppliers remain particularly =
+exposed to developments in American AI spending, meaning any renewed sellin=
+g pressure on Wall Street could quickly spread across European equity marke=
+ts.=E2=80=9D</p>
+<p style=3D"margin: 0 0 16px 0;">Bloomberg say the scandal is a =E2=80=9Chu=
+mbling moment=E2=80=9D for Huang, calling him one of Silicon Valley=E2=80=
+=99s biggest celebrities in recent years. Bill Ackman, CEO of investment fi=
+rm Pershing Square, is hoping that Jensen Huang=E2=80=99s dalliance is mere=
+ly a =E2=80=98simple affair=E2=80=99, not a national security threat. While=
+ Donald Trump told reporters: =E2=80=9CI have not spoken to him about it. I=
+ just know he=E2=80=99s a fine person, but you never know what is going on.=
+ I hope everything=E2=80=99s fine ... I think he=E2=80=99s an honourable gu=
+y.=E2=80=9C</p>
+<p style=3D"margin: 0 0 16px 0;">A Chinese state-run newspaper has denied B=
+eijing had any link to <a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBUsSd6DY9A_zGHjXnJyBTsj=
+fyKRnviVI97-dF2T9L5KUIenkDeiOsVRb9zSV4wK7b1sSmE9QyrlIsO2HGz6kwd8bzzSVJjOgrC=
+s33R0WOMhQtf_usP3S-jjrKeS43lDp7P38VK4HZ7cIjVwPcWYQAo7BCMzfd7HmwnhMms3JLLSO0=
+Eaxv7E12NJyp8QwWfMQw/4vl/i7h1-4s9QB2dZeEPZyhquw/h29/h001.1vAB7oJVbPB1t55_Xs=
+RYUV5rVUl47A3k5jDdz9cl_3o" style=3D"color: #0077B6;">Nvidia</a> CEO Jensen =
+Huang=E2=80=99s extramarital affair. The Global Times, a nationalist tabloi=
+d, said American outlets, in particular the New York Times, were =E2=80=9Cg=
+oing crazy=E2=80=9D with speculative stories.</p>
+<hr class=3D"dinkus" style=3D"border-color: #052962; border-width: 4px; bor=
+der-style: solid; max-width: 280px; margin: 16px 0 10px;">
+<p style=3D"margin: 0 0 16px 0; font-size: 24px; line-height: 28px; padding=
+-bottom: 16px; margin-bottom: 8px;"><strong>Today=E2=80=99s key events</str=
+ong></p>
+<p style=3D"margin: 0 0 16px 0;">=E2=80=A2 <em><strong style=3D"color: #052=
+962; font-style: normal; font-weight: 700;">7am GMT: </strong></em>German t=
+rade data<br>=E2=80=A2 <em><strong style=3D"color: #052962; font-style: nor=
+mal; font-weight: 700;">Afternoon: </strong></em>Eurogroup meeting of euroz=
+one finance ministers</p>
+<p style=3D"margin: 0 0 16px 0;">We=E2=80=99ll be tracking all the main eve=
+nts throughout the day <a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAX2I5fp6olyh5yUeClMls_n=
+UtfCZ3Hck3HTJsNTrUN4CD8tWZVSzBLowI_-nzPcFHYL-7oYJs6Bz5C7fxPTiYY17Ttlc171bAq=
+hcncmx6DLHncA6mtFpFAAAVR_E1EPgxeGCsEJa5-NQ1ULproPtoZ44Oop8h100aeqV3y-wUAqI2=
+kthK85kF0gASn4CzAhzVsRlIeM5HJzgDOBTrLdYfHyRwxfydxSGMUC6R9wnKNx-dgU4CLd7pry_=
+eU-cfIoQZu1ljpKgl9QdSxYBawT96QZ9oe26YBL-AgyMK--bIHFTd7HYA8PsGgWBuRomqQhr-1u=
+5caz3S__ZN-JXIUrS9J/4vl/i7h1-4s9QB2dZeEPZyhquw/h30/h001.hPj_Mw_ig696KksGnpH=
+aKz98Q10o_QyTno2I_D_-K7g" style=3D"color: #0077B6;">on our business live bl=
+og</a> =E2=80=A6</p>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- START - DO =
+NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+
+<!-- LIFECYCLE START -->
+<!-- Churn risk -->
+<!-- START - DO NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+
+
+<!-- NEWSLETTER NAME -->
+
+
+
+
+<!-- START =E2=80=93 SUBSCRIBE CODE !-->
+
+
+
+
+
+
+
+<!-- END =E2=80=93 SUBSCRIBE CODE !-->
+
+<!-- START =E2=80=93 MIDDLE/ENGAGEMNT PADDING !-->
+<table class=3D"subscribe sc" align=3D"center" style=3D"border-spacing: 0; =
+border-collapse: collapse; width: 100%;">
+	<tr>
+		<td class=3D"img pb-20" style=3D"font-size:0pt; line-height:0pt; text-ali=
+gn:left; padding-bottom: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<!-- END =E2=80=93 MIDDLE/ENGAGEMNT PADDING !-->
+
+<!-- START =E2=80=93 BORDER !-->
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" role=
+=3D"presentation" align=3D"center">
+<tr>
+<td style=3D"border-right: 5px solid #FFE500; border-bottom: 5px solid #FFE=
+500;" align=3D"center">
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" alig=
+n=3D"center">
+<tr>
+<td style=3D"border: 5px solid #052962">
+<!-- END =E2=80=93 BORDER !-->
+
+<table class=3D"subscribe sc" align=3D"center" style=3D"border-spacing: 0; =
+border-collapse: collapse; width: 100%;">
+	<tr>
+		<td valign=3D"top" align=3D"center" style=3D"background:#ffffff; padding:=
+ 15px 0px 0px 15px;">
+			<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" a=
+lign=3D"center" style=3D"width:100%;">
+				<tr>
+					<td align=3D"bottom" class=3D"text-14 lh-20 pb-15" style=3D"font-size:=
+24px; line-height:28px; color:#000001; font-family:'GH Guardian Headline', =
+Georgia, serif; text-align:left; font-weight:normal;">
+						<b>Featured newsletter</b>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td class=3D"y-bg" style=3D"background:#ffffff; text-align: center; width=
+: 100%; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0=
+pt; padding: 15px; background:#ffffff;">
+			<!-- BG COLOUR: bgcolor=3D"#fbf6ef" -->
+			<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" a=
+lign=3D"center" class=3D"wrapto100pc dmodebg" style=3D"width:100%;border-ra=
+dius: 20px;border-collapse: separate; border: 0px solid #e1e1e1;padding-top=
+: 15px; padding-bottom: 15px;padding-left: 15px;padding-right: 13px;" bgcol=
+or=3D"#e7d4b9">
+				<tr>
+					<td valign=3D"bottom" align=3D"bottom">
+						<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" style=3D"border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspac=
+e:0pt;">
+							<tr>
+								<td valign=3D"top" align=3D"center" style=3D" padding: 0px 0px 15px=
+ 0px;">
+									<table align=3D"center" role=3D"presentation" width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width: 100%;">
+										<tr>
+											<td valign=3D"middle" align=3D"left">
+												<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" role=3D=
+"none" align=3D"left" style=3D"border-collapse: separate !important;">
+													<tr>
+														<!-- NEWSLETTER TAG --><!-- MAIN COLOUR: Replace background-c=
+olor:#a1845c; -->
+														<a style=3D"background-color:#a1845c;border-radius:40px;color=
+:#ffffff;display:inline-block;font-family:'Guardian Text Sans Regular', Ari=
+al, sans-serif;font-size:14px;line-height:22px;text-align:center;text-decor=
+ation:none;min-width:auto;padding:3px 10px;-webkit-text-size-adjust:none;wh=
+ite-space:nowrap;mso-hide:all;
+														"><strong>Weekly</strong>
+														</a>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>=09
+				</tr>						=09
+				<tr>
+					<td valign=3D"bottom" align=3D"bottom">
+						<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" style=3D"border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspac=
+e:0pt;">
+							<tr>
+								<td align=3D"bottom" class=3D"text-14 lh-20 pb-15" style=3D"font-si=
+ze:24px; line-height:28px; color:#000001; font-family:'GH Guardian Headline=
+', Georgia, serif; text-align:left; font-weight:normal;">
+									<!-- NEWSLETTER TITLE !-->
+									<b>Sign up for Cluesletter</b>
+								</td>
+							</tr>
+						</table>
+					</td>=09
+				</tr>
+				<tr>
+					<td valign=3D"top" align=3D"center" style=3D"padding: 15px 0 0;">
+						<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" align=3D"center" style=3D"width:100%;">
+							<tr>
+								<td width=3D"30%" valign=3D"top" align=3D"center">
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" align=3D"center" style=3D"width:100%;">
+										<tr>
+											<td valign=3D"top" align=3D"center" style=3D"padding: 0;">
+												<!-- 5x4 THUMBNAIL: Replace link in src=3D and alt-text in alt=
+=3D -->
+												<img width=3D"128" style=3D"border-radius: 10px; width:100%; ma=
+x-width:170px; height: auto; display: block;" border=3D"0" src=3D"https://c=
+dn.braze.eu/appboy/communication/assets/image_assets/images/6ac77e7255e2a70=
+088fa217f/original.png?1791458930" alt=3D"Cluesletter thumbnail" class=3D"w=
+rapto110px">
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td width=3D"70%" valign=3D"top" align=3D"center" style=3D"padding-=
+right: 15px;">
+									<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" align=3D"center" style=3D"width:100%; ">
+										<tr>	=09
+											<td valign=3D"top" align=3D"center" style=3D"padding: 0 0 0 16px=
+;">
+												<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" borde=
+r=3D"0" align=3D"center" style=3D"width:100%;">
+													<tr>
+														<td valign=3D"top" align=3D"center" style=3D"padding: 0px 0 0=
+;">
+															<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bo=
+rder=3D"0" align=3D"center" style=3D"width:100%;">
+																<tr>
+																	<td valign=3D"top" align=3D"center" style=3D"padding: 0;">
+																		<!-- NEWSLETTER COPY !-->
+																		<p class=3D"h8StyleMob dmodebg" style=3D"font-family:'Gua=
+rdianTextEgyptian', Georgia, serif;color:#000000;font-size: 16px; line-heig=
+ht: 22px; font-weight: 300;text-align:left;margin: 0;">Get our puzzles news=
+, clues, competitions and our exclusive Letter Adder game direct to your in=
+box
+																		</p>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td valign=3D"top" align=3D"center" style=3D" padding: 15px 0 0 =
+15px;">
+												<table align=3D"center" role=3D"presentation" width=3D"100%" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"width: 100%;">
+													<tr>
+														<td valign=3D"middle" align=3D"left">
+															<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" role=
+=3D"none" align=3D"left" style=3D"border-collapse: separate !important;">
+																<tr>
+																=09
+																	<!-- Button -->
+																	<div>
+																	<!--[if mso]><v:roundrect xmlns:v=3D"urn:schemas-microsoft=
+-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"https:/=
+/profile.theguardian.com/subscribe/newsletter/cluesletter%3A13579145%3A1794=
+212337/b78134e0f10c7827ff801a4848b5df69c17785bb" style=3D"height:40px;v-tex=
+t-anchor:middle;width:140px;" arcsize=3D"50%" strokecolor=3D"#FFE500" fillc=
+olor=3D"#FFE500"><w:anchorlock></w:anchorlock><center class=3D"ff-text-sans=
+" style=3D"color:#000000; font-family: Arial, sans-serif; font-size:16px; l=
+ine-height:22px; font-weight:bold;"><span class=3D"keep-blue">Sign&nbsp;up&=
+nbsp;here&nbsp;</span></center></v:roundrect><![endif]-->
+																=09
+																	<!-- MAIN COLOUR: Replace background-color:#a1845c; -->
+																	<a href=3D"https://ablink.editorial.theguardian.com/ss/c/u=
+001.HT6_61rcAeQ71YMHfBFwuXBK43AaH4pdDevU7uuHt6IhigplemFlgMRQYi-d3O9TQssPmta=
+LINECQR24SiJTZWtJkIV4gOeltDfW3NJnnp3k5IAwHbGhNxfyFIF-7ncnKtzXuPkXKz-X_6Q7Y3=
+g19LqsPvQdHLp_SgXWYOquhQKaKtEe37MXzGYiklrq_JT6/4vl/i7h1-4s9QB2dZeEPZyhquw/h=
+31/h001.vM5X-iusLvj61iHIlfKOAE3XrVpcaJNm1shfsmq7jJk" target=3D"_blank" styl=
+e=3D"background-color:#a1845c;border-radius:40px;color:#ffffff;display:inli=
+ne-block;font-family:'Guardian Text Sans Regular', Arial, sans-serif;font-s=
+ize:16px;line-height:24px;text-align:center;text-decoration:none;min-width:=
+auto;padding:6px 15px;-webkit-text-size-adjust:none;white-space:nowrap;mso-=
+hide:all;"><strong>Sign&nbsp;up&nbsp;here&nbsp;</strong></a>
+																	</div>
+																	<!-- END Button -->
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td valign=3D"top" align=3D"center" style=3D"background:#ffffff; padding:=
+ 0 15px 15px 15px;">
+			<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" a=
+lign=3D"center" style=3D"width:100%;">
+				<tr>
+					<td valign=3D"top" align=3D"center" style=3D"padding: 0;">
+						<p class=3D"h8StyleMob dmodebg" style=3D"font-family:'GuardianTextEgy=
+ptian', Georgia, serif;color:#000000;font-size: 14px; line-height: 18px; fo=
+nt-weight: 300;text-align:left;margin: 0;"><i>Newsletters may contain info =
+about charities, online ads, and content funded by outside parties.</i>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<img src=3D"https://email.mvt.theguardian.com/1.gif?identity_id=3D13579145&=
+amp;variant=3D&amp;send_id=3D6af181cf9fac11b7f82bc9fcaf101e02&amp;position=
+=3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"display:block!=
+important;height:1px!important;width:1px!important;border-width:0!important=
+;margin-top:0!important;margin-bottom:0!important;margin-right:0!important;=
+margin-left:0!important;padding-top:0!important;padding-bottom:0!important;=
+padding-right:0!important;padding-left:0!important"><table role=3D"presenta=
+tion"><tbody><tr><td><div style=3D"height:20px;line-height:20px">=E2=80=8A<=
+/div></td></tr></tbody></table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">In focus</h2></div></td></tr>
+<tr><td><table style=3D"border-collapse:collapse;font-size:20px;line-height=
+:22px;table-layout:fixed;width:100%;border:none" class=3D"LINK">
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3q=
+I08ktB6StLmuPl-MbXsGYuO2xNU8jjkaJFUB-vs4_BuAvRmuhxBBTQee8Eq7SHpfvpMfhC0a1RO=
+eA5GJJVC6Qpz6dPEzEWsrpKcoUiKWZeqgks36vEGPBMaDxSbe_kdvycjqNFAF2yAo7Bc-tUPinu=
+_OnfVNnxVCwlOiyqt8Sc66mrubjguGswZKh_7LpUOTsejfyxl5YDgj-vgibHuEcg_p0KbvDeAeO=
+Vd_p9WevsYKUkH3gqwHo_TUq-ebDf_G2tZV4fpVqWUHB59euKlQqsM-TIfzZkb6bNBPDjsivQ/4=
+vl/i7h1-4s9QB2dZeEPZyhquw/h32/h001.m0b5pqZoArMrd_GfwYVmW4eOWuACRc8YQYDOiBQO=
+5yA" style=3D"text-decoration: none; color: #0077B6;">Great British Railway=
+s: new dawn for a new network but with plenty of old problems to fix</a></t=
+d>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP3qI08ktB6StLmuPl-MbXsGYuO2xNU8jjkaJFUB-vs4_BuAvRmuhx=
+BBTQee8Eq7SHpfvpMfhC0a1ROeA5GJJVC6Qpz6dPEzEWsrpKcoUiKWZeqgks36vEGPBMaDxSbe_=
+kdvycjqNFAF2yAo7Bc-tUPinu_OnfVNnxVCwlOiyqt8Sc66mrubjguGswZKh_7LpUOTsejfyxl5=
+YDgj-vgibHuEcg_p0KbvDeAeOVd_p9WevsYKUkH3gqwHo_TUq-ebDf_G2tZV4fpVqWUHB59euKl=
+QqsM-TIfzZkb6bNBPDjsivQ/4vl/i7h1-4s9QB2dZeEPZyhquw/h33/h001._A8V8QvCX1SjJXg=
+DPYeWfT3RxVQfCEpq5vQjcHwk6p0" style=3D"text-decoration: none; color: #0077B=
+6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/im=
+g/media/5944b61ee5436a78b173fbd2474520d21b660c05/973_545_2629_2103/500.jpg?=
+quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3D1f828df2a196647614f1b5ccaa=
+65983d"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBKRF7ijFPdRR7IMeDcPXVRF=
+nM9XAopMRxyX43LN7-5A9kdIUe7Q1R8f57he9jeevG17zCdCk5LGj8bH0kmf2UZQZaEHlxQUXSN=
+xKzwnrA-uTWHQBBIiwh1bNdaZWIAS45GETXjJe7EKmfWIbeiyNlxv_zSPm2jYZparNt1qZMnZaj=
+CRoPN_yGtBbh9jeFNppnHpAkWSN8JLcX6jSaAcVUA4-eB1uScIN87hS5EB9GFPg/4vl/i7h1-4s=
+9QB2dZeEPZyhquw/h34/h001.DFSFJW7PeOrGbI4mNur4M-7n09Gkh7CoYUputQsM54Y" style=
+=3D"text-decoration: none; color: #0077B6;">=E2=80=98Free grand piano=E2=80=
+=99: the scam playing on music lovers=E2=80=99 heartstrings</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEBKRF7ijFPdRR7IMeDcPXVRFnM9XAopMRxyX43LN7-5A9kdIUe7Q1R8f57he9jeevG17zCdCk5=
+LGj8bH0kmf2UZQZaEHlxQUXSNxKzwnrA-uTWHQBBIiwh1bNdaZWIAS45GETXjJe7EKmfWIbeiyN=
+lxv_zSPm2jYZparNt1qZMnZajCRoPN_yGtBbh9jeFNppnHpAkWSN8JLcX6jSaAcVUA4-eB1uScI=
+N87hS5EB9GFPg/4vl/i7h1-4s9QB2dZeEPZyhquw/h35/h001.fM0xpAZERp0GdTEE7Te2uK-e_=
+ZfNnZd898Y6CUITim0" style=3D"text-decoration: none; color: #0077B6;"><img w=
+idth=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/f6=
+0b879e91487cfa762b6181282c365c29d79cfe/1005_0_6750_5400/500.jpg?quality=3D8=
+5&amp;dpr=3D2&amp;width=3D160&amp;s=3D5d31e3914f4b561d6fdfc6dfe16e22f1"></a=
+></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3o=
+DVfRQjhx8GJK0COdirh4ljrorCyWN9T0H0qQULT-E9KFLmDmaJxkLTaeChhhPvSZEDw7W5U36Zf=
+TP9ir17fTmgea9zLIXTdUSnGqePFMN3zaG245EMOmG2aE03oyDoPCPVHof0xmbkGr5PNZYgtgaj=
+BLnkAIWGv8BLV6yDyrzNqVEX1CvG-3T5Sp6cO6LxEdQhl-29aCGBYhXKiFv7LCplJHCln2CKxPf=
+mywtF-NE0MCSxM2M4cRZVMD7rWslxoO0wZk70vFqfJlkUq_z0iDWP2a2eunNZelr1VuvV0_wY/4=
+vl/i7h1-4s9QB2dZeEPZyhquw/h36/h001.zjHSgw8SzHrFR8CG6o-3LXXv3XI5r9VKOtu7UohT=
+bKA" style=3D"text-decoration: none; color: #0077B6;">Job cuts, lost custom=
+ers and a =C2=A322bn debt pile: what has gone wrong at Virgin Media O2?</a>=
+</td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP3oDVfRQjhx8GJK0COdirh4ljrorCyWN9T0H0qQULT-E9KFLmDmaJ=
+xkLTaeChhhPvSZEDw7W5U36ZfTP9ir17fTmgea9zLIXTdUSnGqePFMN3zaG245EMOmG2aE03oyD=
+oPCPVHof0xmbkGr5PNZYgtgajBLnkAIWGv8BLV6yDyrzNqVEX1CvG-3T5Sp6cO6LxEdQhl-29aC=
+GBYhXKiFv7LCplJHCln2CKxPfmywtF-NE0MCSxM2M4cRZVMD7rWslxoO0wZk70vFqfJlkUq_z0i=
+DWP2a2eunNZelr1VuvV0_wY/4vl/i7h1-4s9QB2dZeEPZyhquw/h37/h001.HTHWRmj32yXmWR8=
+Et5UqkavmN1AVkYTNQcwNhXJ2ueE" style=3D"text-decoration: none; color: #0077B=
+6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/im=
+g/media/edb6e58b714179ecc5ed6eeeab0461874281de0e/613_0_5020_4016/500.jpg?qu=
+ality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3De43a9bc4d79188e601cad8fdb4d5=
+8e9c"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEASCblOZiU8hWCXTQqzmxJo8=
+-nwFTI1hiw6mmzVqmGJR5SY8lPmiLIc8pv-PEwA0YZkuIQgb9Z_9ROx5dkkWgWMtnyhzsI-psxb=
+6ISlQX_BVwNSgixew2LpZzk8-XnJ3nVu__j99UqtO0V1LiYsmW2tygrORcEs0hOie3r0YII9rQ_=
+PpHH5lEfoeV4L6m5Kfa0daxD44BInPM9gQThzc95T1B5n5oqKug40fRRxHd4Cdt1bJ8DpMMMqdt=
+MFa5W7ie8DY1mrbkwndIZ6DyH0NViea4ZnG0mjpx1HhbnUrhqIbw/4vl/i7h1-4s9QB2dZeEPZy=
+hquw/h38/h001.6W4WkNE76AvheEOhbcAKZhUUMSZ7rcR4a8msI-XBRV0" style=3D"text-de=
+coration: none; color: #0077B6;">Gotta buy =E2=80=99em all: how Pok=C3=A9mo=
+n card collecting became race against scalpers</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEASCblOZiU8hWCXTQqzmxJo8-nwFTI1hiw6mmzVqmGJR5SY8lPmiLIc8pv-PEwA0YZkuIQgb9Z=
+_9ROx5dkkWgWMtnyhzsI-psxb6ISlQX_BVwNSgixew2LpZzk8-XnJ3nVu__j99UqtO0V1LiYsmW=
+2tygrORcEs0hOie3r0YII9rQ_PpHH5lEfoeV4L6m5Kfa0daxD44BInPM9gQThzc95T1B5n5oqKu=
+g40fRRxHd4Cdt1bJ8DpMMMqdtMFa5W7ie8DY1mrbkwndIZ6DyH0NViea4ZnG0mjpx1HhbnUrhqI=
+bw/4vl/i7h1-4s9QB2dZeEPZyhquw/h39/h001.vtFS5DIOqP6Ep8fkWcQHNxPItW8PDnOU9i-a=
+WEvoAUg" style=3D"text-decoration: none; color: #0077B6;"><img width=3D"160=
+" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/add3efa623b78=
+699ceac7a663e4ab615f38fb13d/378_0_3378_2704/500.jpg?quality=3D85&amp;dpr=3D=
+2&amp;width=3D160&amp;s=3D162704098aca0028b02bed4c4eda3582"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEDemkX49beNf88r4VT8N5woe=
+cvNdfgmoHoCFYqs1M2zEDsheSQ8ecKGwuM4VNZd3ii5zCbbFGgZ2UU8i8EU8dds7wgAKGEwt5FG=
+hUECIPLooeuGKkpyI18uOGFXIGDAQHa_8kxK5EzstPhn502fVgo6TY0k52U5b6Gk2l7bnfHzru5=
+1LYD8kG__gs_Ww8HHdoY9f8oPxgjJLYNBvTUmF9aSG7-7JdRX_ZAaY4HHH5_boM5tXW3diNhErI=
+CvUN89nW_fl2b2L7lp9nQlCEVwhakw/4vl/i7h1-4s9QB2dZeEPZyhquw/h40/h001.-XmNcYNt=
+TXOc7gNu9wB4U1bZqVI2Qq_qKbb5_WAXTyc" style=3D"text-decoration: none; color:=
+ #0077B6;">Standing in the way of slop bowls: the woman blocking food deliv=
+ery robots</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEDemkX49beNf88r4VT8N5woecvNdfgmoHoCFYqs1M2zEDsheSQ8ecKGwuM4VNZd3ii5zCbbFGg=
+Z2UU8i8EU8dds7wgAKGEwt5FGhUECIPLooeuGKkpyI18uOGFXIGDAQHa_8kxK5EzstPhn502fVg=
+o6TY0k52U5b6Gk2l7bnfHzru51LYD8kG__gs_Ww8HHdoY9f8oPxgjJLYNBvTUmF9aSG7-7JdRX_=
+ZAaY4HHH5_boM5tXW3diNhErICvUN89nW_fl2b2L7lp9nQlCEVwhakw/4vl/i7h1-4s9QB2dZeE=
+PZyhquw/h41/h001._U-HWv0Tq1bFhzmZzFSNt10rSqX_Tip4RrJbAJqOdZI" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/6c9b99624b2d4f830d94948c591fde5d078=
+39cf9/148_0_6358_5086/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;=
+s=3Dfa36824e4ce951783e8b094fb894b064"></a></td>
+</tr>
+</table></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <table role=3D"p=
+resentation"><tbody><tr><td><div style=3D"height:20px;line-height:20px">=E2=
+=80=8A</div></td></tr></tbody></table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">Opinion &amp; analysis</h2></div></td></tr>
+<tr><td><table style=3D"border-collapse:collapse;font-size:20px;line-height=
+:22px;table-layout:fixed;width:100%;border:none" class=3D"LINK">
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP32=
+nsYuHMJpxAiYXsvhPtu9CqZq1dp1I8Psvw9snI5rdCfEDCiliVW9CNI81pLx7YiDjnybAfSECZG=
+3PUI2IFUkWKHGkI7_9MMEWyqKkVAB995iusZlkaPBx91nUHl6RO4vZ3Bfu6xDmN6UtHa_osep-E=
+3jUH6nDJQig_NN-35-KJHFu1WYhwlEcLVWyxZTpP_KpYVNu9T5Q3DNkRjPs23gjh5tSgIJPvNJQ=
+vJywFU4g99fWfbOSB5FuQXbxlhDWXS/4vl/i7h1-4s9QB2dZeEPZyhquw/h42/h001.s6uNV-pI=
+7AGXuYy0tFVQF_8supruNlgS9Y_EvAzJ_Co" style=3D"text-decoration: none; color:=
+ #0077B6;">1-0 to humankind? US midterms vote puts AI, datacentres and the =
+broligarchy back in their box | Heather Stewart</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP32nsYuHMJpxAiYXsvhPtu9CqZq1dp1I8Psvw9snI5rdCfEDCiliV=
+W9CNI81pLx7YiDjnybAfSECZG3PUI2IFUkWKHGkI7_9MMEWyqKkVAB995iusZlkaPBx91nUHl6R=
+O4vZ3Bfu6xDmN6UtHa_osep-E3jUH6nDJQig_NN-35-KJHFu1WYhwlEcLVWyxZTpP_KpYVNu9T5=
+Q3DNkRjPs23gjh5tSgIJPvNJQvJywFU4g99fWfbOSB5FuQXbxlhDWXS/4vl/i7h1-4s9QB2dZeE=
+PZyhquw/h43/h001.ejkq-qn6YFF_s-vkrDFqlNZrzW22wl-9mMtKq09esfI" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/2ea7dda4257fc43543719a2d375cd85a1ce=
+8cdb4/0_0_7157_5728/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=
+=3Db16885d1b7c09e6b5a6969001ce30766"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3V=
+__c-sTgfQNd3UWzfkPauyVicLCDkpZhk6t0_pLAtxQmOaDXtxz15Zg9LBo-n722V5mpOWZMq1a6=
+sYboohn_1DSuseJvdv_YNrSEyTq2By8loaxQAa_LCOmtPQu2KQldNX2mUyj6rryrADGw7ILj--1=
+eOIf_gSuTwkIqGk8GABMvbHoyB5NdyLjdEhV1ZMBKwlkACyg4mCahFn5B3AjuCQ/4vl/i7h1-4s=
+9QB2dZeEPZyhquw/h44/h001.tU6hDhJKu1bOHpkkJN8Drbv-qc6bUG8vjoDV_3Y-OFQ" style=
+=3D"text-decoration: none; color: #0077B6;">US employers keep passing risin=
+g healthcare costs to workers. There are better options</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP3V__c-sTgfQNd3UWzfkPauyVicLCDkpZhk6t0_pLAtxQmOaDXtxz=
+15Zg9LBo-n722V5mpOWZMq1a6sYboohn_1DSuseJvdv_YNrSEyTq2By8loaxQAa_LCOmtPQu2KQ=
+ldNX2mUyj6rryrADGw7ILj--1eOIf_gSuTwkIqGk8GABMvbHoyB5NdyLjdEhV1ZMBKwlkACyg4m=
+CahFn5B3AjuCQ/4vl/i7h1-4s9QB2dZeEPZyhquw/h45/h001.JC3UbwTVEwjpcK7fH3-ZkX1JN=
+N_6j6nnIa1k8r_THUc" style=3D"text-decoration: none; color: #0077B6;"><img w=
+idth=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/31=
+595e2ed4ef6daadec47c010cf29c935976d557/467_0_5000_4000/500.jpg?quality=3D85=
+&amp;dpr=3D2&amp;width=3D160&amp;s=3Dd31d5504bb6f1d44d00c19427dfa8d31"></a>=
+</td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAsxWg7d8sWyUjf1CJIvNP3L=
+NEmuiJDaDaSmeLGsuKwLhvWR2cFHPwXfb26gzX7kfda-aAG0ZKWPyXHvVz-lhNbgeyp09NvJ06I=
+XnLaVWQmC8TTCvroKcFNZefJDIWCZsoj51xIC3pOdCxGDphZqfRYymZzPASRpkGcRSvXCSo2FJw=
+f9ritO1x15uAA0HbNjUwDb_5rRk-YJ8QbqkTDAgSOu_X5NggyC99MR5plvo4AdzzRWSbnLllSfP=
+_T6C8hoGk/4vl/i7h1-4s9QB2dZeEPZyhquw/h46/h001.VmBirUU0w1prpY1ohHquQ6BhDbGMU=
+hEdXMCYM2guPZM" style=3D"text-decoration: none; color: #0077B6;">Trump may =
+have lost but don=E2=80=99t bet Democrats can fix the economy</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAsxWg7d8sWyUjf1CJIvNP3LNEmuiJDaDaSmeLGsuKwLhvWR2cFHPwXfb26gzX7kfda-aAG0ZK=
+WPyXHvVz-lhNbgeyp09NvJ06IXnLaVWQmC8TTCvroKcFNZefJDIWCZsoj51xIC3pOdCxGDphZqf=
+RYymZzPASRpkGcRSvXCSo2FJwf9ritO1x15uAA0HbNjUwDb_5rRk-YJ8QbqkTDAgSOu_X5NggyC=
+99MR5plvo4AdzzRWSbnLllSfP_T6C8hoGk/4vl/i7h1-4s9QB2dZeEPZyhquw/h47/h001.vgW_=
+tw3dhV6YMXDsW6jBNEqyrn_1_rUXOPgXNUVn-fw" style=3D"text-decoration: none; co=
+lor: #0077B6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.gu=
+im.co.uk/img/media/452570685e3bee42441282dc9ff80c72d8c5dfca/453_0_4594_3676=
+/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3D166249b17e3d3553f=
+17260debbc56c9b"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHECpQ6xbu-H9ziF5vbtAkWOCt=
+u2xk06_ctFpZbQxF8A3UyO9RxJwh1E4rOHBNRnELneIC9CxNVW7bEoZLjPfpG2afwQYabWYInqK=
+btIhx36Rn4NSFFQAqGc5eoi6zT_qjI3-bdJrs36oZx3ArlphgfIyCV7UVpNnsddFnMt_WzlPGbh=
+OPphGtI7UIVp7_pfDW2NUqBthvTAKZsJFWJCSVbx9rowsHmPV1TYM9moBIfd7HbJ696HxyWMbHw=
+yHXraPpVipvFPO9wr0IqEEfHJDa_j6TBLb5W85VcknUhNfEDy8G6ZdvBJ8ecEyLYKVfThMBO4/4=
+vl/i7h1-4s9QB2dZeEPZyhquw/h48/h001.pPf3aYdKr2cxdYcFlpriJAr7WCdWZfMb8ruTTnYs=
+CU0" style=3D"text-decoration: none; color: #0077B6;">The Guardian view on =
+the AI backlash: American voters want a say in their future | Editorial</a>=
+</td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HECpQ6xbu-H9ziF5vbtAkWOCtu2xk06_ctFpZbQxF8A3UyO9RxJwh1E4rOHBNRnELneIC9CxNVW=
+7bEoZLjPfpG2afwQYabWYInqKbtIhx36Rn4NSFFQAqGc5eoi6zT_qjI3-bdJrs36oZx3Arlphgf=
+IyCV7UVpNnsddFnMt_WzlPGbhOPphGtI7UIVp7_pfDW2NUqBthvTAKZsJFWJCSVbx9rowsHmPV1=
+TYM9moBIfd7HbJ696HxyWMbHwyHXraPpVipvFPO9wr0IqEEfHJDa_j6TBLb5W85VcknUhNfEDy8=
+G6ZdvBJ8ecEyLYKVfThMBO4/4vl/i7h1-4s9QB2dZeEPZyhquw/h49/h001.kQu6kG9DEm1BOCm=
+wvYeo6AiuZ9rLS3Eeq0ZFaNGxjKA" style=3D"text-decoration: none; color: #0077B=
+6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/im=
+g/media/2ea7dda4257fc43543719a2d375cd85a1ce8cdb4/0_0_7157_5728/500.jpg?qual=
+ity=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3Db16885d1b7c09e6b5a6969001ce307=
+66"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEA13-uHzzNLsl3ZqJFCJlFeX=
+4fUkEfxIxm0-pI-0-uHxJK_dqs7mSdp1h_HDWK3o03-D5YT_CWgRpc2c63qWh0nmmzgq12bFLq7=
+RK--n8p0_WAlGs8t8R8kFCJAnVJljDEHlhlNS5sdUsGUjQo5NM8-OW9MqE1Q4ToSTXIzZs7YR_n=
+y4UyIha2tKi2dxVqYOY5oBLmrZUQLogU9t9REp4ngHHHjZQw1EcmlsTNlgTk3x_HuERb55kduGO=
+UoALpab8Anknv8pQN4uPBIMz8QwLYm/4vl/i7h1-4s9QB2dZeEPZyhquw/h50/h001.LE0SrMUK=
+LMjVi9Od360ynsDuji4UmUL5UUtcU_242eI" style=3D"text-decoration: none; color:=
+ #0077B6;">US tech stock rout: is the AI bubble bursting?</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEA13-uHzzNLsl3ZqJFCJlFeX4fUkEfxIxm0-pI-0-uHxJK_dqs7mSdp1h_HDWK3o03-D5YT_CW=
+gRpc2c63qWh0nmmzgq12bFLq7RK--n8p0_WAlGs8t8R8kFCJAnVJljDEHlhlNS5sdUsGUjQo5NM=
+8-OW9MqE1Q4ToSTXIzZs7YR_ny4UyIha2tKi2dxVqYOY5oBLmrZUQLogU9t9REp4ngHHHjZQw1E=
+cmlsTNlgTk3x_HuERb55kduGOUoALpab8Anknv8pQN4uPBIMz8QwLYm/4vl/i7h1-4s9QB2dZeE=
+PZyhquw/h51/h001.2jqhXgx0PghddsC74c8vW0MteG_Dr7dcS5WBikxejgc" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/e304922b1742f8abb9512b6c85d484878c2=
+dd647/667_0_3333_2668/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;=
+s=3Ddc5b7628f8af6f1bb60bfa7e8fb3f20c"></a></td>
+</tr>
+</table></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--> <!-- Braze Place=
+holder - Above Section 6 --><table role=3D"presentation"><tbody><tr><td><di=
+v style=3D"height:20px;line-height:20px">=E2=80=8A</div></td></tr></tbody><=
+/table>
+<!--[if mso | IE]><tr><td class=3D"" width=3D"600px" ><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:10=
+0%;"><tbody><tr><td style=3D"border:1px solid #DCDCDC;border-top:none;direc=
+tion:ltr;font-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+98px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;padding-bottom:4px;background=
+-color:#FFFFFF"></td></tr>
+<tr><td style=3D"border-top:1px solid #999999;background-color:#FFFFFF"></t=
+d></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"background:=
+#FFFFFF;font-size:0px;padding:8px 16px 16px;word-break:break-word;"><div st=
+yle=3D"font-family:Georgia, serif;font-size:13px;line-height:1;text-align:l=
+eft;color:#000000;"><h2 style=3D"margin: 0; font-size: 24px; color: #121212=
+;">In case you missed it</h2></div></td></tr>
+<tr><td><table style=3D"border-collapse:collapse;font-size:20px;line-height=
+:22px;table-layout:fixed;width:100%;border:none" class=3D"LINK">
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAuG0RqCca7fIwka-i3erzpx=
+m0_QnIdro-zhaXuVgs5hRZoCfdvfAQ8doW4f8DHH2jz0U6Wij3Kz4eAjQsYfvHUpk1EaoEr54fS=
+fdzbWcBt9BFXlr4UEW1hj25tK-wtbehMUyN-N92UrEmJ3thmqZ5lhMqfT4LO8cNm14jwNvUFCbo=
+PbgPl17HxzGShxtqEYMutubZyG3cDkm9ilLTzGx2g8Q4o3P98PKCO9YMDAgMVW7Xy4QqQV2mvY1=
+cjU6HbeAAesxjygT9uZMWyvDIII02qn40s4W_DJ36GY20IYSHLkg/4vl/i7h1-4s9QB2dZeEPZy=
+hquw/h52/h001.T0xpJL7kckR4IvJJ5kiaVxyg81aI982aGbHCmBmh5Gw" style=3D"text-de=
+coration: none; color: #0077B6;">Lanarkshire AI datacentre to fully rely on=
+ National Grid despite renewables claim</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAuG0RqCca7fIwka-i3erzpxm0_QnIdro-zhaXuVgs5hRZoCfdvfAQ8doW4f8DHH2jz0U6Wij3=
+Kz4eAjQsYfvHUpk1EaoEr54fSfdzbWcBt9BFXlr4UEW1hj25tK-wtbehMUyN-N92UrEmJ3thmqZ=
+5lhMqfT4LO8cNm14jwNvUFCboPbgPl17HxzGShxtqEYMutubZyG3cDkm9ilLTzGx2g8Q4o3P98P=
+KCO9YMDAgMVW7Xy4QqQV2mvY1cjU6HbeAAesxjygT9uZMWyvDIII02qn40s4W_DJ36GY20IYSHL=
+kg/4vl/i7h1-4s9QB2dZeEPZyhquw/h53/h001.7Bd-lDYWCuu_hA8onPFGRYvu__FSqDG0yCZP=
+qT_KwbU" style=3D"text-decoration: none; color: #0077B6;"><img width=3D"160=
+" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/c1b8eb2d05fbc=
+f3925b8a30a9e3d4612d3eaa8c7/1365_0_6827_5464/500.jpg?quality=3D85&amp;dpr=
+=3D2&amp;width=3D160&amp;s=3Dbecb45d257a6d4c2ca297a1deddc1dc7"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAuG0RqCca7fIwka-i3erzpq=
+Dogo-7Y-2LHnpGR-h2bwjcRvL_N3PpgON1k3QNsjwdm105-Dc-S0mzQG1OpXUOgyQB_jJHC8fg4=
+iJrIriiIaSeAe-l-2eBp34yPoSRG67grd5pz155d_-WQ5P16KpeiVJyLxHAypVltpW2TtlFq7-u=
+qL_Fc1uHNC-T-H3UpKqVvpLusCndwbaC5_Uln57ulj4J2bike0s45zQDFqaww6lj85RcnwP5Gsl=
+3_ju1XtrM/4vl/i7h1-4s9QB2dZeEPZyhquw/h54/h001.AOROQv1W-nTsdxVdVJttkt9ee9Git=
+b9wMtDegGHEZD0" style=3D"text-decoration: none; color: #0077B6;">National T=
+rust votes to seek banking partner more in tune with its environmental poli=
+cies</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAuG0RqCca7fIwka-i3erzpqDogo-7Y-2LHnpGR-h2bwjcRvL_N3PpgON1k3QNsjwdm105-Dc-=
+S0mzQG1OpXUOgyQB_jJHC8fg4iJrIriiIaSeAe-l-2eBp34yPoSRG67grd5pz155d_-WQ5P16Kp=
+eiVJyLxHAypVltpW2TtlFq7-uqL_Fc1uHNC-T-H3UpKqVvpLusCndwbaC5_Uln57ulj4J2bike0=
+s45zQDFqaww6lj85RcnwP5Gsl3_ju1XtrM/4vl/i7h1-4s9QB2dZeEPZyhquw/h55/h001.Crp7=
+8lXqfImnot2DVTKVfrYv-a5luj6r0bcKj0ffwmQ" style=3D"text-decoration: none; co=
+lor: #0077B6;"><img width=3D"160" style=3D"width:160px" src=3D"https://i.gu=
+im.co.uk/img/media/dc64bc6246e14e6cee84cc37de530fcb20e77631/0_1027_3599_287=
+9/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;s=3D55d2d2655d9f0168=
+af5f3d86212c9034"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEAhzD0WUI17vwhqJTqDOvEG8=
+bEtOc1uxvujijPWkN9eN7eRlq8Yc9S_UmHPmu19qzTjmvOr7b-zdutq8PN5p3EhspZA0qhXRZgR=
+2CdvEZx0Z1-KaRvlJamuR4PVFkevd30eEzsePDDlqjELhG1yR_59gUl4isU56yFVtQD95bMG7Zo=
+_ncW2l37tUQNNWbV6VK9OxO_LcW7MTmh56kF38Fu5DXRrAzPLGRHLCENvQ16fqg/4vl/i7h1-4s=
+9QB2dZeEPZyhquw/h56/h001.tNYw1KA6RTW8OkQg9bhV1z5FjL1jVgRhcuJFJOwUbu0" style=
+=3D"text-decoration: none; color: #0077B6;">Revealed: how a UK firm is spea=
+rheading growth in trade of US fracked ethane</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEAhzD0WUI17vwhqJTqDOvEG8bEtOc1uxvujijPWkN9eN7eRlq8Yc9S_UmHPmu19qzTjmvOr7b-=
+zdutq8PN5p3EhspZA0qhXRZgR2CdvEZx0Z1-KaRvlJamuR4PVFkevd30eEzsePDDlqjELhG1yR_=
+59gUl4isU56yFVtQD95bMG7Zo_ncW2l37tUQNNWbV6VK9OxO_LcW7MTmh56kF38Fu5DXRrAzPLG=
+RHLCENvQ16fqg/4vl/i7h1-4s9QB2dZeEPZyhquw/h57/h001.j3DtUmkMkAEHnoIynkqNHUkey=
+utvHtdlciT6Aqwbjvo" style=3D"text-decoration: none; color: #0077B6;"><img w=
+idth=3D"160" style=3D"width:160px" src=3D"https://i.guim.co.uk/img/media/63=
+1c2087ccb9be8cfb841fdc99818a07a5680d26/189_190_2475_1981/500.jpg?quality=3D=
+85&amp;dpr=3D2&amp;width=3D160&amp;s=3Dea90d3cf63094170b5427e810c0debe9"></=
+a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBMPiQQXneH1j-HC6lHqbUO2=
+0yEHnMsqmPD0R7YPTxKT5l2lHNBweEKpVFMllY9gRCg12SpKz9LPmvNMBSKnAAAqxjE_VFNTtN_=
+GMfm5zrX_Z52YG3h3LDjZF6arcWaLAX9oF22tCp-oFa2Zt3-ECU1pXr3wB_I7KSxrmKG39mJPfh=
+efdV5Ao1m4FeSsqTBqgQ82psRuCigeKX3Bko7lkE_t0UwWz0uhmFZRcp6Ty3yPsI_13b7R9f1yV=
+vwBtuBhxEduVf5p6aXQ0eTD98Gof-D/4vl/i7h1-4s9QB2dZeEPZyhquw/h58/h001.d86vB0TN=
+mFO76TB5a0PDWdpzLpaMQhJYuhgSZx0wlkI" style=3D"text-decoration: none; color:=
+ #0077B6;">Five European leaders call for closer EU-UK ties ahead of Brusse=
+ls summit</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEBMPiQQXneH1j-HC6lHqbUO20yEHnMsqmPD0R7YPTxKT5l2lHNBweEKpVFMllY9gRCg12SpKz9=
+LPmvNMBSKnAAAqxjE_VFNTtN_GMfm5zrX_Z52YG3h3LDjZF6arcWaLAX9oF22tCp-oFa2Zt3-EC=
+U1pXr3wB_I7KSxrmKG39mJPfhefdV5Ao1m4FeSsqTBqgQ82psRuCigeKX3Bko7lkE_t0UwWz0uh=
+mFZRcp6Ty3yPsI_13b7R9f1yVvwBtuBhxEduVf5p6aXQ0eTD98Gof-D/4vl/i7h1-4s9QB2dZeE=
+PZyhquw/h59/h001.IdazMdryC5lApp4r5koyY78N-ciGiYiG9Nb7FdlXCTw" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/a82621f2173bcdb47b29018958e54222130=
+414c4/291_0_2520_2016/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp;=
+s=3Dfad152d5b68a0dce373d2c6948bc2f4b"></a></td>
+</tr>
+<tr>
+<td style=3D"border-top:2px dashed;border-top-color:#999999;background-colo=
+r:#FFFFFF;font-size:16px;font-family:Georgia, serif;padding:8px 16px 8px 16=
+px;vertical-align:top"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBgZM0T79bJAv3aYOpqxip-g=
+y__x_OVVJ6mgKc51Ia515IeYWIE86KpUL7rWLRE21mLVwc9A6DnaRtFmOv777Ksp1S0n52ns0iU=
+ceLbsrqwb29VjxBYCPGpg1CN5jBMkekBEtIrMBDk5q_wsSS0I2Bs1xNm7evLfLa1zptxCzUmZh4=
+EDMFvmtewCFBCteWs2hVESF6Dp2RIdQBnTnz4n2S4ikrW5RNsxv0VVJ6kXLIL3n5UjTtIQyvrq9=
+tpXARMibXgNWhJ2J6-4w1TUnIBji7C/4vl/i7h1-4s9QB2dZeEPZyhquw/h60/h001.ttecOeT9=
+dqojH6XYIMTVWBT1J8aqPBLCe3RXvSBXZUs" style=3D"text-decoration: none; color:=
+ #0077B6;">Reform UK councillor promoted collapsed $1.9bn =E2=80=98Ponzi sc=
+heme=E2=80=99 HyperVerse that left victims suicidal</a></td>
+<td width=3D"160px" valign=3D"top" style=3D"border-top:2px dashed;border-to=
+p-color:#999999;background-color:#FFFFFF;line-height:0px;padding-bottom:16p=
+x;padding-top:0;padding-left:0;padding-right:0"><a href=3D"https://ablink.e=
+ditorial.theguardian.com/ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSne=
+HEBgZM0T79bJAv3aYOpqxip-gy__x_OVVJ6mgKc51Ia515IeYWIE86KpUL7rWLRE21mLVwc9A6D=
+naRtFmOv777Ksp1S0n52ns0iUceLbsrqwb29VjxBYCPGpg1CN5jBMkekBEtIrMBDk5q_wsSS0I2=
+Bs1xNm7evLfLa1zptxCzUmZh4EDMFvmtewCFBCteWs2hVESF6Dp2RIdQBnTnz4n2S4ikrW5RNsx=
+v0VVJ6kXLIL3n5UjTtIQyvrq9tpXARMibXgNWhJ2J6-4w1TUnIBji7C/4vl/i7h1-4s9QB2dZeE=
+PZyhquw/h61/h001.gF-cDOUUM4_t755VfXxu9uAG-Kh21WbTKEIasPJsYxI" style=3D"text=
+-decoration: none; color: #0077B6;"><img width=3D"160" style=3D"width:160px=
+" src=3D"https://i.guim.co.uk/img/media/c4ab352229a9553522afe3e33aaa4051419=
+78fb4/781_95_1724_1380/500.jpg?quality=3D85&amp;dpr=3D2&amp;width=3D160&amp=
+;s=3Dbed6366a14ddef65b42534c452bade6e"></a></td>
+</tr>
+</table></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><![endif]--><table role=3D"pr=
+esentation"><tbody><tr><td><div style=3D"height:20px;line-height:20px">=E2=
+=80=8A</div></td></tr></tbody></table>
+<table width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"padding=
+:0"><div style=3D"margin:0px auto;max-width:600px">
+<!-- START - DO NOT EDIT -->
+
+<!-- END - DO NOT EDIT -->
+
+<!-- LIFECYCLE START -->
+
+
+
+<!-- SUPPORTERS END -->
+
+
+<!-- SINGLES START -->
+</div></td></tr></tbody></table>
+<!--[if mso | IE]></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]--><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td=
+>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" wid=
+th=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:=
+0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"margin:0px aut=
+o;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"width:100%;"><tbody><tr><t=
+d style=3D"border:1px solid #DCDCDC;border-top:5px solid #999999;direction:=
+ltr;font-size:0px;padding:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" width=3D"600px" ><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"p=
+resentation" style=3D"width:566px;" width=3D"566" ><tr><td style=3D"line-he=
+ight:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div styl=
+e=3D"margin:0px auto;max-width:566px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:1=
+00%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0;text-al=
+ign:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:3=
+96.2px;" ><![endif]--><div class=3D"mj-column-per-70 mj-outlook-group-fix" =
+style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;v=
+ertical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ve=
+rtical-align:top;padding:0;padding-right:16px;"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Georgia, serif;font-size:20px;line-height:20px;text-align:left;colo=
+r:#000000;">Get in touch</div></td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;padding-bottom:16px;word-break:break-word;"><div style=3D"font=
+-family:Guardian Text Sans, Arial, sans-serif;font-size:13px;line-height:20=
+px;text-align:left;color:#000000;">If you have any questions or comments ab=
+out any of our newsletters please email <a href=3D"mailto:newsletters@thegu=
+ardian.com" style=3D"text-decoration: underline; color: #0077B6;">newslette=
+rs@theguardian.com</a>
+</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td><td class=3D"" style=3D"vertical-align:top;width:169=
+.8px;" ><![endif]--><div class=3D"mj-column-per-30 mj-outlook-group-fix" st=
+yle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ver=
+tical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vert=
+ical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left" =
+style=3D"font-size:0px;padding:0;padding-bottom:16px;word-break:break-word;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr><td =
+style=3D"width:169px;"><a href=3D"https://ablink.editorial.theguardian.com/=
+ss/c/u001.Yw_JkLMEmFuifc_XG18IRyTNtZQ7fIEMgszcCSneHEBlRXChRrlHyDctO_P2Zbh9e=
+Af4CLKlkRdyT4q3yOcq_9Hfj7lUPpW5t6eqKYyzUihxLXDMoJZjo8aBADAReQL0KjeYxojq_dxi=
+qqS0XTod9SBeup8T5nAjm6NUY7KFro0AFwFF5Z8GNvNKKih_YN-pc6zOuSKRxCDhuYVYE_AhAw/=
+4vl/i7h1-4s9QB2dZeEPZyhquw/h62/h001.d3n5F-ZM8EbyAYtityyviSXBv7NMUbVtuAOTywy=
+CuvU" target=3D"_blank" style=3D"color: #0077B6;"><img alt=3D"https://www.t=
+heguardian.com/uk" src=3D"https://cdn.braze.eu/appboy/communication/assets/=
+image_assets/images/614211d0ff8fcb5f969e0ccd/original.png?1631719888" style=
+=3D"border:0;display:block;outline:none;text-decoration:none;height:auto;wi=
+dth:100%;font-size:13px;" width=3D"169" height=3D"auto"></a></td></tr></tbo=
+dy></table></td></tr></tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;padding-bottom:16px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left"=
+ class=3D"text text-with-border" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><div style=3D"font-family:Guardian Text Sans, Arial, sans-se=
+rif;font-size:13px;line-height:20px;text-align:left;color:#000000;">
+<a href=3D"https://ablink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71=
+YMHfBFwuXBK43AaH4pdDevU7uuHt6IZbxvYUugvSfAWls5d_gmRQVP7uD4bpUmP6-DxvSSkU5my=
+bcrGWBRzYG3XQQVE7Y0_BxJE2vVtDPHGAZUiQHu2rCgSRaJtNgsvtcj9iaYX1vHSBcDr-ODuA1k=
+jsb4EoxXIW6WK8n8ueo_9CSldOvOYBeys1Fpj1wYOLiyQCG3cG47X3sl78-WFYc5P31WKGQE/4v=
+l/i7h1-4s9QB2dZeEPZyhquw/h63/h001.GMsUBkEx87FImAnZxayAgT5j0mIimTT50TEsB7ydh=
+NE" style=3D"font-family: Guardian Text Sans, Arial, sans-serif; text-decor=
+ation: none; color: #0077B6;">Manage your emails</a> | <a href=3D"https://a=
+blink.editorial.theguardian.com/ss/c/u001.HT6_61rcAeQ71YMHfBFwuXBK43AaH4pdD=
+evU7uuHt6K_5zaO_ntyE7Unu01Eppyv1uVRzAMNt6oNLeQG1Qf-dY1doGMVd3Y3lHQf1VHeV2CH=
+qAZ0O_i5RiutTHv9DuHVs22KCGDFHkI9ifMz7wMtOuT2s4JCEjPcKtG2EAb9DLXKdLcG29XSgjf=
+I016nG2PY/4vl/i7h1-4s9QB2dZeEPZyhquw/h64/h001.Q2vBlG__w4CslCE0Ip3NbaU6COBz6=
+Cy0IuI_5cpwaM0" style=3D"font-family: Guardian Text Sans, Arial, sans-serif=
+; text-decoration: none; color: #0077B6;">Unsubscribe</a>
+</div></td></tr></tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" width=3D"6=
+00px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"" role=3D"presentation" style=3D"width:566px;" width=3D"566=
+" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exac=
+tly;"><![endif]--><div style=3D"margin:0px auto;max-width:566px;"><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font=
+-size:0px;padding:0;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:5=
+66px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" s=
+tyle=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;ve=
+rtical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"ver=
+tical-align:top;padding:0;"><table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%"><tbody>
+<tr><td align=3D"center" style=3D"font-size:0px;padding:0;padding-bottom:16=
+px;word-break:break-word;">
+<p style=3D"border-top: solid 1px #DCDCDC; font-size: 1px; margin: 0px auto=
+; width: 100%;"></p>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"border-top:solid 1px #DCDCDC;font-size:1px;margin:=
+0px auto;width:566px;" role=3D"presentation" width=3D"566px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+</td></tr>
+<tr><td align=3D"left" class=3D"text text-with-border" style=3D"font-size:0=
+px;padding:0;word-break:break-word;"><div style=3D"font-family:Guardian Tex=
+t Sans, Arial, sans-serif;font-size:13px;line-height:20px;text-align:left;c=
+olor:#999999;">You are receiving this email because you are a subscriber to=
+ Business Today. Guardian News &amp; Media Limited - a member of Guardian M=
+edia Group PLC. Registered Office: Kings Place, 90 York Way, London, N1 9GU=
+. Registered in England No. 908396</div></td></tr>
+</tbody></table></td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+</td></tr></tbody></table></div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td></tr></tbody></table>
+</div> =20
+</body></html>
+
+--29d252448ee36fe60c92b6a62684833a882a182c55708ec57bc2f2a3d447--
